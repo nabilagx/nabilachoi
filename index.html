@@ -19,13 +19,11 @@
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg">Hi, I'm Nabila Choirunisa최 🪐🌌</h1>
       <p class="text-lg md:text-xl text-pink-200">Tech & Edu Content Creator | AI, Tips Belajar, Solusi Soal</p>
       <!-- Sosial Icons -->
-      <div class="flex justify-center space-x-6 mt-4">
-        <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284/" target="_blank" class="text-white hover:text-pink-400 transition duration-300 text-2xl">
-          <i class="fab fa-linkedin"></i>🔗
-        </a>
-        <a href="#" class="text-white hover:text-pink-400 transition duration-300 text-2xl">📺</a>
-        <a href="#" class="text-white hover:text-pink-400 transition duration-300 text-2xl">📸</a>
-        <a href="#" class="text-white hover:text-pink-400 transition duration-300 text-2xl">🎵</a>
+      <div class="flex justify-center space-x-6 mt-4 text-2xl">
+        <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284/" target="_blank" class="hover:text-pink-400 transition duration-300" title="LinkedIn">🔗</a>
+        <a href="#" class="hover:text-pink-400 transition duration-300" title="YouTube">📺</a>
+        <a href="#" class="hover:text-pink-400 transition duration-300" title="Instagram">📷</a>
+        <a href="#" class="hover:text-pink-400 transition duration-300" title="TikTok">🎵</a>
       </div>
     </header>
 
@@ -50,17 +48,23 @@
       <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" class="flex items-center justify-between bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:scale-[1.02] transition-transform">
         <div>
           <h3 class="text-2xl font-semibold mb-2">📝 Akses Soal Hari Ini</h3>
-          <p class="text-pink-100">Klik di sini untuk lihat produk Shopee, lalu kamu akan diarahkan ke soal!</p>
+          <p class="text-pink-100">Klik untuk lihat produk Shopee. Setelah kembali, soal akan muncul otomatis di sini.</p>
         </div>
         <img src="https://media.tenor.com/TxGlOK7sArIAAAAi/cute-blob.gif" alt="Karakter lucu" class="w-20 h-20 rounded-full" />
       </a>
+      <div id="formLinkContainer" class="text-center hidden">
+        <a href="https://forms.gle/8Bfr9FyGxfvQqzCY9" class="inline-block mt-4 px-6 py-3 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-lg text-pink-100 font-semibold">📄 Buka Soalnya di Sini</a>
+      </div>
     </section>
 
-    <!-- Optional auto redirect after delay -->
     <script>
-      // setTimeout(() => {
-      //   window.location.href = "https://forms.gle/8Bfr9FyGxfvQqzCY9";
-      // }, 7000);
+      // Deteksi jika user kembali dari Shopee dan tampilkan link soal
+      window.addEventListener('pageshow', function(event) {
+        const formLink = document.getElementById('formLinkContainer');
+        if (event.persisted || (performance && performance.getEntriesByType('navigation')[0].type === 'back_forward')) {
+          formLink.classList.remove('hidden');
+        }
+      });
     </script>
 
   </body>
