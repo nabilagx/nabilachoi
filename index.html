@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nabila Choirunisa최 | Produk</title>
+    <title>Nabila Choirunisa최 | Pose Pop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@
 
     <!-- Soal Access Section -->
     <section class="w-full max-w-3xl mt-16 space-y-6 text-center">
-      <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" onclick="showFormAfterDelay()" class="block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">🚀 Akses Soal Hari Ini</a>
+      <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" onclick="return handleAccessSoal(this.href)" class="block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">🚀 Akses Soal Hari Ini</a>
 
       <div id="loadingText" class="text-pink-200 hidden">⏳ Menunggu soal muncul...</div>
 
@@ -62,16 +62,14 @@
     </section>
 
     <script>
-      function showFormAfterDelay() {
-        const loadingText = document.getElementById('loadingText');
-        const formLink = document.getElementById('formLinkContainer');
-
-        loadingText.classList.remove('hidden');
-
+      function handleAccessSoal(link) {
+        document.getElementById('loadingText').classList.remove('hidden');
         setTimeout(() => {
-          loadingText.classList.add('hidden');
-          formLink.classList.remove('hidden');
-        }, 10000); // delay 10 detik
+          document.getElementById('formLinkContainer').classList.remove('hidden');
+          document.getElementById('loadingText').classList.add('hidden');
+        }, 10000);
+        window.open(link, '_blank');
+        return false;
       }
     </script>
 
