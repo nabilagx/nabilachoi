@@ -10,13 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Poppins', sans-serif; }
+      .bounce {
+        animation: bounce 1.5s infinite;
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+      }
     </style>
   </head>
   <body class="min-h-screen text-white bg-gradient-to-br from-blue-600 via-black to-pink-400 flex flex-col items-center justify-center p-6 space-y-12">
 
     <!-- Header -->
     <header class="text-center space-y-4">
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg">Hi, I'm Nabila Choi최 🪐🌌</h1>
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg">Hi, I'm Nabila Choirunisa최 🪐🌌</h1>
       <p class="text-lg md:text-xl text-pink-200">Tech & Edu Content Creator | AI, Tips Belajar, Solusi Soal</p>
       <!-- Sosial Icons -->
       <div class="flex justify-center space-x-6 mt-4 text-2xl">
@@ -47,15 +54,23 @@
     <section class="w-full max-w-3xl mt-16 space-y-6 text-center">
       <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" onclick="showFormAfterDelay()" class="block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">🚀 Akses Soal Hari Ini</a>
 
+      <div id="loadingText" class="text-pink-200 hidden">⏳ Menunggu soal muncul...</div>
+
       <div id="formLinkContainer" class="hidden">
-        <a href="https://forms.gle/8Bfr9FyGxfvQqzCY9" class="inline-block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">📝 Mulai Kerjakan</a>
+        <a href="https://forms.gle/8Bfr9FyGxfvQqzCY9" class="inline-block w-full px-6 py-4 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition text-xl font-semibold bounce">📝 Mulai Kerjakan</a>
       </div>
     </section>
 
     <script>
       function showFormAfterDelay() {
+        const loadingText = document.getElementById('loadingText');
+        const formLink = document.getElementById('formLinkContainer');
+
+        loadingText.classList.remove('hidden');
+
         setTimeout(() => {
-          document.getElementById('formLinkContainer').classList.remove('hidden');
+          loadingText.classList.add('hidden');
+          formLink.classList.remove('hidden');
         }, 10000); // delay 10 detik
       }
     </script>
