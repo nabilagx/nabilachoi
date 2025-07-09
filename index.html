@@ -5,37 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nabila Choirunisa최 | Pose Pop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-papjxyS9P8UJ6V8TcHZxkyUnOfwToTvGybxH+0df5n3A9cxZ3ULH3Jj0vF6b9F3kUEeQdV+ZY4lEdOz2N6E+RQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Poppins', sans-serif; }
-      .bounce {
-        animation: bounce 1.5s infinite;
-      }
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
       }
+      @keyframes neonPulse {
+        0%, 100% { box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+        50% { box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc; }
+      }
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+      }
+      .highlight {
+        background-color: #10b981;
+        animation: neonPulse 1.5s infinite;
+        border-radius: 1rem;
+        padding: 1rem;
+        transition: all 0.3s ease-in-out;
+      }
+      .shake {
+        animation: shake 0.6s infinite;
+      }
     </style>
   </head>
-  <body class="min-h-screen text-white bg-gradient-to-br from-blue-600 via-black to-pink-400 flex flex-col items-center justify-center p-6 space-y-12">
+  <body class="min-h-screen text-white bg-gradient-to-br from-blue-600 via-black to-pink-400 p-6">
 
     <!-- Header -->
-    <header class="text-center space-y-4">
+    <header class="text-center space-y-4 mb-10">
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight drop-shadow-lg">Hi, I'm Nabila Choirunisa최 🪐🌌</h1>
       <p class="text-lg md:text-xl text-pink-200">Tech & Edu Content Creator | AI, Tips Belajar, Solusi Soal</p>
       <!-- Sosial Icons -->
-      <div class="flex justify-center space-x-6 mt-4 text-2xl">
-        <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284/" target="_blank" class="hover:text-pink-400 transition duration-300" title="LinkedIn">🔗</a>
-        <a href="#" class="hover:text-pink-400 transition duration-300" title="YouTube">📺</a>
-        <a href="#" class="hover:text-pink-400 transition duration-300" title="Instagram">📷</a>
-        <a href="#" class="hover:text-pink-400 transition duration-300" title="TikTok">🎵</a>
-      </div>
+<style>
+  .neon-icon {
+    filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #00f0ff);
+    transition: transform 0.3s, filter 0.3s;
+  }
+  .neon-icon:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px #00f0ff) drop-shadow(0 0 20px #00f0ff);
+  }
+</style>
+<div class="flex justify-center space-x-6 mt-4 text-2xl">
+  <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284/" target="_blank" title="LinkedIn">
+    <img src="https://api.iconify.design/mdi:linkedin.svg" alt="LinkedIn" class="w-6 h-6 neon-icon">
+  </a>
+  <a href="https://www.youtube.com/@nabilachoi-gx" target="_blank" title="YouTube">
+    <img src="https://api.iconify.design/mdi:youtube.svg" alt="YouTube" class="w-6 h-6 neon-icon">
+  </a>
+  <a href="https://instagram.com/nabilachoi.gx" target="_blank" title="Instagram">
+    <img src="https://api.iconify.design/mdi:instagram.svg" alt="Instagram" class="w-6 h-6 neon-icon">
+  </a>
+  <a href="https://tiktok.com/@nabilachoi.gx" target="_blank" title="TikTok">
+    <img src="https://api.iconify.design/ic:baseline-tiktok.svg" alt="TikTok" class="w-6 h-6 neon-icon">
+  </a>
+  <a href="https://shopee.co.id/nabilachoi.gx" target="_blank" title="Shopee">
+    <img src="https://api.iconify.design/simple-icons:shopee.svg" alt="Shopee" class="w-6 h-6 neon-icon">
+  </a>
+</div>
+
     </header>
 
+    <!-- Search Bar -->
+    <div class="w-full max-w-md mx-auto mb-6">
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">🔍</span>
+        <input type="text" id="searchInput" oninput="filterSoal()" placeholder="Cari soal..." class="pl-10 pr-4 py-2 w-full rounded-full shadow text-black focus:outline-none" />
+      </div>
+      <p id="noResult" class="hidden text-pink-200 text-center mt-4">Soal belum tersedia. Request ke admin 👉 <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="underline hover:text-white">@nabilachoi.gx</a></p>
+    </div>
+
     <!-- Cards Section: Topik -->
-    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
       <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-xl p-6 hover:scale-105 transition-transform cursor-pointer">
         <h3 class="text-xl font-semibold mb-2">🎓 Tips Belajar</h3>
         <p class="text-pink-100">Cara belajar efektif, fokus, dan gak ngebosenin.</p>
@@ -51,25 +101,54 @@
     </section>
 
     <!-- Soal Access Section -->
-    <section class="w-full max-w-3xl mt-16 space-y-6 text-center">
-      <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" onclick="return handleAccessSoal(this.href)" class="block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">🚀 Akses Soal Hari Ini</a>
+    <section id="soalSection" class="w-full max-w-3xl mt-10 space-y-6 text-center mx-auto">
+      <div class="soal-card">
+        <a href="https://shopee.co.id/Case-HP-Untuk-Vivo-Y18-Y100-Y03-Y20-Y17-Y22-Y12-Y17S-Y16-Y91-Y21-Y15-Y02-Y28-Y27-Y18E-Y11-Y19-Y21S-Y36-Y01-V30E-Y91C-V25-Y12i-Y93-Y20A-Y27S-V30-V27-V29-Bunga-Manis-Romantis-Cherry-Make-Up-Cermin-Gelang-Soft-Cover-i.1288644234.27279037473" target="_blank" onclick="return handleAccessSoal(this.href)" class="akses-link block w-full px-6 py-4 bg-white bg-opacity-10 backdrop-blur-md rounded-full shadow hover:bg-opacity-20 transition text-xl text-pink-100 font-semibold">🚀 Akses Soal Hari Ini</a>
 
-      <div id="loadingText" class="text-pink-200 hidden">⏳ Menunggu soal muncul...</div>
+        <div id="loadingText" class="text-pink-200 hidden">⏳ Menunggu soal muncul...</div>
 
-      <div id="formLinkContainer" class="hidden">
-        <a href="https://forms.gle/8Bfr9FyGxfvQqzCY9" class="inline-block w-full px-6 py-4 bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition text-xl font-semibold bounce">📝 Mulai Kerjakan</a>
+        <div id="formLinkContainer" class="hidden">
+          <a id="kerjakanBtn" href="https://forms.gle/8Bfr9FyGxfvQqzCY9" class="inline-block w-full px-4 py-3 mt-4 text-base bg-green-500 text-white rounded-full shadow hover:bg-green-600 transition font-semibold shake">📝 Mulai Kerjakan</a>
+        </div>
       </div>
     </section>
 
     <script>
       function handleAccessSoal(link) {
         document.getElementById('loadingText').classList.remove('hidden');
+
+        const aksesButton = document.querySelector('.akses-link');
+        aksesButton.classList.remove('highlight');
+
         setTimeout(() => {
           document.getElementById('formLinkContainer').classList.remove('hidden');
           document.getElementById('loadingText').classList.add('hidden');
         }, 10000);
+
         window.open(link, '_blank');
         return false;
+      }
+
+      function filterSoal() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const soalCards = document.querySelectorAll('.soal-card');
+        let found = false;
+
+        soalCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          const aksesButton = card.querySelector('.akses-link');
+
+          if (text.includes(input)) {
+            card.style.display = 'block';
+            aksesButton.classList.add('highlight');
+            found = true;
+          } else {
+            card.style.display = 'none';
+            aksesButton.classList.remove('highlight');
+          }
+        });
+
+        document.getElementById('noResult').classList.toggle('hidden', found);
       }
     </script>
 
