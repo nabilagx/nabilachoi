@@ -7,350 +7,439 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-pink: #f472b6;
+            --primary-pink: #ec4899;
             --soft-pink: #fdf2f8;
-            --rose-gold: #e7a39b;
-            --deep-slate: #1e293b;
+            --bg-base: #fffbfc;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: var(--deep-slate);
+            background-color: var(--bg-base);
+            color: #1e293b;
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: 'Sora', sans-serif;
-        }
+        h1, h2, h3, .sora { font-family: 'Sora', sans-serif; }
 
-        /* Modern Glassmorphism */
         .glass {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 20px 0 rgba(244, 114, 182, 0.1);
+            border: 1px solid rgba(236, 72, 153, 0.15);
         }
 
-        /* Bento Grid Style */
         .bento-card {
             background: white;
-            border-radius: 20px;
-            padding: 1.25rem;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #fce7f3;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #f1f5f9;
-            height: 100%;
-        }
-
-        @media (min-width: 768px) {
-            .bento-card { 
-                border-radius: 28px;
-                padding: 1.75rem; 
-            }
+            display: flex;
+            flex-direction: column;
         }
 
         .bento-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(244, 114, 182, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.2);
             border-color: var(--primary-pink);
         }
 
-        /* Floating Nav */
-        .nav-float {
-            position: fixed;
-            bottom: 1.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            width: 90%;
-            max-width: 450px;
-        }
-
-        @media (min-width: 768px) {
-            .nav-float {
-                bottom: auto;
-                top: 1.5rem;
-                width: auto;
-            }
-        }
-
-        /* Fade-in Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: all 0.6s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .gradient-text {
-            background: linear-gradient(135deg, #f472b6 0%, #fb7185 100%);
+            background: linear-gradient(135deg, #ec4899 0%, #be123c 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Animated Grid Background */
-        .grid-bg {
-            background-image: radial-gradient(#f472b6 0.8px, transparent 0.8px);
-            background-size: 20px 20px;
-            opacity: 0.1;
-        }
-
-        /* Utility for mobile code/ide text */
-        .code-font {
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        /* Prevent overflow on small screens */
-        .container-custom {
+        /* Marquee Awards */
+        .marquee-container {
             width: 100%;
-            max-width: 1152px;
-            margin-left: auto;
-            margin-right: auto;
-            padding-left: 1rem;
-            padding-right: 1rem;
+            overflow: hidden;
+            position: relative;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            padding: 20px 0;
+        }
+        .marquee-content {
+            display: flex;
+            width: fit-content;
+            animation: scroll 80s linear infinite;
+        }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* Upgraded Modal UI */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .modal-content {
+            background: white;
+            border-radius: 32px;
+            max-width: 600px;
+            width: 100%;
+            padding: 2.5rem;
+            box-shadow: 0 30px 60px -12px rgba(236, 72, 153, 0.3);
+            transform: scale(0.9);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #fce7f3;
+        }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating Nav fix for mobile */
+        .nav-float {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+        }
+        @media (min-width: 768px) {
+            .nav-float { top: 24px; bottom: auto; }
         }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-pink-100 selection:text-pink-600">
+<body class="antialiased overflow-x-hidden">
 
-    <!-- Background Layer -->
-    <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
-
-    <!-- Smart Floating Nav -->
-    <nav class="nav-float glass px-2 py-2 sm:px-4 sm:py-2.5 rounded-full flex justify-around sm:justify-start gap-1 sm:gap-6 items-center border border-pink-100 shadow-xl">
-        <div class="flex gap-1 sm:gap-4 items-center">
-            <a href="#home" class="px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-pink-500 hover:bg-pink-50 transition uppercase tracking-tight">Home</a>
-            <a href="#projects" class="px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-pink-500 hover:bg-pink-50 transition uppercase tracking-tight">Works</a>
-            <a href="#skills" class="px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-pink-500 hover:bg-pink-50 transition uppercase tracking-tight">Skills</a>
-            <a href="#awards" class="px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold text-slate-600 hover:text-pink-500 hover:bg-pink-50 transition uppercase tracking-tight">Awards</a>
-        </div>
-        <a href="mailto:choyshimanis@gmail.com" class="bg-pink-500 text-white px-4 py-2 rounded-full text-[10px] sm:text-xs font-extrabold hover:bg-pink-600 transition shadow-lg shadow-pink-200">Say Hi!</a>
+    <!-- Floating Navbar -->
+    <nav class="nav-float w-[90%] md:w-max glass px-5 py-3 rounded-full flex justify-around md:justify-center items-center gap-4 md:gap-8 border border-pink-100 shadow-xl">
+        <a href="#home" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Home</a>
+        <a href="#skills" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Skills</a>
+        <a href="#projects" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Works</a>
+        <a href="#awards" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Awards</a>
     </nav>
 
-    <main class="container-custom pt-8 md:pt-32 pb-32">
+    <main class="max-w-6xl mx-auto px-6 pt-12 md:pt-40">
         
         <!-- Hero Section -->
-        <section id="home" class="flex flex-col md:flex-row items-center gap-8 md:gap-12 mb-20 md:mb-40 reveal">
-            <div class="w-full md:flex-1 text-center md:text-left order-2 md:order-1">
-                <div class="inline-flex items-center gap-2 px-3 py-1 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] sm:text-xs font-bold tracking-widest uppercase mx-auto md:mx-0">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
-                    </span>
-                    Available for Collaboration
+        <section id="home" class="flex flex-col md:flex-row items-center gap-12 mb-32 reveal">
+            <div class="md:flex-1 text-center md:text-left order-2 md:order-1">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] font-black tracking-[0.2em] uppercase">
+                    ✨ Tech Lead & Full Stack Engineer
                 </div>
-                <h1 class="text-3xl sm:text-5xl md:text-7xl font-extrabold mb-4 md:mb-6 leading-tight">
+                <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight text-slate-900">
                     Hi, I'm <span class="gradient-text">Nabila.</span><br>
-                    I orchestrate <span class="italic font-light text-slate-400">Digital Magic.</span>
+                    I craft <span class="italic font-light text-slate-400">digital elegance.</span>
                 </h1>
-                <p class="text-sm sm:text-base md:text-lg text-slate-500 max-w-lg mb-8 leading-relaxed mx-auto md:mx-0">
-                    A Software Engineer and Project Manager balancing logic with aesthetics. Specialized in <span class="text-pink-500 font-semibold">Full Stack</span> & <span class="text-pink-500 font-semibold">IoT</span> solutions.
+                <p class="text-base md:text-lg text-slate-500 max-w-lg mb-8 mx-auto md:mx-0 leading-relaxed">
+                    A self-taught developer with a passion for creating beautiful and functional products that create an equilibrium between user needs and business goals.
                 </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-slate-900 text-white px-8 py-3.5 rounded-2xl font-bold hover:bg-slate-800 transition shadow-xl text-center">Explore Projects</a>
-                    <div class="flex gap-6 items-center justify-center sm:pl-4 mt-2 sm:mt-0">
-                        <a href="https://github.com/nabilagx" target="_blank" class="text-slate-400 hover:text-pink-500 transition-colors"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-                        <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="text-slate-400 hover:text-pink-500 transition-colors"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                    </div>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4">
+                    <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-2xl">View Projects</a>
+                    <a href="mailto:choyshimanis@gmail.com" class="bg-white border border-pink-100 text-pink-500 px-8 py-4 rounded-2xl font-bold hover:bg-pink-50 transition">Let's Talk</a>
                 </div>
             </div>
-            <div class="w-full md:flex-1 order-1 md:order-2">
-                <div class="relative w-44 h-44 sm:w-60 sm:h-60 md:w-80 md:h-80 mx-auto group">
-                    <div class="absolute inset-0 bg-pink-200 rounded-[2rem] md:rounded-[3rem] rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-                    <div class="absolute inset-0 bg-pink-500 rounded-[2rem] md:rounded-[3rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
-                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila Avatar" class="relative z-10 w-full h-full object-cover rounded-[2rem] md:rounded-[3rem] border-4 border-white shadow-2xl">
+            <div class="md:flex-1 order-1 md:order-2">
+                <div class="relative w-56 h-56 md:w-80 md:h-80 mx-auto">
+                    <div class="absolute inset-0 bg-pink-100 rounded-[3rem] rotate-6 shadow-inner"></div>
+                    <div class="absolute inset-0 bg-pink-500 rounded-[3rem] -rotate-3 opacity-20"></div>
+                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila" class="relative z-10 w-full h-full object-cover rounded-[3rem] border-4 border-white shadow-2xl">
                 </div>
             </div>
         </section>
 
-        <!-- Bento Skills Section -->
-        <section id="skills" class="mb-24 reveal">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center md:text-left">Technical Arsenal</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                <!-- Backend (Large) -->
-                <div class="bento-card sm:col-span-2 lg:col-span-2 bg-gradient-to-br from-white to-pink-50">
-                    <h3 class="font-bold text-pink-600 mb-4 flex items-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4l4 4"></path></svg>
-                        Backend Systems
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 bg-white rounded-lg text-[10px] sm:text-xs font-semibold shadow-sm border border-pink-100">C# / ASP.NET</span>
-                        <span class="px-2.5 py-1 bg-white rounded-lg text-[10px] sm:text-xs font-semibold shadow-sm border border-pink-100">Node.js</span>
-                        <span class="px-2.5 py-1 bg-white rounded-lg text-[10px] sm:text-xs font-semibold shadow-sm border border-pink-100">Laravel</span>
-                        <span class="px-2.5 py-1 bg-white rounded-lg text-[10px] sm:text-xs font-semibold shadow-sm border border-pink-100">PostgreSQL</span>
+        <!-- Skills Section - Grouped Bento -->
+        <section id="skills" class="mb-32 reveal">
+            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left">Technical Arsenal</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                
+                <div class="bento-card md:col-span-2">
+                    <h3 class="font-bold text-pink-600 mb-6 text-xs uppercase tracking-widest">Backend Systems</h3>
+                    <div class="flex flex-wrap gap-5">
+                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:c-sharp.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">C#</span></div>
+                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:nodejs-icon.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Node.js</span></div>
+                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:php.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">PHP</span></div>
+                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:laravel.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Laravel</span></div>
+                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:python.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Python</span></div>
                     </div>
                 </div>
 
-                <!-- IoT (Square) -->
-                <div class="bento-card bg-slate-900 text-white">
-                    <h3 class="font-bold mb-1">Hardware/IoT</h3>
-                    <p class="text-[10px] text-slate-400 mb-4">Physical-Digital Bridge.</p>
-                    <div class="flex gap-3">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-6 h-6">
-                        <img src="https://api.iconify.design/logos:c-plusplus.svg" class="w-6 h-6">
+                <div class="bento-card md:col-span-1 bg-slate-900 text-white border-none">
+                    <h3 class="font-bold mb-6 text-xs uppercase tracking-widest text-pink-400">Mobile & IoT</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <img src="https://api.iconify.design/skill-icons:flutter-dark.svg" class="w-10 h-10">
+                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-10 h-10">
+                        <img src="https://api.iconify.design/logos:dart.svg" class="w-10 h-10">
                     </div>
                 </div>
 
-                <!-- PM Tools (Square) -->
-                <div class="bento-card">
-                    <h3 class="font-bold text-slate-700 mb-3">Management</h3>
-                    <div class="space-y-2">
-                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"><div class="bg-pink-400 h-full w-[90%]"></div></div>
-                        <div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden"><div class="bg-slate-400 h-full w-[85%]"></div></div>
+                <div class="bento-card md:col-span-1">
+                    <h3 class="font-bold text-pink-600 mb-6 text-xs uppercase tracking-widest">Frontend</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <img src="https://api.iconify.design/logos:javascript.svg" class="w-9 h-9">
+                        <img src="https://api.iconify.design/logos:tailwindcss-icon.svg" class="w-9 h-9">
+                        <img src="https://api.iconify.design/logos:bootstrap.svg" class="w-9 h-9">
                     </div>
-                    <p class="text-[9px] text-slate-400 mt-3 uppercase font-bold tracking-wider">Jira, Notion, Agile</p>
                 </div>
 
-                <!-- Frontend (Wide) -->
-                <div class="bento-card sm:col-span-2 lg:col-span-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                <div class="bento-card md:col-span-4 bg-pink-50 border-pink-200">
+                    <div class="flex flex-col md:flex-row justify-between gap-6">
+                        <div class="md:w-1/2">
+                            <h3 class="font-bold text-pink-600 mb-2 uppercase text-xs tracking-widest">Design & Productivity</h3>
+                            <div class="flex flex-wrap gap-6 mt-4">
+                                <img src="https://api.iconify.design/logos:postgresql.svg" class="w-8 h-8">
+                                <img src="https://api.iconify.design/logos:firebase.svg" class="w-8 h-8">
+                                <img src="https://api.iconify.design/logos:figma.svg" class="w-8 h-8">
+                                <img src="https://api.iconify.design/logos:google-workspace.svg" class="w-8 h-8">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 border-t md:border-t-0 md:border-l border-pink-200 pt-4 md:pt-0 md:pl-8">
+                            <h3 class="font-bold text-pink-600 mb-2 uppercase text-xs tracking-widest">About My Mix</h3>
+                            <p class="text-sm text-slate-500 leading-relaxed">I bridge the gap between hard technical engineering (IoT/C#) and creative productivity (Design/Novel Writing).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-32 reveal">
+            <h2 class="text-3xl font-extrabold mb-12">Experience</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bento-card group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
+                        <h3 class="text-xl font-bold group-hover:text-pink-600 transition">Contracted Author</h3>
+                        <span class="text-pink-500 font-bold text-xs bg-pink-50 px-3 py-1 rounded-full uppercase">NovelToon | 2022 - Present</span>
+                    </div>
+                    <ul class="list-disc list-inside text-slate-500 text-sm space-y-2">
+                        <li>Published romance fiction “Cinta Tak Terkalahkan” on global platform.</li>
+                        <li>Developed consistent story arcs and reader interaction strategies.</li>
+                    </ul>
+                </div>
+                <div class="bento-card group">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
+                        <h3 class="text-xl font-bold group-hover:text-pink-600 transition">Private Tutor</h3>
+                        <span class="text-pink-500 font-bold text-xs bg-pink-50 px-3 py-1 rounded-full uppercase">Freelance | 2020 - Present</span>
+                    </div>
+                    <p class="text-slate-500 text-sm">Tutoring Mathematics, English, and Science for high school students with proven academic improvements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-32 reveal">
+            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left">Portfolio Gallery</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Kopi Nang -->
+                <div class="bento-card justify-between group h-full">
                     <div>
-                        <h3 class="font-bold text-slate-700 mb-1">Frontend Alchemy</h3>
-                        <p class="text-xs sm:text-sm text-slate-500">React, Tailwind, Flutter, Figma</p>
+                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">☕</div>
+                        <h3 class="text-xl font-bold mb-1">KOPI NANG</h3>
+                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">Full-stack Ordering App</p>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">Mobile app with QR verification and admin dashboard for real-time sales statistics.</p>
                     </div>
-                    <div class="flex -space-x-2">
-                        <div class="w-10 h-10 rounded-full bg-pink-100 border-2 border-white flex items-center justify-center text-pink-500 font-bold text-[10px] shadow-sm">JSX</div>
-                        <div class="w-10 h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-blue-500 font-bold text-[10px] shadow-sm">TS</div>
-                        <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-500 font-bold text-[10px] shadow-sm">+4</div>
+                    <div class="flex gap-2 pt-4 border-t border-pink-50">
+                        <a href="https://github.com/nabilagx/aplikasi-kopi-nang" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">GitHub</a>
                     </div>
                 </div>
-
-                <!-- Languages -->
-                <div class="bento-card bg-pink-500 text-white flex flex-col justify-center items-center text-center">
-                    <span class="text-3xl font-extrabold">3+</span>
-                    <p class="text-[9px] uppercase font-bold mt-1">Langs Spoken</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Section -->
-        <section id="projects" class="mb-24 reveal">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center md:text-left">Selected Works</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Netes.io -->
-                <div class="bento-card group flex flex-col">
-                    <div class="relative overflow-hidden rounded-xl h-44 mb-6 bg-pink-100 flex items-center justify-center">
-                        <span class="text-6xl group-hover:scale-125 transition-transform duration-500">🐣</span>
-                        <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[9px] font-extrabold text-pink-500">IOT</span>
-                            <span class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[9px] font-extrabold text-pink-500">FIREBASE</span>
-                        </div>
+                <div class="bento-card justify-between group h-full">
+                    <div>
+                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">🐣</div>
+                        <h3 class="text-xl font-bold mb-1">Netes.io</h3>
+                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">IoT Smart Incubator</p>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">Smart incubator using ESP32 and Firebase. Real-time remote climate control via Flutter.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Netes.io</h3>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Smart egg incubator using ESP32. Real-time monitoring with automated climate control.</p>
-                    <a href="https://github.com/nabilagx/netesio-mobile" class="w-full text-center py-3 bg-slate-50 rounded-xl text-xs font-bold hover:bg-pink-500 hover:text-white transition-all">Repository</a>
+                    <a href="https://github.com/nabilagx/netesio-mobile" target="_blank" class="w-full text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">View Code</a>
                 </div>
-
-                <!-- KOPI NANG -->
-                <div class="bento-card group flex flex-col">
-                    <div class="relative overflow-hidden rounded-xl h-44 mb-6 bg-amber-50 flex items-center justify-center">
-                        <span class="text-6xl group-hover:scale-125 transition-transform duration-500">☕</span>
-                        <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[9px] font-extrabold text-amber-600">FULLSTACK</span>
-                        </div>
+                <!-- Yo-Tukang -->
+                <div class="bento-card justify-between group h-full">
+                    <div>
+                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">🧑‍🔧</div>
+                        <h3 class="text-xl font-bold mb-1">Yo-Tukang!</h3>
+                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">UI/UX Case Study</p>
+                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">End-to-end Design Thinking process for a service marketplace app concept.</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">KOPI NANG</h3>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Ordering app with integrated payment & live shop stats dashboard.</p>
-                    <a href="https://github.com/nabilagx/aplikasi-kopi-nang" class="w-full text-center py-3 bg-slate-50 rounded-xl text-xs font-bold hover:bg-pink-500 hover:text-white transition-all">Repository</a>
-                </div>
-
-                <!-- Yo-Tukang! -->
-                <div class="bento-card group flex flex-col">
-                    <div class="relative overflow-hidden rounded-xl h-44 mb-6 bg-indigo-50 flex items-center justify-center">
-                        <span class="text-6xl group-hover:scale-125 transition-transform duration-500">🧑‍🔧</span>
-                        <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/90 backdrop-blur px-2 py-1 rounded text-[9px] font-extrabold text-indigo-600">UI/UX</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Yo-Tukang!</h3>
-                    <p class="text-xs sm:text-sm text-slate-500 mb-6 flex-grow leading-relaxed">Platform connecting homeowners with verified local handymen.</p>
-                    <a href="#" class="w-full text-center py-3 bg-slate-50 rounded-xl text-xs font-bold hover:bg-pink-500 hover:text-white transition-all">Prototype</a>
+                    <a href="#" class="w-full text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">Prototype</a>
                 </div>
             </div>
         </section>
 
         <!-- Awards Section -->
-        <section id="awards" class="reveal">
-            <h2 class="text-2xl md:text-3xl font-bold mb-8 text-center md:text-left">Recognition</h2>
-            <div class="space-y-4">
-                <div class="glass p-5 rounded-[20px] sm:rounded-[24px] flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white transition-all border border-pink-50">
-                    <div class="flex items-center gap-5">
-                        <span class="text-3xl">🏆</span>
-                        <div>
-                            <h4 class="text-sm sm:text-base font-bold text-slate-800">Best Task Recipient - AI Ignition Bootcamp</h4>
-                            <p class="text-[10px] sm:text-xs text-pink-500 font-bold uppercase tracking-wider">Google.org x Kasir Pintar | 2025</p>
-                        </div>
-                    </div>
-                    <button class="w-full sm:w-auto px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition-colors">Details</button>
+        <section id="awards" class="mb-32 reveal">
+            <h2 class="text-3xl font-extrabold mb-4">Honors & Awards</h2>
+            <p class="text-slate-500 text-sm mb-12">Click cards below to see my journey and achievements.</p>
+            
+            <div class="marquee-container group">
+                <!-- Awards Container with ID for JS -->
+                <div id="awardsContainer" class="marquee-content">
+                    <!-- Cards will be injected by JS -->
                 </div>
-                
-                <div class="glass p-5 rounded-[20px] sm:rounded-[24px] flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white transition-all border border-pink-50">
-                    <div class="flex items-center gap-5">
-                        <span class="text-3xl">🌱</span>
-                        <div>
-                            <h4 class="text-sm sm:text-base font-bold text-slate-800">Top 15 Finalist – Lomba BUMI 2025</h4>
-                            <p class="text-[10px] sm:text-xs text-pink-500 font-bold uppercase tracking-wider">United Tractors (Astra) | 2025</p>
-                        </div>
+            </div>
+        </section>
+
+        <!-- Education & More -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32 reveal">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-12">Education</h2>
+                <div class="space-y-6">
+                    <div class="bento-card">
+                        <h3 class="text-lg font-bold">Universitas Jember</h3>
+                        <p class="text-pink-500 text-xs font-bold mb-2">Information Technology | 2023 - 2027</p>
                     </div>
-                    <button class="w-full sm:w-auto px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition-colors">Details</button>
+                    <div class="bento-card">
+                        <h3 class="text-lg font-bold">SMA Negeri Ambulu</h3>
+                        <p class="text-pink-500 text-xs font-bold">Math & Science | 2020 - 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-3xl font-extrabold mb-12">Certifications</h2>
+                <div class="bento-card bg-pink-50 border-pink-300">
+                    <p class="text-pink-500 text-[10px] font-black mb-1 uppercase tracking-widest">Digital Talent Scholarship</p>
+                    <h3 class="text-xl font-bold mb-3 uppercase">Mindset Digital</h3>
+                    <p class="text-slate-400 text-[10px] mb-6 font-bold uppercase tracking-wider">Credential ID: 2299815850-4155</p>
+                    <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="inline-block bg-slate-900 text-white px-6 py-3 rounded-2xl text-[10px] font-bold hover:bg-pink-500 transition shadow-lg uppercase tracking-widest">LinkedIn</a>
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Modal for Awards Details -->
+    <div id="awardModal" class="modal-overlay">
+        <div class="modal-content relative">
+            <button onclick="closeAwardModal()" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl">×</button>
+            <div id="modalIcon" class="text-5xl mb-6">🏆</div>
+            <h3 id="modalTitle" class="text-2xl font-extrabold text-slate-900 mb-2 leading-tight"></h3>
+            <p id="modalIssuerDate" class="text-[10px] font-black text-pink-500 uppercase tracking-[0.2em] mb-8"></p>
+            <div class="bg-slate-50 p-6 rounded-3xl text-slate-600 text-sm leading-relaxed text-left mb-8">
+                <p id="modalDescription"></p>
+            </div>
+            <button onclick="closeAwardModal()" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black hover:bg-pink-600 transition shadow-xl uppercase tracking-[0.1em] text-xs">Got it!</button>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-20 pb-24 md:pb-12 rounded-t-[2.5rem] md:rounded-t-[4rem]">
-        <div class="container-custom text-center">
-            <h2 class="text-2xl sm:text-4xl font-bold mb-12 leading-tight">Let's create something <span class="text-pink-400 italic">extraordinary.</span></h2>
+    <footer class="bg-slate-900 text-white pt-24 pb-40 md:pb-20 rounded-t-[3rem] md:rounded-t-[5rem]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-8 leading-tight">Let's build something <br><span class="text-pink-400 italic">impactful.</span></h2>
             <div class="flex justify-center gap-6 mb-16">
-                <a href="mailto:choyshimanis@gmail.com" class="p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition-colors shadow-2xl"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l12-9.725v15.438h-24v-15.438l12 9.725z"/></svg></a>
-                <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition-colors shadow-2xl"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                <a href="https://github.com/nabilagx" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:github.svg?color=white" class="w-8 h-8"></a>
+                <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:linkedin.svg?color=white" class="w-8 h-8"></a>
+                <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:instagram.svg?color=white" class="w-8 h-8"></a>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-slate-500 text-xs">© 2025 Nabila Choirunisa. All rights reserved.</p>
-                <div class="flex gap-8 text-slate-500 text-xs font-bold uppercase tracking-widest">
-                    <a href="#" class="hover:text-pink-400 transition-colors">GitHub</a>
-                    <a href="#" class="hover:text-pink-400 transition-colors">LinkedIn</a>
-                    <a href="#" class="hover:text-pink-400 transition-colors">CV</a>
-                </div>
-            </div>
+            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.4em]">Built with logic & pink by Nabila Choirunisa최</p>
         </div>
     </footer>
 
     <script>
+        const awardsData = [
+            { title: "🏆 Best Task Recipient - AI Ignition Bootcamp", issuer: "KASIR PINTAR", date: "Aug 2025", description: "Awarded for outstanding performance in the 'Best Task' category at the AI Ignition Bootcamp. Excelling in the 'How to Create Business Proposal & From Pitching to Deal' program. Supported by Google.org and ADB." },
+            { title: "Top 25 Semifinalist – BizClash! 2.0", issuer: "Kasir Pintar", date: "August 2025", description: "Selected in an innovation challenge for introducing 'NusantarGift,' a concept combining Indonesian cultural heritage with modern packaging to empower local MSMEs." },
+            { title: "Top 100 Finalist – National Research Competition", issuer: "tSurvey.id & Kompas.id", date: "July 2025", description: "Finalist for research on 'FOMO, Social Validation, and Identity Crisis on Social Media,' receiving research funding and training from journalists." },
+            { title: "🌱 Top 15 Finalist – Lomba BUMI 2025", issuer: "United Tractors (Astra Group)", date: "July 2025", description: "Presented 'AYUMA,' an integrated, low-cost smart poultry system for responsible consumption, competing against master's and doctoral-level professionals." },
+            { title: "🎓 Participant – Technology Innovative Challenge 2024", issuer: "University of Jember", date: "May 2024", description: "Academic innovation event focused on digital solutions to strengthen human capital in alignment with the SDGs." },
+            { title: "🎨 Participant – UI/UX Design Competition", issuer: "University of Darussalam Gontor", date: "Jan 2024", description: "Gained valuable experience in creative design and user-centric interface planning during FESTIDA." },
+            { title: "📝 Participant – National Essay Competition", issuer: "PT Hutama Karya (Persero)", date: "Nov 2023", description: "Essay on 'Sustainable Road and Bridge through Lean and Green Infrastructure,' focusing on civil engineering sustainability." },
+            { title: "🏅 Honorable Mention – MTQMN University", issuer: "University of Jember", date: "Sep 2023", description: "Juara Harapan 1 in Syarhil Quran category, reflecting public speaking, religious interpretation, and teamwork." },
+            { title: "🥈 2nd Place – Technology Innovative Challenge", issuer: "University of Jember", date: "Sep 2023", description: "Awarded for developing an innovative IT-based solution addressing sustainability challenges." },
+            { title: "🏅 Awardee – Afrina Fellowship 2023", issuer: "Afrina Academy", date: "May 2023", description: "Fellowship recognizing leadership, academic excellence, and a strong commitment to social impact." },
+            { title: "🎙️ Participant – Master of Ceremony", issuer: "K Radio & Lippo Plaza", date: "Dec 2022", description: "Practiced public speaking, stage confidence, and event hosting skills in a real-world competition." },
+            { title: "🥇 1st Place – Bung Karno Speech Contest", issuer: "SMA Negeri Ambulu", date: "Aug 2022", description: "1st place for delivering an expressive rendition of Soekarno’s original Proclamation of Independence speech." },
+            { title: "🥉 3rd Place – Poetry Reading Competition", issuer: "SMA Negeri Ambulu", date: "Mar 2021", description: "Won 3rd place in a poetry reading competition at a school-level mid-semester festival." },
+            { title: "🥈 2nd Place – Islamic Speech Competition", issuer: "MoRA Jember", date: "Nov 2019", description: "2nd place in LPP during the 2019 PAIS Festival, focusing on moral values." },
+            { title: "🥉 3rd Place – Islamic Speech Contest", issuer: "MoRA Jember", date: "Oct 2018", description: "Awarded at PENTAS PAI (Islamic Arts & Skills Festival) 2018." },
+            { title: "🥈 2nd Place – Islamic Speech Competition", issuer: "MoRA Jember", date: "Sep 2018", description: "2nd place in competition commemorating 1 Muharram 1440 H." }
+        ];
+
+        function initAwards() {
+            const container = document.getElementById('awardsContainer');
+            // Clear if any
+            container.innerHTML = '';
+            
+            awardsData.forEach((award, index) => {
+                const item = document.createElement('div');
+                item.className = 'marquee-item bento-card w-[280px] flex flex-col justify-between cursor-pointer mx-2';
+                // Use data attributes for robustness
+                item.setAttribute('data-index', index);
+                item.innerHTML = `
+                    <h3 class="text-sm font-bold leading-snug line-clamp-2 pointer-events-none">${award.title}</h3>
+                    <p class="text-pink-500 font-black text-[9px] uppercase mt-4 pointer-events-none">${award.issuer}</p>
+                `;
+                container.appendChild(item);
+            });
+
+            // CLONE FOR MARQUEE EFFECT
+            const children = Array.from(container.children);
+            children.forEach(child => {
+                const clone = child.cloneNode(true);
+                container.appendChild(clone);
+            });
+
+            // EVENT DELEGATION
+            container.addEventListener('click', (e) => {
+                const card = e.target.closest('.marquee-item');
+                if (card) {
+                    const idx = parseInt(card.getAttribute('data-index'));
+                    openAwardModal(idx);
+                }
+            });
+        }
+
+        function openAwardModal(index) {
+            const data = awardsData[index];
+            const modal = document.getElementById('awardModal');
+            
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalIssuerDate').innerText = `${data.issuer} | ${data.date}`;
+            document.getElementById('modalDescription').innerText = data.description;
+            
+            // Set emoji/icon based on title
+            const iconEl = document.getElementById('modalIcon');
+            if(data.title.includes('🏆')) iconEl.innerText = '🏆';
+            else if(data.title.includes('🌱')) iconEl.innerText = '🌱';
+            else if(data.title.includes('🥈')) iconEl.innerText = '🥈';
+            else if(data.title.includes('🥉')) iconEl.innerText = '🥉';
+            else if(data.title.includes('🥇')) iconEl.innerText = '🥇';
+            else iconEl.innerText = '🏅';
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAwardModal() {
+            document.getElementById('awardModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 80;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 80) {
                     reveals[i].classList.add("active");
                 }
             }
         }
-        window.addEventListener("scroll", reveal);
-        reveal();
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                const target = document.querySelector(targetId);
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 20,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        window.addEventListener("scroll", reveal);
+        window.onload = () => {
+            initAwards();
+            reveal();
+        }
+
+        // Close on ESC
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') closeAwardModal();
         });
     </script>
 </body>
