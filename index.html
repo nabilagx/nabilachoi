@@ -2,54 +2,60 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Nabila Choirunisa | Tech Lead & Fullstack Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nabila Choirunisa | Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-pink: #ec4899;
+            --primary-pink: #f472b6;
             --soft-pink: #fdf2f8;
-            --bg-base: #fffbfc;
+            --rose-gold: #e7a39b;
+            --deep-slate: #1e293b;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-base);
-            color: #1e293b;
+            background-color: #f8fafc;
+            color: var(--deep-slate);
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .sora { font-family: 'Sora', sans-serif; }
+        h1, h2, h3 { font-family: 'Sora', sans-serif; }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(236, 72, 153, 0.15);
-        }
-
+        /* Bento Grid Card Style */
         .bento-card {
             background: white;
-            border-radius: 24px;
-            padding: 1.5rem;
-            border: 1px solid #fce7f3;
+            border-radius: 2.5rem;
+            padding: 2rem;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #f1f5f9;
             display: flex;
             flex-direction: column;
         }
 
         .bento-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.2);
+            box-shadow: 0 25px 50px -10px rgba(244, 114, 182, 0.2);
             border-color: var(--primary-pink);
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #ec4899 0%, #be123c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Floating Nav */
+        .glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(244, 114, 182, 0.08);
+        }
+
+        .nav-float {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
         }
 
         /* Marquee Awards */
@@ -57,14 +63,13 @@
             width: 100%;
             overflow: hidden;
             position: relative;
-            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-            padding: 20px 0;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
         }
         .marquee-content {
             display: flex;
             width: fit-content;
-            animation: scroll 80s linear infinite;
+            animation: scroll 70s linear infinite;
         }
         .marquee-content:hover { animation-play-state: paused; }
         @keyframes scroll {
@@ -72,11 +77,22 @@
             to { transform: translateX(-50%); }
         }
 
-        /* Upgraded Modal UI */
+        .award-item {
+            flex-shrink: 0;
+            width: 320px;
+            margin: 0 1rem;
+            cursor: pointer;
+        }
+
+        /* Original Spin Effect */
+        .skill-item img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .skill-item:hover img { transform: rotateY(360deg); }
+
+        /* Upgraded Modal Detail */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(30, 41, 59, 0.6);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(12px);
             display: none;
             justify-content: center;
@@ -89,327 +105,391 @@
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-content {
             background: white;
-            border-radius: 32px;
-            max-width: 600px;
+            border-radius: 3rem;
+            max-width: 650px;
             width: 100%;
-            padding: 2.5rem;
-            box-shadow: 0 30px 60px -12px rgba(236, 72, 153, 0.3);
+            padding: 3rem;
             transform: scale(0.9);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #fce7f3;
+            border: 1px solid #fdf2f8;
         }
         .modal-overlay.active .modal-content { transform: scale(1); }
 
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Floating Nav fix for mobile */
-        .nav-float {
-            position: fixed;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
+        .gradient-text {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        @media (min-width: 768px) {
-            .nav-float { top: 24px; bottom: auto; }
+
+        .grid-bg {
+            background-image: radial-gradient(#f472b6 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.15;
         }
     </style>
 </head>
-<body class="antialiased overflow-x-hidden">
+<body class="antialiased overflow-x-hidden selection:bg-pink-100 selection:text-pink-600">
 
-    <!-- Floating Navbar -->
-    <nav class="nav-float w-[90%] md:w-max glass px-5 py-3 rounded-full flex justify-around md:justify-center items-center gap-4 md:gap-8 border border-pink-100 shadow-xl">
-        <a href="#home" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Home</a>
-        <a href="#skills" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Skills</a>
-        <a href="#projects" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Works</a>
-        <a href="#awards" class="text-[10px] md:text-xs font-bold text-slate-600 hover:text-pink-500 transition uppercase tracking-widest">Awards</a>
+    <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-float w-[90%] md:w-max glass px-6 py-3 rounded-full flex gap-6 md:gap-10 items-center border border-pink-100 shadow-xl">
+        <a href="#home" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Home</a>
+        <a href="#skills" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Skills</a>
+        <a href="#projects" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Works</a>
+        <a href="#awards" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Awards</a>
+        <a href="mailto:choyshimanis@gmail.com" class="bg-pink-500 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase shadow-lg shadow-pink-200">Say Hi!</a>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-6 pt-12 md:pt-40">
+    <main class="max-w-6xl mx-auto px-6 pt-32 md:pt-48 pb-24">
         
         <!-- Hero Section -->
-        <section id="home" class="flex flex-col md:flex-row items-center gap-12 mb-32 reveal">
-            <div class="md:flex-1 text-center md:text-left order-2 md:order-1">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] font-black tracking-[0.2em] uppercase">
-                    ✨ Tech Lead & Full Stack Engineer
+        <section id="home" class="flex flex-col md:flex-row items-center gap-12 mb-40 reveal">
+            <div class="flex-1 text-center md:text-left order-2 md:order-1">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] font-black tracking-widest uppercase">
+                    ✨ Available for Collaboration
                 </div>
-                <h1 class="text-4xl md:text-7xl font-extrabold mb-6 leading-tight text-slate-900">
-                    Hi, I'm <span class="gradient-text">Nabila.</span><br>
-                    I craft <span class="italic font-light text-slate-400">digital elegance.</span>
+                <h2 class="text-slate-400 font-semibold mb-2 text-sm uppercase tracking-wide">UI/UX Enthusiast & Developer</h2>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-slate-900">
+                    I build things for the <span class="gradient-text">web.</span>
                 </h1>
-                <p class="text-base md:text-lg text-slate-500 max-w-lg mb-8 mx-auto md:mx-0 leading-relaxed">
-                    A self-taught developer with a passion for creating beautiful and functional products that create an equilibrium between user needs and business goals.
+                <p class="text-lg text-slate-500 max-w-xl mb-10 leading-relaxed mx-auto md:mx-0">
+                    I'm <span class="font-bold text-slate-800">Nabila Choirunisa</span>, a Software Engineer based in Indonesia. A self-taught developer with a passion for creating beautiful products that balance user needs and business goals.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-2xl">View Projects</a>
-                    <a href="mailto:choyshimanis@gmail.com" class="bg-white border border-pink-100 text-pink-500 px-8 py-4 rounded-2xl font-bold hover:bg-pink-50 transition">Let's Talk</a>
+                    <a href="#projects" class="bg-slate-900 text-white px-10 py-4 rounded-3xl font-bold hover:bg-slate-800 transition shadow-xl">My Portfolio</a>
+                    <div class="flex gap-4 items-center pl-4">
+                        <a href="https://github.com/nabilagx" target="_blank" class="hover:scale-110 transition opacity-70 hover:opacity-100"><img src="https://api.iconify.design/mdi:github.svg" class="w-8 h-8"></a>
+                        <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="hover:scale-110 transition opacity-70 hover:opacity-100"><img src="https://api.iconify.design/mdi:linkedin.svg" class="w-8 h-8"></a>
+                    </div>
                 </div>
             </div>
-            <div class="md:flex-1 order-1 md:order-2">
-                <div class="relative w-56 h-56 md:w-80 md:h-80 mx-auto">
-                    <div class="absolute inset-0 bg-pink-100 rounded-[3rem] rotate-6 shadow-inner"></div>
-                    <div class="absolute inset-0 bg-pink-500 rounded-[3rem] -rotate-3 opacity-20"></div>
-                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila" class="relative z-10 w-full h-full object-cover rounded-[3rem] border-4 border-white shadow-2xl">
+            <div class="flex-1 relative order-1 md:order-2">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto group">
+                    <div class="absolute inset-0 bg-pink-200 rounded-[3.5rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 shadow-inner"></div>
+                    <div class="absolute inset-0 bg-pink-500 rounded-[3.5rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500 opacity-20 shadow-inner"></div>
+                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila" class="relative z-10 w-full h-full object-cover rounded-[3.5rem] border-4 border-white shadow-2xl">
+                    <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce">
+                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-10 h-10">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section - Grouped Bento -->
-        <section id="skills" class="mb-32 reveal">
+        <!-- Technical Arsenal: Bento Grid -->
+        <section id="skills" class="mb-40 reveal">
             <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left">Technical Arsenal</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                 
                 <div class="bento-card md:col-span-2">
-                    <h3 class="font-bold text-pink-600 mb-6 text-xs uppercase tracking-widest">Backend Systems</h3>
-                    <div class="flex flex-wrap gap-5">
-                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:c-sharp.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">C#</span></div>
-                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:nodejs-icon.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Node.js</span></div>
-                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:php.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">PHP</span></div>
-                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:laravel.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Laravel</span></div>
-                        <div class="flex flex-col items-center gap-2 group"><img src="https://api.iconify.design/logos:python.svg" class="w-10 h-10 group-hover:scale-110 transition"><span class="text-[10px] font-bold">Python</span></div>
+                    <h3 class="text-pink-500 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Backend Systems</h3>
+                    <div class="flex flex-wrap gap-8 mt-auto">
+                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:c-sharp.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">C#</span></div>
+                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:nodejs-icon.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">Node</span></div>
+                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:php.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">PHP</span></div>
+                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:laravel.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">Laravel</span></div>
                     </div>
                 </div>
 
                 <div class="bento-card md:col-span-1 bg-slate-900 text-white border-none">
-                    <h3 class="font-bold mb-6 text-xs uppercase tracking-widest text-pink-400">Mobile & IoT</h3>
-                    <div class="flex flex-wrap gap-4">
-                        <img src="https://api.iconify.design/skill-icons:flutter-dark.svg" class="w-10 h-10">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-10 h-10">
-                        <img src="https://api.iconify.design/logos:dart.svg" class="w-10 h-10">
+                    <h3 class="text-pink-400 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Mobile & IoT</h3>
+                    <div class="flex flex-wrap gap-6 mt-auto">
+                        <img src="https://api.iconify.design/skill-icons:flutter-dark.svg" class="w-12 h-12">
+                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-12 h-12">
+                        <img src="https://img.icons8.com/?size=100&id=klvygTEGIWpQ&format=png&color=FFFFFF" class="w-12 h-12">
                     </div>
                 </div>
 
                 <div class="bento-card md:col-span-1">
-                    <h3 class="font-bold text-pink-600 mb-6 text-xs uppercase tracking-widest">Frontend</h3>
-                    <div class="flex flex-wrap gap-4">
-                        <img src="https://api.iconify.design/logos:javascript.svg" class="w-9 h-9">
-                        <img src="https://api.iconify.design/logos:tailwindcss-icon.svg" class="w-9 h-9">
-                        <img src="https://api.iconify.design/logos:bootstrap.svg" class="w-9 h-9">
+                    <h3 class="text-pink-500 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Frontend</h3>
+                    <div class="flex flex-wrap gap-6 mt-auto">
+                        <img src="https://api.iconify.design/logos:javascript.svg" class="w-10 h-10">
+                        <img src="https://api.iconify.design/logos:tailwindcss-icon.svg" class="w-10 h-10">
+                        <img src="https://api.iconify.design/logos:html-5.svg" class="w-10 h-10">
                     </div>
                 </div>
 
-                <div class="bento-card md:col-span-4 bg-pink-50 border-pink-200">
-                    <div class="flex flex-col md:flex-row justify-between gap-6">
-                        <div class="md:w-1/2">
-                            <h3 class="font-bold text-pink-600 mb-2 uppercase text-xs tracking-widest">Design & Productivity</h3>
-                            <div class="flex flex-wrap gap-6 mt-4">
-                                <img src="https://api.iconify.design/logos:postgresql.svg" class="w-8 h-8">
-                                <img src="https://api.iconify.design/logos:firebase.svg" class="w-8 h-8">
-                                <img src="https://api.iconify.design/logos:figma.svg" class="w-8 h-8">
-                                <img src="https://api.iconify.design/logos:google-workspace.svg" class="w-8 h-8">
+                <div class="bento-card md:col-span-4 bg-pink-50 border-pink-100">
+                    <div class="flex flex-col md:flex-row justify-between gap-12">
+                        <div class="flex-1">
+                            <h3 class="text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-6">Database & Cloud</h3>
+                            <div class="flex flex-wrap gap-10 items-center">
+                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/logos:postgresql.svg" class="w-8 h-8"><span class="font-black text-xs uppercase">PostgreSQL</span></div>
+                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/logos:firebase.svg" class="w-8 h-8"><span class="font-black text-xs uppercase text-orange-500">Firebase</span></div>
+                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/vscode-icons:file-type-sql.svg" class="w-8 h-8"><span class="font-black text-xs uppercase">SQL / ERD</span></div>
                             </div>
                         </div>
-                        <div class="md:w-1/2 border-t md:border-t-0 md:border-l border-pink-200 pt-4 md:pt-0 md:pl-8">
-                            <h3 class="font-bold text-pink-600 mb-2 uppercase text-xs tracking-widest">About My Mix</h3>
-                            <p class="text-sm text-slate-500 leading-relaxed">I bridge the gap between hard technical engineering (IoT/C#) and creative productivity (Design/Novel Writing).</p>
+                        <div class="flex-1 border-t md:border-t-0 md:border-l border-pink-200 pt-8 md:pt-0 md:pl-12">
+                            <h3 class="text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-6">Productivity & Design</h3>
+                            <div class="flex gap-10">
+                                <img src="https://api.iconify.design/logos:figma.svg" class="w-10 h-10" title="Figma">
+                                <img src="https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" class="w-10 h-10" title="Canva">
+                                <img src="https://api.iconify.design/logos:google-workspace.svg" class="w-10 h-10" title="Google Workspace">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="mb-32 reveal">
-            <h2 class="text-3xl font-extrabold mb-12">Experience</h2>
-            <div class="grid grid-cols-1 gap-6">
-                <div class="bento-card group">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
-                        <h3 class="text-xl font-bold group-hover:text-pink-600 transition">Contracted Author</h3>
-                        <span class="text-pink-500 font-bold text-xs bg-pink-50 px-3 py-1 rounded-full uppercase">NovelToon | 2022 - Present</span>
+        <!-- Project Gallery: UPGRADED & PREMIUM -->
+        <section id="projects" class="mb-40 reveal">
+            <h2 class="text-3xl font-extrabold mb-16 text-center">Portfolio Masterpieces</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Project 1: KOPI NANG -->
+                <div class="bento-card group justify-between h-full bg-gradient-to-br from-white to-pink-50/30">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">☕</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">KOPI NANG</h3>
+                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6">Full-stack ordering app</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Location-based mobile app with QR verification, promo integration, and admin statistics dashboard.</p>
                     </div>
-                    <ul class="list-disc list-inside text-slate-500 text-sm space-y-2">
-                        <li>Published romance fiction “Cinta Tak Terkalahkan” on global platform.</li>
-                        <li>Developed consistent story arcs and reader interaction strategies.</li>
+                    <div class="flex gap-3 pt-6 border-t border-pink-100 mt-auto">
+                        <a href="https://github.com/nabilagx/aplikasi-kopi-nang" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">App</a>
+                        <a href="https://github.com/nabilagx/kopinang-api" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">API</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Netes.io -->
+                <div class="bento-card group justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">🐣</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">Netes.io</h3>
+                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6">IoT Smart Incubator</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Smart egg incubator using ESP32 and Firebase. Real-time remote monitoring via Flutter mobile app.</p>
+                    </div>
+                    <a href="https://github.com/nabilagx/netesio-mobile" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">GitHub Repo</a>
+                </div>
+
+                <!-- Project 3: Yo-Tukang! -->
+                <div class="bento-card group justify-between h-full bg-indigo-50/20 border-indigo-100">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-indigo-100 group-hover:scale-110 transition">🧑‍🔧</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">Yo-Tukang!</h3>
+                        <p class="text-indigo-500 text-[10px] font-black uppercase tracking-widest mb-6">UI/UX Case Study</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">End-to-end design thinking process connecting homeowners with verified professional handymen.</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">Prototype</a>
+                </div>
+
+                <!-- Project 4: SiMBA -->
+                <div class="bento-card group justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">📚</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">SiMBA</h3>
+                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Tutoring System</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Database-driven management system to digitize student registration, scheduling, and payments.</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Design</a>
+                </div>
+
+                <!-- Project 5: m.wow -->
+                <div class="bento-card group justify-between h-full">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">🧑‍🎓</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">m.wow</h3>
+                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Student Engagement</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Digital platform concept helping students discover campus opportunities and build digital portfolios.</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Concept</a>
+                </div>
+
+                <!-- Project 6: CleanCloth.id -->
+                <div class="bento-card group justify-between h-full bg-slate-50/50">
+                    <div>
+                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-slate-200 group-hover:scale-110 transition">👔</div>
+                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">CleanCloth</h3>
+                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Python CLI App</p>
+                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Laundry service management application built with Python using CSV for local data storage.</p>
+                    </div>
+                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Repo</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certifications: COMPLETE & BENTOFIED -->
+        <section id="certifications" class="mb-40 reveal">
+            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left uppercase tracking-tighter">Certifications & Training</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert 1 -->
+                <div class="bento-card border-pink-300 bg-pink-50/30">
+                    <p class="text-pink-600 text-[10px] font-black uppercase tracking-widest mb-2">Digital Talent Scholarship</p>
+                    <h3 class="text-xl font-extrabold mb-4 uppercase leading-tight">Mindset Digital</h3>
+                    <p class="text-[9px] text-slate-400 font-bold mb-6 italic tracking-widest uppercase">ID: 2299815850-4155 | Jun 2025</p>
+                    <a href="https://linkedin.com" target="_blank" class="mt-auto bg-slate-900 text-white text-[10px] py-3 px-6 rounded-2xl text-center font-black uppercase tracking-widest hover:bg-pink-600 transition">Verify Badge</a>
+                </div>
+                <!-- Cert 2 -->
+                <div class="bento-card">
+                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">KUMPUL</p>
+                    <h3 class="text-lg font-extrabold mb-2 uppercase">AI Ignition Training</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-6">Generative AI, LLM utilization, and Prompt Engineering mastery.</p>
+                    <span class="mt-auto inline-block w-max bg-slate-50 px-3 py-1 rounded-full text-[9px] font-black text-slate-400 uppercase">Aug 2025</span>
+                </div>
+                <!-- Cert 3 -->
+                <div class="bento-card">
+                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">Kasir Pintar</p>
+                    <h3 class="text-lg font-extrabold mb-2 uppercase">Coaching Bizclash 2.0</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed mb-6">Advanced Negotiation, Business Pitching, and Strategic Sales Coaching.</p>
+                    <span class="mt-auto inline-block w-max bg-slate-50 px-3 py-1 rounded-full text-[9px] font-black text-slate-400 uppercase">Aug 2025</span>
+                </div>
+                <!-- Cert 4 -->
+                <div class="bento-card lg:col-span-2 bg-gradient-to-br from-white to-pink-50/50">
+                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">Kasir Pintar x Visiku</p>
+                    <h3 class="text-lg font-extrabold mb-2 uppercase">Proposal & Pitching to Deal</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">Mastering the art of creating professional business proposals and closing high-value deals.</p>
+                </div>
+                <!-- Cert 5 -->
+                <div class="bento-card">
+                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">GROWIA</p>
+                    <h3 class="text-lg font-extrabold mb-2 uppercase leading-none mt-2">Software Testing Basics</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed mt-4">Core principles of Software Quality Assurance and Testing Methodologies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section: MARQUEE -->
+        <section id="awards" class="mb-40 reveal text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter">Honors & Awards</h2>
+            <p class="text-slate-400 text-sm mb-12">Click card for achievement details. My competitive journey since 2018.</p>
+            
+            <div class="marquee-container">
+                <div id="awardsWrapper" class="marquee-content py-6">
+                    <!-- Awards cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience, Education, Volunteering & Languages -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-40 reveal">
+            <!-- Work & Edu Col -->
+            <div class="space-y-10">
+                <h2 class="text-3xl font-extrabold uppercase tracking-tighter">Background</h2>
+                <div class="bento-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl font-bold uppercase leading-tight">Contracted Author</h3>
+                        <span class="text-[9px] font-black bg-pink-50 text-pink-500 px-4 py-1.5 rounded-full uppercase tracking-widest">2022 - Now</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-bold mb-4 italic tracking-wider">NovelToon (MangaToon Group)</p>
+                    <ul class="text-slate-500 text-sm space-y-3 list-disc list-inside leading-relaxed">
+                        <li>Published romance fiction “Cinta Tak Terkalahkan”.</li>
+                        <li>Consistent story arcs and international audience engagement.</li>
                     </ul>
                 </div>
-                <div class="bento-card group">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
-                        <h3 class="text-xl font-bold group-hover:text-pink-600 transition">Private Tutor</h3>
-                        <span class="text-pink-500 font-bold text-xs bg-pink-50 px-3 py-1 rounded-full uppercase">Freelance | 2020 - Present</span>
+                <div class="bento-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-lg font-bold uppercase">Universitas Jember</h3>
+                        <span class="text-pink-500 text-[10px] font-black uppercase tracking-widest">2023 - 2027</span>
                     </div>
-                    <p class="text-slate-500 text-sm">Tutoring Mathematics, English, and Science for high school students with proven academic improvements.</p>
+                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">B.S. Information Technology</p>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="mb-32 reveal">
-            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left">Portfolio Gallery</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Kopi Nang -->
-                <div class="bento-card justify-between group h-full">
-                    <div>
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">☕</div>
-                        <h3 class="text-xl font-bold mb-1">KOPI NANG</h3>
-                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">Full-stack Ordering App</p>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">Mobile app with QR verification and admin dashboard for real-time sales statistics.</p>
-                    </div>
-                    <div class="flex gap-2 pt-4 border-t border-pink-50">
-                        <a href="https://github.com/nabilagx/aplikasi-kopi-nang" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">GitHub</a>
-                    </div>
+            <!-- More Col -->
+            <div class="space-y-10">
+                <h2 class="text-3xl font-extrabold opacity-0 select-none hidden md:block">Spacer</h2>
+                <div class="bento-card bg-slate-900 text-white border-none">
+                    <h3 class="text-[10px] font-black uppercase text-pink-400 mb-6 tracking-widest">Volunteering</h3>
+                    <h4 class="font-bold mb-2 uppercase text-lg leading-tight">1945 Real Leader Story</h4>
+                    <p class="text-[10px] text-slate-400 mb-6 font-bold tracking-widest uppercase opacity-60">Pemimpin.id | Aug 2022</p>
+                    <p class="text-sm text-slate-400 leading-relaxed italic opacity-80">Youth empowerment initiative focused on integrity and impactful leadership skills.</p>
                 </div>
-                <!-- Netes.io -->
-                <div class="bento-card justify-between group h-full">
-                    <div>
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">🐣</div>
-                        <h3 class="text-xl font-bold mb-1">Netes.io</h3>
-                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">IoT Smart Incubator</p>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">Smart incubator using ESP32 and Firebase. Real-time remote climate control via Flutter.</p>
+                <div class="bento-card">
+                    <h3 class="text-[10px] font-black uppercase text-pink-600 mb-8 tracking-widest">Languages</h3>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">Indonesian</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Native</span></div>
+                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">English</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Professional</span></div>
+                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">Javanese</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Native</span></div>
                     </div>
-                    <a href="https://github.com/nabilagx/netesio-mobile" target="_blank" class="w-full text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">View Code</a>
-                </div>
-                <!-- Yo-Tukang -->
-                <div class="bento-card justify-between group h-full">
-                    <div>
-                        <div class="text-4xl mb-6 group-hover:scale-110 transition duration-300">🧑‍🔧</div>
-                        <h3 class="text-xl font-bold mb-1">Yo-Tukang!</h3>
-                        <p class="text-pink-500 text-[10px] font-black mb-4 uppercase tracking-[0.2em]">UI/UX Case Study</p>
-                        <p class="text-slate-500 text-sm mb-6 leading-relaxed">End-to-end Design Thinking process for a service marketplace app concept.</p>
-                    </div>
-                    <a href="#" class="w-full text-center bg-slate-900 text-white py-3 rounded-xl text-[10px] font-black uppercase hover:bg-pink-600 transition">Prototype</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Awards Section -->
-        <section id="awards" class="mb-32 reveal">
-            <h2 class="text-3xl font-extrabold mb-4">Honors & Awards</h2>
-            <p class="text-slate-500 text-sm mb-12">Click cards below to see my journey and achievements.</p>
-            
-            <div class="marquee-container group">
-                <!-- Awards Container with ID for JS -->
-                <div id="awardsContainer" class="marquee-content">
-                    <!-- Cards will be injected by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Education & More -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32 reveal">
-            <div>
-                <h2 class="text-3xl font-extrabold mb-12">Education</h2>
-                <div class="space-y-6">
-                    <div class="bento-card">
-                        <h3 class="text-lg font-bold">Universitas Jember</h3>
-                        <p class="text-pink-500 text-xs font-bold mb-2">Information Technology | 2023 - 2027</p>
-                    </div>
-                    <div class="bento-card">
-                        <h3 class="text-lg font-bold">SMA Negeri Ambulu</h3>
-                        <p class="text-pink-500 text-xs font-bold">Math & Science | 2020 - 2023</p>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-3xl font-extrabold mb-12">Certifications</h2>
-                <div class="bento-card bg-pink-50 border-pink-300">
-                    <p class="text-pink-500 text-[10px] font-black mb-1 uppercase tracking-widest">Digital Talent Scholarship</p>
-                    <h3 class="text-xl font-bold mb-3 uppercase">Mindset Digital</h3>
-                    <p class="text-slate-400 text-[10px] mb-6 font-bold uppercase tracking-wider">Credential ID: 2299815850-4155</p>
-                    <a href="https://www.linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="inline-block bg-slate-900 text-white px-6 py-3 rounded-2xl text-[10px] font-bold hover:bg-pink-500 transition shadow-lg uppercase tracking-widest">LinkedIn</a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Modal for Awards Details -->
+    <!-- Modal Detail Achievement -->
     <div id="awardModal" class="modal-overlay">
-        <div class="modal-content relative">
-            <button onclick="closeAwardModal()" class="absolute top-6 right-6 text-slate-400 hover:text-pink-500 transition text-2xl">×</button>
-            <div id="modalIcon" class="text-5xl mb-6">🏆</div>
-            <h3 id="modalTitle" class="text-2xl font-extrabold text-slate-900 mb-2 leading-tight"></h3>
-            <p id="modalIssuerDate" class="text-[10px] font-black text-pink-500 uppercase tracking-[0.2em] mb-8"></p>
-            <div class="bg-slate-50 p-6 rounded-3xl text-slate-600 text-sm leading-relaxed text-left mb-8">
-                <p id="modalDescription"></p>
+        <div class="modal-content relative text-center">
+            <button onclick="closeAwardModal()" class="absolute top-6 right-8 text-slate-300 hover:text-pink-500 transition text-4xl">×</button>
+            <div id="modalIcon" class="text-7xl mb-8 drop-shadow-xl">🏆</div>
+            <h3 id="modalTitle" class="text-2xl md:text-3xl font-black text-slate-900 mb-2 leading-tight px-6"></h3>
+            <p id="modalMeta" class="text-[10px] font-black text-pink-500 uppercase tracking-[0.3em] mb-10"></p>
+            <div class="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] text-slate-600 text-sm md:text-base leading-relaxed text-left mb-10 shadow-inner">
+                <p id="modalDesc"></p>
             </div>
-            <button onclick="closeAwardModal()" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-black hover:bg-pink-600 transition shadow-xl uppercase tracking-[0.1em] text-xs">Got it!</button>
+            <button onclick="closeAwardModal()" class="w-full bg-slate-900 text-white py-5 rounded-3xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-pink-600 transition shadow-2xl">Close Information</button>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-24 pb-40 md:pb-20 rounded-t-[3rem] md:rounded-t-[5rem]">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-5xl font-extrabold mb-8 leading-tight">Let's build something <br><span class="text-pink-400 italic">impactful.</span></h2>
-            <div class="flex justify-center gap-6 mb-16">
-                <a href="https://github.com/nabilagx" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:github.svg?color=white" class="w-8 h-8"></a>
-                <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:linkedin.svg?color=white" class="w-8 h-8"></a>
-                <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="p-4 bg-slate-800 rounded-3xl hover:bg-pink-600 transition"><img src="https://api.iconify.design/mdi:instagram.svg?color=white" class="w-8 h-8"></a>
-            </div>
-            <p class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.4em]">Built with logic & pink by Nabila Choirunisa최</p>
+    <footer id="contact" class="bg-slate-900 text-white pt-32 pb-48 md:pb-32 rounded-t-[5rem] text-center">
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-12 leading-tight tracking-tighter uppercase">Let's build <br><span class="text-pink-500 italic lowercase font-light">the future</span> together.</h2>
+        <a href="mailto:choyshimanis@gmail.com" class="inline-block bg-pink-500 text-white px-16 py-6 rounded-[2.5rem] font-black uppercase tracking-widest text-xs mb-24 shadow-2xl hover:scale-105 transition">Get In Touch</a>
+        
+        <div class="flex justify-center gap-10 mb-20">
+            <a href="https://github.com/nabilagx" target="_blank" class="hover:scale-110 transition p-4 bg-slate-800 rounded-3xl"><img src="https://api.iconify.design/mdi:github.svg?color=white" class="w-8 h-8"></a>
+            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="hover:scale-110 transition p-4 bg-slate-800 rounded-3xl"><img src="https://api.iconify.design/mdi:linkedin.svg?color=white" class="w-8 h-8"></a>
         </div>
+        
+        <p class="text-slate-600 text-[9px] font-black uppercase tracking-[0.6em]">Built with logic & pink by Nabila Choirunisa최</p>
     </footer>
 
     <script>
         const awardsData = [
-            { title: "🏆 Best Task Recipient - AI Ignition Bootcamp", issuer: "KASIR PINTAR", date: "Aug 2025", description: "Awarded for outstanding performance in the 'Best Task' category at the AI Ignition Bootcamp. Excelling in the 'How to Create Business Proposal & From Pitching to Deal' program. Supported by Google.org and ADB." },
-            { title: "Top 25 Semifinalist – BizClash! 2.0", issuer: "Kasir Pintar", date: "August 2025", description: "Selected in an innovation challenge for introducing 'NusantarGift,' a concept combining Indonesian cultural heritage with modern packaging to empower local MSMEs." },
-            { title: "Top 100 Finalist – National Research Competition", issuer: "tSurvey.id & Kompas.id", date: "July 2025", description: "Finalist for research on 'FOMO, Social Validation, and Identity Crisis on Social Media,' receiving research funding and training from journalists." },
-            { title: "🌱 Top 15 Finalist – Lomba BUMI 2025", issuer: "United Tractors (Astra Group)", date: "July 2025", description: "Presented 'AYUMA,' an integrated, low-cost smart poultry system for responsible consumption, competing against master's and doctoral-level professionals." },
-            { title: "🎓 Participant – Technology Innovative Challenge 2024", issuer: "University of Jember", date: "May 2024", description: "Academic innovation event focused on digital solutions to strengthen human capital in alignment with the SDGs." },
-            { title: "🎨 Participant – UI/UX Design Competition", issuer: "University of Darussalam Gontor", date: "Jan 2024", description: "Gained valuable experience in creative design and user-centric interface planning during FESTIDA." },
-            { title: "📝 Participant – National Essay Competition", issuer: "PT Hutama Karya (Persero)", date: "Nov 2023", description: "Essay on 'Sustainable Road and Bridge through Lean and Green Infrastructure,' focusing on civil engineering sustainability." },
-            { title: "🏅 Honorable Mention – MTQMN University", issuer: "University of Jember", date: "Sep 2023", description: "Juara Harapan 1 in Syarhil Quran category, reflecting public speaking, religious interpretation, and teamwork." },
-            { title: "🥈 2nd Place – Technology Innovative Challenge", issuer: "University of Jember", date: "Sep 2023", description: "Awarded for developing an innovative IT-based solution addressing sustainability challenges." },
-            { title: "🏅 Awardee – Afrina Fellowship 2023", issuer: "Afrina Academy", date: "May 2023", description: "Fellowship recognizing leadership, academic excellence, and a strong commitment to social impact." },
-            { title: "🎙️ Participant – Master of Ceremony", issuer: "K Radio & Lippo Plaza", date: "Dec 2022", description: "Practiced public speaking, stage confidence, and event hosting skills in a real-world competition." },
-            { title: "🥇 1st Place – Bung Karno Speech Contest", issuer: "SMA Negeri Ambulu", date: "Aug 2022", description: "1st place for delivering an expressive rendition of Soekarno’s original Proclamation of Independence speech." },
-            { title: "🥉 3rd Place – Poetry Reading Competition", issuer: "SMA Negeri Ambulu", date: "Mar 2021", description: "Won 3rd place in a poetry reading competition at a school-level mid-semester festival." },
-            { title: "🥈 2nd Place – Islamic Speech Competition", issuer: "MoRA Jember", date: "Nov 2019", description: "2nd place in LPP during the 2019 PAIS Festival, focusing on moral values." },
-            { title: "🥉 3rd Place – Islamic Speech Contest", issuer: "MoRA Jember", date: "Oct 2018", description: "Awarded at PENTAS PAI (Islamic Arts & Skills Festival) 2018." },
-            { title: "🥈 2nd Place – Islamic Speech Competition", issuer: "MoRA Jember", date: "Sep 2018", description: "2nd place in competition commemorating 1 Muharram 1440 H." }
+            { title: "🏆 Best Task Recipient - AI Ignition Bootcamp", issuer: "KASIR PINTAR", date: "Aug 2025", desc: "Awarded for outstanding performance in the 'Best Task' category at AI Ignition. Excelling in business proposal creation and pitching coaching. Supported by Google.org and ADB." },
+            { title: "Top 25 Semifinalist – BizClash! 2.0", issuer: "Kasir Pintar", date: "August 2025", desc: "Selected in innovation challenge for introducing 'NusantarGift,' combining Indonesian heritage with modern packaging to empower local MSMEs." },
+            { title: "Top 100 Finalist – National Research Competition", issuer: "tSurvey.id & Kompas.id", date: "July 2025", desc: "Finalist for research on 'FOMO and Social Validation on Social Media,' receiving journalism training and funding." },
+            { title: "🌱 Top 15 Finalist – Lomba BUMI 2025", issuer: "United Tractors (Astra Group)", date: "July 2025", desc: "Presented 'AYUMA,' an integrated low-cost smart poultry system, competing against doctoral-level professionals." },
+            { title: "🎓 Participant – Innovative Challenge 2024", issuer: "University of Jember", date: "May 2024", desc: "Fostering digital solutions to strengthen human capital in alignment with the SDGs." },
+            { title: "🎨 Participant – UI/UX Design Competition", issuer: "Univ Darussalam Gontor", date: "Jan 2024", desc: "Gained valuable experience in creative design and user-centric planning during FESTIDA." },
+            { title: "📝 Participant – National Essay Competition 2023", issuer: "PT Hutama Karya (Persero)", date: "Nov 2023", desc: "Submitted an essay on 'Sustainable Road and Bridge through Lean and Green Infrastructure'." },
+            { title: "🏅 Honorable Mention – MTQMN University", issuer: "Univ Jember", date: "Sep 2023", desc: "Juara Harapan 1 in Syarhil Quran category, reflecting public speaking and teamwork." },
+            { title: "🥈 2nd Place – Innovative Challenge 2023", issuer: "Univ Jember", date: "Sep 2023", desc: "Developing IT-based solution with team AeroAegis addressing sustainability challenges." },
+            { title: "🏅 Awardee – Afrina Fellowship 2023", issuer: "Afrina Academy", date: "May 2023", desc: "Fellowship award recognizing leadership, academic excellence, and social impact." },
+            { title: "🎙️ Participant – Master of Ceremony Competition", issuer: "K Radio & Lippo Plaza", date: "Dec 2022", desc: "Practiced stage confidence and event hosting skills in a real-world setting." },
+            { title: "🥇 1st Place – Bung Karno Speech Contest", issuer: "SMA Negeri Ambulu", date: "Aug 2022", desc: "Achieved 1st place by delivering an expressive rendition of Soekarno’s original speech." },
+            { title: "🥉 3rd Place – Poetry Reading Competition", issuer: "SMA Negeri Ambulu", date: "Mar 2021", desc: "Won 3rd place showcasing vocal delivery and stage presence at mid-semester festival." },
+            { title: "🥈 2nd Place – Islamic Speech Competition 2019", issuer: "MoRA Jember", date: "Nov 2019", desc: "Won 2nd place in LPP during the 2019 PAIS Festival." },
+            { title: "🥉 3rd Place – Islamic Speech Contest 2018", issuer: "MoRA Jember", date: "Oct 2018", desc: "Awarded at PENTAS PAI 2018 festival." },
+            { title: "🥈 2nd Place – Islamic Speech Competition 2018", issuer: "MoRA Jember", date: "Sep 2018", desc: "Commemoration of 1 Muharram 1440 H." }
         ];
 
         function initAwards() {
-            const container = document.getElementById('awardsContainer');
-            // Clear if any
-            container.innerHTML = '';
-            
+            const wrapper = document.getElementById('awardsWrapper');
             awardsData.forEach((award, index) => {
                 const item = document.createElement('div');
-                item.className = 'marquee-item bento-card w-[280px] flex flex-col justify-between cursor-pointer mx-2';
-                // Use data attributes for robustness
+                item.className = 'award-item bento-card flex flex-col justify-between shadow-sm';
                 item.setAttribute('data-index', index);
                 item.innerHTML = `
-                    <h3 class="text-sm font-bold leading-snug line-clamp-2 pointer-events-none">${award.title}</h3>
-                    <p class="text-pink-500 font-black text-[9px] uppercase mt-4 pointer-events-none">${award.issuer}</p>
+                    <h3 class="text-sm font-extrabold leading-tight line-clamp-2 pointer-events-none uppercase">${award.title}</h3>
+                    <p class="text-pink-500 font-black text-[9px] uppercase mt-6 pointer-events-none tracking-widest">${award.issuer}</p>
                 `;
-                container.appendChild(item);
+                wrapper.appendChild(item);
             });
+            const clones = Array.from(wrapper.children).map(n => n.cloneNode(true));
+            clones.forEach(c => wrapper.appendChild(c));
 
-            // CLONE FOR MARQUEE EFFECT
-            const children = Array.from(container.children);
-            children.forEach(child => {
-                const clone = child.cloneNode(true);
-                container.appendChild(clone);
-            });
-
-            // EVENT DELEGATION
-            container.addEventListener('click', (e) => {
-                const card = e.target.closest('.marquee-item');
-                if (card) {
-                    const idx = parseInt(card.getAttribute('data-index'));
-                    openAwardModal(idx);
-                }
+            wrapper.addEventListener('click', (e) => {
+                const card = e.target.closest('.award-item');
+                if (card) openAwardModal(parseInt(card.getAttribute('data-index')));
             });
         }
 
         function openAwardModal(index) {
             const data = awardsData[index];
             const modal = document.getElementById('awardModal');
-            
             document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalIssuerDate').innerText = `${data.issuer} | ${data.date}`;
-            document.getElementById('modalDescription').innerText = data.description;
+            document.getElementById('modalMeta').innerText = `${data.issuer} | ${data.date}`;
+            document.getElementById('modalDesc').innerText = data.desc;
             
-            // Set emoji/icon based on title
-            const iconEl = document.getElementById('modalIcon');
-            if(data.title.includes('🏆')) iconEl.innerText = '🏆';
-            else if(data.title.includes('🌱')) iconEl.innerText = '🌱';
-            else if(data.title.includes('🥈')) iconEl.innerText = '🥈';
-            else if(data.title.includes('🥉')) iconEl.innerText = '🥉';
-            else if(data.title.includes('🥇')) iconEl.innerText = '🥇';
-            else iconEl.innerText = '🏅';
+            const icon = document.getElementById('modalIcon');
+            if(data.title.includes('🏆')) icon.innerText = '🏆';
+            else if(data.title.includes('🥈') || data.title.includes('🥉') || data.title.includes('🥇')) icon.innerText = '🏅';
+            else if(data.title.includes('🌱')) icon.innerText = '🌱';
+            else icon.innerText = '✨';
 
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -420,27 +500,17 @@
             document.body.style.overflow = '';
         }
 
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 80) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
 
-        window.addEventListener("scroll", reveal);
         window.onload = () => {
             initAwards();
-            reveal();
-        }
-
-        // Close on ESC
-        window.addEventListener('keydown', (e) => {
-            if(e.key === 'Escape') closeAwardModal();
-        });
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        };
+        window.onkeydown = (e) => { if(e.key === "Escape") closeAwardModal(); }
     </script>
 </body>
 </html>
