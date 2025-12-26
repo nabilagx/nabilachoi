@@ -39,9 +39,13 @@
         .bento-card {
             background: white;
             border-radius: 24px;
-            padding: 24px;
+            padding: 20px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid #f1f5f9;
+        }
+
+        @media (min-width: 768px) {
+            .bento-card { padding: 24px; }
         }
 
         .bento-card:hover {
@@ -51,24 +55,31 @@
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: var(--primary-pink); border-radius: 10px; }
 
-        /* Floating Nav */
+        /* Floating Nav - Responsive adjustments */
         .nav-float {
             position: fixed;
-            top: 24px;
+            bottom: 20px; /* Di bawah buat mobile biar gampang dijangkau jempol */
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
         }
 
+        @media (min-width: 768px) {
+            .nav-float {
+                bottom: auto;
+                top: 24px;
+            }
+        }
+
         /* Animation for fade-in */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
         }
         .reveal.active {
             opacity: 1;
@@ -85,8 +96,12 @@
         .grid-bg {
             background-image: radial-gradient(#f472b6 0.5px, transparent 0.5px);
             background-size: 24px 24px;
-            opacity: 0.2;
+            opacity: 0.15;
         }
+
+        /* Hide scrollbar but keep functionality */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
@@ -94,227 +109,224 @@
     <!-- Grid Background Decoration -->
     <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
 
-    <!-- Navigation -->
-    <nav class="nav-float w-max glass px-6 py-3 rounded-full flex gap-8 items-center border border-pink-100">
-        <a href="#home" class="text-sm font-semibold hover:text-pink-500 transition">Home</a>
-        <a href="#projects" class="text-sm font-semibold hover:text-pink-500 transition">Works</a>
-        <a href="#skills" class="text-sm font-semibold hover:text-pink-500 transition">Skills</a>
-        <a href="#awards" class="text-sm font-semibold hover:text-pink-500 transition">Awards</a>
-        <a href="mailto:choyshimanis@gmail.com" class="bg-pink-500 text-white px-4 py-2 rounded-full text-xs font-bold hover:bg-pink-600 transition shadow-lg shadow-pink-200">Say Hi!</a>
+    <!-- Responsive Navigation -->
+    <nav class="nav-float w-[90%] sm:w-max glass px-4 py-2 sm:px-6 sm:py-3 rounded-full flex justify-between sm:justify-start gap-4 sm:gap-8 items-center border border-pink-100">
+        <div class="flex gap-4 sm:gap-8 items-center overflow-x-auto no-scrollbar">
+            <a href="#home" class="text-[10px] sm:text-sm font-semibold hover:text-pink-500 transition whitespace-nowrap uppercase tracking-wider">Home</a>
+            <a href="#projects" class="text-[10px] sm:text-sm font-semibold hover:text-pink-500 transition whitespace-nowrap uppercase tracking-wider">Works</a>
+            <a href="#skills" class="text-[10px] sm:text-sm font-semibold hover:text-pink-500 transition whitespace-nowrap uppercase tracking-wider">Skills</a>
+            <a href="#awards" class="text-[10px] sm:text-sm font-semibold hover:text-pink-500 transition whitespace-nowrap uppercase tracking-wider">Awards</a>
+        </div>
+        <a href="mailto:choyshimanis@gmail.com" class="bg-pink-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold hover:bg-pink-600 transition shadow-lg shadow-pink-200 whitespace-nowrap">Say Hi!</a>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-6 pt-32 pb-24">
+    <main class="max-w-6xl mx-auto px-5 sm:px-8 pt-12 md:pt-32 pb-32">
         
         <!-- Hero Section: The Aesthetic Tech Lead -->
-        <section id="home" class="flex flex-col md:flex-row items-center gap-12 mb-32 reveal">
-            <div class="flex-1 text-center md:text-left">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-xs font-bold tracking-widest uppercase">
+        <section id="home" class="flex flex-col md:flex-row items-center gap-10 md:gap-12 mb-20 md:mb-32 reveal">
+            <div class="w-full md:flex-1 text-center md:text-left order-2 md:order-1">
+                <div class="inline-block px-3 py-1 mb-4 md:mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] md:text-xs font-bold tracking-widest uppercase">
                     ✨ Available for Collaboration
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 leading-tight">
                     Hi, I'm <span class="gradient-text">Nabila.</span><br>
-                    I orchestrate <span class="italic font-light">Digital Magic.</span>
+                    I orchestrate <span class="italic font-light text-slate-400">Digital Magic.</span>
                 </h1>
-                <p class="text-lg text-slate-500 max-w-lg mb-8 leading-relaxed">
+                <p class="text-base md:text-lg text-slate-500 max-w-lg mb-6 md:mb-8 leading-relaxed mx-auto md:mx-0">
                     A Software Engineer and Project Manager balancing logic with aesthetics. Specialized in <span class="text-pink-500 font-semibold">Full Stack</span> & <span class="text-pink-500 font-semibold">IoT</span> solutions.
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-slate-800 transition shadow-xl">Explore Projects</a>
-                    <div class="flex gap-4 items-center pl-4">
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#projects" class="bg-slate-900 text-white px-8 py-3.5 rounded-2xl font-semibold hover:bg-slate-800 transition shadow-xl text-center">Explore Projects</a>
+                    <div class="flex gap-5 items-center justify-center sm:pl-4">
                         <a href="https://github.com/nabilagx" target="_blank" class="text-slate-400 hover:text-pink-500 transition"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
                         <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="text-slate-400 hover:text-pink-500 transition"><svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
                     </div>
                 </div>
             </div>
-            <div class="flex-1 relative">
+            <div class="w-full md:flex-1 relative order-1 md:order-2">
                 <!-- Main Avatar Container -->
-                <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto group">
-                    <div class="absolute inset-0 bg-pink-200 rounded-[3rem] rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-                    <div class="absolute inset-0 bg-pink-500 rounded-[3rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
-                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila" class="relative z-10 w-full h-full object-cover rounded-[3rem] border-4 border-white shadow-2xl">
+                <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 mx-auto group">
+                    <div class="absolute inset-0 bg-pink-200 rounded-[2.5rem] md:rounded-[3rem] rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 bg-pink-500 rounded-[2.5rem] md:rounded-[3rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500"></div>
+                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila" class="relative z-10 w-full h-full object-cover rounded-[2.5rem] md:rounded-[3rem] border-4 border-white shadow-2xl">
                     
-                    <!-- Floating IoT Icon -->
-                    <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-8 h-8">
+                    <!-- Floating Icons - Hidden on very small screens to avoid clutter -->
+                    <div class="hidden sm:block absolute -top-4 -right-4 bg-white p-2 md:p-3 rounded-2xl shadow-xl animate-bounce">
+                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-6 h-6 md:w-8 md:h-8">
                     </div>
-                    <!-- Floating Code Icon -->
-                    <div class="absolute -bottom-4 -left-4 bg-white p-3 rounded-2xl shadow-xl animate-pulse">
-                        <img src="https://api.iconify.design/logos:visual-studio-code.svg" class="w-8 h-8">
+                    <div class="hidden sm:block absolute -bottom-4 -left-4 bg-white p-2 md:p-3 rounded-2xl shadow-xl animate-pulse">
+                        <img src="https://api.iconify.design/logos:visual-studio-code.svg" class="w-6 h-6 md:w-8 md:h-8">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Bento Skills Grid -->
-        <section id="skills" class="mb-32 reveal">
-            <h2 class="text-3xl font-bold mb-12 text-center md:text-left">Technical Arsenal</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6">
+        <!-- Bento Skills Grid: More responsive logic -->
+        <section id="skills" class="mb-20 md:mb-32 reveal">
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center md:text-left">Technical Arsenal</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <!-- Backend (Large) -->
-                <div class="bento-card md:col-span-2 md:row-span-1 bg-gradient-to-br from-white to-pink-50">
+                <div class="bento-card sm:col-span-2 bg-gradient-to-br from-white to-pink-50">
                     <h3 class="font-bold text-pink-600 mb-4 flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4l4 4"></path></svg>
                         Backend Systems
                     </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 bg-white rounded-full text-xs font-medium shadow-sm border border-pink-100">C# / ASP.NET</span>
-                        <span class="px-3 py-1 bg-white rounded-full text-xs font-medium shadow-sm border border-pink-100">Node.js</span>
-                        <span class="px-3 py-1 bg-white rounded-full text-xs font-medium shadow-sm border border-pink-100">Laravel</span>
-                        <span class="px-3 py-1 bg-white rounded-full text-xs font-medium shadow-sm border border-pink-100">PostgreSQL</span>
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="px-2 md:px-3 py-1 bg-white rounded-full text-[10px] md:text-xs font-medium shadow-sm border border-pink-100">C# / ASP.NET</span>
+                        <span class="px-2 md:px-3 py-1 bg-white rounded-full text-[10px] md:text-xs font-medium shadow-sm border border-pink-100">Node.js</span>
+                        <span class="px-2 md:px-3 py-1 bg-white rounded-full text-[10px] md:text-xs font-medium shadow-sm border border-pink-100">Laravel</span>
+                        <span class="px-2 md:px-3 py-1 bg-white rounded-full text-[10px] md:text-xs font-medium shadow-sm border border-pink-100">PostgreSQL</span>
                     </div>
                 </div>
 
                 <!-- IoT (Square) -->
-                <div class="bento-card md:col-span-1 md:row-span-1 bg-slate-900 text-white">
-                    <h3 class="font-bold mb-2">Hardware/IoT</h3>
-                    <p class="text-xs text-slate-400 mb-4">Building bridge between physical & digital.</p>
+                <div class="bento-card bg-slate-900 text-white">
+                    <h3 class="font-bold mb-1">Hardware/IoT</h3>
+                    <p class="text-[10px] text-slate-400 mb-3 md:mb-4">Physical to digital bridge.</p>
                     <div class="flex gap-2">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-6 h-6">
-                        <img src="https://api.iconify.design/logos:c-plusplus.svg" class="w-6 h-6">
+                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-5 h-5 md:w-6 md:h-6">
+                        <img src="https://api.iconify.design/logos:c-plusplus.svg" class="w-5 h-5 md:w-6 md:h-6">
                     </div>
                 </div>
 
                 <!-- PM Tools (Square) -->
-                <div class="bento-card md:col-span-1 md:row-span-1">
+                <div class="bento-card">
                     <h3 class="font-bold text-slate-700 mb-2">Management</h3>
                     <div class="space-y-2">
                         <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="bg-pink-400 h-full w-[90%]"></div></div>
                         <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"><div class="bg-slate-400 h-full w-[85%]"></div></div>
                     </div>
-                    <p class="text-[10px] text-slate-400 mt-2">Jira, Notion, Design Thinking</p>
+                    <p class="text-[9px] text-slate-400 mt-2 uppercase tracking-tighter">Jira, Notion, Design Thinking</p>
                 </div>
 
                 <!-- Frontend (Wide) -->
-                <div class="bento-card md:col-span-3 md:row-span-1 flex items-center justify-between">
+                <div class="bento-card sm:col-span-2 md:col-span-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                         <h3 class="font-bold text-slate-700 mb-1">Frontend Alchemy</h3>
-                        <p class="text-sm text-slate-500">React, Tailwind, Flutter, Figma</p>
+                        <p class="text-xs md:text-sm text-slate-500">React, Tailwind, Flutter, Figma</p>
                     </div>
                     <div class="flex -space-x-2">
-                        <div class="w-10 h-10 rounded-full bg-pink-100 border-2 border-white flex items-center justify-center text-pink-500 font-bold text-xs">JSX</div>
-                        <div class="w-10 h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-blue-500 font-bold text-xs">TS</div>
-                        <div class="w-10 h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-500 font-bold text-xs">+4</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-pink-100 border-2 border-white flex items-center justify-center text-pink-500 font-bold text-[10px] md:text-xs shadow-sm">JSX</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center text-blue-500 font-bold text-[10px] md:text-xs shadow-sm">TS</div>
+                        <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-slate-500 font-bold text-[10px] md:text-xs shadow-sm">+4</div>
                     </div>
                 </div>
 
                 <!-- Languages -->
-                <div class="bento-card md:col-span-1 bg-pink-500 text-white text-center">
-                    <span class="text-3xl font-bold">3+</span>
-                    <p class="text-[10px] uppercase tracking-widest mt-1">Languages Spoken</p>
+                <div class="bento-card bg-pink-500 text-white text-center flex flex-col justify-center">
+                    <span class="text-2xl md:text-3xl font-bold">3+</span>
+                    <p class="text-[8px] md:text-[10px] uppercase tracking-widest mt-1">Languages Spoken</p>
                 </div>
             </div>
         </section>
 
-        <!-- Project Gallery: Bento Style -->
-        <section id="projects" class="mb-32 reveal">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-                <div>
-                    <h2 class="text-3xl font-bold mb-2">Selected Works</h2>
-                    <p class="text-slate-500 italic">Where logic meets creativity.</p>
-                </div>
-                <div class="flex gap-2">
-                    <button class="p-2 rounded-full border border-slate-200 hover:bg-pink-50 hover:text-pink-500 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button class="p-2 rounded-full border border-slate-200 hover:bg-pink-50 hover:text-pink-500 transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
+        <!-- Project Gallery -->
+        <section id="projects" class="mb-20 md:mb-32 reveal">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-12 gap-4">
+                <div class="text-center md:text-left">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-1">Selected Works</h2>
+                    <p class="text-xs md:text-sm text-slate-500 italic">Where logic meets creativity.</p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- Project 1: IoT -->
                 <div class="bento-card group flex flex-col h-full">
-                    <div class="relative overflow-hidden rounded-xl h-48 mb-6 bg-pink-100">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-125 transition-transform duration-500">🐣</div>
+                    <div class="relative overflow-hidden rounded-xl h-40 md:h-48 mb-4 md:mb-6 bg-pink-100">
+                        <div class="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl group-hover:scale-125 transition-transform duration-500">🐣</div>
                         <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">IOT</span>
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">FIREBASE</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">IOT</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">FIREBASE</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Netes.io</h3>
-                    <p class="text-sm text-slate-500 mb-6 flex-grow">Smart egg incubator using ESP32. Real-time monitoring for the modern farmer.</p>
-                    <a href="https://github.com/nabilagx/netesio-mobile" class="w-full text-center py-3 bg-slate-50 rounded-xl text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Repository</a>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">Netes.io</h3>
+                    <p class="text-xs md:text-sm text-slate-500 mb-4 md:mb-6 flex-grow">Smart egg incubator using ESP32. Real-time monitoring for the modern farmer.</p>
+                    <a href="https://github.com/nabilagx/netesio-mobile" class="w-full text-center py-2.5 md:py-3 bg-slate-50 rounded-xl text-xs md:text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Repository</a>
                 </div>
 
                 <!-- Project 2: Coffee -->
                 <div class="bento-card group flex flex-col h-full">
-                    <div class="relative overflow-hidden rounded-xl h-48 mb-6 bg-amber-50">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-125 transition-transform duration-500">☕</div>
+                    <div class="relative overflow-hidden rounded-xl h-40 md:h-48 mb-4 md:mb-6 bg-amber-50">
+                        <div class="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl group-hover:scale-125 transition-transform duration-500">☕</div>
                         <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">ASP.NET</span>
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">FLUTTER</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">ASP.NET</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">FLUTTER</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">KOPI NANG</h3>
-                    <p class="text-sm text-slate-500 mb-6 flex-grow">Fullstack ordering app with integrated payment gateway & live statistics dashboard.</p>
-                    <a href="https://github.com/nabilagx/aplikasi-kopi-nang" class="w-full text-center py-3 bg-slate-50 rounded-xl text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Case Study</a>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">KOPI NANG</h3>
+                    <p class="text-xs md:text-sm text-slate-500 mb-4 md:mb-6 flex-grow">Fullstack ordering app with integrated payment gateway & live statistics dashboard.</p>
+                    <a href="https://github.com/nabilagx/aplikasi-kopi-nang" class="w-full text-center py-2.5 md:py-3 bg-slate-50 rounded-xl text-xs md:text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Case Study</a>
                 </div>
 
                 <!-- Project 3: UI/UX -->
                 <div class="bento-card group flex flex-col h-full">
-                    <div class="relative overflow-hidden rounded-xl h-48 mb-6 bg-indigo-50">
-                        <div class="absolute inset-0 flex items-center justify-center text-6xl group-hover:scale-125 transition-transform duration-500">🧑‍🔧</div>
+                    <div class="relative overflow-hidden rounded-xl h-40 md:h-48 mb-4 md:mb-6 bg-indigo-50">
+                        <div class="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl group-hover:scale-125 transition-transform duration-500">🧑‍🔧</div>
                         <div class="absolute bottom-3 left-3 flex gap-2">
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">FIGMA</span>
-                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[10px] font-bold">UX</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">FIGMA</span>
+                            <span class="bg-white/80 backdrop-blur px-2 py-1 rounded-md text-[8px] md:text-[10px] font-bold">UX</span>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-2">Yo-Tukang!</h3>
-                    <p class="text-sm text-slate-500 mb-6 flex-grow">A user-centric platform connecting homeowners with verified local handymen.</p>
-                    <a href="#" class="w-full text-center py-3 bg-slate-50 rounded-xl text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Prototype</a>
+                    <h3 class="text-lg md:text-xl font-bold mb-2">Yo-Tukang!</h3>
+                    <p class="text-xs md:text-sm text-slate-500 mb-4 md:mb-6 flex-grow">A user-centric platform connecting homeowners with verified local handymen.</p>
+                    <a href="#" class="w-full text-center py-2.5 md:py-3 bg-slate-50 rounded-xl text-xs md:text-sm font-bold hover:bg-pink-500 hover:text-white transition">View Prototype</a>
                 </div>
             </div>
         </section>
 
         <!-- Awards: Wall of Fame -->
         <section id="awards" class="reveal">
-            <h2 class="text-3xl font-bold mb-12 text-center">Wall of Recognition</h2>
-            <div class="space-y-4">
-                <div class="glass p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-white transition-all cursor-default border border-pink-50">
-                    <div class="flex items-center gap-6">
-                        <span class="text-3xl">🏆</span>
+            <h2 class="text-2xl md:text-3xl font-bold mb-8 md:mb-12 text-center">Wall of Recognition</h2>
+            <div class="space-y-3 md:space-y-4">
+                <div class="glass p-4 md:p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white transition-all border border-pink-50">
+                    <div class="flex items-center gap-4 md:gap-6">
+                        <span class="text-2xl md:text-3xl">🏆</span>
                         <div>
-                            <h4 class="font-bold text-slate-800">Best Task Recipient - AI Ignition Bootcamp</h4>
-                            <p class="text-sm text-pink-500 font-medium">Kasir Pintar x Google.org | 2025</p>
+                            <h4 class="text-sm md:text-base font-bold text-slate-800 leading-snug">Best Task Recipient - AI Ignition Bootcamp</h4>
+                            <p class="text-[10px] md:text-sm text-pink-500 font-medium">Kasir Pintar x Google.org | 2025</p>
                         </div>
                     </div>
-                    <button class="px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
+                    <button class="w-full sm:w-auto px-4 md:px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-[10px] md:text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
                 </div>
                 
-                <div class="glass p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-white transition-all cursor-default border border-pink-50">
-                    <div class="flex items-center gap-6">
-                        <span class="text-3xl">🌱</span>
+                <div class="glass p-4 md:p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white transition-all border border-pink-50">
+                    <div class="flex items-center gap-4 md:gap-6">
+                        <span class="text-2xl md:text-3xl">🌱</span>
                         <div>
-                            <h4 class="font-bold text-slate-800">Top 15 Finalist – Lomba BUMI 2025</h4>
-                            <p class="text-sm text-pink-500 font-medium">Astra Group | 2025</p>
+                            <h4 class="text-sm md:text-base font-bold text-slate-800 leading-snug">Top 15 Finalist – Lomba BUMI 2025</h4>
+                            <p class="text-[10px] md:text-sm text-pink-500 font-medium">Astra Group | 2025</p>
                         </div>
                     </div>
-                    <button class="px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
+                    <button class="w-full sm:w-auto px-4 md:px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-[10px] md:text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
                 </div>
 
-                <div class="glass p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 group hover:bg-white transition-all cursor-default border border-pink-50">
-                    <div class="flex items-center gap-6">
-                        <span class="text-3xl">🏅</span>
+                <div class="glass p-4 md:p-6 rounded-3xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:bg-white transition-all border border-pink-50">
+                    <div class="flex items-center gap-4 md:gap-6">
+                        <span class="text-2xl md:text-3xl">🏅</span>
                         <div>
-                            <h4 class="font-bold text-slate-800">2nd Place – Technology Innovative Challenge</h4>
-                            <p class="text-sm text-pink-500 font-medium">University of Jember | 2023</p>
+                            <h4 class="text-sm md:text-base font-bold text-slate-800 leading-snug">2nd Place – Technology Innovative Challenge</h4>
+                            <p class="text-[10px] md:text-sm text-pink-500 font-medium">University of Jember | 2023</p>
                         </div>
                     </div>
-                    <button class="px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
+                    <button class="w-full sm:w-auto px-4 md:px-6 py-2 rounded-full border border-pink-100 text-pink-500 text-[10px] md:text-xs font-bold group-hover:bg-pink-500 group-hover:text-white transition">Details</button>
                 </div>
             </div>
-            <p class="mt-8 text-center text-slate-400 text-sm italic">+12 more achievements available on LinkedIn</p>
+            <p class="mt-8 text-center text-slate-400 text-[10px] md:text-sm italic">+12 more achievements available on LinkedIn</p>
         </section>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-24 pb-12 rounded-t-[4rem]">
+    <footer class="bg-slate-900 text-white pt-16 md:pt-24 pb-20 md:pb-12 rounded-t-[3rem] md:rounded-t-[4rem]">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-8">Let's create something <span class="text-pink-400 italic">extraordinary.</span></h2>
-            <div class="flex justify-center gap-6 mb-16">
-                <a href="mailto:choyshimanis@gmail.com" class="p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition shadow-xl"><svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l12-9.725v15.438h-24v-15.438l12 9.725z"/></svg></a>
-                <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition shadow-xl"><svg class="w-8 h-8 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8">Let's create something <span class="text-pink-400 italic">extraordinary.</span></h2>
+            <div class="flex justify-center gap-4 md:gap-6 mb-12 md:mb-16">
+                <a href="mailto:choyshimanis@gmail.com" class="p-3 md:p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition shadow-xl"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l12-9.725v15.438h-24v-15.438l12 9.725z"/></svg></a>
+                <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="p-3 md:p-4 rounded-2xl bg-slate-800 hover:bg-pink-500 transition shadow-xl"><svg class="w-6 h-6 md:w-8 md:h-8 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
             </div>
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-sm">© 2025 Nabila Choirunisa. All rights reserved.</p>
-                <div class="flex gap-8 text-slate-500 text-sm">
+                <p class="text-slate-500 text-[10px] md:text-sm">© 2025 Nabila Choirunisa. All rights reserved.</p>
+                <div class="flex gap-6 md:gap-8 text-slate-500 text-[10px] md:text-sm">
                     <a href="#" class="hover:text-pink-400 transition">GitHub</a>
                     <a href="#" class="hover:text-pink-400 transition">LinkedIn</a>
                     <a href="#" class="hover:text-pink-400 transition">CV</a>
@@ -330,7 +342,7 @@
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
@@ -345,7 +357,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
             });
