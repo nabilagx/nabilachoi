@@ -1,499 +1,913 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nabila Choirunisa | Software Engineer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-pink: #f472b6;
-            --soft-pink: #fdf2f8;
-            --rose-gold: #e7a39b;
-            --deep-slate: #1e293b;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabila Choirunisa — Creative Technologist Portfolio</title>
+  <meta name="description" content="Portfolio of Nabila Choirunisa, Information Technology student, project-based developer, creative technologist, private tutor, and storyteller." />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            color: var(--deep-slate);
-            scroll-behavior: smooth;
-        }
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        h1, h2, h3 { font-family: 'Sora', sans-serif; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-        /* Bento Grid Card Style */
-        .bento-card {
-            background: white;
-            border-radius: 2.5rem;
-            padding: 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #f1f5f9;
-            display: flex;
-            flex-direction: column;
-        }
+  <style>
+    :root {
+      --ink: #15131a;
+      --muted: #68616f;
+      --paper: #fbf7ef;
+      --card: #fffdf8;
+      --plum: #3b185f;
+      --violet: #6d28d9;
+      --blue: #2563eb;
+      --gold: #f2b84b;
+      --rose: #e85d75;
+      --mint: #38b48b;
+      --line: rgba(21, 19, 26, 0.12);
+    }
 
-        .bento-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -10px rgba(244, 114, 182, 0.2);
-            border-color: var(--primary-pink);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* Floating Nav */
-        .glass {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px 0 rgba(244, 114, 182, 0.08);
-        }
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(109, 40, 217, 0.13), transparent 32rem),
+        radial-gradient(circle at top right, rgba(242, 184, 75, 0.16), transparent 34rem),
+        linear-gradient(180deg, #fbf7ef 0%, #fffaf1 40%, #f7f3ec 100%);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
-        .nav-float {
-            position: fixed;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-        }
+    .font-display {
+      font-family: 'Instrument Serif', serif;
+    }
 
-        /* Marquee Awards */
-        .marquee-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            -webkit-mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
-            mask-image: linear-gradient(to right, transparent, white 15%, white 85%, transparent);
-        }
-        .marquee-content {
-            display: flex;
-            width: fit-content;
-            animation: scroll 60s linear infinite;
-        }
-        .marquee-content:hover { animation-play-state: paused; }
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
+    .font-space {
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
-        .award-item {
-            flex-shrink: 0;
-            width: 320px;
-            margin: 0 1rem;
-            cursor: pointer;
-        }
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.75'/%3E%3C/svg%3E");
+    }
 
-        /* Original Spin Effect */
-        .skill-item img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .skill-item:hover img { transform: rotateY(360deg); }
+    .grid-bg {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(21, 19, 26, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(21, 19, 26, 0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 78%);
+    }
 
-        /* Upgraded Modal Detail */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .modal-overlay.active { display: flex; opacity: 1; }
-        .modal-content {
-            background: white;
-            border-radius: 3rem;
-            max-width: 650px;
-            width: 100%;
-            padding: 3rem;
-            transform: scale(0.9);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid #fdf2f8;
-        }
-        .modal-overlay.active .modal-content { transform: scale(1); }
+    .glass {
+      background: rgba(255, 253, 248, 0.75);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(21, 19, 26, 0.10);
+      box-shadow: 0 20px 60px rgba(21, 19, 26, 0.08);
+    }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+    .tag {
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 248, 0.65);
+      border-radius: 999px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4b4652;
+      white-space: nowrap;
+    }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .card {
+      background: rgba(255, 253, 248, 0.82);
+      border: 1px solid rgba(21, 19, 26, 0.12);
+      box-shadow: 0 26px 70px rgba(21, 19, 26, 0.07);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
 
-        .grid-bg {
-            background-image: radial-gradient(#f472b6 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            opacity: 0.15;
-        }
-    </style>
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 34px 90px rgba(21, 19, 26, 0.11);
+      border-color: rgba(109, 40, 217, 0.35);
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--violet);
+    }
+
+    .scribble {
+      position: relative;
+      display: inline-block;
+    }
+
+    .scribble::after {
+      content: "";
+      position: absolute;
+      left: -3%;
+      bottom: 0.08em;
+      width: 106%;
+      height: 0.23em;
+      background: rgba(242, 184, 75, 0.55);
+      z-index: -1;
+      border-radius: 999px;
+      transform: rotate(-1deg);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(4px);
+      opacity: 0.9;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(8deg); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: 0.75s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-number {
+      -webkit-text-stroke: 1px rgba(21, 19, 26, 0.28);
+      color: transparent;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--ink);
+      box-shadow: 0 0 0 6px rgba(109, 40, 217, 0.12);
+      flex-shrink: 0;
+      margin-top: 0.4rem;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.85rem 1.15rem;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .cursor-dot {
+      width: 11px;
+      height: 11px;
+      background: var(--violet);
+      border-radius: 999px;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    @media (pointer: fine) {
+      .cursor-dot {
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
-<body class="antialiased overflow-x-hidden selection:bg-pink-100 selection:text-pink-600">
 
-    <div class="fixed inset-0 grid-bg pointer-events-none -z-10"></div>
+<body>
+  <div class="noise"></div>
+  <div class="grid-bg"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
 
-    <!-- Navigation -->
-    <nav class="nav-float w-[90%] md:w-max glass px-6 py-3 rounded-full flex gap-6 md:gap-10 items-center border border-pink-100 shadow-xl">
-        <a href="#home" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Home</a>
-        <a href="#skills" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Skills</a>
-        <a href="#projects" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Works</a>
-        <a href="#awards" class="text-[10px] md:text-xs font-bold uppercase tracking-widest hover:text-pink-500 transition">Awards</a>
-        <a href="mailto:choyshimanis@gmail.com" class="bg-pink-500 text-white px-5 py-2 rounded-full text-[10px] font-black uppercase shadow-lg shadow-pink-200">Say Hi!</a>
+  <!-- NAV -->
+  <header class="fixed top-4 left-0 right-0 z-50 px-4">
+    <nav class="glass max-w-6xl mx-auto rounded-full px-4 md:px-6 py-3 flex items-center justify-between">
+      <a href="#home" class="font-space font-black tracking-tight text-sm md:text-base">
+        Nabila<span class="text-violet-700">.lab</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.18em] text-slate-600">
+        <a href="#work" class="hover:text-violet-700 transition">Work</a>
+        <a href="#identity" class="hover:text-violet-700 transition">Identity</a>
+        <a href="#timeline" class="hover:text-violet-700 transition">Growth</a>
+        <a href="#recognition" class="hover:text-violet-700 transition">Awards</a>
+      </div>
+
+      <a href="mailto:choyshimanis@gmail.com" class="bg-[#15131a] text-white rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-widest hover:bg-violet-700 transition">
+        Contact
+      </a>
     </nav>
+  </header>
 
-    <main class="max-w-6xl mx-auto px-6 pt-32 md:pt-48 pb-12">
-        
-        <!-- Hero Section -->
-        <section id="home" class="flex flex-col md:flex-row items-center gap-12 mb-40 reveal text-slate-900">
-            <div class="flex-1 text-center md:text-left order-2 md:order-1">
-                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-pink-50 border border-pink-100 text-pink-500 text-[10px] font-black tracking-widest uppercase">
-                    ✨ Available for Collaboration
-                </div>
-                <h2 class="text-slate-400 font-semibold mb-2 text-sm uppercase tracking-wide">Tech Lead & Software Engineer</h2>
-                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                    Hi, I'm <span class="gradient-text">Nabila.</span><br>
-                    I orchestrate <span class="italic font-light text-slate-400">Digital Magic.</span>
-                </h1>
-                <p class="text-lg text-slate-500 max-w-xl mb-10 leading-relaxed mx-auto md:mx-0">
-                    A Software Engineer and Project Manager balancing logic with aesthetics. Specialized in <span class="text-pink-500 font-bold uppercase tracking-wider text-xs">Full Stack</span> & <span class="text-pink-500 font-bold uppercase tracking-wider text-xs">IoT</span> solutions.
+  <main id="home" class="max-w-6xl mx-auto px-5 md:px-8 pt-32 md:pt-40">
+
+    <!-- HERO -->
+    <section class="relative min-h-[78vh] flex flex-col justify-center reveal">
+      <div class="orb w-20 h-20 bg-yellow-300/50 top-12 right-10"></div>
+      <div class="orb w-12 h-12 bg-violet-400/30 bottom-28 left-6" style="animation-delay: 1.5s;"></div>
+      <div class="orb w-10 h-10 bg-blue-400/35 top-44 left-[52%]" style="animation-delay: 2.5s;"></div>
+
+      <div class="grid md:grid-cols-[1.15fr_0.85fr] gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-black/10 bg-white/40 mb-7">
+            <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+            <span class="text-[11px] font-black uppercase tracking-[0.18em] text-slate-600">
+              Creative Technologist Portfolio
+            </span>
+          </div>
+
+          <h1 class="font-space text-5xl md:text-7xl lg:text-8xl font-black leading-[0.92] tracking-[-0.06em]">
+            I build digital products with
+            <span class="font-display italic font-normal tracking-normal scribble">code, care,</span>
+            and story.
+          </h1>
+
+          <p class="mt-8 max-w-2xl text-base md:text-lg leading-8 text-slate-600">
+            I’m <strong class="text-slate-900">Nabila Choirunisa</strong>, an Information Technology student at
+            University of Jember. I explore web, mobile, IoT, AI, data, education, and storytelling —
+            turning scattered ideas into useful digital experiences.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="tag">Information Technology</span>
+            <span class="tag">Product Builder</span>
+            <span class="tag">AI & Data</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Education</span>
+            <span class="tag">Storytelling</span>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#work" class="link-btn bg-[#15131a] text-white hover:bg-violet-700">
+              View selected work
+              <span>↗</span>
+            </a>
+            <a href="https://github.com/nabilagx" target="_blank" class="link-btn border border-black/15 bg-white/40 text-slate-900 hover:border-violet-500">
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="link-btn border border-black/15 bg-white/40 text-slate-900 hover:border-violet-500">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="card rounded-[2.2rem] p-5 md:p-6 rotate-1">
+            <div class="rounded-[1.7rem] bg-[#15131a] text-white p-6 md:p-8 min-h-[420px] flex flex-col justify-between overflow-hidden relative">
+              <div class="absolute -right-20 -top-20 w-56 h-56 rounded-full bg-violet-600/40 blur-2xl"></div>
+              <div class="absolute -left-20 bottom-10 w-52 h-52 rounded-full bg-yellow-400/30 blur-2xl"></div>
+
+              <div class="relative z-10">
+                <p class="text-[11px] font-black uppercase tracking-[0.25em] text-yellow-300 mb-5">
+                  Current focus
                 </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <a href="#projects" class="bg-slate-900 text-white px-10 py-4 rounded-3xl font-bold hover:bg-slate-800 transition shadow-xl">My Portfolio</a>
-                    <div class="flex gap-4 items-center pl-4">
-                        <a href="https://github.com/nabilagx" target="_blank" class="hover:scale-110 transition opacity-70 hover:opacity-100"><img src="https://api.iconify.design/mdi:github.svg" class="w-8 h-8"></a>
-                        <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="hover:scale-110 transition opacity-70 hover:opacity-100"><img src="https://api.iconify.design/mdi:linkedin.svg" class="w-8 h-8"></a>
-                    </div>
+                <h2 class="font-space text-3xl md:text-4xl font-black leading-tight">
+                  Building a portfolio that feels less like a template,
+                  more like a living lab.
+                </h2>
+              </div>
+
+              <div class="relative z-10 grid grid-cols-2 gap-3 mt-10">
+                <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                  <p class="text-3xl font-black">10+</p>
+                  <p class="text-[10px] uppercase tracking-widest text-white/60 font-black mt-1">Projects</p>
                 </div>
+                <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                  <p class="text-3xl font-black">5+</p>
+                  <p class="text-[10px] uppercase tracking-widest text-white/60 font-black mt-1">Years Tutoring</p>
+                </div>
+                <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                  <p class="text-3xl font-black">2023</p>
+                  <p class="text-[10px] uppercase tracking-widest text-white/60 font-black mt-1">IT Journey</p>
+                </div>
+                <div class="rounded-2xl bg-white/10 border border-white/10 p-4">
+                  <p class="text-3xl font-black">AI</p>
+                  <p class="text-[10px] uppercase tracking-widest text-white/60 font-black mt-1">Data / IoT</p>
+                </div>
+              </div>
             </div>
-            <div class="flex-1 relative order-1 md:order-2">
-                <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto group">
-                    <div class="absolute inset-0 bg-pink-200 rounded-[3.5rem] rotate-6 group-hover:rotate-12 transition-transform duration-500 shadow-inner"></div>
-                    <div class="absolute inset-0 bg-pink-500 rounded-[3.5rem] -rotate-3 group-hover:-rotate-6 transition-transform duration-500 opacity-20 shadow-inner"></div>
-                    <img src="https://api.dicebear.com/8.x/lorelei/svg?seed=GirlsB" alt="Nabila Avatar" class="relative z-10 w-full h-full object-cover rounded-[3.5rem] border-4 border-white shadow-2xl">
-                    <div class="absolute -top-4 -right-4 bg-white p-3 rounded-2xl shadow-xl animate-bounce">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-10 h-10">
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
 
-        <!-- Technical Arsenal -->
-        <section id="skills" class="mb-40 reveal">
-            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left">Technical Arsenal</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                
-                <div class="bento-card md:col-span-2">
-                    <h3 class="text-pink-500 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Backend Systems</h3>
-                    <div class="flex flex-wrap gap-8 mt-auto">
-                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:c-sharp.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">C#</span></div>
-                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:nodejs-icon.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">Node</span></div>
-                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:php.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">PHP</span></div>
-                        <div class="skill-item flex flex-col items-center gap-2"><img src="https://api.iconify.design/logos:laravel.svg" class="w-14 h-14"><span class="text-[10px] font-bold uppercase">Laravel</span></div>
-                    </div>
-                </div>
-
-                <div class="bento-card md:col-span-1 bg-slate-900 text-white border-none">
-                    <h3 class="text-pink-400 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Mobile & IoT</h3>
-                    <div class="flex flex-wrap gap-6 mt-auto">
-                        <img src="https://api.iconify.design/skill-icons:flutter-dark.svg" class="w-12 h-12">
-                        <img src="https://api.iconify.design/logos:arduino.svg" class="w-12 h-12">
-                        <img src="https://img.icons8.com/?size=100&id=klvygTEGIWpQ&format=png&color=FFFFFF" class="w-12 h-12">
-                    </div>
-                </div>
-
-                <div class="bento-card md:col-span-1">
-                    <h3 class="text-pink-500 font-black text-[10px] uppercase tracking-[0.2em] mb-8">Frontend</h3>
-                    <div class="flex flex-wrap gap-6 mt-auto">
-                        <img src="https://api.iconify.design/logos:javascript.svg" class="w-10 h-10">
-                        <img src="https://api.iconify.design/logos:tailwindcss-icon.svg" class="w-10 h-10">
-                        <img src="https://api.iconify.design/logos:html-5.svg" class="w-10 h-10">
-                    </div>
-                </div>
-
-                <div class="bento-card md:col-span-4 bg-pink-50 border-pink-100">
-                    <div class="flex flex-col md:flex-row justify-between gap-12">
-                        <div class="flex-1">
-                            <h3 class="text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-6">Database & Cloud</h3>
-                            <div class="flex flex-wrap gap-10 items-center">
-                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/logos:postgresql.svg" class="w-8 h-8"><span class="font-black text-xs uppercase">PostgreSQL</span></div>
-                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/logos:firebase.svg" class="w-8 h-8"><span class="font-black text-xs uppercase text-orange-500">Firebase</span></div>
-                                <div class="flex items-center gap-3"><img src="https://api.iconify.design/vscode-icons:file-type-sql.svg" class="w-8 h-8"><span class="font-black text-xs uppercase">SQL / ERD</span></div>
-                            </div>
-                        </div>
-                        <div class="flex-1 border-t md:border-t-0 md:border-l border-pink-200 pt-8 md:pt-0 md:pl-12">
-                            <h3 class="text-slate-500 font-black text-[10px] uppercase tracking-[0.2em] mb-6">Productivity & Design</h3>
-                            <div class="flex gap-10">
-                                <img src="https://api.iconify.design/logos:figma.svg" class="w-10 h-10" title="Figma">
-                                <img src="https://img.icons8.com/?size=100&id=iWw83PVcBpLw&format=png&color=000000" class="w-10 h-10" title="Canva">
-                                <img src="https://api.iconify.design/logos:google-workspace.svg" class="w-10 h-10" title="Google Workspace">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Gallery -->
-        <section id="projects" class="mb-40 reveal">
-            <h2 class="text-3xl font-extrabold mb-16 text-center">Portfolio Masterpieces</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <div class="bento-card group justify-between h-full bg-gradient-to-br from-white to-pink-50/30">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">☕</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">KOPI NANG</h3>
-                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6">Full-stack ordering app</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Location-based mobile app with QR verification, promo integration, and admin statistics dashboard.</p>
-                    </div>
-                    <div class="flex gap-3 pt-6 border-t border-pink-100 mt-auto">
-                        <a href="https://github.com/nabilagx/aplikasi-kopi-nang" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">App</a>
-                        <a href="https://github.com/nabilagx/kopinang-api" target="_blank" class="flex-1 text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">API</a>
-                    </div>
-                </div>
-                <div class="bento-card group justify-between h-full">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">🐣</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">Netes.io</h3>
-                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6">IoT Smart Incubator</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Smart egg incubator using ESP32 and Firebase. Real-time remote monitoring via Flutter mobile app.</p>
-                    </div>
-                    <a href="https://github.com/nabilagx/netesio-mobile" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">GitHub Repo</a>
-                </div>
-                <div class="bento-card group justify-between h-full bg-indigo-50/20 border-indigo-100">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-indigo-100 group-hover:scale-110 transition">🧑‍🔧</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase">Yo-Tukang!</h3>
-                        <p class="text-indigo-500 text-[10px] font-black uppercase tracking-widest mb-6">UI/UX Case Study</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">End-to-end design thinking process connecting homeowners with verified professional handymen.</p>
-                    </div>
-                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">Prototype</a>
-                </div>
-                <div class="bento-card group justify-between h-full">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">📚</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">SiMBA</h3>
-                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Tutoring System</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Database-driven management system to digitize student registration, scheduling, and payments.</p>
-                    </div>
-                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Design</a>
-                </div>
-                <div class="bento-card group justify-between h-full">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-pink-100 group-hover:scale-110 transition">🧑‍🎓</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">m.wow</h3>
-                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Student Engagement</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Digital platform concept helping students discover campus opportunities and build digital portfolios.</p>
-                    </div>
-                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Concept</a>
-                </div>
-                <div class="bento-card group justify-between h-full bg-slate-50/50">
-                    <div>
-                        <div class="w-16 h-16 bg-white rounded-3xl flex items-center justify-center text-4xl mb-8 shadow-sm border border-slate-200 group-hover:scale-110 transition">👔</div>
-                        <h3 class="text-2xl font-extrabold mb-2 text-slate-900 uppercase leading-none">CleanCloth</h3>
-                        <p class="text-pink-500 text-[10px] font-black uppercase tracking-widest mb-6 mt-2">Python CLI App</p>
-                        <p class="text-slate-500 text-sm mb-8 leading-relaxed">Laundry service management application built with Python using CSV for local data storage.</p>
-                    </div>
-                    <a href="#" target="_blank" class="w-full text-center bg-slate-900 text-white py-3.5 rounded-2xl text-[10px] font-black uppercase hover:bg-pink-600 transition tracking-widest">View Repo</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section id="certifications" class="mb-40 reveal">
-            <h2 class="text-3xl font-extrabold mb-12 text-center md:text-left uppercase tracking-tighter">Certifications & Training</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bento-card border-pink-300 bg-pink-50/30">
-                    <p class="text-pink-600 text-[10px] font-black uppercase tracking-widest mb-2">Digital Talent Scholarship</p>
-                    <h3 class="text-xl font-extrabold mb-4 uppercase leading-tight">Mindset Digital</h3>
-                    <p class="text-[9px] text-slate-400 font-bold mb-6 italic tracking-widest uppercase">ID: 2299815850-4155 | Jun 2025</p>
-                    <a href="https://linkedin.com" target="_blank" class="mt-auto bg-slate-900 text-white text-[10px] py-3 px-6 rounded-2xl text-center font-black uppercase tracking-widest hover:bg-pink-600 transition">Verify Badge</a>
-                </div>
-                <div class="bento-card">
-                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">KUMPUL</p>
-                    <h3 class="text-lg font-extrabold mb-2 uppercase">AI Ignition Training</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed mb-6">Generative AI, LLM utilization, and Prompt Engineering mastery.</p>
-                    <span class="mt-auto inline-block w-max bg-slate-50 px-3 py-1 rounded-full text-[9px] font-black text-slate-400 uppercase">Aug 2025</span>
-                </div>
-                <div class="bento-card">
-                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">Kasir Pintar</p>
-                    <h3 class="text-lg font-extrabold mb-2 uppercase">Coaching Bizclash 2.0</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed mb-6">Advanced Negotiation, Business Pitching, and Strategic Sales Coaching.</p>
-                    <span class="mt-auto inline-block w-max bg-slate-50 px-3 py-1 rounded-full text-[9px] font-black text-slate-400 uppercase">Aug 2025</span>
-                </div>
-                <div class="bento-card lg:col-span-2 bg-gradient-to-br from-white to-pink-50/50">
-                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">Kasir Pintar x Visiku</p>
-                    <h3 class="text-lg font-extrabold mb-2 uppercase">Proposal & Pitching to Deal</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed">Mastering the art of creating professional business proposals and closing high-value deals.</p>
-                </div>
-                <div class="bento-card">
-                    <p class="text-pink-500 text-[10px] font-black uppercase mb-2">GROWIA</p>
-                    <h3 class="text-lg font-extrabold mb-2 uppercase leading-none mt-2">Software Testing Basics</h3>
-                    <p class="text-xs text-slate-500 leading-relaxed mt-4">Core principles of Software Quality Assurance and Testing Methodologies.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Awards Section -->
-        <section id="awards" class="mb-40 reveal text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4 uppercase tracking-tighter text-slate-900">Honors & Awards</h2>
-            <p class="text-slate-400 text-sm mb-12">Click card for achievement details. My competitive journey since 2018.</p>
-            <div class="marquee-container">
-                <div id="awardsWrapper" class="marquee-content py-6">
-                    <!-- JS Injected Awards -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Background Information -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20 reveal">
-            <div class="space-y-10">
-                <h2 class="text-3xl font-extrabold uppercase tracking-tighter text-slate-900">Background</h2>
-                <div class="bento-card">
-                    <div class="flex justify-between items-start mb-6">
-                        <h3 class="text-xl font-bold uppercase leading-tight">Contracted Author</h3>
-                        <span class="text-[9px] font-black bg-pink-50 text-pink-500 px-4 py-1.5 rounded-full uppercase tracking-widest">2022 - Now</span>
-                    </div>
-                    <p class="text-xs text-slate-400 font-bold mb-4 italic tracking-wider">NovelToon (MangaToon Group)</p>
-                    <ul class="text-slate-500 text-sm space-y-3 list-disc list-inside leading-relaxed">
-                        <li>Published romance fiction “Cinta Tak Terkalahkan”.</li>
-                        <li>Consistent story arcs and international audience engagement.</li>
-                    </ul>
-                </div>
-                <div class="bento-card">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-bold uppercase text-slate-900">Universitas Jember</h3>
-                        <span class="text-pink-500 text-[10px] font-black uppercase tracking-widest">2023 - 2027</span>
-                    </div>
-                    <p class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">B.S. Information Technology</p>
-                </div>
-            </div>
-
-            <div class="space-y-10">
-                <h2 class="text-3xl font-extrabold opacity-0 select-none hidden md:block">Spacer</h2>
-                <div class="bento-card bg-slate-900 text-white border-none">
-                    <h3 class="text-[10px] font-black uppercase text-pink-400 mb-6 tracking-widest">Volunteering</h3>
-                    <h4 class="font-bold mb-2 uppercase text-lg leading-tight">1945 Real Leader Story</h4>
-                    <p class="text-[10px] text-slate-400 mb-6 font-bold tracking-widest uppercase opacity-60">Pemimpin.id | Aug 2022</p>
-                    <p class="text-sm text-slate-400 leading-relaxed italic opacity-80">Youth empowerment initiative focused on integrity and impactful leadership skills.</p>
-                </div>
-                <div class="bento-card">
-                    <h3 class="text-[10px] font-black uppercase text-pink-600 mb-8 tracking-widest">Languages</h3>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">Indonesian</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Native</span></div>
-                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">English</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Professional</span></div>
-                        <div class="flex justify-between items-center"><span class="text-xs font-bold uppercase text-slate-800 tracking-wider">Javanese</span><span class="text-[8px] font-black bg-pink-50 text-pink-500 px-3 py-1.5 rounded uppercase">Native</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Modal Achievement -->
-    <div id="awardModal" class="modal-overlay">
-        <div class="modal-content relative text-center">
-            <button onclick="closeAwardModal()" class="absolute top-6 right-8 text-slate-300 hover:text-pink-500 transition text-4xl">×</button>
-            <div id="modalIcon" class="text-7xl mb-8 drop-shadow-xl">🏆</div>
-            <h3 id="modalTitle" class="text-2xl md:text-3xl font-black text-slate-900 mb-2 leading-tight px-6"></h3>
-            <p id="modalMeta" class="text-[10px] font-black text-pink-500 uppercase tracking-[0.3em] mb-10"></p>
-            <div class="bg-slate-50 p-8 md:p-10 rounded-[2.5rem] text-slate-600 text-sm md:text-base leading-relaxed text-left mb-10 shadow-inner">
-                <p id="modalDesc"></p>
-            </div>
-            <button onclick="closeAwardModal()" class="w-full bg-slate-900 text-white py-5 rounded-3xl font-black uppercase tracking-[0.2em] text-[10px] hover:bg-pink-600 transition shadow-2xl">Close Information</button>
+          <div class="absolute -bottom-8 -left-4 md:-left-10 card rounded-3xl p-5 max-w-[250px] -rotate-3 hidden sm:block">
+            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-violet-700 mb-2">Not just code</p>
+            <p class="text-sm text-slate-600 leading-6">
+              Teaching, writing, pitching, researching, and building are part of the same creative system.
+            </p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- IDENTITY PILLARS -->
+    <section id="identity" class="py-24 reveal">
+      <div class="mb-10">
+        <p class="section-kicker">What I actually do</p>
+        <h2 class="font-space text-4xl md:text-6xl font-black tracking-[-0.05em] mt-3">
+          Four ways I turn ideas into something real.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-5">
+        <article class="card rounded-[2rem] p-7">
+          <div class="text-4xl mb-6">⌨️</div>
+          <h3 class="font-space text-2xl font-black mb-3">Code</h3>
+          <p class="text-sm leading-7 text-slate-600">
+            Building web, mobile, database, Python, Flutter, Firebase, API, IoT, and data-driven prototypes.
+          </p>
+        </article>
+
+        <article class="card rounded-[2rem] p-7">
+          <div class="text-4xl mb-6">🧠</div>
+          <h3 class="font-space text-2xl font-black mb-3">Think</h3>
+          <p class="text-sm leading-7 text-slate-600">
+            Mapping problems, users, features, business models, research angles, and pitch narratives.
+          </p>
+        </article>
+
+        <article class="card rounded-[2rem] p-7">
+          <div class="text-4xl mb-6">📚</div>
+          <h3 class="font-space text-2xl font-black mb-3">Teach</h3>
+          <p class="text-sm leading-7 text-slate-600">
+            Private tutoring since 2020, helping students understand concepts with patience and structure.
+          </p>
+        </article>
+
+        <article class="card rounded-[2rem] p-7">
+          <div class="text-4xl mb-6">✍️</div>
+          <h3 class="font-space text-2xl font-black mb-3">Tell</h3>
+          <p class="text-sm leading-7 text-slate-600">
+            Published storytelling background through NovelToon, plus public speaking, writing, and pitching.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS -->
+    <section id="work" class="py-24 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <p class="section-kicker">Selected work</p>
+          <h2 class="font-space text-4xl md:text-6xl font-black tracking-[-0.05em] mt-3">
+            Projects, but make them feel like experiments.
+          </h2>
+        </div>
+        <p class="max-w-md text-sm leading-7 text-slate-600">
+          A curated set of academic, product, AI, IoT, security, and design projects. No random clutter.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+
+        <!-- PROJECT 1 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">01</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Flutter</span>
+              <span class="tag">ASP.NET Core API</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Firebase</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              Kopi Nang — Location-Based Coffee Ordering App
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A mobile ordering system with Google login, JWT authentication, dynamic catalog,
+              promo integration, QR-based verification, order tracking, reviews, and admin dashboard.
+            </p>
+          </div>
+
+          <div class="bg-[#15131a] text-white rounded-[1.6rem] p-5">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-yellow-300 mb-3">My role</p>
+            <p class="text-sm leading-6 text-white/75 mb-5">
+              Project Manager & Mobile Developer — focused on frontend integration, API consumption,
+              promo logic, checkout flow, and receipt design.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <a href="https://github.com/nabilagx/aplikasi-kopi-nang" target="_blank" class="link-btn bg-white text-slate-900 text-[10px] px-4 py-2">App</a>
+              <a href="https://github.com/nabilagx/kopinang-api" target="_blank" class="link-btn bg-white/10 text-white text-[10px] px-4 py-2 border border-white/15">API</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">02</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">ESP32</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Flutter</span>
+              <span class="tag">IoT</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              Netes.io — Smart Incubator System
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A smart egg incubator system combining ESP32, DHT22, Firebase Realtime Database,
+              automated rotation scheduling, remote monitoring, and mobile control interface.
+            </p>
+          </div>
+
+          <div class="rounded-[1.6rem] p-5 bg-emerald-50 border border-emerald-200">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-emerald-700 mb-3">System idea</p>
+            <p class="text-sm leading-6 text-slate-600 mb-5">
+              Tiny farm lab: turning hardware, sensor data, and app interface into one monitored system.
+            </p>
+            <a href="https://github.com/nabilagx/netesio-mobile" target="_blank" class="link-btn bg-[#15131a] text-white text-[10px] px-4 py-2">GitHub</a>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">03</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Python</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">Regression</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              Coffee Quality Prediction — Data Meets Taste
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A machine learning project predicting Arabica coffee quality scores using sensory attributes.
+              Compared Linear Regression and Random Forest, then deployed the prediction flow using Streamlit.
+            </p>
+          </div>
+
+          <div class="rounded-[1.6rem] p-5 bg-yellow-50 border border-yellow-200">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-yellow-700 mb-3">Learning angle</p>
+            <p class="text-sm leading-6 text-slate-600">
+              Understanding why a simpler model can outperform a complex model when the score structure is additive.
+            </p>
+          </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">04</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Python</span>
+              <span class="tag">AES</span>
+              <span class="tag">RSA</span>
+              <span class="tag">Tkinter</span>
+              <span class="tag">Cybersecurity</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              Cryptographic QR Security System
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A desktop prototype that protects sensitive QR Code data from tampering and phishing risks using
+              hybrid encryption: AES for payload encryption and RSA for key protection.
+            </p>
+          </div>
+
+          <div class="rounded-[1.6rem] p-5 bg-violet-50 border border-violet-200">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-violet-700 mb-3">Built for</p>
+            <p class="text-sm leading-6 text-slate-600 mb-5">
+              Practical security experiment for digital transaction data.
+            </p>
+            <a href="https://github.com/nabilagx/enkripsi-dekripsi-qrcode" target="_blank" class="link-btn bg-[#15131a] text-white text-[10px] px-4 py-2">GitHub</a>
+          </div>
+        </article>
+
+        <!-- PROJECT 5 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">05</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">UI/UX</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Design Thinking</span>
+              <span class="tag">Usability Testing</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              Yo-Tukang! — Service Design Case Study
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A UI/UX prototype for connecting users with verified handymen. The process included user interviews,
+              persona building, customer journey mapping, HMW, wireframing, high-fidelity design, and testing.
+            </p>
+          </div>
+
+          <div class="rounded-[1.6rem] p-5 bg-blue-50 border border-blue-200">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-blue-700 mb-3">Design value</p>
+            <p class="text-sm leading-6 text-slate-600">
+              Translating messy real-world service problems into clear flows, trust signals, and user-friendly booking.
+            </p>
+          </div>
+        </article>
+
+        <!-- PROJECT 6 -->
+        <article class="card rounded-[2.2rem] p-6 md:p-8 grid md:grid-cols-[0.26fr_1fr_0.55fr] gap-6 items-start">
+          <div>
+            <p class="project-number font-space text-6xl md:text-7xl font-black">06</p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Business Plan</span>
+              <span class="tag">Market Research</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Culture</span>
+            </div>
+            <h3 class="font-space text-3xl md:text-4xl font-black tracking-[-0.04em]">
+              NusantaraGift — Culture as Product Experience
+            </h3>
+            <p class="mt-4 text-slate-600 leading-7">
+              A cultural blind box concept merging physical local products with digital storytelling.
+              The project covered business model, market research, financial projection, UI/UX prototype,
+              and SME partnership strategy.
+            </p>
+          </div>
+
+          <div class="rounded-[1.6rem] p-5 bg-rose-50 border border-rose-200">
+            <p class="text-[10px] uppercase tracking-[0.2em] font-black text-rose-700 mb-3">Why it matters</p>
+            <p class="text-sm leading-6 text-slate-600">
+              This project connects product, culture, design, and social entrepreneurship.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="py-24 reveal">
+      <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-10">
+        <div>
+          <p class="section-kicker">Toolbox</p>
+          <h2 class="font-space text-4xl md:text-6xl font-black tracking-[-0.05em] mt-3">
+            Tools I use to build and think.
+          </h2>
+        </div>
+
+        <div class="card rounded-[2.2rem] p-7 md:p-8">
+          <div class="grid sm:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-space font-black text-xl mb-4">Development</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Python</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">SQL</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">ASP.NET Core</span>
+                <span class="tag">Streamlit</span>
+                <span class="tag">GitHub</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-space font-black text-xl mb-4">AI, Data & Security</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Data Mining</span>
+                <span class="tag">Data Science</span>
+                <span class="tag">Cryptography</span>
+                <span class="tag">Software Testing</span>
+                <span class="tag">Prompt Engineering</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-space font-black text-xl mb-4">Product & Design</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Figma</span>
+                <span class="tag">UI/UX</span>
+                <span class="tag">Design Thinking</span>
+                <span class="tag">Business Model</span>
+                <span class="tag">Pitching</span>
+                <span class="tag">Canva</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-space font-black text-xl mb-4">Communication</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="tag">Teaching</span>
+                <span class="tag">Storytelling</span>
+                <span class="tag">Public Speaking</span>
+                <span class="tag">Research</span>
+                <span class="tag">Content Writing</span>
+                <span class="tag">Leadership</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / BACKGROUND -->
+    <section class="py-24 reveal">
+      <div class="grid lg:grid-cols-3 gap-6">
+        <article class="card rounded-[2.2rem] p-8 lg:col-span-1 bg-[#15131a] text-white">
+          <p class="section-kicker text-yellow-300">Education</p>
+          <h2 class="font-space text-3xl font-black mt-4">University of Jember</h2>
+          <p class="text-white/60 mt-2 font-bold">B.S. Information Technology</p>
+          <p class="text-white/60 mt-1">2023 — 2027</p>
+
+          <div class="mt-8 rounded-3xl bg-white/10 border border-white/10 p-5">
+            <p class="text-4xl font-black">3.88</p>
+            <p class="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mt-1">
+              GPA / 4.00
+            </p>
+          </div>
+        </article>
+
+        <article class="card rounded-[2.2rem] p-8">
+          <p class="section-kicker">Professional thread</p>
+          <h2 class="font-space text-3xl font-black mt-4">Private Tutor</h2>
+          <p class="text-slate-500 font-bold mt-2">Self-employed · Aug 2020 — Present</p>
+          <p class="mt-5 text-slate-600 leading-7">
+            Provide private tutoring for junior and senior high school students in Mathematics,
+            English, and Science. I adapt teaching methods based on student needs and build supportive
+            relationships with students and parents.
+          </p>
+        </article>
+
+        <article class="card rounded-[2.2rem] p-8">
+          <p class="section-kicker">Creative thread</p>
+          <h2 class="font-space text-3xl font-black mt-4">Published Author</h2>
+          <p class="text-slate-500 font-bold mt-2">NovelToon / MangaToon Group · 2022 — 2024</p>
+          <p class="mt-5 text-slate-600 leading-7">
+            Published a romance fiction titled “Cinta Tak Terkalahkan” through NovelToon.
+            This strengthened my long-form storytelling, narrative structure, discipline,
+            and digital publishing experience.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="py-24 reveal">
+      <div class="grid md:grid-cols-[0.75fr_1.25fr] gap-12">
+        <div>
+          <p class="section-kicker">Growth map</p>
+          <h2 class="font-space text-4xl md:text-6xl font-black tracking-[-0.05em] mt-3">
+            The timeline is not linear. It stacks.
+          </h2>
+          <p class="mt-6 text-slate-600 leading-7">
+            My path combines teaching, creative writing, technology, competitions, research,
+            and product experiments.
+          </p>
+        </div>
+
+        <div class="card rounded-[2.2rem] p-7 md:p-8">
+          <div class="space-y-8">
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2020 — Started teaching</p>
+                <p class="text-slate-600 leading-7 mt-1">Began private tutoring and learned how to explain difficult concepts clearly.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2022 — Entered digital publishing</p>
+                <p class="text-slate-600 leading-7 mt-1">Became a NovelToon contracted author and published serialized fiction.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2023 — Began IT journey</p>
+                <p class="text-slate-600 leading-7 mt-1">Started Information Technology at University of Jember, won TIC, and became Afrina Fellowship awardee.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2024 — Explored UX and systems</p>
+                <p class="text-slate-600 leading-7 mt-1">Built database systems, UI/UX case studies, and student engagement ideas.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2025 — Built across domains</p>
+                <p class="text-slate-600 leading-7 mt-1">Worked on mobile apps, IoT systems, AI/ML, cryptography, business plans, and national competitions.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="timeline-dot"></div>
+              <div>
+                <p class="font-space font-black text-xl">2026 — Sharpening portfolio</p>
+                <p class="text-slate-600 leading-7 mt-1">Strengthening AI, product, data, cloud, UX, and innovation portfolio through certifications and projects.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section id="recognition" class="py-24 reveal">
+      <div class="mb-12">
+        <p class="section-kicker">Recognition</p>
+        <h2 class="font-space text-4xl md:text-6xl font-black tracking-[-0.05em] mt-3">
+          Signals of consistency.
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🏅</p>
+          <h3 class="font-space font-black text-xl">Awardee — Afrina Fellowship</h3>
+          <p class="text-sm text-slate-500 mt-2">Afrina Academy · 2023</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🥈</p>
+          <h3 class="font-space font-black text-xl">2nd Place — TIC</h3>
+          <p class="text-sm text-slate-500 mt-2">University of Jember · 2023</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🎙️</p>
+          <h3 class="font-space font-black text-xl">Honorable Mention — MTQMN</h3>
+          <p class="text-sm text-slate-500 mt-2">Syarhil Qur’an · 2023</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🏛️</p>
+          <h3 class="font-space font-black text-xl">Top 50 Finalist — BudayaGO!</h3>
+          <p class="text-sm text-slate-500 mt-2">Ministry of Culture RI · 2025</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🚀</p>
+          <h3 class="font-space font-black text-xl">Top 25 Semifinalist — BizClash! 2.0</h3>
+          <p class="text-sm text-slate-500 mt-2">Kasir Pintar · 2025</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🌱</p>
+          <h3 class="font-space font-black text-xl">Top 15 Finalist — Lomba BUMI</h3>
+          <p class="text-sm text-slate-500 mt-2">United Tractors / Astra Group · 2025</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">📊</p>
+          <h3 class="font-space font-black text-xl">Top 100 Finalist — National Research Competition</h3>
+          <p class="text-sm text-slate-500 mt-2">tSurvey.id x Kompas.id · 2025</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">🏆</p>
+          <h3 class="font-space font-black text-xl">Best Task Recipient — AI Ignition</h3>
+          <p class="text-sm text-slate-500 mt-2">Kasir Pintar x KUMPUL · 2025</p>
+        </div>
+
+        <div class="card rounded-[1.8rem] p-6">
+          <p class="text-3xl mb-4">📱</p>
+          <h3 class="font-space font-black text-xl">Samsung Innovation Campus</h3>
+          <p class="text-sm text-slate-500 mt-2">Stage 1–4 · 2025–2026</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="py-24 reveal">
+      <div class="card rounded-[2.2rem] p-7 md:p-10 bg-[#15131a] text-white">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
+          <div>
+            <p class="section-kicker text-yellow-300">Certifications</p>
+            <h2 class="font-space text-4xl md:text-5xl font-black tracking-[-0.05em] mt-3">
+              Learning receipts.
+            </h2>
+            <p class="mt-6 text-white/60 leading-7">
+              Selected trainings and certifications in AI, machine learning, Python, backend, data, UX, cloud, software testing, and product innovation.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-2 content-start">
+            <span class="tag bg-white/10 text-white border-white/10">Samsung Innovation Campus Stage 1–4</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding Python</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding Machine Learning</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding Back-End Python</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding Data Science</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding UX Design</span>
+            <span class="tag bg-white/10 text-white border-white/10">Dicoding Google Cloud</span>
+            <span class="tag bg-white/10 text-white border-white/10">Learning AI Fundamentals</span>
+            <span class="tag bg-white/10 text-white border-white/10">AI Praktis untuk Produktivitas</span>
+            <span class="tag bg-white/10 text-white border-white/10">AI Ignition Training</span>
+            <span class="tag bg-white/10 text-white border-white/10">Fundamentals of Software Testing</span>
+            <span class="tag bg-white/10 text-white border-white/10">Digital Talent Scholarship</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-24 reveal">
+      <div class="text-center max-w-4xl mx-auto">
+        <p class="section-kicker">Contact</p>
+        <h2 class="font-space text-5xl md:text-7xl font-black tracking-[-0.06em] mt-4">
+          Let’s build something thoughtful.
+        </h2>
+        <p class="mt-6 text-slate-600 leading-8 max-w-2xl mx-auto">
+          Open for collaboration, internships, product experiments, education technology,
+          AI/data projects, and creative digital initiatives.
+        </p>
+
+        <div class="mt-10 flex flex-wrap justify-center gap-3">
+          <a href="mailto:choyshimanis@gmail.com" class="link-btn bg-[#15131a] text-white hover:bg-violet-700">
+            Email me
+          </a>
+          <a href="https://github.com/nabilagx" target="_blank" class="link-btn border border-black/15 bg-white/40 text-slate-900">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="link-btn border border-black/15 bg-white/40 text-slate-900">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-black/10 py-8 px-5">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-4 text-xs text-slate-500">
+      <p class="font-bold">© <span id="year"></span> Nabila Choirunisa.</p>
+      <p>Built as a creative technology lab — with code, care, and story.</p>
     </div>
+  </footer>
 
-    <!-- Small & Clean Footer -->
-    <footer id="contact" class="bg-slate-900 text-white pt-16 pb-20 rounded-t-[5rem] text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-2xl md:text-3xl font-extrabold mb-6 leading-tight tracking-tight uppercase">Let's build <span class="text-pink-500 italic lowercase font-light">the future</span> together.</h2>
-            <a href="mailto:choyshimanis@gmail.com" class="inline-block bg-pink-500 text-white px-10 py-4 rounded-[2rem] font-black uppercase tracking-widest text-[10px] mb-12 shadow-xl hover:scale-105 transition">Get In Touch</a>
-            
-            <div class="flex justify-center gap-8 mb-10">
-                <a href="https://github.com/nabilagx" target="_blank" class="hover:scale-110 transition p-3 bg-slate-800 rounded-2xl opacity-60 hover:opacity-100"><img src="https://api.iconify.design/mdi:github.svg?color=white" class="w-6 h-6"></a>
-                <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="hover:scale-110 transition p-3 bg-slate-800 rounded-2xl opacity-60 hover:opacity-100"><img src="https://api.iconify.design/mdi:linkedin.svg?color=white" class="w-6 h-6"></a>
-            </div>
-            
-            <p class="text-slate-600 text-[9px] font-black uppercase tracking-[0.6em]">Built with logic & pink by Nabila Choirunisa최</p>
-        </div>
-    </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    <script>
-        const awardsData = [
-            { title: "🏆 Best Task Recipient - AI Ignition Bootcamp", issuer: "KASIR PINTAR", date: "Aug 2025", desc: "Awarded for outstanding performance in the 'Best Task' category at AI Ignition. Excelling in business proposal creation and pitching coaching. Supported by Google.org and ADB." },
-            { title: "Top 25 Semifinalist – BizClash! 2.0", issuer: "Kasir Pintar", date: "August 2025", desc: "Selected in innovation challenge for introducing 'NusantarGift,' combining Indonesian heritage with modern packaging to empower local MSMEs." },
-            { title: "Top 100 Finalist – National Research Competition", issuer: "tSurvey.id & Kompas.id", date: "July 2025", desc: "Finalist for research on 'FOMO and Social Validation on Social Media,' receiving journalism training and funding." },
-            { title: "🌱 Top 15 Finalist – Lomba BUMI 2025", issuer: "United Tractors (Astra Group)", date: "July 2025", desc: "Presented 'AYUMA,' an integrated low-cost smart poultry system, competing against doctoral-level professionals." },
-            { title: "🎓 Participant – Innovative Challenge 2024", issuer: "University of Jember", date: "May 2024", desc: "Fostering digital solutions to strengthen human capital in alignment with the SDGs." },
-            { title: "🎨 Participant – UI/UX Design Competition", issuer: "Univ Darussalam Gontor", date: "Jan 2024", desc: "Gained valuable experience in creative design and user-centric planning during FESTIDA." },
-            { title: "📝 Participant – National Essay Competition 2023", issuer: "PT Hutama Karya (Persero)", date: "Nov 2023", desc: "Submitted an essay on 'Sustainable Road and Bridge through Lean and Green Infrastructure'." },
-            { title: "🏅 Honorable Mention – MTQMN University", issuer: "Univ Jember", date: "Sep 2023", desc: "Juara Harapan 1 in Syarhil Quran category, reflecting public speaking and teamwork." },
-            { title: "🥈 2nd Place – Innovative Challenge 2023", issuer: "Univ Jember", date: "Sep 2023", desc: "Developing IT-based solution with team AeroAegis addressing sustainability challenges." },
-            { title: "🏅 Awardee – Afrina Fellowship 2023", issuer: "Afrina Academy", date: "May 2023", desc: "Fellowship award recognizing leadership, academic excellence, and social impact." },
-            { title: "🎙️ Participant – Master of Ceremony Competition", issuer: "K Radio & Lippo Plaza", date: "Dec 2022", desc: "Practiced stage confidence and event hosting skills in a real-world setting." },
-            { title: "🥇 1st Place – Bung Karno Speech Contest", issuer: "SMA Negeri Ambulu", date: "Aug 2022", desc: "Achieved 1st place by delivering an expressive rendition of Soekarno’s original speech." },
-            { title: "🥉 3rd Place – Poetry Reading Competition", issuer: "SMA Negeri Ambulu", date: "Mar 2021", desc: "Won 3rd place showcasing vocal delivery and stage presence at mid-semester festival." },
-            { title: "🥈 2nd Place – Islamic Speech Competition 2019", issuer: "MoRA Jember", date: "Nov 2019", desc: "Won 2nd place in LPP during the 2019 PAIS Festival." },
-            { title: "🥉 3rd Place – Islamic Speech Contest 2018", issuer: "MoRA Jember", date: "Oct 2018", desc: "Awarded at PENTAS PAI 2018 festival." },
-            { title: "🥈 2nd Place – Islamic Speech Competition 2018", issuer: "MoRA Jember", date: "Sep 2018", desc: "Commemoration of 1 Muharram 1440 H." }
-        ];
-
-        function initAwards() {
-            const wrapper = document.getElementById('awardsWrapper');
-            awardsData.forEach((award, index) => {
-                const item = document.createElement('div');
-                item.className = 'award-item bento-card flex flex-col justify-between shadow-sm';
-                item.setAttribute('data-index', index);
-                item.innerHTML = `
-                    <h3 class="text-sm font-extrabold leading-tight line-clamp-2 pointer-events-none uppercase">${award.title}</h3>
-                    <p class="text-pink-500 font-black text-[9px] uppercase mt-6 pointer-events-none tracking-widest">${award.issuer}</p>
-                `;
-                wrapper.appendChild(item);
-            });
-            const clones = Array.from(wrapper.children).map(n => n.cloneNode(true));
-            clones.forEach(c => wrapper.appendChild(c));
-
-            wrapper.addEventListener('click', (e) => {
-                const card = e.target.closest('.award-item');
-                if (card) openAwardModal(parseInt(card.getAttribute('data-index')));
-            });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
         }
+      });
+    }, { threshold: 0.12 });
 
-        function openAwardModal(index) {
-            const data = awardsData[index];
-            const modal = document.getElementById('awardModal');
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalMeta').innerText = `${data.issuer} | ${data.date}`;
-            document.getElementById('modalDesc').innerText = data.desc;
-            
-            const icon = document.getElementById('modalIcon');
-            if(data.title.includes('🏆')) icon.innerText = '🏆';
-            else if(data.title.includes('🥈') || data.title.includes('🥉') || data.title.includes('🥇')) icon.innerText = '🏅';
-            else if(data.title.includes('🌱')) icon.innerText = '🌱';
-            else icon.innerText = '✨';
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeAwardModal() {
-            document.getElementById('awardModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-
-        window.onload = () => {
-            initAwards();
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        };
-        window.onkeydown = (e) => { if(e.key === "Escape") closeAwardModal(); }
-    </script>
+    const cursorDot = document.getElementById("cursorDot");
+    window.addEventListener("mousemove", (e) => {
+      cursorDot.style.left = e.clientX + "px";
+      cursorDot.style.top = e.clientY + "px";
+    });
+  </script>
 </body>
 </html>
