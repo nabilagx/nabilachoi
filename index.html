@@ -3,124 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabila Choirunisa — Full Stack Product Builder Portfolio</title>
-  <meta name="description" content="Portfolio of Nabila Choirunisa, Full Stack Product Builder, AI Enthusiast, and Computer Science Student at University of Jember. Specialize in Education Technology and high-impact digital products." />
+  <title>Nabila Choirunisa — Handler & Hacker | Full Stack Product Builder</title>
+  <meta name="description" content="Portfolio of Nabila Choirunisa, Full Stack Product Builder, AI Engineer, and Computer Science Student at University of Jember." />
 
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#EEF2FF',
+              100: '#E0E7FF',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA',
+              900: '#1E1B4B',
+            },
+            hacker: {
+              50: '#ECFDF5',
+              100: '#D1FAE5',
+              500: '#10B981',
+              600: '#059669',
+              700: '#047857',
+            },
+            handler: {
+              50: '#F5F3FF',
+              100: '#EDE9FE',
+              500: '#8B5CF6',
+              600: '#7C3AED',
+              700: '#6D28D9',
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Instrument Serif', 'serif'],
+            space: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 3s infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'shimmer': 'shimmer 2.5s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            },
+            shimmer: {
+              '100%': { transform: 'translateX(100%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts Imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Phosphor Icons for premium aesthetic -->
+  <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
   <style>
     :root {
-      --ink: #110f15;
-      --muted: #57525d;
-      --paper: #FAF6EE;
-      --card: #FCFAF5;
-      --accent: #6D28D9; /* Premium Violet */
-      --accent-light: #EDE9FE;
-      --success: #059669; /* Emerald */
-      --line: rgba(17, 15, 21, 0.08);
+      --bg-light: #F8FAFC;
+      --card-white: #FFFFFF;
+      --border-light: #E2E8F0;
+      --text-dark: #0F172A;
+      --text-muted: #475569;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--paper);
-      background-image: 
-        radial-gradient(circle at 10% 15%, rgba(109, 40, 217, 0.08), transparent 35rem),
-        radial-gradient(circle at 90% 80%, rgba(242, 184, 75, 0.08), transparent 35rem);
-      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       overflow-x: hidden;
     }
 
-    .font-display {
+    .font-serif-italic {
       font-family: 'Instrument Serif', serif;
+      font-style: italic;
     }
 
-    .font-space {
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* Noise Texture Overlay */
-    .noise {
-      pointer-events: none;
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.85'/%3E%3C/svg%3E");
-    }
-
-    /* Grid Background */
-    .grid-bg {
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(rgba(17, 15, 21, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(17, 15, 21, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-    }
-
-    /* Glass Effect for Premium UI components */
-    .glass {
-      background: rgba(252, 250, 245, 0.85);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(17, 15, 21, 0.08);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(17, 15, 21, 0.08);
-      box-shadow: 0 10px 30px -10px rgba(17, 15, 21, 0.04);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px -15px rgba(17, 15, 21, 0.1);
-      border-color: var(--accent);
-    }
-
-    .tag-tech {
-      border: 1px solid rgba(17, 15, 21, 0.06);
-      background: rgba(17, 15, 21, 0.03);
-      padding: 0.35rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--muted);
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    /* Custom Premium Spring Pointer Follower */
+    /* Custom Dual-Stage Spring Pointer Follower */
     .cursor-dot {
       width: 8px;
       height: 8px;
-      background: var(--accent);
+      background: #4F46E5;
       border-radius: 999px;
       position: fixed;
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s;
+      transition: width 0.2s, height 0.2s, background-color 0.2s;
     }
 
     .cursor-ring {
-      width: 34px;
-      height: 34px;
-      border: 1.5px solid var(--accent);
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid rgba(79, 70, 229, 0.5);
       border-radius: 999px;
       position: fixed;
       pointer-events: none;
       z-index: 99998;
       transform: translate(-50%, -50%);
-      transition: transform 0.1s ease-out, border-color 0.2s;
+      transition: transform 0.15s ease-out, border-color 0.2s, width 0.2s, height 0.2s;
     }
 
     @media (pointer: coarse) {
@@ -129,310 +126,503 @@
       }
     }
 
-    /* Elegant Custom Scrollbar */
+    /* Ambient Motion Mesh Background */
+    .ambient-blob-1 {
+      position: absolute;
+      top: 5%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .ambient-blob-2 {
+      position: absolute;
+      top: 20%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Technical Grid Overlay */
+    .tech-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+    }
+
+    /* Interactive Fluid Card Style */
+    .card-clean {
+      background: var(--card-white);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-clean:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      border-color: #A5B4FC;
+    }
+
+    .card-hacker:hover {
+      border-color: #6EE7B7;
+      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1);
+    }
+
+    .card-handler:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.1);
+    }
+
+    .tag-tech {
+      border: 1px solid #E2E8F0;
+      background: #F1F5F9;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #334155;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .tag-tech:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    /* Text Gradients */
+    .text-gradient-handler {
+      background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-hacker {
+      background: linear-gradient(135deg, #059669 0%, #0D9488 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Glass Effect */
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: var(--paper);
+      background: #F8FAFC;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(17, 15, 21, 0.2);
+      background: #CBD5E1;
       border-radius: 999px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent);
+      background: #4F46E5;
     }
   </style>
 </head>
-<body class="antialiased selection:bg-purple-200 selection:text-purple-900">
-  
-  <div class="noise"></div>
-  <div class="grid-bg"></div>
+<body class="antialiased selection:bg-brand-100 selection:text-brand-900 bg-slate-50 text-slate-900 relative">
 
-  <!-- Dual-stage Cursor Follower Elements -->
+  <!-- DUAL-STAGE POINTER FOLLOWER -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
+  <!-- Ambient background blobs -->
+  <div class="ambient-blob-1"></div>
+  <div class="ambient-blob-2"></div>
+  <div class="fixed inset-0 tech-grid pointer-events-none z-[-1]"></div>
+
   <!-- NAVBAR -->
-  <header class="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
-    <nav class="glass max-w-6xl mx-auto rounded-2xl px-5 py-3 flex items-center justify-between shadow-sm">
-      <a href="#home" onclick="navigateTo('home')" class="font-space font-black tracking-tight text-base flex items-center gap-2">
-        <span class="w-2.5 h-2.5 bg-violet-600 rounded-full animate-pulse"></span>
-        Nabila<span class="text-violet-700">.builder</span>
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-4 md:px-8 py-3 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand & Status -->
+      <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2.5 font-space font-bold text-sm text-slate-900 group">
+        <span class="relative flex h-3 w-3">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-hacker-500 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-hacker-600"></span>
+        </span>
+        <span class="tracking-tight font-black text-base group-hover:text-brand-600 transition">NABILA<span class="text-brand-600">.HQ</span></span>
+        <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-mono font-semibold text-slate-600">
+          OPERATIONAL
+        </span>
       </a>
 
-      <!-- Desktop Menu Links -->
-      <div class="hidden md:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.15em] text-slate-500">
-        <a href="#work" onclick="navigateTo('home')" class="hover:text-violet-700 transition flex items-center gap-1"><i class="ph ph-briefcase"></i> Works</a>
-        <a href="#identity" onclick="navigateTo('home')" class="hover:text-violet-700 transition flex items-center gap-1"><i class="ph ph-fingerprint"></i> Identity</a>
-        <a href="#skills" onclick="navigateTo('home')" class="hover:text-violet-700 transition flex items-center gap-1"><i class="ph ph-cpu"></i> Stack</a>
-        <a href="#timeline" onclick="navigateTo('home')" class="hover:text-violet-700 transition flex items-center gap-1"><i class="ph ph-chart-line-up"></i> Growth</a>
-        <a href="#recognition" onclick="navigateTo('home')" class="hover:text-violet-700 transition flex items-center gap-1"><i class="ph ph-trophy"></i> Awards</a>
-      </div>
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-7 font-mono text-xs font-semibold text-slate-600 uppercase tracking-wider">
+        <a href="#matrix" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-cpu text-brand-600"></i> Matrix</a>
+        <a href="#work" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-squares-four text-brand-600"></i> Systems</a>
+        <a href="#skills" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-code text-brand-600"></i> Stack</a>
+        <a href="#timeline" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-git-commit text-brand-600"></i> Logs</a>
+        <a href="#recognition" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-trophy text-brand-600"></i> Awards</a>
+      </nav>
 
+      <!-- Action Button -->
       <div class="flex items-center gap-3">
-        <a href="mailto:choyshimanis@gmail.com" class="bg-[#110f15] hover:bg-violet-700 text-white rounded-xl px-4 py-2 text-[11px] font-black uppercase tracking-wider transition-colors duration-200 flex items-center gap-2">
-          <span>Let's Build</span> <i class="ph ph-arrow-up-right"></i>
+        <a href="#contact" class="bg-slate-900 hover:bg-brand-600 text-white font-mono font-semibold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:scale-[1.02]">
+          <i class="ph ph-paper-plane-tilt text-sm"></i>
+          <span>Let's Talk</span>
         </a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- MAIN PORTFOLIO WRAPPER -->
   <div id="main-portfolio" class="transition-opacity duration-300">
     
-    <!-- HERO SECTION WITH KEY STATS -->
-    <main id="home" class="max-w-6xl mx-auto px-4 md:px-8 pt-28 md:pt-36">
+    <main id="home" class="max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-32">
       
-      <section class="grid lg:grid-cols-[1.3fr_0.7fr] gap-8 items-start min-h-[75vh] py-8">
+      <!-- HERO SECTION -->
+      <section class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center min-h-[78vh] py-6">
         
         <!-- Left Hero Content -->
         <div class="space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl border border-violet-200 bg-violet-50 text-violet-800">
-            <span class="w-2 h-2 bg-violet-600 rounded-full animate-ping"></span>
-            <span class="text-[10px] font-black uppercase tracking-[0.15em] font-space">
-              A Product Builder who happens to be a Computer Science Student
-            </span>
+          
+          <!-- Persona Badge & Interactive Mode Switcher -->
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-200 bg-brand-50/80 text-brand-700 font-mono text-xs font-semibold shadow-sm">
+              <i class="ph ph-shield-check text-sm text-brand-600"></i>
+              <span>FULL STACK PRODUCT BUILDER & AI ARCHITECT</span>
+            </div>
+
+            <!-- MODE FILTER BUTTONS -->
+          <div class="inline-flex p-1 bg-slate-200/70 backdrop-blur-sm rounded-full border border-slate-300 text-[10px] font-mono font-bold uppercase">
+            <button onclick="setPersonaMode('all')" id="btn-mode-all" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all">All</button>
+            <button onclick="setPersonaMode('hacker')" id="btn-mode-hacker" class="px-3 py-1 rounded-full text-slate-600 hover:text-hacker-700 transition-all">Hacker</button>
+            <button onclick="setPersonaMode('handler')" id="btn-mode-handler" class="px-3 py-1 rounded-full text-slate-600 hover:text-handler-700 transition-all">Handler</button>
           </div>
+        </div>
 
-          <h1 class="font-space text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight text-slate-900">
-            Building AI-powered digital products <br class="hidden md:inline" />
-            for <span class="font-display italic font-normal tracking-normal text-violet-700">education</span> and real-world impact.
-          </h1>
+        <!-- Headline -->
+        <h1 class="font-space text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] text-slate-900 tracking-tight">
+          Engineered as a <span class="font-serif-italic font-normal text-gradient-hacker text-5xl sm:text-6xl md:text-7xl">Hacker</span>.<br />
+          Orchestrated as a <span class="font-serif-italic font-normal text-gradient-handler text-5xl sm:text-6xl md:text-7xl">Handler</span>.
+        </h1>
 
-          <p class="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl">
-            I’m <strong class="text-slate-900">Nabila Choirunisa</strong>, a Full Stack Developer & AI Enthusiast based in Jember. 
-            I bridge the gap between technical complexity and beautiful human interfaces, architecting tools that solve systemic problems.
-          </p>
+        <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl font-sans">
+          I’m <strong class="text-slate-900 font-semibold">Nabila Choirunisa</strong>, Computer Science Student at University of Jember. 
+          I bridge raw technical pipelines, AI models, and product strategy—building robust EdTech tools and high-impact digital systems.
+        </p>
 
-          <!-- Current Focus Sticky Widget -->
-          <div class="p-4 rounded-2xl bg-violet-50/50 border border-violet-100 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between max-w-3xl">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-violet-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
-                🚀
+        <!-- Current Focus Dynamic Banner -->
+          <div class="card-clean p-4 rounded-2xl flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between bg-white border-slate-200/90 shadow-sm hover:border-brand-400">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center font-mono font-bold text-xl border border-brand-200 shrink-0 shadow-sm">
+                <i class="ph ph-lightning-fill text-brand-600"></i>
               </div>
               <div>
-                <p class="text-[10px] uppercase font-bold tracking-widest text-violet-700 font-space">Current Focus</p>
-                <h4 class="font-space font-black text-sm text-slate-800">Building KOIN — Digital School Wallet Platform</h4>
+                <div class="flex items-center gap-2">
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-brand-600 font-bold">Flagship Operation</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-hacker-500 animate-ping"></span>
+                </div>
+                <h4 class="font-space font-bold text-sm md:text-base text-slate-900">KOIN — Digital School Wallet Platform</h4>
               </div>
             </div>
-            <div class="flex flex-wrap gap-1.5">
+            <div class="flex flex-wrap gap-1">
               <span class="tag-tech">Next.js</span>
-              <span class="tag-tech">TypeScript</span>
               <span class="tag-tech">Supabase</span>
               <span class="tag-tech">NFC</span>
             </div>
           </div>
 
-          <!-- Action and CTA Buttons -->
-          <div class="flex flex-wrap gap-3 pt-4">
-            <a href="#work" class="bg-[#110f15] hover:bg-violet-700 text-white font-space font-bold tracking-wide uppercase text-xs px-6 py-4 rounded-xl transition duration-200 flex items-center gap-2">
-              Explore Featured Works <i class="ph ph-arrow-down"></i>
+          <!-- Action CTA Buttons -->
+          <div class="flex flex-wrap gap-3 pt-2 font-mono text-xs">
+            <a href="#work" class="bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-6 py-3.5 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02]">
+              Explore Deployments <i class="ph ph-arrow-down text-sm"></i>
             </a>
-            <a href="https://github.com/nabilagx" target="_blank" class="bg-white border border-slate-200 hover:border-violet-500 hover:text-violet-700 text-slate-800 font-space font-bold uppercase text-xs px-5 py-4 rounded-xl transition duration-200 flex items-center gap-2">
-              <i class="ph ph-github-logo text-lg"></i> GitHub
+            <a href="https://github.com/nabilagx" target="_blank" class="bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
+              <i class="ph ph-github-logo text-base"></i> GitHub
             </a>
-            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="bg-white border border-slate-200 hover:border-violet-500 hover:text-violet-700 text-slate-800 font-space font-bold uppercase text-xs px-5 py-4 rounded-xl transition duration-200 flex items-center gap-2">
-              <i class="ph ph-linkedin-logo text-lg"></i> LinkedIn
+            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="bg-white border border-slate-200 hover:border-handler-500 hover:text-handler-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
+              <i class="ph ph-linkedin-logo text-base"></i> LinkedIn
             </a>
           </div>
+
         </div>
 
-        <!-- Right Stats Column (Linear / Apple style indicator dashboard) -->
-        <div class="lg:sticky lg:top-24 space-y-4">
-          <div class="card rounded-3xl p-6 md:p-8 bg-[#110f15] text-white overflow-hidden relative">
-            <div class="absolute -right-12 -top-12 w-40 h-40 rounded-full bg-violet-600/30 blur-2xl"></div>
-            
-            <h3 class="font-space text-lg font-bold text-violet-300 mb-6 flex items-center gap-2">
-              <i class="ph ph-chart-bar"></i> Key Indicators
-            </h3>
-            
-            <div class="space-y-6 relative z-10">
-              <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                <span class="text-xs text-white/60 font-medium">Projects Shipped</span>
-                <span class="font-space text-3xl font-black text-white">15+</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                <span class="text-xs text-white/60 font-medium">Competition Products</span>
-                <span class="font-space text-3xl font-black text-violet-300">6</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                <span class="text-xs text-white/60 font-medium">AI & ML Pipelines</span>
-                <span class="font-space text-3xl font-black text-amber-300">4</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                <span class="text-xs text-white/60 font-medium">National Finalist</span>
-                <span class="font-space text-3xl font-black text-white">3</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                <span class="text-xs text-white/60 font-medium">Years Tutoring</span>
-                <span class="font-space text-3xl font-black text-white">5+</span>
-              </div>
-              <div class="flex justify-between items-center">
-                <span class="text-xs text-white/60 font-medium">Academic GPA</span>
-                <span class="font-space text-3xl font-black text-emerald-400">3.89</span>
-              </div>
-            </div>
-          </div>
+        <!-- Right Side: Clean Profile Identity Card & Interactive Photo HUD -->
+        <div class="space-y-6">
           
-          <!-- Testimonial Quote -->
-          <div class="card rounded-2xl p-5 bg-amber-50/50 border border-amber-100">
-            <p class="text-xs text-amber-900 leading-relaxed font-medium italic">
-              "Not just coding a specification. I engineer architectures, map product narratives, and validate actual business and education loops."
-            </p>
+          <!-- PROFILE IDENTITY CARD WITH USER'S PHOTO -->
+          <div class="card-clean rounded-3xl p-6 relative overflow-hidden bg-white border-slate-200/90 shadow-md">
+            
+            <!-- Top HUD Bar -->
+            <div class="flex items-center justify-between font-mono text-[10px] text-slate-400 mb-5 pb-3 border-b border-slate-100">
+              <span class="font-bold text-slate-800 uppercase flex items-center gap-1.5">
+                <i class="ph ph-identification-card text-brand-600 text-base"></i> AGENT PROFILE
+              </span>
+              <span class="text-hacker-700 font-semibold bg-hacker-50 px-2.5 py-1 rounded-full border border-hacker-500/30 flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 bg-hacker-500 rounded-full animate-pulse"></span> SYSTEM ONLINE
+              </span>
+            </div>
+
+            <div class="grid sm:grid-cols-[160px_1fr] gap-6 items-center">
+              
+              <!-- Photo Container with Floating Badge overlays -->
+              <div class="relative mx-auto sm:mx-0 w-40 h-52 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md bg-slate-100 group">
+                <img 
+                  src="https://i.imgur.com/i8axJGF.png" 
+                  alt="Nabila Choirunisa Profile Photo" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.onerror=null; this.src='https://placehold.co/400x520/F1F5F9/475569?text=Nabila+Choirunisa';"
+                />
+                <div class="absolute bottom-2 left-2 right-2 bg-slate-900/85 backdrop-blur-md rounded-lg p-1.5 flex justify-between items-center font-mono text-[9px] text-white">
+                  <span class="font-bold text-emerald-400">JEMBER, ID</span>
+                  <span class="text-slate-300">WIB</span>
+                </div>
+              </div>
+
+              <!-- Metadata & Quick Badges -->
+              <div class="space-y-3 font-mono text-xs">
+                <div>
+                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Identity</span>
+                  <span class="text-slate-900 font-bold font-space text-lg block">Nabila Choirunisa</span>
+                </div>
+                
+                <div>
+                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Core Operations</span>
+                  <span class="text-brand-600 font-bold block">Full Stack & AI Architect</span>
+                </div>
+
+                <div>
+                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Academic Record</span>
+                  <span class="text-slate-800 font-semibold block">University of Jember</span>
+                  <span class="text-hacker-600 font-bold text-sm block mt-0.5">3.89 / 4.00 Cumulative GPA</span>
+                </div>
+
+                <!-- Floating Interactive Pills -->
+                <div class="pt-1 flex flex-wrap gap-1.5 font-sans">
+                  <span class="px-2 py-0.5 rounded bg-brand-50 text-brand-700 text-[10px] font-bold border border-brand-200">EdTech</span>
+                  <span class="px-2 py-0.5 rounded bg-hacker-50 text-hacker-700 text-[10px] font-bold border border-hacker-200">AI Pipelines</span>
+                  <span class="px-2 py-0.5 rounded bg-handler-50 text-handler-700 text-[10px] font-bold border border-handler-200">Product Lead</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Floating animated element -->
+            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-500/10 rounded-full blur-xl pointer-events-none"></div>
           </div>
+
+          <!-- KEY METRICS GRID WITH HOVER ANIMATION -->
+          <div class="grid grid-cols-3 gap-3 font-mono text-center">
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-brand-600 block">15+</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Projects Shipped</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-handler-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-handler-600 block">06</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Competitions</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-hacker-600 block">04</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">AI Pipelines</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-amber-600 block">03</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">National Finalist</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-slate-900 block">5+ Yrs</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Tutoring</span>
+            </div>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 hover:shadow transition">
+              <span class="text-2xl font-bold font-space text-hacker-600 block">3.89</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">CS GPA</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- IDENTITY PILLARS -->
-      <section id="identity" class="py-20 border-t border-slate-200">
-        <div class="mb-12 max-w-xl">
-          <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest">My Core Operations</p>
-          <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
-            Four ways I orchestrate complexity.
+      <!-- DUAL-CORE MATRIX SECTION -->
+      <section id="matrix" class="py-16 border-t border-slate-200/80">
+        <div class="mb-10 max-w-xl">
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Dual-Core Operations</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+            Execution + Strategy <span class="font-serif-italic font-normal text-brand-600">Matrix</span>
           </h2>
+          <p class="text-slate-600 text-xs md:text-sm mt-2">
+            Balancing deep technical engineering (<span class="font-serif-italic font-semibold text-hacker-600">Hacker</span>) with strategic product management and user empathy (<span class="font-serif-italic font-semibold text-handler-600">Handler</span>).
+          </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card rounded-2xl p-6 flex flex-col justify-between hover:border-violet-600">
-            <div>
-              <div class="w-12 h-12 bg-violet-100 text-violet-700 rounded-xl flex items-center justify-center text-xl mb-6">
-                <i class="ph ph-cube"></i>
+        <div class="grid md:grid-cols-2 gap-6" id="persona-cards-container">
+          
+          <!-- HACKER CORE -->
+          <div class="card-clean card-hacker rounded-2xl p-7 border-l-4 border-l-hacker-500 space-y-5 bg-white transition-all duration-300" id="card-persona-hacker">
+            <div class="flex justify-between items-start">
+              <div class="w-11 h-11 rounded-xl bg-hacker-50 text-hacker-600 border border-hacker-200 flex items-center justify-center text-2xl shadow-sm">
+                <i class="ph ph-terminal-window"></i>
               </div>
-              <h3 class="font-space font-black text-xl text-slate-800 mb-2">Build</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">
-                Full-stack engineering across web, cloud, and edge systems. Shipping reliable codebases with optimized state and relational data.
-              </p>
+              <span class="font-mono text-[10px] text-hacker-700 uppercase tracking-wider font-semibold border border-hacker-200 bg-hacker-50 px-3 py-1 rounded-full">Core 01: Engineering</span>
             </div>
-            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="text-[10px] font-bold text-violet-700 uppercase">Engineer</span>
+
+            <div>
+              <h3 class="font-space font-bold text-2xl text-slate-900">THE HACKER</h3>
+              <p class="text-xs font-mono text-hacker-600 font-semibold mt-1">Deep Technical Execution & Architectures</p>
+            </div>
+
+            <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Full-Stack Architecture:</strong> Building robust client-server pipelines using Next.js, TypeScript, PostgreSQL, and Supabase.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>AI & Machine Learning:</strong> Engineering supervised ML models, neural networks in TensorFlow, and sensory regression scoring.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Hardware & Cryptography:</strong> ESP32 firmware integration, NFC hardware wallet synchronization, and hybrid AES-RSA cryptography.</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
+              <span class="tag-tech">Next.js</span>
+              <span class="tag-tech">TensorFlow</span>
+              <span class="tag-tech">PostgreSQL</span>
+              <span class="tag-tech">ESP32</span>
             </div>
           </div>
 
-          <div class="card rounded-2xl p-6 flex flex-col justify-between hover:border-amber-500">
-            <div>
-              <div class="w-12 h-12 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-xl mb-6">
-                <i class="ph ph-palette"></i>
+          <!-- HANDLER CORE -->
+          <div class="card-clean card-handler rounded-2xl p-7 border-l-4 border-l-handler-500 space-y-5 bg-white transition-all duration-300" id="card-persona-handler">
+            <div class="flex justify-between items-start">
+              <div class="w-11 h-11 rounded-xl bg-handler-50 text-handler-600 border border-handler-200 flex items-center justify-center text-2xl shadow-sm">
+                <i class="ph ph-brain"></i>
               </div>
-              <h3 class="font-space font-black text-xl text-slate-800 mb-2">Design</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">
-                Structuring complex information into intuitive customer journeys. Crafting clean, highly interactive component design systems.
-              </p>
+              <span class="font-mono text-[10px] text-handler-700 uppercase tracking-wider font-semibold border border-handler-200 bg-handler-50 px-3 py-1 rounded-full">Core 02: Strategy</span>
             </div>
-            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="text-[10px] font-bold text-amber-700 uppercase">Designer</span>
+
+            <div>
+              <h3 class="font-space font-bold text-2xl text-slate-900">THE HANDLER</h3>
+              <p class="text-xs font-mono text-handler-600 font-semibold mt-1">Product Strategy, UX & EdTech Governance</p>
+            </div>
+
+            <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Product Discovery & Pitching:</strong> Mapping complex user journeys, validating business loops (Starter.id, BPKH, BUMI Astra).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>EdTech & Knowledge Translation:</strong> 5+ years of private tutoring, translating technical jargon into intuitive human interfaces.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Systematic Public Narrative:</strong> National recognition in storytelling and public delivery (Honorable Mention Syarhil Qur'an MTQMN).</span>
+              </li>
+            </ul>
+
+            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
+              <span class="tag-tech">Product Management</span>
+              <span class="tag-tech">EdTech</span>
+              <span class="tag-tech">Pitch Validation</span>
+              <span class="tag-tech">UI/UX Strategy</span>
             </div>
           </div>
 
-          <div class="card rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500">
-            <div>
-              <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center text-xl mb-6">
-                <i class="ph ph-magnifying-glass-chart"></i>
-              </div>
-              <h3 class="font-space font-black text-xl text-slate-800 mb-2">Research</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">
-                Conducting market and user discovery, testing software pipelines, and validating hypotheses through data and AI-driven insights.
-              </p>
-            </div>
-            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="text-[10px] font-bold text-emerald-700 uppercase">Innovator</span>
-            </div>
-          </div>
-
-          <div class="card rounded-2xl p-6 flex flex-col justify-between hover:border-blue-500">
-            <div>
-              <div class="w-12 h-12 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center text-xl mb-6">
-                <i class="ph ph-chalkboard-teacher"></i>
-              </div>
-              <h3 class="font-space font-black text-xl text-slate-800 mb-2">Teach</h3>
-              <p class="text-xs text-slate-500 leading-relaxed">
-                Private tutoring since 2020. Breaking down highly academic technical and scientific constraints into progressive, consumable units.
-              </p>
-            </div>
-            <div class="mt-4 pt-4 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="text-[10px] font-bold text-blue-700 uppercase">Educator</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      <!-- KOIN HERO PROMINENT HERO SHOWCASE -->
-      <section id="work" class="py-12 border-t border-slate-200">
-        <div class="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+      <!-- FLAGSHIP PROJECT (KOIN) -->
+      <section id="work" class="py-12 border-t border-slate-200/80">
+        <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
           <div>
-            <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest">Flagship Product</p>
-            <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
-              The flagship standard.
+            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Flagship Deployment</p>
+            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+              Master System Architecture
             </h2>
           </div>
-          <p class="text-slate-500 max-w-sm text-xs leading-relaxed">
-            Every product starts with absolute discovery. Deep dive into my masterworks below, beginning with KOIN.
+          <p class="text-slate-500 text-xs font-mono">
+            Integrated hardware-cloud digital wallet ecosystem for schools.
           </p>
         </div>
 
         <!-- Master Case Card for KOIN -->
-        <div class="card rounded-[2.5rem] p-6 md:p-10 bg-gradient-to-br from-[#110f15] to-[#201b2a] text-white relative overflow-hidden border-0">
-          <div class="absolute right-0 bottom-0 top-0 w-full md:w-1/2 opacity-10 md:opacity-20 pointer-events-none bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-violet-500 via-transparent to-transparent"></div>
+        <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
           
-          <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-8 md:gap-12 items-center relative z-10">
-            <div class="space-y-6">
-              <div class="flex items-center gap-2">
-                <span class="bg-violet-600/30 text-violet-300 border border-violet-500/20 px-3 py-1 rounded-lg text-[10px] uppercase font-black font-space tracking-wider">MVP Ready</span>
-                <span class="bg-amber-600/30 text-amber-300 border border-amber-500/20 px-3 py-1 rounded-lg text-[10px] uppercase font-black font-space tracking-wider">Top 20 Starter.id x BPKH</span>
+          <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div class="space-y-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-hacker-50 text-hacker-700 border border-hacker-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">MVP Deployed</span>
+                <span class="bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Top 20 Starter.id x BPKH</span>
               </div>
               
-              <h3 class="font-space text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
+              <h3 class="font-space text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
                 KOIN — Digital School Wallet Platform
               </h3>
               
-              <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+              <p class="text-slate-600 text-sm md:text-base leading-relaxed">
                 An integrated electronic monetary system designed to digitize local school transactions, streamline microfinance, and scale administrative tracking through reliable modern cloud architectures.
               </p>
 
-              <div class="grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
-                <div>
-                  <p class="text-[9px] uppercase font-black tracking-widest text-violet-400 font-space">The Problem</p>
-                  <p class="text-xs text-slate-300 mt-1">Manual cash management in school networks generates tracking blind spots and leakage risks.</p>
+              <div class="grid grid-cols-2 gap-4 border-t border-slate-100 pt-4 font-mono text-xs">
+                <div class="p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
+                  <p class="text-[9px] uppercase font-bold text-amber-800">The Problem</p>
+                  <p class="text-slate-600 mt-1 font-sans text-xs">Manual cash management causes tracking blind spots and leakage risks.</p>
                 </div>
-                <div>
-                  <p class="text-[9px] uppercase font-black tracking-widest text-emerald-400 font-space">The Solution</p>
-                  <p class="text-xs text-slate-300 mt-1">Sleek Web application ecosystem mapped to NFC hardware and resilient PostgreSQL data storage.</p>
+                <div class="p-3 bg-hacker-50/50 rounded-xl border border-hacker-200/60">
+                  <p class="text-[9px] uppercase font-bold text-hacker-800">The Solution</p>
+                  <p class="text-slate-600 mt-1 font-sans text-xs">NFC hardware sync paired with PostgreSQL cloud transaction pipelines.</p>
                 </div>
               </div>
 
-              <div class="flex flex-wrap gap-2 pt-2">
-                <span class="tag-tech bg-white/5 border-white/10 text-white">Next.js</span>
-                <span class="tag-tech bg-white/5 border-white/10 text-white">Supabase</span>
-                <span class="tag-tech bg-white/5 border-white/10 text-white">TypeScript</span>
-                <span class="tag-tech bg-white/5 border-white/10 text-white">PostgreSQL</span>
-                <span class="tag-tech bg-white/5 border-white/10 text-white">NFC Hardware</span>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="tag-tech">Next.js</span>
+                <span class="tag-tech">Supabase</span>
+                <span class="tag-tech">TypeScript</span>
+                <span class="tag-tech">PostgreSQL</span>
+                <span class="tag-tech">NFC Hardware</span>
               </div>
 
               <div class="pt-2">
-                <button onclick="viewCaseStudy('koin')" class="bg-white hover:bg-violet-100 text-slate-900 font-space font-black uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2">
-                  View Full Architecture & Case Study <i class="ph ph-arrow-right"></i>
+                <button onclick="viewCaseStudy('koin')" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                  Launch Case Study Architecture <i class="ph ph-arrow-right text-sm"></i>
                 </button>
               </div>
             </div>
 
-            <!-- Visual Mockup Container inside Card -->
-            <div class="bg-slate-900/40 rounded-2xl p-6 border border-white/5">
-              <p class="text-[10px] font-space font-black text-amber-300 uppercase tracking-widest mb-4 flex items-center gap-2">
-                <span class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"></span> Architecture Overview
-              </p>
-              
-              <div class="space-y-3 font-mono text-[11px] text-slate-400">
-                <div class="p-3 bg-slate-950/60 rounded-xl border border-white/5">
-                  <span class="text-blue-400">Client Side</span>: Next.js + Tailwind + Lucide Icons
+            <!-- Visual Interactive Code / System Workflow Frame -->
+            <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
+              <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                <p class="text-[10px] font-bold text-hacker-400 uppercase tracking-wider flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 bg-hacker-500 rounded-full animate-pulse"></span> SYSTEM STATE WORKFLOW
+                </p>
+                <div class="flex gap-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
                 </div>
-                <div class="flex justify-center my-1"><i class="ph ph-arrow-down text-lg text-violet-500"></i></div>
-                <div class="p-3 bg-slate-950/60 rounded-xl border border-white/5">
-                  <span class="text-purple-400">API Broker</span>: JWT Protected Supabase Edge Functions
+              </div>
+
+              <div class="space-y-2.5 text-[11px]">
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                  <span class="text-purple-400 font-bold">01. CLIENT LAYER</span><br />Next.js + Tailwind CSS + NFC Scanner
                 </div>
-                <div class="flex justify-center my-1"><i class="ph ph-arrow-down text-lg text-violet-500"></i></div>
-                <div class="p-3 bg-slate-950/60 rounded-xl border border-white/5">
-                  <span class="text-emerald-400">Database Engine</span>: PostgreSQL + Supabase Auth / Realtime
+                <div class="text-center text-hacker-500 text-xs">↓ [ JWT Auth Payload ]</div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                  <span class="text-cyan-400 font-bold">02. API BROKER</span><br />Supabase Edge Functions & Balance Checks
+                </div>
+                <div class="text-center text-hacker-500 text-xs">↓ [ Atomic Lock DB Transaction ]</div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                  <span class="text-hacker-400 font-bold">03. STORAGE ENGINE</span><br />PostgreSQL Ledger & Realtime Logs
                 </div>
               </div>
             </div>
@@ -440,207 +630,201 @@
         </div>
       </section>
 
-      <!-- ALL SELECTED WORKS GRID -->
-      <section class="py-12">
-        <div class="mb-8">
-          <h3 class="font-space text-xl font-black text-slate-800 flex items-center gap-2">
-            <i class="ph ph-circles-three-plus"></i> Other Experimental Deployments
+      <!-- OTHER PROJECTS GRID -->
+      <section class="py-10">
+        <div class="mb-6">
+          <h3 class="font-space text-xl font-bold text-slate-900 flex items-center gap-2">
+            <i class="ph ph-circles-three-plus text-brand-600"></i> Other Experimental Systems
           </h3>
-          <p class="text-xs text-slate-500 mt-1">A structured matrix of systems built across mobile, data science, IoT, and cryptography.</p>
+          <p class="text-xs font-mono text-slate-500 mt-0.5">Deployments across mobile, data science, IoT, and cryptography.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6" id="projects-grid">
+        <div class="grid md:grid-cols-2 gap-6">
           
           <!-- PROJECT 02: RuteBarokah -->
-          <article class="card rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-start">
-                <span class="font-space text-sm font-black text-slate-400">02</span>
-                <span class="tag-tech bg-violet-50 border-violet-100 text-violet-700">Next.js / TypeScript</span>
+          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start font-mono">
+                <span class="text-xs font-bold text-slate-400">SYS_02</span>
+                <span class="tag-tech">Next.js / Algorithms</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-black text-slate-900">RuteBarokah</h4>
-                <p class="text-xs text-slate-500 mt-1">Dynamic Routing Algorithm for NGO Operations</p>
+                <h4 class="font-space text-xl font-bold text-slate-900">RuteBarokah</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">Dynamic Graph Routing for NGO Logistics</p>
               </div>
-              <div class="space-y-2 border-t border-slate-100 pt-4 text-xs">
-                <div><strong class="text-slate-800">Problem:</strong> Inefficient food and charity logistics routing causing high operating costs.</div>
-                <div><strong class="text-slate-800">Solution:</strong> Graph-based distance optimization algorithms deployed via Next.js interface.</div>
+              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
+                <div><strong class="text-slate-900 font-mono">Problem:</strong> Inefficient food distribution paths inflating operating costs.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> Graph-based distance minimization algorithm on web map UI.</div>
               </div>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-[10px] font-space font-black text-slate-400">Role: Full Stack / Algorithm Designer</span>
-              <button onclick="viewCaseStudy('rutebarokah')" class="text-violet-700 font-bold hover:underline text-xs flex items-center gap-1">Read case study <i class="ph ph-arrow-right"></i></button>
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-slate-500">Full Stack / Algorithm</span>
+              <button onclick="viewCaseStudy('rutebarokah')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
           <!-- PROJECT 03: Health AI -->
-          <article class="card rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-start">
-                <span class="font-space text-sm font-black text-slate-400">03</span>
-                <span class="tag-tech bg-emerald-50 border-emerald-100 text-emerald-700">Python / TensorFlow</span>
+          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start font-mono">
+                <span class="text-xs font-bold text-slate-400">SYS_03</span>
+                <span class="tag-tech">Python / TensorFlow</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-black text-slate-900">Health AI System</h4>
-                <p class="text-xs text-slate-500 mt-1">Deep Learning Diagnostic Predictor</p>
+                <h4 class="font-space text-xl font-bold text-slate-900">Health Diagnostic AI System</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">Neural Network Clinical Risk Predictor</p>
               </div>
-              <div class="space-y-2 border-t border-slate-100 pt-4 text-xs">
-                <div><strong class="text-slate-800">Problem:</strong> Delayed clinical classification of chronic illness leading to poor preventative care.</div>
-                <div><strong class="text-slate-800">Solution:</strong> Highly regularized neural networks predicting target metrics directly in real-time.</div>
+              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
+                <div><strong class="text-slate-900 font-mono">Problem:</strong> Delayed clinical classification of chronic illness in remote areas.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> Regularized deep neural networks predicting disease markers.</div>
               </div>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-[10px] font-space font-black text-slate-400">Role: AI Pipeline Engineer</span>
-              <button onclick="viewCaseStudy('health-ai')" class="text-violet-700 font-bold hover:underline text-xs flex items-center gap-1">Read case study <i class="ph ph-arrow-right"></i></button>
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-slate-500">AI Pipeline Engineer</span>
+              <button onclick="viewCaseStudy('health-ai')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
           <!-- PROJECT 04: Coffee AI -->
-          <article class="card rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-start">
-                <span class="font-space text-sm font-black text-slate-400">04</span>
-                <span class="tag-tech bg-amber-50 border-amber-100 text-amber-700">Python / Streamlit</span>
+          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start font-mono">
+                <span class="text-xs font-bold text-slate-400">SYS_04</span>
+                <span class="tag-tech">Python / Streamlit</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-black text-slate-900">Coffee Quality Predictor</h4>
-                <p class="text-xs text-slate-500 mt-1">Regression modeling connecting taste sensory with data metrics</p>
+                <h4 class="font-space text-xl font-bold text-slate-900">Coffee Quality Predictor</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">Supervised Sensory Scoring Regressor</p>
               </div>
-              <div class="space-y-2 border-t border-slate-100 pt-4 text-xs">
-                <div><strong class="text-slate-800">Problem:</strong> Inconsistent manual scoring parameters for specialty coffee quality estimation.</div>
-                <div><strong class="text-slate-800">Solution:</strong> Comparative predictive engine evaluating sensory variables with Random Forest.</div>
+              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
+                <div><strong class="text-slate-900 font-mono">Problem:</strong> Subjective manual coffee scoring variations across panels.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> Random Forest regressor evaluating acidity, balance, and body.</div>
               </div>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-[10px] font-space font-black text-slate-400">Role: Machine Learning Engineer</span>
-              <button onclick="viewCaseStudy('coffee-ai')" class="text-violet-700 font-bold hover:underline text-xs flex items-center gap-1">Read case study <i class="ph ph-arrow-right"></i></button>
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-slate-500">ML Engineer</span>
+              <button onclick="viewCaseStudy('coffee-ai')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
           <!-- PROJECT 05: Netes.io -->
-          <article class="card rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-4">
-              <div class="flex justify-between items-start">
-                <span class="font-space text-sm font-black text-slate-400">05</span>
-                <span class="tag-tech bg-cyan-50 border-cyan-100 text-cyan-700">ESP32 / Firebase</span>
+          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start font-mono">
+                <span class="text-xs font-bold text-slate-400">SYS_05</span>
+                <span class="tag-tech">ESP32 / Firebase</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-black text-slate-900">Netes.io</h4>
-                <p class="text-xs text-slate-500 mt-1">Smart Incubator Automated System</p>
+                <h4 class="font-space text-xl font-bold text-slate-900">Netes.io — Smart Incubator</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">IoT Closed-loop Hardware Automation</p>
               </div>
-              <div class="space-y-2 border-t border-slate-100 pt-4 text-xs">
-                <div><strong class="text-slate-800">Problem:</strong> Manual agricultural egg rotation failures causing low hatching yields.</div>
-                <div><strong class="text-slate-800">Solution:</strong> Closed-loop hardware system with active ESP32 and remote Flutter dashboard control.</div>
+              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
+                <div><strong class="text-slate-900 font-mono">Problem:</strong> Manual agricultural egg turning errors causing low hatch rates.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> ESP32 firmware loop with Firebase RTDB and Flutter client.</div>
               </div>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-              <span class="text-[10px] font-space font-black text-slate-400">Role: IoT & Firmware Architect</span>
-              <button onclick="viewCaseStudy('netes-io')" class="text-violet-700 font-bold hover:underline text-xs flex items-center gap-1">Read case study <i class="ph ph-arrow-right"></i></button>
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-slate-500">Firmware & IoT Architect</span>
+              <button onclick="viewCaseStudy('netes-io')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
-          <!-- Secondary Minimal Cards -->
-          <div class="md:col-span-2 grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-4">
-            
-            <div class="card rounded-xl p-4 bg-slate-50/50">
-              <span class="font-space text-xs font-black text-slate-400">06</span>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Kopi Nang</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Ordering App with Google auth, dynamic catalogs & dashboard.</p>
-              <div class="mt-3 flex gap-2"><span class="text-[9px] font-bold text-slate-600">Flutter</span><span class="text-[9px] font-bold text-slate-600">PostgreSQL</span></div>
-            </div>
+        </div>
 
-            <div class="card rounded-xl p-4 bg-slate-50/50">
-              <span class="font-space text-xs font-black text-slate-400">07</span>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">QR Cryptography</h5>
-              <p class="text-[10px] text-slate-500 mt-1">AES-RSA hybrid encryption system to protect dynamic physical QR codes.</p>
-              <div class="mt-3 flex gap-2"><span class="text-[9px] font-bold text-slate-600">AES/RSA</span><span class="text-[9px] font-bold text-slate-600">Tkinter</span></div>
-            </div>
-
-            <div class="card rounded-xl p-4 bg-slate-50/50">
-              <span class="font-space text-xs font-black text-slate-400">08</span>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">CrypForm</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Secure form generation software implementing end-to-end user hashing.</p>
-              <div class="mt-3 flex gap-2"><span class="text-[9px] font-bold text-slate-600">Crypto</span><span class="text-[9px] font-bold text-slate-600">Firebase</span></div>
-            </div>
-
-            <div class="card rounded-xl p-4 bg-slate-50/50">
-              <span class="font-space text-xs font-black text-slate-400">09</span>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">BudayaGO</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Cultural tourism discovery concept linking QR logs with storytelling.</p>
-              <div class="mt-3 flex gap-2"><span class="text-[9px] font-bold text-slate-600">Figma</span><span class="text-[9px] font-bold text-slate-600">SME Strategy</span></div>
-            </div>
-
-            <div class="card rounded-xl p-4 bg-slate-50/50">
-              <span class="font-space text-xs font-black text-slate-400">10</span>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">YoTukang</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Service design mapping local verified handymen to residential booking flows.</p>
-              <div class="mt-3 flex gap-2"><span class="text-[9px] font-bold text-slate-600">UI/UX</span><span class="text-[9px] font-bold text-slate-600">Figma</span></div>
-            </div>
-
+        <!-- Secondary Systems Matrix -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-6">
+          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
+            <span class="text-[10px] text-slate-400 font-bold">SYS_06</span>
+            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Kopi Nang</h5>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">Ordering app with Google auth & dynamic dashboard.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Flutter / PostgreSQL</div>
           </div>
-
+          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
+            <span class="text-[10px] text-slate-400 font-bold">SYS_07</span>
+            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">QR Cryptography</h5>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">AES-RSA hybrid encryption for physical QR codes.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">AES / RSA / Tkinter</div>
+          </div>
+          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
+            <span class="text-[10px] text-slate-400 font-bold">SYS_08</span>
+            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">CrypForm</h5>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">End-to-end encrypted form creation engine.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Crypto / Firebase</div>
+          </div>
+          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
+            <span class="text-[10px] text-slate-400 font-bold">SYS_09</span>
+            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">BudayaGO</h5>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">Cultural tourism discovery linking QR logs.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Figma / SME Strategy</div>
+          </div>
+          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
+            <span class="text-[10px] text-slate-400 font-bold">SYS_10</span>
+            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">YoTukang</h5>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">On-demand handyman mapping service design.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">UI/UX / Figma</div>
+          </div>
         </div>
       </section>
 
-      <!-- SELECTED TECHNOLOGIES SECTION -->
-      <section id="skills" class="py-20 border-t border-slate-200">
+      <!-- SKILLS STACK SECTION -->
+      <section id="skills" class="py-16 border-t border-slate-200/80">
         <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
           <div>
-            <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest font-space">The Stack</p>
-            <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
-              Selected Technologies
+            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Technical Toolkit</p>
+            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+              The Stack
             </h2>
-            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
-              Resilient full-stack modern environments, infrastructure tooling, and design systems. Deployed actively across production pipelines.
+            <p class="text-xs font-mono text-slate-500 mt-3 leading-relaxed">
+              Production frameworks, infrastructure layer, data pipelines, and hardware microchips.
             </p>
           </div>
 
-          <div class="card rounded-3xl p-6 md:p-8 space-y-6">
-            <div class="grid sm:grid-cols-2 gap-6">
+          <div class="card-clean rounded-3xl p-6 md:p-8 space-y-6">
+            <div class="grid sm:grid-cols-2 gap-6 font-mono">
               <div>
-                <h4 class="font-space font-bold text-sm text-violet-700 mb-3 uppercase tracking-wider">Frontend & Client Layer</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Next.js</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">React</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">TypeScript</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Tailwind CSS</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Flutter</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Tkinter</span>
+                <h4 class="font-space font-bold text-xs text-brand-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-layout"></i> Frontend & Client Layer</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag-tech">Next.js</span>
+                  <span class="tag-tech">React</span>
+                  <span class="tag-tech">TypeScript</span>
+                  <span class="tag-tech">Tailwind CSS</span>
+                  <span class="tag-tech">Flutter</span>
+                  <span class="tag-tech">Tkinter</span>
                 </div>
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-sm text-violet-700 mb-3 uppercase tracking-wider">Backend, Database & Cloud</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Supabase</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">PostgreSQL</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Prisma ORM</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Firebase</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">REST APIs</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">ASP.NET Core</span>
+                <h4 class="font-space font-bold text-xs text-handler-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-database"></i> Backend & Cloud</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag-tech">Supabase</span>
+                  <span class="tag-tech">PostgreSQL</span>
+                  <span class="tag-tech">Prisma ORM</span>
+                  <span class="tag-tech">Firebase</span>
+                  <span class="tag-tech">REST APIs</span>
+                  <span class="tag-tech">ASP.NET Core</span>
                 </div>
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-sm text-violet-700 mb-3 uppercase tracking-wider">AI, Data Engineering & Hardware</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Python</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">TensorFlow</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Scikit-Learn</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">ESP32 Firmware</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">NFC Integrations</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Streamlit</span>
+                <h4 class="font-space font-bold text-xs text-hacker-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-brain"></i> AI, Data & Hardware</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag-tech">Python</span>
+                  <span class="tag-tech">TensorFlow</span>
+                  <span class="tag-tech">Scikit-Learn</span>
+                  <span class="tag-tech">ESP32 Firmware</span>
+                  <span class="tag-tech">NFC Integrations</span>
+                  <span class="tag-tech">Streamlit</span>
                 </div>
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-sm text-violet-700 mb-3 uppercase tracking-wider">Tooling & Infrastructure</h4>
-                <div class="flex flex-wrap gap-2">
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Git & GitHub</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Figma Desktop</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Docker</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Vercel Deploy</span>
-                  <span class="tag-tech font-bold text-slate-800 bg-white shadow-sm">Supabase CLI</span>
+                <h4 class="font-space font-bold text-xs text-amber-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-wrench"></i> Tooling & Infrastructure</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag-tech">Git & GitHub</span>
+                  <span class="tag-tech">Figma</span>
+                  <span class="tag-tech">Docker</span>
+                  <span class="tag-tech">Vercel</span>
+                  <span class="tag-tech">Supabase CLI</span>
                 </div>
               </div>
             </div>
@@ -648,290 +832,239 @@
         </div>
       </section>
 
-      <!-- RECOGNITION SECTION (Chronological starting 2026) -->
-      <section id="recognition" class="py-20 border-t border-slate-200">
-        <div class="mb-12">
-          <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest font-space">Signals of Consistency</p>
-          <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
+      <!-- RECOGNITION SECTION -->
+      <section id="recognition" class="py-16 border-t border-slate-200/80">
+        <div class="mb-10">
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Track Record</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
             Selected Recognitions
           </h2>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-6 font-mono">
           
           <!-- Column 2026 -->
-          <div class="space-y-4">
-            <h4 class="font-space font-black text-lg text-violet-700 border-b border-violet-100 pb-2 flex items-center gap-2">
-              <i class="ph ph-calendar-check"></i> 2026
+          <div class="space-y-3.5">
+            <h4 class="font-space font-bold text-base text-hacker-600 border-b border-slate-200 pb-2">
+              [ 2026 ]
             </h4>
-            
-            <div class="card rounded-2xl p-4 bg-violet-50/20">
-              <p class="text-[10px] font-space font-black text-violet-700 uppercase">Top 20 Starter x BPKH</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">National Incubator Cohort</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Recognized for KOIN digital financial ecosystem infrastructure model.</p>
+            <div class="card-clean rounded-2xl p-4 bg-hacker-50/50 border-hacker-500/20">
+              <p class="text-[10px] text-hacker-700 uppercase font-bold">Top 20 Starter.id x BPKH</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">National Incubator Cohort</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for KOIN digital financial ecosystem model.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Samsung Innovation Campus</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Advanced IoT Engineering</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Stage 1 - 4 Comprehensive technical specialization receipt.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Samsung Innovation Campus</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Advanced IoT Engineering</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Stage 1 - 4 technical specialization complete.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">BAZNAS AI</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">AI Innovation Fellowship</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Intensive national cohort for high impact humanitarian system architectures.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">BAZNAS AI</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">AI Innovation Fellowship</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">National cohort for humanitarian system architectures.</p>
             </div>
           </div>
 
           <!-- Column 2025 -->
-          <div class="space-y-4">
-            <h4 class="font-space font-black text-lg text-amber-700 border-b border-amber-100 pb-2 flex items-center gap-2">
-              <i class="ph ph-calendar-check"></i> 2025
+          <div class="space-y-3.5">
+            <h4 class="font-space font-bold text-base text-amber-600 border-b border-slate-200 pb-2">
+              [ 2025 ]
             </h4>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Top 15 BUMI</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">United Tractors / Astra Group</h5>
-              <p class="text-[10px] text-slate-500 mt-1">National environmental hardware solution pitch validation.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 15 BUMI</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">United Tractors / Astra</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Environmental hardware solution pitch validation.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Top 25 BizClash! 2.0</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Kasir Pintar National Competition</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Business integration model with technical POS software application map.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 25 BizClash! 2.0</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Kasir Pintar Competition</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Business POS software integration mapping.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Top 50 BudayaGO</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Ministry of Culture RI</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Cultural preservation tech product proposal vetting.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 50 BudayaGO</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Ministry of Culture RI</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Cultural preservation tech proposal vetting.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Top 100 National Research</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">tSurvey.id x Kompas.id</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Hypothesis-driven validation model evaluating Indonesian public dataset structures.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 100 Research</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">tSurvey.id x Kompas.id</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Data-driven evaluation of public Indonesian datasets.</p>
             </div>
           </div>
 
           <!-- Column 2023 -->
-          <div class="space-y-4">
-            <h4 class="font-space font-black text-lg text-slate-800 border-b border-slate-200 pb-2 flex items-center gap-2">
-              <i class="ph ph-calendar-check"></i> 2023
+          <div class="space-y-3.5">
+            <h4 class="font-space font-bold text-base text-handler-600 border-b border-slate-200 pb-2">
+              [ 2023 ]
             </h4>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Afrina Fellowship</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Afrina Academy Cohort</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Distinction grant recipient for exceptional academic and product foundation.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Afrina Fellowship</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Afrina Academy Cohort</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Distinction grant recipient for product foundation.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">2nd Place — TIC</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">University of Jember Innovation</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Excellence in regional software design framework solution.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">2nd Place — TIC UNEJ</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">University Innovation</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Excellence in regional software design framework.</p>
             </div>
-
-            <div class="card rounded-2xl p-4 bg-slate-50/60">
-              <p class="text-[10px] font-space font-black text-slate-500 uppercase">Honorable Mention — MTQMN</p>
-              <h5 class="font-space font-black text-sm text-slate-800 mt-1">Syarhil Qur'an</h5>
-              <p class="text-[10px] text-slate-500 mt-1">Exceptional narrative structuring, communication, and systematic public delivery.</p>
+            <div class="card-clean rounded-2xl p-4">
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Honorable Mention</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">MTQMN Syarhil Qur'an</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Excellence in systematic narrative structuring & public delivery.</p>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- TIMELINE / GROWTH MAP SECTION -->
-      <section id="timeline" class="py-20 border-t border-slate-200">
-        <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-12">
+      <!-- GROWTH TIMELINE SECTION -->
+      <section id="timeline" class="py-16 border-t border-slate-200/80">
+        <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-10">
           <div>
-            <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest font-space">Growth Map</p>
-            <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
-              The timeline stacks.
+            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Growth Commit Log</p>
+            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+              Growth Logs
             </h2>
-            <p class="text-xs text-slate-500 mt-4 leading-relaxed">
-              Every stage of my development stacks atop the previous layer. Technical coding fits into narrative storytelling; design systems support complex backends.
-            </p>
           </div>
 
-          <div class="card rounded-3xl p-6 md:p-8 space-y-6">
-            
-            <div class="border-l-2 border-violet-100 pl-6 space-y-8 relative">
+          <div class="card-clean rounded-3xl p-6 md:p-8">
+            <div class="border-l-2 border-brand-200 pl-6 space-y-7 relative font-mono">
               
-              <!-- Timeline node 2026 -->
               <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-violet-600 rounded-full border-4 border-white shadow-sm"></div>
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
                 <div>
-                  <span class="text-xs font-black font-space text-violet-700">2026 — Present</span>
-                  <h4 class="font-space font-black text-lg text-slate-800 mt-1">Architecting Platforms</h4>
-                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Built KOIN, reached Top 20 Starter.id, finished SIC Stage 4, and integrated modern full-stack methodologies with Supabase, Next.js, and TypeScript.
+                  <span class="text-xs font-bold text-brand-600">2026 — Present</span>
+                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Architecting Platforms</h4>
+                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
+                    Built KOIN, reached Top 20 Starter.id, finished SIC Stage 4, and integrated modern full-stack methodologies.
                   </p>
                 </div>
               </div>
 
-              <!-- Timeline node 2025 -->
               <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
                 <div>
-                  <span class="text-xs font-black font-space text-slate-500">2025</span>
-                  <h4 class="font-space font-black text-lg text-slate-800 mt-1">Validating Product Ecosystems</h4>
-                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Designed hardware-cloud systems (Netes.io), ran machine learning sensory regression pipelines, and locked top national finalist slots across business plan and AI cohorts.
+                  <span class="text-xs font-bold text-slate-500">2025</span>
+                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Validating Product Ecosystems</h4>
+                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
+                    Designed hardware-cloud systems (Netes.io), ran machine learning sensory regression pipelines, and locked top national finalist slots.
                   </p>
                 </div>
               </div>
 
-              <!-- Timeline node 2024 -->
               <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
                 <div>
-                  <span class="text-xs font-black font-space text-slate-500">2024</span>
-                  <h4 class="font-space font-black text-lg text-slate-800 mt-1">UX Discovery & Security Deep-dives</h4>
-                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Mapped complex local human issues in YoTukang! and explored cryptographic parameters by deploying dual hybrid secure QR applications.
+                  <span class="text-xs font-bold text-slate-500">2024</span>
+                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">UX Discovery & Security Deep-dives</h4>
+                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
+                    Mapped complex local human issues in YoTukang! and deployed dual hybrid secure QR applications.
                   </p>
                 </div>
               </div>
 
-              <!-- Timeline node 2023 -->
               <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 rounded-full border-4 border-white shadow-sm"></div>
+                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
                 <div>
-                  <span class="text-xs font-black font-space text-slate-500">2023</span>
-                  <h4 class="font-space font-black text-lg text-slate-800 mt-1">Computer Science Genesis</h4>
-                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Entered Information Technology at University of Jember, secured Afrina Academy distinction, and mapped robust foundational programming structures.
+                  <span class="text-xs font-bold text-slate-500">2023</span>
+                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Computer Science Genesis</h4>
+                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
+                    Entered CS at University of Jember, secured Afrina Academy distinction, and mapped robust foundational programming structures.
                   </p>
                 </div>
               </div>
 
             </div>
-
           </div>
         </div>
       </section>
 
-      <!-- CERTIFICATIONS MATRIX (UPGRADED PRE-ATS LAYOUT) -->
-      <section class="py-20 border-t border-slate-200">
-        <div class="mb-12">
-          <p class="text-violet-700 font-space uppercase text-xs font-black tracking-widest font-space">Verifiable Credentials</p>
-          <h2 class="font-space text-3xl md:text-5xl font-black tracking-tight text-slate-900 mt-2">
-            Learning receipts.
+      <!-- CERTIFICATIONS SECTION -->
+      <section class="py-16 border-t border-slate-200/80">
+        <div class="mb-8">
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Verified Credentials</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+            Learning Receipts
           </h2>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
-            Rigorous assessments and practical engineering modules completed across verified institutions.
-          </p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          <div class="card rounded-2xl p-5 bg-white flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start">
-                <div class="w-10 h-10 rounded-xl bg-violet-100 text-violet-700 flex items-center justify-center text-lg">
-                  <i class="ph ph-shield-check"></i>
-                </div>
-                <span class="text-[9px] font-black uppercase text-violet-700 font-space tracking-wider">Expert</span>
-              </div>
-              <h4 class="font-space font-black text-sm text-slate-900">Samsung Innovation Campus</h4>
-              <p class="text-[11px] text-slate-500">IoT & Basic Firmware Engineering validation (Stage 1 to 4).</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 font-mono">
+          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div class="space-y-2.5">
+              <span class="text-[9px] uppercase font-bold text-brand-700 bg-brand-50 border border-brand-200 px-2 py-0.5 rounded">Expert</span>
+              <h4 class="font-space font-bold text-sm text-slate-900">Samsung Innovation Campus</h4>
+              <p class="text-[11px] text-slate-500 font-sans">IoT & Firmware Engineering validation (Stage 1 to 4).</p>
             </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
               <span>SAMSUNG</span>
-              <span class="font-semibold text-emerald-600"><i class="ph ph-check-circle"></i> Verified</span>
+              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
             </div>
           </div>
 
-          <div class="card rounded-2xl p-5 bg-white flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start">
-                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg">
-                  <i class="ph ph-cpu"></i>
-                </div>
-                <span class="text-[9px] font-black uppercase text-amber-700 font-space tracking-wider">Cloud AI</span>
-              </div>
-              <h4 class="font-space font-black text-sm text-slate-900">Google Cloud Fundamentals</h4>
-              <p class="text-[11px] text-slate-500">Core architecture scaling, dynamic load balancing, and IAM management.</p>
+          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div class="space-y-2.5">
+              <span class="text-[9px] uppercase font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">Cloud AI</span>
+              <h4 class="font-space font-bold text-sm text-slate-900">Google Cloud Fundamentals</h4>
+              <p class="text-[11px] text-slate-500 font-sans">Core architecture scaling, dynamic load balancing, IAM.</p>
             </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
               <span>GOOGLE</span>
-              <span class="font-semibold text-emerald-600"><i class="ph ph-check-circle"></i> Verified</span>
+              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
             </div>
           </div>
 
-          <div class="card rounded-2xl p-5 bg-white flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start">
-                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
-                  <i class="ph ph-brain"></i>
-                </div>
-                <span class="text-[9px] font-black uppercase text-emerald-700 font-space tracking-wider">Machine Learning</span>
-              </div>
-              <h4 class="font-space font-black text-sm text-slate-900">Machine Learning Developer</h4>
-              <p class="text-[11px] text-slate-500">Supervised models training, feature selections, and deployment pipelines.</p>
+          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div class="space-y-2.5">
+              <span class="text-[9px] uppercase font-bold text-hacker-700 bg-hacker-50 border border-hacker-200 px-2 py-0.5 rounded">Machine Learning</span>
+              <h4 class="font-space font-bold text-sm text-slate-900">ML Developer</h4>
+              <p class="text-[11px] text-slate-500 font-sans">Supervised models training, feature selection pipelines.</p>
             </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
               <span>DICODING / DTS</span>
-              <span class="font-semibold text-emerald-600"><i class="ph ph-check-circle"></i> Verified</span>
+              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
             </div>
           </div>
 
-          <div class="card rounded-2xl p-5 bg-white flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start">
-                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-lg">
-                  <i class="ph ph-tree-structure"></i>
-                </div>
-                <span class="text-[9px] font-black uppercase text-cyan-700 font-space tracking-wider">Database</span>
-              </div>
-              <h4 class="font-space font-black text-sm text-slate-900">Back-End Programming</h4>
-              <p class="text-[11px] text-slate-500">Vetted relational data modeling, query optimization, and REST servers.</p>
+          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
+            <div class="space-y-2.5">
+              <span class="text-[9px] uppercase font-bold text-handler-700 bg-handler-50 border border-handler-200 px-2 py-0.5 rounded">Database</span>
+              <h4 class="font-space font-bold text-sm text-slate-900">Back-End Programming</h4>
+              <p class="text-[11px] text-slate-500 font-sans">Relational data modeling, query optimization, REST.</p>
             </div>
-            <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
+            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
               <span>DICODING</span>
-              <span class="font-semibold text-emerald-600"><i class="ph ph-check-circle"></i> Verified</span>
+              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
             </div>
           </div>
-
         </div>
       </section>
 
       <!-- CONTACT SECTION -->
-      <section id="contact" class="py-24 border-t border-slate-200">
-        <div class="max-w-4xl mx-auto">
-          
-          <div class="card rounded-[2.5rem] p-8 md:p-14 bg-gradient-to-br from-[#110f15] to-[#1c1825] text-white overflow-hidden relative border-0">
-            <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-violet-600/20 blur-3xl"></div>
+      <section id="contact" class="py-20 border-t border-slate-200/80">
+        <div class="max-w-3xl mx-auto">
+          <div class="card-clean rounded-3xl p-8 md:p-12 bg-white text-center space-y-5 border-slate-200 shadow-md">
             
-            <div class="relative z-10 text-center space-y-6">
-              <p class="text-violet-300 font-space uppercase text-xs font-black tracking-widest">// Let's Collaborate</p>
-              
-              <h2 class="font-space text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-none text-white">
-                Let’s build something <br />
-                <span class="font-display italic font-normal tracking-normal text-violet-300">thoughtful</span>.
-              </h2>
-              
-              <p class="text-xs md:text-sm text-slate-400 max-w-lg mx-auto leading-relaxed">
-                Scouting for product builder internships, EdTech challenges, or collaborative experimental labs. Drop me a line, let's ship some actual code.
-              </p>
+            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Open Communications</p>
+            
+            <h2 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              Initiate Collaboration
+            </h2>
+            
+            <p class="text-xs md:text-sm text-slate-600 max-w-md mx-auto leading-relaxed font-sans">
+              Scouting for product builder roles, EdTech challenges, or collaborative AI experimental labs. Let's build real code.
+            </p>
 
-              <!-- Copy-Clipboard Interaction Interface -->
-              <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button onclick="copyToClipboard('choyshimanis@gmail.com')" class="w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white font-space font-bold uppercase text-xs px-8 py-4 rounded-xl shadow-lg transition-all duration-200 flex items-center justify-center gap-2 group">
-                  <i class="ph ph-copy text-lg group-hover:scale-110 transition-transform"></i> Copy Email Address
-                </button>
-                <a href="mailto:choyshimanis@gmail.com" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/10 text-white font-space font-bold uppercase text-xs px-6 py-4 rounded-xl transition duration-200 flex items-center justify-center gap-2">
-                  <i class="ph ph-paper-plane-tilt text-lg"></i> Direct Send
-                </a>
-              </div>
-
-              <div class="text-[10px] text-slate-500 font-mono">choyshimanis@gmail.com</div>
+            <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 font-mono text-xs">
+              <button onclick="copyToClipboard('choyshimanis@gmail.com')" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-7 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md hover:scale-[1.02]">
+                <i class="ph ph-copy text-base"></i> Copy Email Address
+              </button>
+              <a href="mailto:choyshimanis@gmail.com" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+                <i class="ph ph-paper-plane-tilt text-base"></i> Direct Transmission
+              </a>
             </div>
-          </div>
 
+            <div class="text-[11px] text-slate-500 font-mono pt-1">choyshimanis@gmail.com</div>
+          </div>
         </div>
       </section>
 
@@ -939,92 +1072,46 @@
 
   </div>
 
-  <!-- DYNAMIC CASE STUDY VIEW CONTAINER (Initially Hidden) -->
-  <div id="case-study-view" class="hidden max-w-4xl mx-auto px-4 md:px-8 pt-28 md:pt-36 pb-24 min-h-screen relative z-10">
-    <!-- Back to portfolio trigger -->
-    <div class="mb-8">
-      <button onclick="closeCaseStudy()" class="glass hover:bg-[#110f15] hover:text-white transition-colors duration-200 text-slate-800 text-xs font-space font-black uppercase px-4 py-2.5 rounded-xl flex items-center gap-2">
-        <i class="ph ph-arrow-left"></i> Back to Portfolio
+  <!-- DYNAMIC CASE STUDY VIEW -->
+  <div id="case-study-view" class="hidden max-w-4xl mx-auto px-4 md:px-8 pt-24 md:pt-32 pb-20 min-h-screen relative z-10">
+    <div class="mb-6">
+      <button onclick="closeCaseStudy()" class="bg-white hover:bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
+        <i class="ph ph-arrow-left"></i> Return to HQ Dashboard
       </button>
     </div>
 
-    <!-- Inject Case Study Node Content -->
-    <article id="case-study-content" class="space-y-12">
-      <!-- Mapped dynamically via JavaScript -->
-    </article>
+    <article id="case-study-content" class="space-y-10"></article>
   </div>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-200 py-12 px-4 md:px-8 bg-slate-50/50">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-slate-500">
-      
-      <!-- Brand & Copyright -->
-      <div class="flex flex-col md:flex-row items-center gap-2 text-center md:text-left">
-        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-        <p class="font-bold font-space">
-          © <span id="year"></span> Nabila Choirunisa. 
-          <span class="font-normal text-slate-400">All rights reserved.</span>
-        </p>
+  <footer class="border-t border-slate-200 py-8 px-4 md:px-8 bg-white font-mono text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-hacker-600 rounded-full animate-ping"></span>
+        <p>© <span id="year"></span> Nabila Choirunisa // Handler & Hacker.</p>
       </div>
 
-      <!-- Live timezone location widget -->
-      <div class="flex items-center gap-3 bg-white px-3.5 py-1.5 rounded-full border border-slate-100 shadow-sm text-[11px] text-slate-600 font-mono">
-        <span class="w-1.5 h-1.5 bg-violet-600 rounded-full animate-pulse"></span>
+      <div class="flex items-center gap-2.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 text-[11px] text-slate-600">
+        <span class="w-1.5 h-1.5 bg-hacker-600 rounded-full animate-pulse"></span>
         <span>Jember, ID</span>
         <span class="text-slate-300">|</span>
-        <span id="local-time">--:--:--</span>
+        <span id="local-time" class="text-brand-600 font-bold">--:--:--</span>
       </div>
 
-      <p class="text-center md:text-right font-space">Built with code, absolute care, and narrative purpose.</p>
+      <p class="text-slate-400">Architected with care & technical precision.</p>
     </div>
   </footer>
 
-  <!-- CUSTOM CLIPBOARD TOAST -->
-  <div id="toast-notify" class="fixed bottom-6 right-6 z-[999999] bg-slate-900 text-white px-5 py-3 rounded-xl text-xs font-space font-bold uppercase tracking-wider shadow-2xl border border-white/10 flex items-center gap-2 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
-    <i class="ph ph-check-circle text-emerald-400 text-base"></i> Email address copied!
+  <!-- Notification Toast -->
+  <div id="toast-notify" class="fixed bottom-6 right-6 z-[999999] bg-slate-900 text-white px-5 py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-xl flex items-center gap-2 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+    <i class="ph ph-check-circle text-hacker-500 text-base"></i> Email address copied to clipboard!
   </div>
 
-  <!-- JAVASCRIPT: LOGIC & CASE STUDY DATABASE -->
   <script>
-    // Set Current Dynamic Year
+    // Set Dynamic Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Direct Copy to Clipboard Fallback for Iframe Restrictions
-    function copyToClipboard(text) {
-      const el = document.createElement('textarea');
-      el.value = text;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
-
-      // Trigger Visual Success Toast
-      const toast = document.getElementById('toast-notify');
-      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
-      setTimeout(function() {
-        toast.classList.remove('translate-y-0', 'opacity-100');
-        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-      }, 3000);
-    }
-
-    // Dynamic Timezone Live Loop (Jember, Indonesia - WIB)
-    function updateTime() {
-      const options = {
-        timeZone: "Asia/Jakarta",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: true
-      };
-      const formatter = new Intl.DateTimeFormat("en-US", options);
-      document.getElementById("local-time").textContent = formatter.format(new Date());
-    }
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    // Dynamic Dual-stage Lerping Pointer Tracker Setup
+    // Dual-stage Lerp Pointer Tracker Setup
     const cursorDot = document.getElementById("cursorDot");
     const cursorRing = document.getElementById("cursorRing");
     let mouseX = 0, mouseY = 0;
@@ -1037,11 +1124,9 @@
     });
 
     function lerpCursor() {
-      // 0.3 speed for immediate feel on center dot
-      dotX += (mouseX - dotX) * 0.3;
-      dotY += (mouseY - dotY) * 0.3;
+      dotX += (mouseX - dotX) * 0.35;
+      dotY += (mouseY - dotY) * 0.35;
       
-      // 0.15 slower speed for outer ring momentum delay
       ringX += (mouseX - ringX) * 0.15;
       ringY += (mouseY - ringY) * 0.15;
 
@@ -1057,129 +1142,201 @@
     }
     requestAnimationFrame(lerpCursor);
 
-    // Magnetic interaction triggers for custom cursor
-    const interactables = document.querySelectorAll('a, button, [onclick]');
-    interactables.forEach(function(el) {
-      el.addEventListener('mouseenter', function() {
-        if (cursorDot) {
-          cursorDot.style.width = '12px';
-          cursorDot.style.height = '12px';
-        }
-        if (cursorRing) {
-          cursorRing.style.borderColor = '#A78BFA';
-          cursorRing.style.transform = 'translate(-50%, -50%) scale(1.3)';
-        }
+    // Magnetic Cursor Hover Interactions
+    function attachCursorTriggers() {
+      const interactables = document.querySelectorAll('a, button, [onclick], .card-clean');
+      interactables.forEach(function(el) {
+        el.addEventListener('mouseenter', function() {
+          if (cursorDot) {
+            cursorDot.style.width = '12px';
+            cursorDot.style.height = '12px';
+            cursorDot.style.backgroundColor = '#6366F1';
+          }
+          if (cursorRing) {
+            cursorRing.style.width = '48px';
+            cursorRing.style.height = '48px';
+            cursorRing.style.borderColor = 'rgba(99, 102, 241, 0.8)';
+          }
+        });
+        el.addEventListener('mouseleave', function() {
+          if (cursorDot) {
+            cursorDot.style.width = '8px';
+            cursorDot.style.height = '8px';
+            cursorDot.style.backgroundColor = '#4F46E5';
+          }
+          if (cursorRing) {
+            cursorRing.style.width = '36px';
+            cursorRing.style.height = '36px';
+            cursorRing.style.borderColor = 'rgba(79, 70, 229, 0.5)';
+          }
+        });
       });
-      el.addEventListener('mouseleave', function() {
-        if (cursorDot) {
-          cursorDot.style.width = '8px';
-          cursorDot.style.height = '8px';
-        }
-        if (cursorRing) {
-          cursorRing.style.borderColor = '#6D28D9';
-          cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
-        }
-      });
-    });
+    }
+    attachCursorTriggers();
 
-    // Portfolio Case Study Database
+    // Copy to Clipboard Function
+    function copyToClipboard(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+
+      const toast = document.getElementById('toast-notify');
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(function() {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    // Live Time Jember WIB
+    function updateTime() {
+      const options = {
+        timeZone: "Asia/Jakarta",
+        hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+      };
+      const formatter = new Intl.DateTimeFormat("en-US", options);
+      document.getElementById("local-time").textContent = formatter.format(new Date()) + " WIB";
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Interactive Persona Filter (All / Hacker / Handler)
+    function setPersonaMode(mode) {
+      const cardHacker = document.getElementById('card-persona-hacker');
+      const cardHandler = document.getElementById('card-persona-handler');
+      
+      const btnAll = document.getElementById('btn-mode-all');
+      const btnHacker = document.getElementById('btn-mode-hacker');
+      const btnHandler = document.getElementById('btn-mode-handler');
+
+      // Reset button styles
+      [btnAll, btnHacker, btnHandler].forEach(btn => {
+        btn.className = "px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all";
+      });
+
+      if (mode === 'all') {
+        btnAll.className = "px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all";
+        cardHacker.style.opacity = "1";
+        cardHacker.style.transform = "scale(1)";
+        cardHandler.style.opacity = "1";
+        cardHandler.style.transform = "scale(1)";
+      } else if (mode === 'hacker') {
+        btnHacker.className = "px-3 py-1 rounded-full bg-hacker-600 text-white shadow-sm transition-all";
+        cardHacker.style.opacity = "1";
+        cardHacker.style.transform = "scale(1.02)";
+        cardHandler.style.opacity = "0.4";
+        cardHandler.style.transform = "scale(0.98)";
+      } else if (mode === 'handler') {
+        btnHandler.className = "px-3 py-1 rounded-full bg-handler-600 text-white shadow-sm transition-all";
+        cardHandler.style.opacity = "1";
+        cardHandler.style.transform = "scale(1.02)";
+        cardHacker.style.opacity = "0.4";
+        cardHacker.style.transform = "scale(0.98)";
+      }
+    }
+
+    // Case Study Database
     const caseStudies = {
       'koin': {
         title: 'KOIN — Digital School Wallet',
         subtitle: 'Securing and Scaling Micro-Transactions in Academic Ecosystems',
         tagline: 'Full Stack Product Builder / Founder',
         tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'NFC System'],
-        problem: 'School networks suffer structural administrative latency and tracking vulnerabilities when handling physical cash operations. Micro-transactions in food stalls, field trips, and resource management are highly prone to clerical leaks.',
-        solution: 'An end-to-end cloud ecosystem using Supabase as database backend and Next.js as UI client. This architecture pairs each student with dedicated, securely hashed NFC storage wallets, translating physical taps into instantaneous transaction records.',
-        research: 'We conducted structural field-mapping across regional campuses in Jember. Our metrics proved that physical transactions averaged 42 seconds of human processing time, which dropped to 3.8 seconds utilizing safe digital pipelines.',
+        problem: 'School networks suffer structural administrative latency and tracking vulnerabilities when handling physical cash operations.',
+        solution: 'An end-to-end cloud ecosystem using Supabase as database backend and Next.js as UI client paired with secure NFC storage wallets.',
+        research: 'Field-mapping across regional campuses in Jember proved physical transactions averaged 42 seconds, which dropped to 3.8 seconds utilizing safe digital pipelines.',
         architecture: `
-          <div class="p-6 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed border border-white/5">
-            <p class="text-amber-300 font-bold mb-2">// Serverless State Routing Flow</p>
-            <p>1. [NFC Physical Tap] -> Transmits secure student token to client gateway</p>
-            <p>2. [Next.js Client] -> Dispatches authenticated POST request with JWT payload</p>
-            <p>3. [Supabase Edge Broker] -> Resolves client validation & balances ledger via safe transaction limits</p>
-            <p>4. [PostgreSQL DB] -> Executes isolated atomic database locks to maintain structural integrity</p>
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
+            <p class="text-hacker-400 font-bold mb-2">// Serverless State Routing Flow</p>
+            <p>1. [NFC Physical Tap] -> Transmits secure student token to gateway</p>
+            <p>2. [Next.js Client] -> Dispatches authenticated request with JWT payload</p>
+            <p>3. [Supabase Edge Broker] -> Resolves client validation & balances ledger</p>
+            <p>4. [PostgreSQL DB] -> Executes isolated atomic database locks</p>
           </div>
         `,
         result: 'Successfully shipped early functional MVP with mock API brokers. Rated in the Top 20 national innovative projects by BPKH & Starter.id in 2026.',
-        reflection: 'Building KOIN shifted my workflow from simply writing code blocks to evaluating complete infrastructure layers. Scalability and hardware-software parity are major priorities in reliable system delivery.'
+        reflection: 'Building KOIN shifted my workflow from simply writing code blocks to evaluating complete infrastructure layers and hardware-software parity.'
       },
       'rutebarokah': {
         title: 'RuteBarokah',
         subtitle: 'Graph Theory Applied to Regional Social Distribution Optimization',
         tagline: 'Algorithm & Full Stack Architect',
         tags: ['Next.js', 'React', 'TypeScript', 'Graph Algorithms'],
-        problem: 'NGO charity logistics networks often utilize ad-hoc routing decisions, producing major systemic waste in transport and vehicle deployment overhead.',
-        solution: 'Developed an interactive web-based map layer visualizing dynamic route assignments. Applied classical graph-routing parameters customized to local donation constraints.',
-        research: 'Analyzed traffic flow patterns during charity drops. Discovered that manual path routing increased operational latency by 28%. Deployed dynamic visual coordinates to alleviate the waste.',
+        problem: 'NGO charity logistics networks often utilize ad-hoc routing decisions, producing major systemic waste in vehicle deployment.',
+        solution: 'Developed an interactive web-based map layer visualizing dynamic route assignments with graph-routing parameters.',
+        research: 'Discovered that manual path routing increased operational latency by 28%. Deployed dynamic visual coordinates to alleviate waste.',
         architecture: `
-          <div class="p-6 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed border border-white/5">
-            <p class="text-blue-400 font-bold mb-2">// Algorithmic Distance Mapping Layer</p>
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
+            <p class="text-cyan-400 font-bold mb-2">// Algorithmic Distance Mapping Layer</p>
             <p>1. Target locations marked in dynamic state variables</p>
             <p>2. Weighted adjacencies computed using latitude/longitude vectors</p>
-            <p>3. Execution of distance minimization loops, returning optimized paths to delivery trucks</p>
+            <p>3. Execution of distance minimization loops returning optimized paths</p>
           </div>
         `,
-        result: 'Designed a comprehensive prototype mapping charity nodes directly on responsive custom canvas maps, allowing volunteers to view active directions instantly.',
-        reflection: 'Applying pure data structure theories to solve human crises is incredibly rewarding. The optimization of simple logistics parameters creates actual real-world savings for charity drivers.'
+        result: 'Designed a prototype mapping charity nodes directly on responsive custom canvas maps.',
+        reflection: 'Applying pure data structure theories to solve human crises creates actual real-world savings for charity drivers.'
       },
       'health-ai': {
         title: 'Health Diagnostic AI System',
         subtitle: 'Targeted Deep Learning Pipelines for Clinical Patient Risk Vetting',
         tagline: 'AI Research & System Engineer',
         tags: ['Python', 'TensorFlow', 'Pandas', 'Clinical Modeling'],
-        problem: 'Early diagnostics in remote regions often miss chronic indicators due to high medical equipment overhead and specialized doctor scarcity.',
-        solution: 'Trained highly specific Artificial Neural Networks (ANN) predicting disease markers from simple biological inputs.',
-        research: 'We used highly vetted anonymized dataset segments, performing complete feature selection, scale normalization, and outlier removal pipelines to prevent structural bias.',
+        problem: 'Early diagnostics in remote regions often miss chronic indicators due to high medical equipment overhead.',
+        solution: 'Trained Artificial Neural Networks (ANN) predicting disease markers from biological inputs.',
+        research: 'Performed feature selection, scale normalization, and outlier removal pipelines to prevent structural bias.',
         architecture: `
-          <div class="p-6 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed border border-white/5">
-            <p class="text-emerald-400 font-bold mb-2"># Neural Network Architecture Vetting</p>
-            <p>Input Layer (Dynamic biological vectors) -> 3 Dense Hidden Layers (ReLu, Dropout=0.25 to prevent overfitting) -> Output Layer (Sigmoid Activation for binary risk metrics)</p>
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
+            <p class="text-purple-400 font-bold mb-2"># Neural Network Architecture Vetting</p>
+            <p>Input Layer -> 3 Dense Hidden Layers (ReLu, Dropout=0.25) -> Output Layer (Sigmoid Activation for risk metrics)</p>
           </div>
         `,
-        result: 'Achieved high test validation parity. Secured national research validation slots at competitive 2025 technology summits.',
-        reflection: 'Developing diagnostic medical pipelines demands rigorous engineering. Normalization and robust validation are not optional parameters; they determine the accuracy of predictive algorithms.'
+        result: 'Achieved high test validation parity. Secured national research validation slots in 2025 technology summits.',
+        reflection: 'Developing diagnostic medical pipelines demands rigorous engineering and defensive validation.'
       },
       'coffee-ai': {
         title: 'Coffee Quality AI Predictor',
         subtitle: 'Translating Specialty Taste Attributes Into Verifiable Mathematical Trends',
         tagline: 'Machine Learning Pipeline Engineer',
         tags: ['Python', 'Scikit-Learn', 'Streamlit', 'Random Forest'],
-        problem: 'Coffee cupping sensory grading relies entirely on highly subjective human sensory panels, introducing major scoring deviations.',
-        solution: 'Engineered a supervised machine learning regression architecture to predict final cupping scores by evaluating specific organic properties (acidity, balance, body).',
-        research: 'Gathered thousands of certified Arabica data parameters. Discovered that linear combinations hold robust correlations when paired with Random Forest regression systems.',
+        problem: 'Coffee cupping sensory grading relies entirely on subjective human panels.',
+        solution: 'Engineered a supervised machine learning regression architecture to predict final cupping scores.',
+        research: 'Gathered Arabica data parameters. Proved linear combinations hold robust correlations when paired with Random Forest regression.',
         architecture: `
-          <div class="p-6 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed border border-white/5">
-            <p class="text-amber-400 font-bold mb-2"># Comparative ML Regressors deployed in production</p>
-            <p>Linear Regression, Ridge, and Random Forest models trained in parallel. Model hyper-parameters optimized using Grid Search Cross Validation.</p>
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
+            <p class="text-amber-400 font-bold mb-2"># Comparative ML Regressors</p>
+            <p>Linear Regression, Ridge, and Random Forest models trained in parallel with Grid Search CV.</p>
           </div>
         `,
-        result: 'Deployed predictive endpoints using Streamlit, giving coffee processors an instant, zero-cost quality estimation tool.',
-        reflection: 'This system proved to me that highly complex deep learning nets are not always the answer. A simple, well-tuned regressor can easily outperform them if the underlying dataset is additive.'
+        result: 'Deployed predictive endpoints using Streamlit for an instant quality estimation tool.',
+        reflection: 'A simple, well-tuned regressor can easily outperform complex deep learning nets if the underlying dataset is additive.'
       },
       'netes-io': {
         title: 'Netes.io — Smart Egg Incubator',
         subtitle: 'Bridging Automated Hardware Feedback Loops with Cloud Storage',
         tagline: 'IoT Architect & Firmware Engineer',
         tags: ['ESP32', 'DHT22 Sensor', 'Firebase RTDB', 'Flutter Mobile'],
-        problem: 'Traditional egg incubation methods have high failure rates due to manual temperature control errors and irregular turning intervals.',
-        solution: 'Developed an automated closed-loop hardware system. Deployed an ESP32 unit connected with DHT22 sensors, motor relays, and real-time Firebase syncing.',
-        research: 'Conducted mechanical cycle tests over 21-day incubation periods. The automated rotational motor decreased embryonic death rates by 42%.',
+        problem: 'Traditional egg incubation methods have high failure rates due to manual temperature control errors.',
+        solution: 'Developed an automated closed-loop hardware system with ESP32, sensors, and Firebase syncing.',
+        research: 'Conducted mechanical cycle tests over 21-day incubation periods. Decreased embryonic death rates by 42%.',
         architecture: `
-          <div class="p-6 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed border border-white/5">
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
             <p class="text-cyan-400 font-bold mb-2">// Hardware Integration Diagram</p>
-            <p>1. [Sensors] -> Feed continuous readings to local ESP32 micro-chip</p>
-            <p>2. [ESP32 Firmware] -> Evaluates thresholds, firing servo relays to adjust climate</p>
-            <p>3. [Network Stream] -> Dispatches real-time JSON metrics to Firebase DB</p>
-            <p>4. [Flutter Client] -> Renders state updates dynamically to user</p>
+            <p>1. [Sensors] -> Feed continuous readings to local ESP32 chip</p>
+            <p>2. [ESP32 Firmware] -> Evaluates thresholds, firing servo relays</p>
+            <p>3. [Network Stream] -> Dispatches real-time JSON metrics to Firebase</p>
+            <p>4. [Flutter Client] -> Renders state updates dynamically</p>
           </div>
         `,
-        result: 'Designed a functional mechanical prototype and live dashboard client with robust remote monitoring.',
-        reflection: 'IoT taught me to always write defensive code. Unlike standard cloud applications, physical hardware systems must handle connectivity losses gracefully.'
+        result: 'Designed a functional mechanical prototype and live dashboard client with remote monitoring.',
+        reflection: 'IoT taught me to always write defensive code to handle connectivity losses gracefully.'
       }
     };
 
-    // Routing System for Case Studies (SPA view system)
     function viewCaseStudy(projectId) {
       const data = caseStudies[projectId];
       if (!data) return;
@@ -1192,57 +1349,48 @@
       }).join('');
 
       container.innerHTML = `
-        <div class="space-y-4">
-          <div class="flex flex-wrap gap-2">
-            ` + tagsHtml + `
-          </div>
-          <h1 class="font-space text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900">` + data.title + `</h1>
-          <p class="text-lg md:text-xl text-slate-600 font-medium font-space">` + data.subtitle + `</p>
-          <p class="text-xs font-bold text-violet-700 uppercase tracking-widest font-space">// ` + data.tagline + `</p>
+        <div class="space-y-3">
+          <div class="flex flex-wrap gap-1.5">` + tagsHtml + `</div>
+          <h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">` + data.title + `</h1>
+          <p class="text-base text-slate-600 font-mono">` + data.subtitle + `</p>
+          <p class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">// ` + data.tagline + `</p>
         </div>
 
-        <div class="grid md:grid-cols-[1.3fr_0.7fr] gap-8 md:gap-12 items-start border-t border-slate-200 pt-10">
-          <div class="space-y-10">
-            
-            <div class="space-y-3">
-              <h3 class="font-space font-black text-xl text-slate-800">The Problem & Challenge</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">` + data.problem + `</p>
+        <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-8 border-t border-slate-200 pt-6">
+          <div class="space-y-6">
+            <div>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">The Problem</h3>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.problem + `</p>
             </div>
-
-            <div class="space-y-3">
-              <h3 class="font-space font-black text-xl text-slate-800">The Engineering Solution</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">` + data.solution + `</p>
+            <div>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">The Solution</h3>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.solution + `</p>
             </div>
-
-            <div class="space-y-3">
-              <h3 class="font-space font-black text-xl text-slate-800">Research & Discovery</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">` + data.research + `</p>
+            <div>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">Research & Testing</h3>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.research + `</p>
             </div>
-
-            <div class="space-y-3">
-              <h3 class="font-space font-black text-xl text-slate-800">Architecture & Deployment</h3>
+            <div>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">Architecture Spec</h3>
               ` + data.architecture + `
             </div>
-
           </div>
 
-          <div class="space-y-6 lg:sticky lg:top-28">
-            <div class="card rounded-2xl p-6 bg-[#110f15] text-white">
-              <h4 class="font-space font-bold text-sm text-amber-300 uppercase tracking-wider mb-4">Project Results</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">` + data.result + `</p>
+          <div class="space-y-4">
+            <div class="card-clean rounded-2xl p-5 bg-slate-50">
+              <h4 class="font-mono font-bold text-xs text-amber-700 uppercase mb-2">Project Result</h4>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.result + `</p>
             </div>
-
-            <div class="card rounded-2xl p-6 bg-violet-50 border border-violet-100 text-violet-950">
-              <h4 class="font-space font-bold text-sm text-violet-800 uppercase tracking-wider mb-2">Key Lesson</h4>
-              <p class="text-xs text-slate-700 leading-relaxed">` + data.reflection + `</p>
+            <div class="card-clean rounded-2xl p-5 border-handler-500/20">
+              <h4 class="font-mono font-bold text-xs text-handler-600 uppercase mb-1">Key Takeaway</h4>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.reflection + `</p>
             </div>
           </div>
         </div>
       `;
 
       document.getElementById('main-portfolio').classList.add('hidden');
-      const caseStudyView = document.getElementById('case-study-view');
-      caseStudyView.classList.remove('hidden');
+      document.getElementById('case-study-view').classList.remove('hidden');
       window.scrollTo(0, 0);
     }
 
@@ -1252,29 +1400,8 @@
       document.getElementById('main-portfolio').classList.remove('hidden');
       
       const workEl = document.getElementById('work');
-      if (workEl) {
-        workEl.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (workEl) workEl.scrollIntoView({ behavior: 'smooth' });
     }
-
-    window.addEventListener('hashchange', function() {
-      const hash = window.location.hash;
-      if (hash.indexOf('#project-') === 0) {
-        const projectId = hash.replace('#project-', '');
-        viewCaseStudy(projectId);
-      } else if (hash === '') {
-        document.getElementById('case-study-view').classList.add('hidden');
-        document.getElementById('main-portfolio').classList.remove('hidden');
-      }
-    });
-
-    window.addEventListener('load', function() {
-      const hash = window.location.hash;
-      if (hash.indexOf('#project-') === 0) {
-        const projectId = hash.replace('#project-', '');
-        viewCaseStudy(projectId);
-      }
-    });
 
     function navigateTo(targetId) {
       document.getElementById('case-study-view').classList.add('hidden');
