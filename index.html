@@ -247,7 +247,7 @@
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-hacker-500 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-3 w-3 bg-hacker-600"></span>
         </span>
-        <span class="tracking-tight font-black text-base group-hover:text-brand-600 transition">NABILA<span class="text-brand-600">.GX</span></span>
+        <span class="tracking-tight font-black text-base group-hover:text-brand-600 transition">NABILA<span class="text-brand-600">.HQ</span></span>
         <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-mono font-semibold text-slate-600">
           OPERATIONAL
         </span>
@@ -591,10 +591,29 @@
                   <span class="tag-tech">PWA</span>
                 </div>
 
-                <div class="pt-2">
-                  <button onclick="viewCaseStudy('koin')" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                <div class="pt-2 flex flex-wrap gap-2.5">
+                  <a href="https://bit.ly/koin-mvp" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                    <i class="ph ph-arrow-square-out text-sm"></i> Launch KOIN Web App
+                  </a>
+                  <button onclick="viewCaseStudy('koin')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 border border-slate-200">
                     Deep Dive KOIN Case Study <i class="ph ph-arrow-right text-sm"></i>
                   </button>
+                </div>
+
+                <!-- REVIEWER ACCESS CREDENTIALS BOX -->
+                <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 font-mono text-xs space-y-2 mt-2">
+                  <div class="flex items-center justify-between text-brand-700 font-bold border-b border-slate-200 pb-1.5">
+                    <span class="flex items-center gap-1.5"><i class="ph ph-keyhole text-sm"></i> KOIN DEMO ACCESS</span>
+                    <span class="text-[9px] bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-bold">REVIEWER CREDENTIALS</span>
+                  </div>
+                  <div class="grid sm:grid-cols-2 gap-2 text-slate-700 text-[11px]">
+                    <div><span class="text-slate-400">Parent:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-bold">magdalena.parent@koin.demo</code></div>
+                    <div><span class="text-slate-400">Child:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-bold">nayla.child@koin.demo</code></div>
+                  </div>
+                  <div class="text-[11px] text-slate-700"><span class="text-slate-400">Password:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-brand-700 font-bold">KOINdemo123!</code></div>
+                  <p class="text-[11px] text-slate-600 font-sans leading-relaxed pt-1.5 border-t border-slate-200/70">
+                    A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.
+                  </p>
                 </div>
               </div>
 
@@ -671,8 +690,11 @@
                   <span class="tag-tech">IR Blaster</span>
                 </div>
 
-                <div class="pt-2">
-                  <button onclick="viewCaseStudy('panda')" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                <div class="pt-2 flex flex-wrap gap-2.5">
+                  <a href="https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing" target="_blank" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                    <i class="ph ph-file-text text-sm"></i> PANDA — Full Proposal & Documentation
+                  </a>
+                  <button onclick="viewCaseStudy('panda')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 border border-slate-200">
                     Deep Dive PANDA Case Study <i class="ph ph-arrow-right text-sm"></i>
                   </button>
                 </div>
@@ -1150,6 +1172,8 @@
         subtitle: 'PWA-Driven Cashless Micro-Transactions with NFC & Real-Time Sync',
         tagline: 'System Architect & Full-Stack Builder',
         tags: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL', 'NFC Web API', 'Tailwind CSS'],
+        demoUrl: 'https://bit.ly/koin-mvp',
+        demoAccessNotice: 'A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.',
         problem: 'School canteen environments face severe latency during peak recess hours due to physical cash handling. Parents have zero visibility into daily nutritional spending, and school administrative staff struggle with manual end-of-day ledger reconciliation.',
         solution: 'Architected a Progressive Web App (PWA) supporting rapid NFC card identification for students, authenticated merchant POS terminals, and a guardian portal providing instant transaction telemetry and balance reload workflows.',
         myRole: 'Designed and implemented the end-to-end web architecture: Next.js frontend, Supabase schema definitions, Row-Level Security (RLS) policies, NFC UID parsing, optimistic balance mutations, and state management.',
@@ -1162,6 +1186,16 @@
               <p>3. [PostgreSQL Transaction] Applies database-level atomic operation to deduct student balance and credit merchant ledger concurrently.</p>
               <p>4. [Realtime Pub/Sub] Supabase broadcasts event to the parent dashboard with instant notification.</p>
             </div>
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed space-y-1.5 border border-slate-800">
+              <p class="text-emerald-400 font-bold mb-1">// KOIN DEMO ACCESS CREDENTIALS</p>
+              <p><span class="text-slate-400">Live URL:</span> <a href="https://bit.ly/koin-mvp" target="_blank" class="text-brand-300 underline font-bold">https://bit.ly/koin-mvp</a></p>
+              <p><span class="text-slate-400">Parent Account:</span> magdalena.parent@koin.demo</p>
+              <p><span class="text-slate-400">Child Account:</span> nayla.child@koin.demo</p>
+              <p><span class="text-slate-400">Password:</span> KOINdemo123!</p>
+              <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-800 font-sans">
+                A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.
+              </p>
+            </div>
           </div>
         `,
         challenges: 'Mitigating double-spending under intermittent campus WiFi. Resolved by implementing optimistic UI updates with offline request queueing and server-side idempotency keys to guarantee transactions are processed exactly once.',
@@ -1173,6 +1207,7 @@
         subtitle: 'Edge Machine Learning & IoT Closed-Loop Environmental Control for Stroke Care',
         tagline: 'Edge ML Engineer & Firmware Architect',
         tags: ['ESP32 (C++)', 'MQTT / HiveMQ', 'Python', 'Scikit-Learn', 'Random Forest', 'IR Modulation'],
+        docUrl: 'https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing',
         problem: 'Bedridden stroke patients suffering from hemiparesis or severe cognitive impairment cannot verbally alert caregivers to acute thermal discomfort or sudden restlessness, risking hypothermia, heat stress, or unmonitored medical distress.',
         solution: 'Developed a dual-stage closed-loop healthcare IoT system: an ESP32 edge sensor node continuously samples ambient temperature, humidity, light, and motion; telemetry is streamed via MQTT to a Python inference service running a trained Random Forest model, which issues automated IR commands to regulate the room air conditioner.',
         myRole: 'Built the ESP32 C++ firmware routines, moving-average sensor noise filtering, MQTT client telemetry handlers, tabular data collection, Random Forest model training, and the deterministic safety override logic.',
@@ -1186,6 +1221,13 @@
               <p>• Inference: Random Forest classifies states into [Comfortable, Thermal Stress, High Agitation].</p>
               <p>• Fail-Safe Override: Hardcoded safety rules immediately trigger AC adjustment if temp > 29°C, bypassing inference latency.</p>
               <p>• Actuator: ESP32 IR Blaster pulses 38kHz NEC protocol to adjust AC mode & temperature.</p>
+            </div>
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed border border-slate-800">
+              <p class="text-amber-400 font-bold mb-1">// PROPOSAL & DOCUMENTATION</p>
+              <p class="text-slate-300 font-sans text-xs">Access the full technical proposal, hardware schematics, and model training documentation:</p>
+              <a href="https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing" target="_blank" class="inline-flex items-center gap-1.5 text-hacker-400 hover:text-hacker-300 underline font-bold mt-2">
+                <i class="ph ph-file-text"></i> Open PANDA Full Proposal & Documentation
+              </a>
             </div>
           </div>
         `,
@@ -1262,9 +1304,20 @@
         return '<span class="tag-tech">' + tag + '</span>';
       }).join('');
 
+      let extraActionsHtml = '';
+      if (data.demoUrl) {
+        extraActionsHtml += `<a href="${data.demoUrl}" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-sm"><i class="ph ph-arrow-square-out text-sm"></i> Launch Live Web App</a> `;
+      }
+      if (data.docUrl) {
+        extraActionsHtml += `<a href="${data.docUrl}" target="_blank" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-sm"><i class="ph ph-file-text text-sm"></i> View Proposal & Docs</a>`;
+      }
+
       container.innerHTML = `
         <div class="space-y-4">
-          <div class="flex flex-wrap gap-1.5">` + tagsHtml + `</div>
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap gap-1.5">` + tagsHtml + `</div>
+            <div class="flex flex-wrap gap-2">` + extraActionsHtml + `</div>
+          </div>
           <h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">` + data.title + `</h1>
           <p class="text-base text-slate-600 font-mono">` + data.subtitle + `</p>
           <p class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">// ` + data.tagline + `</p>
