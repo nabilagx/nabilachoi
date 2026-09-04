@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabila Choirunisa — Handler & Hacker | Full Stack Product Builder</title>
-  <meta name="description" content="Portfolio of Nabila Choirunisa, Full Stack Product Builder, AI Engineer, and Computer Science Student at University of Jember." />
+  <title>Nabila Choirunisa — Full-Stack & Systems Builder | Hacker & Handler</title>
+  <meta name="description" content="Portfolio of Nabila Choirunisa, Full-Stack & Systems Builder, Edge ML & IoT, Computer Science Student at University of Jember." />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -44,9 +44,7 @@
           },
           animation: {
             'float-slow': 'float 6s ease-in-out infinite',
-            'float-delayed': 'float 6s ease-in-out 3s infinite',
             'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-            'shimmer': 'shimmer 2.5s linear infinite',
           },
           keyframes: {
             float: {
@@ -56,9 +54,6 @@
             pulseGlow: {
               '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
               '50%': { opacity: '0.8', transform: 'scale(1.05)' },
-            },
-            shimmer: {
-              '100%': { transform: 'translateX(100%)' },
             }
           }
         }
@@ -95,7 +90,7 @@
       font-style: italic;
     }
 
-    /* Custom Dual-Stage Spring Pointer Follower */
+    /* Pointer Follower */
     .cursor-dot {
       width: 8px;
       height: 8px;
@@ -126,7 +121,7 @@
       }
     }
 
-    /* Ambient Motion Mesh Background */
+    /* Ambient Motion Mesh */
     .ambient-blob-1 {
       position: absolute;
       top: 5%;
@@ -141,7 +136,7 @@
 
     .ambient-blob-2 {
       position: absolute;
-      top: 20%;
+      top: 25%;
       right: -5%;
       width: 600px;
       height: 600px;
@@ -151,7 +146,6 @@
       z-index: -1;
     }
 
-    /* Technical Grid Overlay */
     .tech-grid {
       background-size: 32px 32px;
       background-image: 
@@ -159,7 +153,6 @@
         linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
     }
 
-    /* Interactive Fluid Card Style */
     .card-clean {
       background: var(--card-white);
       border: 1px solid var(--border-light);
@@ -186,7 +179,7 @@
     .tag-tech {
       border: 1px solid #E2E8F0;
       background: #F1F5F9;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.55rem;
       border-radius: 6px;
       font-size: 0.72rem;
       font-weight: 600;
@@ -200,7 +193,6 @@
       color: #0F172A;
     }
 
-    /* Text Gradients */
     .text-gradient-handler {
       background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
       -webkit-background-clip: text;
@@ -213,14 +205,12 @@
       -webkit-text-fill-color: transparent;
     }
 
-    /* Glass Effect */
     .glass-nav {
       background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -238,7 +228,7 @@
 </head>
 <body class="antialiased selection:bg-brand-100 selection:text-brand-900 bg-slate-50 text-slate-900 relative">
 
-  <!-- DUAL-STAGE POINTER FOLLOWER -->
+  <!-- DUAL-STAGE CURSOR FOLLOWER -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
@@ -266,15 +256,15 @@
       <!-- Desktop Links -->
       <nav class="hidden md:flex items-center gap-7 font-mono text-xs font-semibold text-slate-600 uppercase tracking-wider">
         <a href="#matrix" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-cpu text-brand-600"></i> Matrix</a>
+        <a href="#flagships" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-star text-brand-600"></i> Flagships</a>
         <a href="#work" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-squares-four text-brand-600"></i> Systems</a>
         <a href="#skills" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-code text-brand-600"></i> Stack</a>
-        <a href="#timeline" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-git-commit text-brand-600"></i> Logs</a>
         <a href="#recognition" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-trophy text-brand-600"></i> Awards</a>
       </nav>
 
       <!-- Action Button -->
       <div class="flex items-center gap-3">
-        <a href="#contact" class="bg-slate-900 hover:bg-brand-600 text-white font-mono font-semibold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:scale-[1.02]">
+        <a href="#contact" class="bg-slate-900 hover:bg-brand-600 text-white font-mono font-semibold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-sm hover:scale-[1.02]">
           <i class="ph ph-paper-plane-tilt text-sm"></i>
           <span>Let's Talk</span>
         </a>
@@ -288,62 +278,64 @@
     <main id="home" class="max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-32">
       
       <!-- HERO SECTION -->
-      <section class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center min-h-[78vh] py-6">
+      <section class="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center min-h-[78vh] py-6">
         
         <!-- Left Hero Content -->
         <div class="space-y-6">
           
           <!-- Persona Badge & Interactive Mode Switcher -->
-          <div class="flex flex-wrap items-center gap-2">
+          <div class="flex flex-wrap items-center gap-2.5">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-200 bg-brand-50/80 text-brand-700 font-mono text-xs font-semibold shadow-sm">
-              <i class="ph ph-shield-check text-sm text-brand-600"></i>
-              <span>FULL STACK PRODUCT BUILDER & AI ARCHITECT</span>
+              <i class="ph ph-cpu text-sm text-brand-600"></i>
+              <span>FULL-STACK & SYSTEMS BUILDER</span>
             </div>
 
             <!-- MODE FILTER BUTTONS -->
-          <div class="inline-flex p-1 bg-slate-200/70 backdrop-blur-sm rounded-full border border-slate-300 text-[10px] font-mono font-bold uppercase">
-            <button onclick="setPersonaMode('all')" id="btn-mode-all" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all">All</button>
-            <button onclick="setPersonaMode('hacker')" id="btn-mode-hacker" class="px-3 py-1 rounded-full text-slate-600 hover:text-hacker-700 transition-all">Hacker</button>
-            <button onclick="setPersonaMode('handler')" id="btn-mode-handler" class="px-3 py-1 rounded-full text-slate-600 hover:text-handler-700 transition-all">Handler</button>
+            <div class="inline-flex p-1 bg-slate-200/70 backdrop-blur-sm rounded-full border border-slate-300 text-[10px] font-mono font-bold uppercase">
+              <button onclick="setPersonaMode('all')" id="btn-mode-all" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all">All</button>
+              <button onclick="setPersonaMode('hacker')" id="btn-mode-hacker" class="px-3 py-1 rounded-full text-slate-600 hover:text-hacker-700 transition-all">Hacker</button>
+              <button onclick="setPersonaMode('handler')" id="btn-mode-handler" class="px-3 py-1 rounded-full text-slate-600 hover:text-handler-700 transition-all">Handler</button>
+            </div>
           </div>
-        </div>
 
-        <!-- Headline -->
-        <h1 class="font-space text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] text-slate-900 tracking-tight">
-          Engineered as a <span class="font-serif-italic font-normal text-gradient-hacker text-5xl sm:text-6xl md:text-7xl">Hacker</span>.<br />
-          Orchestrated as a <span class="font-serif-italic font-normal text-gradient-handler text-5xl sm:text-6xl md:text-7xl">Handler</span>.
-        </h1>
+          <!-- Headline -->
+          <h1 class="font-space text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] text-slate-900 tracking-tight">
+            Engineered as a <span class="font-serif-italic font-normal text-gradient-hacker text-5xl sm:text-6xl md:text-7xl">Hacker</span>.<br />
+            Orchestrated as a <span class="font-serif-italic font-normal text-gradient-handler text-5xl sm:text-6xl md:text-7xl">Handler</span>.
+          </h1>
 
-        <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl font-sans">
-          I’m <strong class="text-slate-900 font-semibold">Nabila Choirunisa</strong>, Computer Science Student at University of Jember. 
-          I bridge raw technical pipelines, AI models, and product strategy—building robust EdTech tools and high-impact digital systems.
-        </p>
+          <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl font-sans">
+            I’m <strong class="text-slate-900 font-semibold">Nabila Choirunisa</strong>, Computer Science Student at University of Jember. 
+            I build verifiable systems from the bottom up—connecting physical sensors, edge telemetry, and applied machine learning into resilient full-stack architectures.
+          </p>
 
-        <!-- Current Focus Dynamic Banner -->
-          <div class="card-clean p-4 rounded-2xl flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between bg-white border-slate-200/90 shadow-sm hover:border-brand-400">
-            <div class="flex items-center gap-3.5">
-              <div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center border border-slate-200 shrink-0 shadow-sm overflow-hidden p-1">
-                <img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/EEF2FF/4F46E5?text=KOIN';" />
+          <!-- Dual Flagship Quick Cards -->
+          <div class="grid sm:grid-cols-2 gap-3 pt-1">
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300 shadow-sm flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center shrink-0">
+                <i class="ph ph-wallet text-brand-600 text-xl"></i>
               </div>
-              <div>
-                <div class="flex items-center gap-2">
-                  <span class="text-[10px] font-mono uppercase tracking-wider text-brand-600 font-bold">Flagship Operation</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-hacker-500 animate-ping"></span>
-                </div>
-                <h4 class="font-space font-bold text-sm md:text-base text-slate-900">KOIN — Digital School Wallet Platform</h4>
+              <div class="min-w-0">
+                <span class="text-[9px] font-mono font-bold text-brand-600 uppercase block">Flagship 01 • Web/FinTech</span>
+                <span class="font-space font-bold text-xs md:text-sm text-slate-900 truncate block">KOIN — School Wallet</span>
               </div>
             </div>
-            <div class="flex flex-wrap gap-1">
-              <span class="tag-tech">Next.js</span>
-              <span class="tag-tech">Supabase</span>
-              <span class="tag-tech">NFC</span>
+
+            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-hacker-300 shadow-sm flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-hacker-50 border border-hacker-200 flex items-center justify-center shrink-0">
+                <i class="ph ph-heartbeat text-hacker-600 text-xl"></i>
+              </div>
+              <div class="min-w-0">
+                <span class="text-[9px] font-mono font-bold text-hacker-600 uppercase block">Flagship 02 • IoT/Edge ML</span>
+                <span class="font-space font-bold text-xs md:text-sm text-slate-900 truncate block">PANDA — Stroke Care IoT</span>
+              </div>
             </div>
           </div>
 
           <!-- Action CTA Buttons -->
           <div class="flex flex-wrap gap-3 pt-2 font-mono text-xs">
-            <a href="#work" class="bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-6 py-3.5 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02]">
-              Explore Deployments <i class="ph ph-arrow-down text-sm"></i>
+            <a href="#flagships" class="bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-6 py-3.5 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-md hover:scale-[1.02]">
+              View Flagship Builds <i class="ph ph-arrow-down text-sm"></i>
             </a>
             <a href="https://github.com/nabilagx" target="_blank" class="bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
               <i class="ph ph-github-logo text-base"></i> GitHub
@@ -351,33 +343,28 @@
             <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="bg-white border border-slate-200 hover:border-handler-500 hover:text-handler-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
               <i class="ph ph-linkedin-logo text-base"></i> LinkedIn
             </a>
-            <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="bg-white border border-slate-200 hover:border-pink-500 hover:text-pink-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
-              <i class="ph ph-instagram-logo text-base"></i> Instagram
-            </a>
           </div>
 
         </div>
 
-        <!-- Right Side: Clean Profile Identity Card & Interactive Photo HUD -->
-        <div class="space-y-6">
+        <!-- Right Side: Profile Identity Card & Verified Metrics -->
+        <div class="space-y-5">
           
-          <!-- PROFILE IDENTITY CARD WITH USER'S PHOTO -->
           <div class="card-clean rounded-3xl p-6 relative overflow-hidden bg-white border-slate-200/90 shadow-md">
-            
             <!-- Top HUD Bar -->
             <div class="flex items-center justify-between font-mono text-[10px] text-slate-400 mb-5 pb-3 border-b border-slate-100">
               <span class="font-bold text-slate-800 uppercase flex items-center gap-1.5">
-                <i class="ph ph-identification-card text-brand-600 text-base"></i> AGENT PROFILE
+                <i class="ph ph-identification-card text-brand-600 text-base"></i> SPECIFICATION RECORD
               </span>
               <span class="text-hacker-700 font-semibold bg-hacker-50 px-2.5 py-1 rounded-full border border-hacker-500/30 flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 bg-hacker-500 rounded-full animate-pulse"></span> SYSTEM ONLINE
               </span>
             </div>
 
-            <div class="grid sm:grid-cols-[160px_1fr] gap-6 items-center">
+            <div class="grid sm:grid-cols-[150px_1fr] gap-6 items-center">
               
-              <!-- Photo Container with Floating Badge overlays -->
-              <div class="relative mx-auto sm:mx-0 w-40 h-52 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md bg-slate-100 group">
+              <!-- Photo Container -->
+              <div class="relative mx-auto sm:mx-0 w-36 h-48 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md bg-slate-100 group">
                 <img 
                   src="https://i.imgur.com/i8axJGF.png" 
                   alt="Nabila Choirunisa Profile Photo" 
@@ -390,7 +377,7 @@
                 </div>
               </div>
 
-              <!-- Metadata & Quick Badges -->
+              <!-- Metadata -->
               <div class="space-y-3 font-mono text-xs">
                 <div>
                   <span class="text-slate-400 text-[10px] uppercase block font-sans">Identity</span>
@@ -398,54 +385,52 @@
                 </div>
                 
                 <div>
-                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Core Operations</span>
-                  <span class="text-brand-600 font-bold block">Full Stack & AI Architect</span>
+                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Core Focus</span>
+                  <span class="text-brand-600 font-bold block">Full-Stack & Embedded IoT</span>
                 </div>
 
                 <div>
-                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Academic Record</span>
-                  <span class="text-slate-800 font-semibold block">University of Jember</span>
+                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Academic Credentials</span>
+                  <span class="text-slate-800 font-semibold block">University of Jember (CS)</span>
                   <span class="text-hacker-600 font-bold text-sm block mt-0.5">3.89 / 4.00 Cumulative GPA</span>
                 </div>
 
-                <!-- Floating Interactive Pills -->
                 <div class="pt-1 flex flex-wrap gap-1.5 font-sans">
-                  <span class="px-2 py-0.5 rounded bg-brand-50 text-brand-700 text-[10px] font-bold border border-brand-200">EdTech</span>
-                  <span class="px-2 py-0.5 rounded bg-hacker-50 text-hacker-700 text-[10px] font-bold border border-hacker-200">AI Pipelines</span>
-                  <span class="px-2 py-0.5 rounded bg-handler-50 text-handler-700 text-[10px] font-bold border border-handler-200">Product Lead</span>
+                  <span class="px-2 py-0.5 rounded bg-brand-50 text-brand-700 text-[10px] font-bold border border-brand-200">Full-Stack PWA</span>
+                  <span class="px-2 py-0.5 rounded bg-hacker-50 text-hacker-700 text-[10px] font-bold border border-hacker-200">ESP32 & Sensors</span>
+                  <span class="px-2 py-0.5 rounded bg-handler-50 text-handler-700 text-[10px] font-bold border border-handler-200">Applied ML</span>
                 </div>
               </div>
 
             </div>
 
-            <!-- Floating animated element -->
             <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-500/10 rounded-full blur-xl pointer-events-none"></div>
           </div>
 
-          <!-- KEY METRICS GRID WITH HOVER ANIMATION -->
+          <!-- KEY METRICS GRID -->
           <div class="grid grid-cols-3 gap-3 font-mono text-center">
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-400 hover:shadow transition">
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-400 transition">
               <span class="text-2xl font-bold font-space text-brand-600 block">15+</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Projects Shipped</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Projects Built</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-handler-400 hover:shadow transition">
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-handler-400 transition">
               <span class="text-2xl font-bold font-space text-handler-600 block">06</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Competitions</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Tech Contests</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 hover:shadow transition">
-              <span class="text-2xl font-bold font-space text-hacker-600 block">04</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">AI Pipelines</span>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 transition">
+              <span class="text-2xl font-bold font-space text-hacker-600 block">SIC 7</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Samsung Campus</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-amber-400 hover:shadow transition">
-              <span class="text-2xl font-bold font-space text-amber-600 block">03</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">National Finalist</span>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-amber-400 transition">
+              <span class="text-xl font-bold font-space text-amber-600 block">Top 480</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">PIDI Hackathon</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-slate-400 hover:shadow transition">
-              <span class="text-2xl font-bold font-space text-slate-900 block">5+ Yrs</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Tutoring</span>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-slate-400 transition">
+              <span class="text-xl font-bold font-space text-slate-900 block">5+ Yrs</span>
+              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">STEM Tutoring</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 hover:shadow transition">
-              <span class="text-2xl font-bold font-space text-hacker-600 block">3.89</span>
+            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 transition">
+              <span class="text-xl font-bold font-space text-hacker-600 block">3.89</span>
               <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">CS GPA</span>
             </div>
           </div>
@@ -461,7 +446,7 @@
             Execution + Strategy <span class="font-serif-italic font-normal text-brand-600">Matrix</span>
           </h2>
           <p class="text-slate-600 text-xs md:text-sm mt-2">
-            Balancing deep technical engineering (<span class="font-serif-italic font-semibold text-hacker-600">Hacker</span>) with strategic product management and user empathy (<span class="font-serif-italic font-semibold text-handler-600">Handler</span>).
+            Balancing deep technical engineering (<span class="font-serif-italic font-semibold text-hacker-600">Hacker</span>) with user-driven system scoping, empathy, and product clarity (<span class="font-serif-italic font-semibold text-handler-600">Handler</span>).
           </p>
         </div>
 
@@ -478,29 +463,31 @@
 
             <div>
               <h3 class="font-space font-bold text-2xl text-slate-900">THE HACKER</h3>
-              <p class="text-xs font-mono text-hacker-600 font-semibold mt-1">Deep Technical Execution & Architectures</p>
+              <p class="text-xs font-mono text-hacker-600 font-semibold mt-1">Deep Technical Execution & Edge Infrastructure</p>
             </div>
 
             <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Full-Stack Architecture:</strong> Building robust client-server pipelines using Next.js, TypeScript, PostgreSQL, and Supabase.</span>
+                <span><strong>Full-Stack Architecture:</strong> Building scalable PWA clients, transactional workflows, and real-time data sync with Next.js, TypeScript, PostgreSQL, and Supabase.</span>
               </li>
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>AI & Machine Learning:</strong> Engineering supervised ML models, neural networks in TensorFlow, and sensory regression scoring.</span>
+                <span><strong>Applied Edge ML & IoT:</strong> Engineering ESP32 firmware in C++, multi-sensor filtering (DHT11/PIR/LDR), MQTT telemetry streams, and Random Forest classification for automated actuators.</span>
               </li>
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Hardware & Cryptography:</strong> ESP32 firmware integration, NFC hardware wallet synchronization, and hybrid AES-RSA cryptography.</span>
+                <span><strong>Hardware & Cryptography:</strong> NFC card UID scanning integration, automated IR Blaster signal modulation, and hybrid AES-RSA symmetric-asymmetric cryptographic implementations.</span>
               </li>
             </ul>
 
             <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="tag-tech">Next.js</span>
-              <span class="tag-tech">TensorFlow</span>
+              <span class="tag-tech">Next.js 14</span>
+              <span class="tag-tech">ESP32 (C++)</span>
+              <span class="tag-tech">MQTT</span>
+              <span class="tag-tech">Scikit-Learn</span>
               <span class="tag-tech">PostgreSQL</span>
-              <span class="tag-tech">ESP32</span>
+              <span class="tag-tech">NFC</span>
             </div>
           </div>
 
@@ -515,259 +502,326 @@
 
             <div>
               <h3 class="font-space font-bold text-2xl text-slate-900">THE HANDLER</h3>
-              <p class="text-xs font-mono text-handler-600 font-semibold mt-1">Product Strategy, UX & EdTech Governance</p>
+              <p class="text-xs font-mono text-handler-600 font-semibold mt-1">Product Architecture, User Empathy & System Communication</p>
             </div>
 
             <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Product Discovery & Pitching:</strong> Mapping complex user journeys, validating business loops (Starter.id, BPKH, BUMI Astra).</span>
+                <span><strong>Product Scoping & Roadmapping:</strong> Translating real-world stakeholder bottlenecks into crisp technical specifications and scalable product features.</span>
               </li>
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>EdTech & Knowledge Translation:</strong> 5+ years of private tutoring, translating technical jargon into intuitive human interfaces.</span>
+                <span><strong>EdTech & Knowledge Translation:</strong> 5+ years of STEM tutoring, turning dense computational concepts into accessible mental models and intuitive UX flows.</span>
               </li>
               <li class="flex items-start gap-3">
                 <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Systematic Public Narrative:</strong> National recognition in storytelling and public delivery (Honorable Mention Syarhil Qur'an MTQMN).</span>
+                <span><strong>Structured Public Narrative:</strong> Honed storytelling and pitch delivery under scrutiny (Honorable Mention Syarhil Qur'an MTQMN, Top 480 Hackathon pitch deck).</span>
               </li>
             </ul>
 
             <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
-              <span class="tag-tech">Product Management</span>
-              <span class="tag-tech">EdTech</span>
-              <span class="tag-tech">Pitch Validation</span>
-              <span class="tag-tech">UI/UX Strategy</span>
+              <span class="tag-tech">Product Scoping</span>
+              <span class="tag-tech">User Experience</span>
+              <span class="tag-tech">Technical Pitching</span>
+              <span class="tag-tech">STEM Pedagogy</span>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- FLAGSHIP PROJECT (KOIN) -->
-      <section id="work" class="py-12 border-t border-slate-200/80">
-        <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
-          <div>
-            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Flagship Deployment</p>
-            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-              Master System Architecture
-            </h2>
-          </div>
-          <p class="text-slate-500 text-xs font-mono">
-            Integrated hardware-cloud digital wallet ecosystem for schools.
+      <!-- DUAL FLAGSHIP SECTION -->
+      <section id="flagships" class="py-16 border-t border-slate-200/80">
+        <div class="mb-10">
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Primary Engineering Artifacts</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
+            Flagship Deployments
+          </h2>
+          <p class="text-slate-500 text-xs md:text-sm font-mono mt-1">
+            Two end-to-end operational systems: a full-stack digital school wallet and an edge-ML healthcare IoT system.
           </p>
         </div>
 
-        <!-- Master Case Card for KOIN -->
-        <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
+        <div class="space-y-10">
           
-          <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
-            <div class="space-y-5">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="bg-hacker-50 text-hacker-700 border border-hacker-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">MVP Deployed</span>
-                <span class="bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Top 20 Starter.id x BPKH</span>
-              </div>
+          <!-- FLAGSHIP 01: KOIN -->
+          <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
+            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
               
-              <div class="flex items-center gap-3">
-                <img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-12 h-12 object-contain rounded-xl border border-slate-200 bg-white p-1.5 shadow-sm shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFFFFF/4F46E5?text=KOIN';" />
-                <h3 class="font-space text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
-                  KOIN — Digital School Wallet Platform
-                </h3>
-              </div>
-              
-              <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-                An integrated electronic monetary system designed to digitize local school transactions, streamline microfinance, and scale administrative tracking through reliable modern cloud architectures.
-              </p>
-
-              <div class="grid grid-cols-2 gap-4 border-t border-slate-100 pt-4 font-mono text-xs">
-                <div class="p-3 bg-amber-50/50 rounded-xl border border-amber-200/60">
-                  <p class="text-[9px] uppercase font-bold text-amber-800">The Problem</p>
-                  <p class="text-slate-600 mt-1 font-sans text-xs">Manual cash management causes tracking blind spots and leakage risks.</p>
+              <div class="space-y-5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="bg-brand-50 text-brand-700 border border-brand-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">MVP Built & Validated</span>
+                  <span class="bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">TOP 480 / 2,000+ TEAMS — PIDI DIGDAYA X HACKATHON 2026</span>
                 </div>
-                <div class="p-3 bg-hacker-50/50 rounded-xl border border-hacker-200/60">
-                  <p class="text-[9px] uppercase font-bold text-hacker-800">The Solution</p>
-                  <p class="text-slate-600 mt-1 font-sans text-xs">NFC hardware sync paired with PostgreSQL cloud transaction pipelines.</p>
+                
+                <div class="flex items-center gap-3.5">
+                  <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 shrink-0 shadow-sm p-1.5">
+                    <img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFFFFF/4F46E5?text=KOIN';" />
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-wider">FLAGSHIP_01 • WEB / FINTECH</span>
+                    <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                      KOIN — Digital School Wallet Platform
+                    </h3>
+                  </div>
                 </div>
-              </div>
-
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                <span class="tag-tech">Next.js</span>
-                <span class="tag-tech">Supabase</span>
-                <span class="tag-tech">TypeScript</span>
-                <span class="tag-tech">PostgreSQL</span>
-                <span class="tag-tech">NFC Hardware</span>
-              </div>
-
-              <div class="pt-2">
-                <button onclick="viewCaseStudy('koin')" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
-                  Launch Case Study Architecture <i class="ph ph-arrow-right text-sm"></i>
-                </button>
-              </div>
-            </div>
-
-            <!-- Visual Interactive Code / System Workflow Frame -->
-            <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
-              <div class="flex justify-between items-center pb-2 border-b border-slate-800">
-                <p class="text-[10px] font-bold text-hacker-400 uppercase tracking-wider flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 bg-hacker-500 rounded-full animate-pulse"></span> SYSTEM STATE WORKFLOW
+                
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                  A full-stack school digital wallet PWA that connects NFC-based student payments, real-time balance synchronization, parental spending controls, and digital top-ups into one transparent school financial ecosystem.
                 </p>
-                <div class="flex gap-1.5">
-                  <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+
+                <div class="grid sm:grid-cols-2 gap-3 border-t border-slate-100 pt-4 font-mono text-xs">
+                  <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                    <p class="text-[10px] uppercase font-bold text-slate-700">The Problem</p>
+                    <p class="text-slate-600 mt-1 font-sans text-xs">Cash friction in school cafeterias, zero parental visibility on allowances, and manual reconciliation risks.</p>
+                  </div>
+                  <div class="p-3 bg-brand-50/50 rounded-xl border border-brand-200/60">
+                    <p class="text-[10px] uppercase font-bold text-brand-800">The Solution</p>
+                    <p class="text-slate-600 mt-1 font-sans text-xs">NFC physical cards paired with Next.js PWA, optimistic balance updates, and database transactional policies.</p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="tag-tech">Next.js 14</span>
+                  <span class="tag-tech">TypeScript</span>
+                  <span class="tag-tech">Supabase</span>
+                  <span class="tag-tech">PostgreSQL RLS</span>
+                  <span class="tag-tech">NFC Card UID</span>
+                  <span class="tag-tech">PWA</span>
+                </div>
+
+                <div class="pt-2">
+                  <button onclick="viewCaseStudy('koin')" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                    Deep Dive KOIN Case Study <i class="ph ph-arrow-right text-sm"></i>
+                  </button>
                 </div>
               </div>
 
-              <div class="space-y-2.5 text-[11px]">
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                  <span class="text-purple-400 font-bold">01. CLIENT LAYER</span><br />Next.js + Tailwind CSS + NFC Scanner
+              <!-- Technical Pipeline Diagram -->
+              <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
+                <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                  <p class="text-[10px] font-bold text-brand-400 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-brand-500 rounded-full animate-pulse"></span> KOIN TRANSACTION ARCHITECTURE
+                  </p>
+                  <span class="text-[10px] text-slate-500 font-mono">PWA + CLOUD</span>
                 </div>
-                <div class="text-center text-hacker-500 text-xs">↓ [ JWT Auth Payload ]</div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                  <span class="text-cyan-400 font-bold">02. API BROKER</span><br />Supabase Edge Functions & Balance Checks
-                </div>
-                <div class="text-center text-hacker-500 text-xs">↓ [ Atomic Lock DB Transaction ]</div>
-                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                  <span class="text-hacker-400 font-bold">03. STORAGE ENGINE</span><br />PostgreSQL Ledger & Realtime Logs
+
+                <div class="space-y-2.5 text-[11px]">
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-brand-400 font-bold">01. PHYSICAL SCAN</span><br />Student taps NFC card → PWA reads hardware UID string
+                  </div>
+                  <div class="text-center text-brand-400 text-xs">↓ [ Optimistic UI & Token Dispatch ]</div>
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-cyan-400 font-bold">02. APP LOGIC LAYER</span><br />Next.js API route validates cart, daily limit, and user role
+                  </div>
+                  <div class="text-center text-brand-400 text-xs">↓ [ Authenticated RLS Query ]</div>
+                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-emerald-400 font-bold">03. POSTGRESQL & REALTIME</span><br />Balance deducted with row-level locks; realtime sync to parent dashboard
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
+
+          <!-- FLAGSHIP 02: PANDA -->
+          <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
+            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+              
+              <div class="space-y-5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="bg-hacker-50 text-hacker-700 border border-hacker-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Edge ML & Embedded IoT</span>
+                  <span class="bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Samsung Innovation Campus — Batch 7</span>
+                </div>
+                
+                <div class="flex items-center gap-3.5">
+                  <div class="w-12 h-12 bg-hacker-50 rounded-xl flex items-center justify-center border border-hacker-200 shrink-0 shadow-sm p-1.5 text-hacker-600">
+                    <i class="ph ph-heartbeat text-2xl"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-wider">FLAGSHIP_02 • EDGE ML / HEALTHCARE IOT</span>
+                    <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                      PANDA — Patient Ambient Notification & Danger Analysis
+                    </h3>
+                  </div>
+                </div>
+                
+                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+                  An end-to-end healthcare IoT system engineered for bedridden stroke patients—combining multi-sensor ambient monitoring, telemetry streaming over MQTT, and a Random Forest classifier paired with automated AC climate intervention.
+                </p>
+
+                <div class="grid sm:grid-cols-2 gap-3 border-t border-slate-100 pt-4 font-mono text-xs">
+                  <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
+                    <p class="text-[10px] uppercase font-bold text-slate-700">The Problem</p>
+                    <p class="text-slate-600 mt-1 font-sans text-xs">Paralyzed stroke patients cannot verbalize thermal discomfort or agitation, triggering critical stress spikes.</p>
+                  </div>
+                  <div class="p-3 bg-hacker-50/50 rounded-xl border border-hacker-200/60">
+                    <p class="text-[10px] uppercase font-bold text-hacker-800">The Solution</p>
+                    <p class="text-slate-600 mt-1 font-sans text-xs">ESP32 sensor fusion feeding a Random Forest model that activates an IR blaster to modulate room AC automatically.</p>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="tag-tech">ESP32 (C++)</span>
+                  <span class="tag-tech">DHT11 / PIR / LDR</span>
+                  <span class="tag-tech">MQTT (HiveMQ)</span>
+                  <span class="tag-tech">Scikit-Learn</span>
+                  <span class="tag-tech">Random Forest</span>
+                  <span class="tag-tech">IR Blaster</span>
+                </div>
+
+                <div class="pt-2">
+                  <button onclick="viewCaseStudy('panda')" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-6 py-3.5 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+                    Deep Dive PANDA Case Study <i class="ph ph-arrow-right text-sm"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Technical Pipeline Diagram -->
+              <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
+                <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                  <p class="text-[10px] font-bold text-hacker-400 uppercase tracking-wider flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-hacker-500 rounded-full animate-pulse"></span> SENSOR → TELEMETRY → ACTUATOR PIPELINE
+                  </p>
+                  <span class="text-[10px] text-slate-500 font-mono">FIRMWARE + ML</span>
+                </div>
+
+                <div class="space-y-2 text-[10px] sm:text-[11px]">
+                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-emerald-400 font-bold">[01] SENSOR NODE (ESP32)</span><br />
+                    DHT11 (Temp/Humid) + PIR (Agitation) + LDR (Light) → Moving Average Filter
+                  </div>
+                  <div class="text-center text-hacker-500 text-xs">↓ [ MQTT Telemetry over HiveMQ Broker ]</div>
+                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-amber-400 font-bold">[02] INFERENCE ENGINE</span><br />
+                    Scikit-Learn Random Forest Classifier → Predicts: <em class="text-white">Thermal Discomfort / Agitation</em>
+                  </div>
+                  <div class="text-center text-hacker-500 text-xs">↓ [ Safety Rule Check & Actuation Command ]</div>
+                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
+                    <span class="text-purple-400 font-bold">[03] ACTUATOR LAYER</span><br />
+                    ESP32 IR Blaster fires modulated 38kHz pulse → Regulates AC target temperature
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- OTHER PROJECTS GRID -->
-      <section class="py-10">
-        <div class="mb-6">
-          <h3 class="font-space text-xl font-bold text-slate-900 flex items-center gap-2">
-            <i class="ph ph-circles-three-plus text-brand-600"></i> Other Experimental Systems
+      <!-- OTHER SYSTEMS GRID -->
+      <section id="work" class="py-14 border-t border-slate-200/80">
+        <div class="mb-8">
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Applied Explorations</p>
+          <h3 class="font-space text-2xl md:text-3xl font-bold text-slate-900 flex items-center gap-2 mt-1">
+            Other Specialized Systems
           </h3>
-          <p class="text-xs font-mono text-slate-500 mt-0.5">Deployments across mobile, data science, IoT, and cryptography.</p>
+          <p class="text-xs font-mono text-slate-500 mt-1">Implementations spanning graph theory, agricultural IoT, machine learning, and cryptography.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="grid md:grid-cols-3 gap-6">
           
-          <!-- PROJECT 02: RuteBarokah -->
-          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start font-mono">
-                <span class="text-xs font-bold text-slate-400">SYS_02</span>
-                <span class="tag-tech">Next.js / Algorithms</span>
-              </div>
-              <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">RuteBarokah</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">Dynamic Graph Routing for NGO Logistics</p>
-              </div>
-              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Problem:</strong> Inefficient food distribution paths inflating operating costs.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> Graph-based distance minimization algorithm on web map UI.</div>
-              </div>
-            </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-              <span class="text-[10px] text-slate-500">Full Stack / Algorithm</span>
-              <button onclick="viewCaseStudy('rutebarokah')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
-            </div>
-          </article>
-
-          <!-- PROJECT 03: Health AI -->
+          <!-- PROJECT: RuteBarokah -->
           <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex justify-between items-start font-mono">
                 <span class="text-xs font-bold text-slate-400">SYS_03</span>
-                <span class="tag-tech">Python / TensorFlow</span>
+                <span class="tag-tech">Graph Algorithms</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">Health Diagnostic AI System</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">Neural Network Clinical Risk Predictor</p>
+                <h4 class="font-space text-xl font-bold text-slate-900">RuteBarokah</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">Dynamic Graph Routing for NGO Distribution</p>
               </div>
               <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Problem:</strong> Delayed clinical classification of chronic illness in remote areas.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> Regularized deep neural networks predicting disease markers.</div>
+                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Inefficient route planning inflating fuel cost and delivery latency.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> Dijkstra-based shortest-path traversal on interactive map UI.</div>
               </div>
             </div>
             <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-              <span class="text-[10px] text-slate-500">AI Pipeline Engineer</span>
-              <button onclick="viewCaseStudy('health-ai')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
+              <span class="text-[10px] text-slate-500">Full-Stack / Algo</span>
+              <button onclick="viewCaseStudy('rutebarokah')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
-          <!-- PROJECT 04: Coffee AI -->
+          <!-- PROJECT: Netes.io -->
           <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
             <div class="space-y-3">
               <div class="flex justify-between items-start font-mono">
                 <span class="text-xs font-bold text-slate-400">SYS_04</span>
-                <span class="tag-tech">Python / Streamlit</span>
+                <span class="tag-tech">ESP32 / Firebase</span>
+              </div>
+              <div>
+                <h4 class="font-space text-xl font-bold text-slate-900">Netes.io — Smart Incubator</h4>
+                <p class="text-xs font-mono text-slate-500 mt-0.5">Closed-Loop Poultry Hardware Automation</p>
+              </div>
+              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
+                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Thermal variations and irregular turning causing embryo failure.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> ESP32 automated servo rotation with live Firebase RTDB synchronization.</div>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+              <span class="text-[10px] text-slate-500">Firmware & IoT</span>
+              <button onclick="viewCaseStudy('netes-io')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
+            </div>
+          </article>
+
+          <!-- PROJECT: Coffee AI -->
+          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-start font-mono">
+                <span class="text-xs font-bold text-slate-400">SYS_05</span>
+                <span class="tag-tech">ML / Scikit-Learn</span>
               </div>
               <div>
                 <h4 class="font-space text-xl font-bold text-slate-900">Coffee Quality Predictor</h4>
                 <p class="text-xs font-mono text-slate-500 mt-0.5">Supervised Sensory Scoring Regressor</p>
               </div>
               <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Problem:</strong> Subjective manual coffee scoring variations across panels.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> Random Forest regressor evaluating acidity, balance, and body.</div>
+                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Subjective cupping variations across manual sensory grading.</div>
+                <div><strong class="text-slate-900 font-mono">Solution:</strong> Multi-variable Random Forest regressor deployed via Streamlit.</div>
               </div>
             </div>
             <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-              <span class="text-[10px] text-slate-500">ML Engineer</span>
+              <span class="text-[10px] text-slate-500">Machine Learning</span>
               <button onclick="viewCaseStudy('coffee-ai')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
-            </div>
-          </article>
-
-          <!-- PROJECT 05: Netes.io -->
-          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
-            <div class="space-y-3">
-              <div class="flex justify-between items-start font-mono">
-                <span class="text-xs font-bold text-slate-400">SYS_05</span>
-                <span class="tag-tech">ESP32 / Firebase</span>
-              </div>
-              <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">Netes.io — Smart Incubator</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">IoT Closed-loop Hardware Automation</p>
-              </div>
-              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Problem:</strong> Manual agricultural egg turning errors causing low hatch rates.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> ESP32 firmware loop with Firebase RTDB and Flutter client.</div>
-              </div>
-            </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
-              <span class="text-[10px] text-slate-500">Firmware & IoT Architect</span>
-              <button onclick="viewCaseStudy('netes-io')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
         </div>
 
-        <!-- Secondary Systems Matrix -->
+        <!-- Mini Systems Grid -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-6">
           <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
             <span class="text-[10px] text-slate-400 font-bold">SYS_06</span>
             <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Kopi Nang</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">Ordering app with Google auth & dynamic dashboard.</p>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">Mobile ordering client with auth & dynamic order state.</p>
             <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Flutter / PostgreSQL</div>
           </div>
           <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
             <span class="text-[10px] text-slate-400 font-bold">SYS_07</span>
             <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">QR Cryptography</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">AES-RSA hybrid encryption for physical QR codes.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">AES / RSA / Tkinter</div>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">AES-RSA hybrid encryption pipeline for secure payload encoding.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Python / Cryptography</div>
           </div>
           <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
             <span class="text-[10px] text-slate-400 font-bold">SYS_08</span>
             <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">CrypForm</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">End-to-end encrypted form creation engine.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Crypto / Firebase</div>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">Encrypted form builder protecting survey participant data.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Firebase / Security</div>
           </div>
           <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
             <span class="text-[10px] text-slate-400 font-bold">SYS_09</span>
             <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">BudayaGO</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">Cultural tourism discovery linking QR logs.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Figma / SME Strategy</div>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">Gamified cultural tourism discovery connecting regional relics.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Figma / Strategy</div>
           </div>
           <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
             <span class="text-[10px] text-slate-400 font-bold">SYS_10</span>
             <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">YoTukang</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">On-demand handyman mapping service design.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">UI/UX / Figma</div>
+            <p class="text-[10px] text-slate-500 font-sans mt-1">On-demand artisan handyman service blueprint & validation.</p>
+            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">UI/UX / Scoping</div>
           </div>
         </div>
       </section>
@@ -781,21 +835,21 @@
               The Stack
             </h2>
             <p class="text-xs font-mono text-slate-500 mt-3 leading-relaxed">
-              Production frameworks, infrastructure layer, data pipelines, and hardware microchips.
+              Real tooling used across hardware firmware, cloud persistence, machine learning, and frontend application layers.
             </p>
           </div>
 
           <div class="card-clean rounded-3xl p-6 md:p-8 space-y-6">
             <div class="grid sm:grid-cols-2 gap-6 font-mono">
               <div>
-                <h4 class="font-space font-bold text-xs text-brand-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-layout"></i> Frontend & Client Layer</h4>
+                <h4 class="font-space font-bold text-xs text-brand-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-layout"></i> Frontend & Mobile</h4>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="tag-tech">Next.js</span>
-                  <span class="tag-tech">React</span>
+                  <span class="tag-tech">Next.js 14</span>
+                  <span class="tag-tech">React.js</span>
                   <span class="tag-tech">TypeScript</span>
                   <span class="tag-tech">Tailwind CSS</span>
                   <span class="tag-tech">Flutter</span>
-                  <span class="tag-tech">Tkinter</span>
+                  <span class="tag-tech">Progressive Web Apps</span>
                 </div>
               </div>
 
@@ -803,34 +857,34 @@
                 <h4 class="font-space font-bold text-xs text-handler-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-database"></i> Backend & Cloud</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Supabase</span>
-                  <span class="tag-tech">PostgreSQL</span>
+                  <span class="tag-tech">PostgreSQL (RLS)</span>
                   <span class="tag-tech">Prisma ORM</span>
-                  <span class="tag-tech">Firebase</span>
-                  <span class="tag-tech">REST APIs</span>
-                  <span class="tag-tech">ASP.NET Core</span>
+                  <span class="tag-tech">Firebase RTDB</span>
+                  <span class="tag-tech">RESTful APIs</span>
+                  <span class="tag-tech">MQTT Protocol</span>
                 </div>
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-xs text-hacker-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-brain"></i> AI, Data & Hardware</h4>
+                <h4 class="font-space font-bold text-xs text-hacker-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-cpu"></i> Embedded IoT & Edge</h4>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="tag-tech">ESP32 (C/C++)</span>
+                  <span class="tag-tech">NFC Protocols</span>
+                  <span class="tag-tech">Sensor Fusion</span>
+                  <span class="tag-tech">IR Signal Modulation</span>
+                  <span class="tag-tech">DHT11 / PIR / LDR</span>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-space font-bold text-xs text-amber-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-brain"></i> Machine Learning & Tools</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Python</span>
-                  <span class="tag-tech">TensorFlow</span>
                   <span class="tag-tech">Scikit-Learn</span>
-                  <span class="tag-tech">ESP32 Firmware</span>
-                  <span class="tag-tech">NFC Integrations</span>
+                  <span class="tag-tech">Random Forest</span>
+                  <span class="tag-tech">Pandas / NumPy</span>
                   <span class="tag-tech">Streamlit</span>
-                </div>
-              </div>
-
-              <div>
-                <h4 class="font-space font-bold text-xs text-amber-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-wrench"></i> Tooling & Infrastructure</h4>
-                <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Git & GitHub</span>
-                  <span class="tag-tech">Figma</span>
-                  <span class="tag-tech">Docker</span>
-                  <span class="tag-tech">Vercel</span>
-                  <span class="tag-tech">Supabase CLI</span>
                 </div>
               </div>
             </div>
@@ -841,9 +895,9 @@
       <!-- RECOGNITION SECTION -->
       <section id="recognition" class="py-16 border-t border-slate-200/80">
         <div class="mb-10">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Track Record</p>
+          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Track Record & Validation</p>
           <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-            Selected Recognitions
+            Verified Recognitions
           </h2>
         </div>
 
@@ -854,20 +908,20 @@
             <h4 class="font-space font-bold text-base text-hacker-600 border-b border-slate-200 pb-2">
               [ 2026 ]
             </h4>
+            <div class="card-clean rounded-2xl p-4 bg-brand-50/50 border-brand-500/20">
+              <p class="text-[10px] text-brand-700 uppercase font-bold">PIDI DIGDAYA X Hackathon</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 480 of 2,000+ Teams</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for KOIN digital school wallet architecture & financial inclusion model.</p>
+            </div>
             <div class="card-clean rounded-2xl p-4 bg-hacker-50/50 border-hacker-500/20">
-              <p class="text-[10px] text-hacker-700 uppercase font-bold">Top 20 Starter.id x BPKH</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">National Incubator Cohort</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for KOIN digital financial ecosystem model.</p>
+              <p class="text-[10px] text-hacker-700 uppercase font-bold">Samsung Innovation Campus</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Batch 7: Advanced IoT & Edge ML</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Engineered PANDA (Stroke patient IoT system) from hardware to predictive modeling.</p>
             </div>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Samsung Innovation Campus</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Advanced IoT Engineering</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Stage 1 - 4 technical specialization complete.</p>
-            </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">BAZNAS AI</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">BAZNAS AI Initiative</p>
               <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">AI Innovation Fellowship</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">National cohort for humanitarian system architectures.</p>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">National cohort studying AI deployment frameworks for humanitarian tech.</p>
             </div>
           </div>
 
@@ -877,171 +931,44 @@
               [ 2025 ]
             </h4>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 15 BUMI</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">United Tractors / Astra</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Environmental hardware solution pitch validation.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">United Tractors / Astra</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 15 BUMI Astra Challenge</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Environmental hardware proposal and sustainability validation.</p>
             </div>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 25 BizClash! 2.0</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Kasir Pintar Competition</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Business POS software integration mapping.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Kasir Pintar Competition</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 25 BizClash! 2.0</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Business POS software workflow and integration analysis.</p>
             </div>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 50 BudayaGO</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Ministry of Culture RI</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Cultural preservation tech proposal vetting.</p>
-            </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Top 100 Research</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">tSurvey.id x Kompas.id</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Data-driven evaluation of public Indonesian datasets.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Ministry of Culture RI</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 50 BudayaGO Selection</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Gamified digital preservation tech scoping for regional heritage.</p>
             </div>
           </div>
 
-          <!-- Column 2023 -->
+          <!-- Column 2023 - 2024 -->
           <div class="space-y-3.5">
             <h4 class="font-space font-bold text-base text-handler-600 border-b border-slate-200 pb-2">
-              [ 2023 ]
+              [ 2023 — 2024 ]
             </h4>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Afrina Fellowship</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Afrina Academy Cohort</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Distinction grant recipient for product foundation.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">Afrina Academy</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Distinction Fellowship Grant</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Merit grant recipient for solid foundational software development.</p>
             </div>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">2nd Place — TIC UNEJ</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">University Innovation</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Excellence in regional software design framework.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">TIC UNEJ</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">2nd Place University Innovation</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognition for early student software system design.</p>
             </div>
             <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Honorable Mention</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">MTQMN Syarhil Qur'an</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Excellence in systematic narrative structuring & public delivery.</p>
+              <p class="text-[10px] text-slate-400 uppercase font-bold">MTQMN Syarhil Qur'an</p>
+              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">National Honorable Mention</h5>
+              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for structured public discourse and systematic narrative delivery.</p>
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- GROWTH TIMELINE SECTION -->
-      <section id="timeline" class="py-16 border-t border-slate-200/80">
-        <div class="grid md:grid-cols-[0.8fr_1.2fr] gap-10">
-          <div>
-            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Growth Commit Log</p>
-            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-              Growth Logs
-            </h2>
-          </div>
-
-          <div class="card-clean rounded-3xl p-6 md:p-8">
-            <div class="border-l-2 border-brand-200 pl-6 space-y-7 relative font-mono">
-              
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-brand-600 rounded-full border-4 border-white shadow-sm"></div>
-                <div>
-                  <span class="text-xs font-bold text-brand-600">2026 — Present</span>
-                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Architecting Platforms</h4>
-                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
-                    Built KOIN, reached Top 20 Starter.id, finished SIC Stage 4, and integrated modern full-stack methodologies.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
-                <div>
-                  <span class="text-xs font-bold text-slate-500">2025</span>
-                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Validating Product Ecosystems</h4>
-                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
-                    Designed hardware-cloud systems (Netes.io), ran machine learning sensory regression pipelines, and locked top national finalist slots.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
-                <div>
-                  <span class="text-xs font-bold text-slate-500">2024</span>
-                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">UX Discovery & Security Deep-dives</h4>
-                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
-                    Mapped complex local human issues in YoTukang! and deployed dual hybrid secure QR applications.
-                  </p>
-                </div>
-              </div>
-
-              <div class="relative">
-                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 bg-slate-300 rounded-full border-4 border-white"></div>
-                <div>
-                  <span class="text-xs font-bold text-slate-500">2023</span>
-                  <h4 class="font-space font-bold text-base text-slate-900 mt-0.5">Computer Science Genesis</h4>
-                  <p class="text-xs text-slate-600 mt-1 font-sans leading-relaxed">
-                    Entered CS at University of Jember, secured Afrina Academy distinction, and mapped robust foundational programming structures.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CERTIFICATIONS SECTION -->
-      <section class="py-16 border-t border-slate-200/80">
-        <div class="mb-8">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Verified Credentials</p>
-          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-            Learning Receipts
-          </h2>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 font-mono">
-          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
-            <div class="space-y-2.5">
-              <span class="text-[9px] uppercase font-bold text-brand-700 bg-brand-50 border border-brand-200 px-2 py-0.5 rounded">Expert</span>
-              <h4 class="font-space font-bold text-sm text-slate-900">Samsung Innovation Campus</h4>
-              <p class="text-[11px] text-slate-500 font-sans">IoT & Firmware Engineering validation (Stage 1 to 4).</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
-              <span>SAMSUNG</span>
-              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
-            <div class="space-y-2.5">
-              <span class="text-[9px] uppercase font-bold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded">Cloud AI</span>
-              <h4 class="font-space font-bold text-sm text-slate-900">Google Cloud Fundamentals</h4>
-              <p class="text-[11px] text-slate-500 font-sans">Core architecture scaling, dynamic load balancing, IAM.</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
-              <span>GOOGLE</span>
-              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
-            <div class="space-y-2.5">
-              <span class="text-[9px] uppercase font-bold text-hacker-700 bg-hacker-50 border border-hacker-200 px-2 py-0.5 rounded">Machine Learning</span>
-              <h4 class="font-space font-bold text-sm text-slate-900">ML Developer</h4>
-              <p class="text-[11px] text-slate-500 font-sans">Supervised models training, feature selection pipelines.</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
-              <span>DICODING / DTS</span>
-              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
-            </div>
-          </div>
-
-          <div class="card-clean rounded-2xl p-5 flex flex-col justify-between">
-            <div class="space-y-2.5">
-              <span class="text-[9px] uppercase font-bold text-handler-700 bg-handler-50 border border-handler-200 px-2 py-0.5 rounded">Database</span>
-              <h4 class="font-space font-bold text-sm text-slate-900">Back-End Programming</h4>
-              <p class="text-[11px] text-slate-500 font-sans">Relational data modeling, query optimization, REST.</p>
-            </div>
-            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500">
-              <span>DICODING</span>
-              <span class="text-hacker-600 font-bold flex items-center gap-1"><i class="ph ph-check-circle"></i> Verified</span>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -1050,14 +977,14 @@
         <div class="max-w-3xl mx-auto">
           <div class="card-clean rounded-3xl p-8 md:p-12 bg-white text-center space-y-5 border-slate-200 shadow-md">
             
-            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Open Communications</p>
+            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Initiate Connection</p>
             
             <h2 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Initiate Collaboration
+              Ready to Build Reliable Systems
             </h2>
             
             <p class="text-xs md:text-sm text-slate-600 max-w-md mx-auto leading-relaxed font-sans">
-              Scouting for product builder roles, EdTech challenges, or collaborative AI experimental labs. Let's build real code.
+              Looking for engineering roles, applied IoT/ML challenges, or product builder teams. Let's discuss architecture and ship clean code.
             </p>
 
             <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 font-mono text-xs">
@@ -1065,14 +992,14 @@
                 <i class="ph ph-copy text-base"></i> Copy Email Address
               </button>
               <a href="mailto:choyshimanis@gmail.com" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
-                <i class="ph ph-paper-plane-tilt text-base"></i> Direct Transmission
+                <i class="ph ph-paper-plane-tilt text-base"></i> Direct Email
               </a>
-              <a href="https://instagram.com/nabilachoi.gx" target="_blank" class="w-full sm:w-auto bg-white border border-slate-200 hover:border-pink-500 hover:text-pink-600 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
-                <i class="ph ph-instagram-logo text-base"></i> Instagram
+              <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="w-full sm:w-auto bg-white border border-slate-200 hover:border-handler-500 hover:text-handler-600 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="ph ph-linkedin-logo text-base"></i> LinkedIn
               </a>
             </div>
 
-            <div class="text-[11px] text-slate-500 font-mono pt-1">choyshimanis@gmail.com • @nabilachoi.gx</div>
+            <div class="text-[11px] text-slate-500 font-mono pt-1">choyshimanis@gmail.com • University of Jember</div>
           </div>
         </div>
       </section>
@@ -1097,7 +1024,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 bg-hacker-600 rounded-full animate-ping"></span>
-        <p>© <span id="year"></span> Nabila Choirunisa // Handler & Hacker.</p>
+        <p>© <span id="year"></span> Nabila Choirunisa // Full-Stack & Systems Builder.</p>
       </div>
 
       <div class="flex items-center gap-2.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 text-[11px] text-slate-600">
@@ -1107,7 +1034,7 @@
         <span id="local-time" class="text-brand-600 font-bold">--:--:--</span>
       </div>
 
-      <p class="text-slate-400">Architected with care & technical precision.</p>
+      <p class="text-slate-400">Precision engineering over empty buzzwords.</p>
     </div>
   </footer>
 
@@ -1117,10 +1044,10 @@
   </div>
 
   <script>
-    // Set Dynamic Year
+    // Dynamic Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Dual-stage Lerp Pointer Tracker Setup
+    // Dual-stage Lerp Pointer Tracker
     const cursorDot = document.getElementById("cursorDot");
     const cursorRing = document.getElementById("cursorRing");
     let mouseX = 0, mouseY = 0;
@@ -1151,39 +1078,7 @@
     }
     requestAnimationFrame(lerpCursor);
 
-    // Magnetic Cursor Hover Interactions
-    function attachCursorTriggers() {
-      const interactables = document.querySelectorAll('a, button, [onclick], .card-clean');
-      interactables.forEach(function(el) {
-        el.addEventListener('mouseenter', function() {
-          if (cursorDot) {
-            cursorDot.style.width = '12px';
-            cursorDot.style.height = '12px';
-            cursorDot.style.backgroundColor = '#6366F1';
-          }
-          if (cursorRing) {
-            cursorRing.style.width = '48px';
-            cursorRing.style.height = '48px';
-            cursorRing.style.borderColor = 'rgba(99, 102, 241, 0.8)';
-          }
-        });
-        el.addEventListener('mouseleave', function() {
-          if (cursorDot) {
-            cursorDot.style.width = '8px';
-            cursorDot.style.height = '8px';
-            cursorDot.style.backgroundColor = '#4F46E5';
-          }
-          if (cursorRing) {
-            cursorRing.style.width = '36px';
-            cursorRing.style.height = '36px';
-            cursorRing.style.borderColor = 'rgba(79, 70, 229, 0.5)';
-          }
-        });
-      });
-    }
-    attachCursorTriggers();
-
-    // Copy to Clipboard Function
+    // Copy to Clipboard
     function copyToClipboard(text) {
       const el = document.createElement('textarea');
       el.value = text;
@@ -1214,7 +1109,7 @@
     updateTime();
     setInterval(updateTime, 1000);
 
-    // Interactive Persona Filter (All / Hacker / Handler)
+    // Persona Mode Switcher (All / Hacker / Handler)
     function setPersonaMode(mode) {
       const cardHacker = document.getElementById('card-persona-hacker');
       const cardHandler = document.getElementById('card-persona-handler');
@@ -1223,7 +1118,6 @@
       const btnHacker = document.getElementById('btn-mode-hacker');
       const btnHandler = document.getElementById('btn-mode-handler');
 
-      // Reset button styles
       [btnAll, btnHacker, btnHandler].forEach(btn => {
         btn.className = "px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all";
       });
@@ -1249,100 +1143,111 @@
       }
     }
 
-    // Case Study Database
+    // Comprehensive Technical Case Studies
     const caseStudies = {
       'koin': {
-        title: 'KOIN — Digital School Wallet',
-        subtitle: 'Securing and Scaling Micro-Transactions in Academic Ecosystems',
-        tagline: 'Full Stack Product Builder / Founder',
-        tags: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'NFC System'],
-        problem: 'School networks suffer structural administrative latency and tracking vulnerabilities when handling physical cash operations.',
-        solution: 'An end-to-end cloud ecosystem using Supabase as database backend and Next.js as UI client paired with secure NFC storage wallets.',
-        research: 'Field-mapping across regional campuses in Jember proved physical transactions averaged 42 seconds, which dropped to 3.8 seconds utilizing safe digital pipelines.',
+        title: 'KOIN — Digital School Wallet Platform',
+        subtitle: 'PWA-Driven Cashless Micro-Transactions with NFC & Real-Time Sync',
+        tagline: 'System Architect & Full-Stack Builder',
+        tags: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL', 'NFC Web API', 'Tailwind CSS'],
+        problem: 'School canteen environments face severe latency during peak recess hours due to physical cash handling. Parents have zero visibility into daily nutritional spending, and school administrative staff struggle with manual end-of-day ledger reconciliation.',
+        solution: 'Architected a Progressive Web App (PWA) supporting rapid NFC card identification for students, authenticated merchant POS terminals, and a guardian portal providing instant transaction telemetry and balance reload workflows.',
+        myRole: 'Designed and implemented the end-to-end web architecture: Next.js frontend, Supabase schema definitions, Row-Level Security (RLS) policies, NFC UID parsing, optimistic balance mutations, and state management.',
         architecture: `
-          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
-            <p class="text-hacker-400 font-bold mb-2">// Serverless State Routing Flow</p>
-            <p>1. [NFC Physical Tap] -> Transmits secure student token to gateway</p>
-            <p>2. [Next.js Client] -> Dispatches authenticated request with JWT payload</p>
-            <p>3. [Supabase Edge Broker] -> Resolves client validation & balances ledger</p>
-            <p>4. [PostgreSQL DB] -> Executes isolated atomic database locks</p>
+          <div class="space-y-3 font-mono text-xs">
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed">
+              <p class="text-brand-400 font-bold mb-2">// Concurrency & Ledger Consistency</p>
+              <p>1. [POS Device] Scans physical NFC card UID via Web NFC / external reader.</p>
+              <p>2. [Next.js Route] Validates merchant session, daily student spending caps, and cart total.</p>
+              <p>3. [PostgreSQL Transaction] Applies database-level atomic operation to deduct student balance and credit merchant ledger concurrently.</p>
+              <p>4. [Realtime Pub/Sub] Supabase broadcasts event to the parent dashboard with instant notification.</p>
+            </div>
           </div>
         `,
-        result: 'Successfully shipped early functional MVP with mock API brokers. Rated in the Top 20 national innovative projects by BPKH & Starter.id in 2026.',
-        reflection: 'Building KOIN shifted my workflow from simply writing code blocks to evaluating complete infrastructure layers and hardware-software parity.'
+        challenges: 'Mitigating double-spending under intermittent campus WiFi. Resolved by implementing optimistic UI updates with offline request queueing and server-side idempotency keys to guarantee transactions are processed exactly once.',
+        result: 'Built a fully functional MVP and advanced to Top 480 out of 2,000+ national teams in PIDI DIGDAYA X Hackathon 2026.',
+        takeaway: 'Taught me that building financial tools is 20% writing UI and 80% defensive engineering around transaction consistency, error boundaries, and user trust.'
+      },
+      'panda': {
+        title: 'PANDA — Patient Ambient Notification & Danger Analysis',
+        subtitle: 'Edge Machine Learning & IoT Closed-Loop Environmental Control for Stroke Care',
+        tagline: 'Edge ML Engineer & Firmware Architect',
+        tags: ['ESP32 (C++)', 'MQTT / HiveMQ', 'Python', 'Scikit-Learn', 'Random Forest', 'IR Modulation'],
+        problem: 'Bedridden stroke patients suffering from hemiparesis or severe cognitive impairment cannot verbally alert caregivers to acute thermal discomfort or sudden restlessness, risking hypothermia, heat stress, or unmonitored medical distress.',
+        solution: 'Developed a dual-stage closed-loop healthcare IoT system: an ESP32 edge sensor node continuously samples ambient temperature, humidity, light, and motion; telemetry is streamed via MQTT to a Python inference service running a trained Random Forest model, which issues automated IR commands to regulate the room air conditioner.',
+        myRole: 'Built the ESP32 C++ firmware routines, moving-average sensor noise filtering, MQTT client telemetry handlers, tabular data collection, Random Forest model training, and the deterministic safety override logic.',
+        architecture: `
+          <div class="space-y-3 font-mono text-xs">
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed">
+              <p class="text-hacker-400 font-bold mb-2">// Edge-to-Actuator Telemetry Pipeline</p>
+              <p>• Sensors: DHT11 (Temp/Humidity), PIR (Patient Motion/Agitation), LDR (Ambient Lux).</p>
+              <p>• Edge Filtering: ESP32 runs moving-average sampling to filter PIR false triggers.</p>
+              <p>• Transport: JSON telemetry published over MQTT topic via HiveMQ cloud broker.</p>
+              <p>• Inference: Random Forest classifies states into [Comfortable, Thermal Stress, High Agitation].</p>
+              <p>• Fail-Safe Override: Hardcoded safety rules immediately trigger AC adjustment if temp > 29°C, bypassing inference latency.</p>
+              <p>• Actuator: ESP32 IR Blaster pulses 38kHz NEC protocol to adjust AC mode & temperature.</p>
+            </div>
+          </div>
+        `,
+        challenges: 'Raw PIR sensors produce spurious motion pulses when ambient air rapidly moves. Solved by combining PIR debounce intervals with moving-window verification before tagging patient agitation.',
+        result: 'Completed and demonstrated at Samsung Innovation Campus (Batch 7), validating closed-loop sensory feedback and automated actuation under live environmental testing.',
+        takeaway: 'Edge ML is only as good as the fail-safes around it. In mission-critical healthcare, models guide decisions, but deterministic safety overrides must hold the final veto.'
       },
       'rutebarokah': {
-        title: 'RuteBarokah',
-        subtitle: 'Graph Theory Applied to Regional Social Distribution Optimization',
-        tagline: 'Algorithm & Full Stack Architect',
-        tags: ['Next.js', 'React', 'TypeScript', 'Graph Algorithms'],
-        problem: 'NGO charity logistics networks often utilize ad-hoc routing decisions, producing major systemic waste in vehicle deployment.',
-        solution: 'Developed an interactive web-based map layer visualizing dynamic route assignments with graph-routing parameters.',
-        research: 'Discovered that manual path routing increased operational latency by 28%. Deployed dynamic visual coordinates to alleviate waste.',
+        title: 'RuteBarokah — Logistics Optimization',
+        subtitle: 'Graph Theory Applied to Regional Social Distribution Networks',
+        tagline: 'Algorithm & Full-Stack Developer',
+        tags: ['Next.js', 'React', 'TypeScript', 'Dijkstra / Graph Algorithms', 'Leaflet'],
+        problem: 'Charitable food and humanitarian distribution teams frequently plan driver itineraries with ad-hoc heuristics, creating duplicate travel legs and burning vehicle fuel.',
+        solution: 'Built an interactive map tool allowing logistics coordinators to plot delivery nodes and compute optimized paths using graph-based distance matrices.',
+        myRole: 'Implemented the frontend interactive canvas mapping, coordinate node state management, and algorithmic pathing loops.',
         architecture: `
-          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
-            <p class="text-cyan-400 font-bold mb-2">// Algorithmic Distance Mapping Layer</p>
-            <p>1. Target locations marked in dynamic state variables</p>
-            <p>2. Weighted adjacencies computed using latitude/longitude vectors</p>
-            <p>3. Execution of distance minimization loops returning optimized paths</p>
+          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
+            <p class="text-cyan-400 font-bold mb-2">// Path Minimization Logic</p>
+            <p>1. User drops geographical pins onto the coordinate map.</p>
+            <p>2. Edge weights computed via Haversine distance matrix.</p>
+            <p>3. Graph traversal evaluates path order to minimize total itinerary mileage.</p>
           </div>
         `,
-        result: 'Designed a prototype mapping charity nodes directly on responsive custom canvas maps.',
-        reflection: 'Applying pure data structure theories to solve human crises creates actual real-world savings for charity drivers.'
-      },
-      'health-ai': {
-        title: 'Health Diagnostic AI System',
-        subtitle: 'Targeted Deep Learning Pipelines for Clinical Patient Risk Vetting',
-        tagline: 'AI Research & System Engineer',
-        tags: ['Python', 'TensorFlow', 'Pandas', 'Clinical Modeling'],
-        problem: 'Early diagnostics in remote regions often miss chronic indicators due to high medical equipment overhead.',
-        solution: 'Trained Artificial Neural Networks (ANN) predicting disease markers from biological inputs.',
-        research: 'Performed feature selection, scale normalization, and outlier removal pipelines to prevent structural bias.',
-        architecture: `
-          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
-            <p class="text-purple-400 font-bold mb-2"># Neural Network Architecture Vetting</p>
-            <p>Input Layer -> 3 Dense Hidden Layers (ReLu, Dropout=0.25) -> Output Layer (Sigmoid Activation for risk metrics)</p>
-          </div>
-        `,
-        result: 'Achieved high test validation parity. Secured national research validation slots in 2025 technology summits.',
-        reflection: 'Developing diagnostic medical pipelines demands rigorous engineering and defensive validation.'
-      },
-      'coffee-ai': {
-        title: 'Coffee Quality AI Predictor',
-        subtitle: 'Translating Specialty Taste Attributes Into Verifiable Mathematical Trends',
-        tagline: 'Machine Learning Pipeline Engineer',
-        tags: ['Python', 'Scikit-Learn', 'Streamlit', 'Random Forest'],
-        problem: 'Coffee cupping sensory grading relies entirely on subjective human panels.',
-        solution: 'Engineered a supervised machine learning regression architecture to predict final cupping scores.',
-        research: 'Gathered Arabica data parameters. Proved linear combinations hold robust correlations when paired with Random Forest regression.',
-        architecture: `
-          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
-            <p class="text-amber-400 font-bold mb-2"># Comparative ML Regressors</p>
-            <p>Linear Regression, Ridge, and Random Forest models trained in parallel with Grid Search CV.</p>
-          </div>
-        `,
-        result: 'Deployed predictive endpoints using Streamlit for an instant quality estimation tool.',
-        reflection: 'A simple, well-tuned regressor can easily outperform complex deep learning nets if the underlying dataset is additive.'
+        challenges: 'Handling client-side recalculations smoothly when dozens of route waypoints are reordered in real time.',
+        result: 'Functional prototype providing clear visual routing guides for regional charity transport.',
+        takeaway: 'Data structures from theoretical computer science deliver immediate tangible value when wrapped in intuitive UX.'
       },
       'netes-io': {
         title: 'Netes.io — Smart Egg Incubator',
-        subtitle: 'Bridging Automated Hardware Feedback Loops with Cloud Storage',
-        tagline: 'IoT Architect & Firmware Engineer',
-        tags: ['ESP32', 'DHT22 Sensor', 'Firebase RTDB', 'Flutter Mobile'],
-        problem: 'Traditional egg incubation methods have high failure rates due to manual temperature control errors.',
-        solution: 'Developed an automated closed-loop hardware system with ESP32, sensors, and Firebase syncing.',
-        research: 'Conducted mechanical cycle tests over 21-day incubation periods. Decreased embryonic death rates by 42%.',
+        subtitle: 'Automated Closed-Loop Hardware Incubation with Real-Time Telemetry',
+        tagline: 'IoT Architect & Embedded Developer',
+        tags: ['ESP32', 'DHT22', 'Servo Relays', 'Firebase RTDB', 'Flutter'],
+        problem: 'Traditional poultry incubation requires continuous manual intervention to check temperature and rotate eggs at regular intervals, leading to inconsistent hatch rates when forgotten.',
+        solution: 'Engineered an autonomous closed-loop firmware loop using an ESP32 chip that samples environmental metrics, drives servo rotation racks on a scheduled timer, and updates a Firebase Realtime Database dashboard.',
+        myRole: 'Designed physical component wiring, developed ESP32 C++ firmware with non-blocking timing, and integrated Firebase client libraries.',
         architecture: `
-          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl font-mono text-xs leading-relaxed">
-            <p class="text-cyan-400 font-bold mb-2">// Hardware Integration Diagram</p>
-            <p>1. [Sensors] -> Feed continuous readings to local ESP32 chip</p>
-            <p>2. [ESP32 Firmware] -> Evaluates thresholds, firing servo relays</p>
-            <p>3. [Network Stream] -> Dispatches real-time JSON metrics to Firebase</p>
-            <p>4. [Flutter Client] -> Renders state updates dynamically</p>
+          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
+            <p class="text-cyan-400 font-bold mb-2">// Hardware Feedback Loop</p>
+            <p>ESP32 timer interrupts → Read DHT22 → Trigger heating relay if below threshold → Scheduled servo rotation pulse → Publish metrics to Firebase.</p>
           </div>
         `,
-        result: 'Designed a functional mechanical prototype and live dashboard client with remote monitoring.',
-        reflection: 'IoT taught me to always write defensive code to handle connectivity losses gracefully.'
+        challenges: 'Ensuring rotation servos operated reliably without introducing electrical noise to the sensor lines. Resolved via capacitor decoupling and isolated relay power.',
+        result: 'Successfully operated continuous multi-day incubator test cycles with full remote dashboard monitoring.',
+        takeaway: 'Embedded development requires rigorous electrical discipline just as much as clean software logic.'
+      },
+      'coffee-ai': {
+        title: 'Coffee Quality AI Predictor',
+        subtitle: 'Supervised Sensory Scoring Regressor from Physical Bean Metrics',
+        tagline: 'Machine Learning Developer',
+        tags: ['Python', 'Scikit-Learn', 'Random Forest', 'Streamlit', 'Pandas'],
+        problem: 'Specialty coffee cupping score evaluations often exhibit subjective variance depending on panel fatigue, calibration differences, and taster bias.',
+        solution: 'Developed a supervised machine learning regression pipeline that predicts final cupping scores from measurable physical and sensory bean attributes.',
+        myRole: 'Data preprocessing, feature normalization, outlier trimming, model hyperparameter tuning with GridSearchCV, and Streamlit app deployment.',
+        architecture: `
+          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
+            <p class="text-amber-400 font-bold mb-2"># Comparative ML Regressors</p>
+            <p>Evaluated Linear, Ridge, and Random Forest models; Random Forest demonstrated superior capture of non-linear attribute interactions with minimal mean squared error.</p>
+          </div>
+        `,
+        challenges: 'Preventing overfitting on tabular datasets with correlated sensory features. Handled using cross-validation and feature importance pruning.',
+        result: 'Deployed an interactive web calculator allowing coffee roasters to estimate expected cup quality profiles rapidly.',
+        takeaway: 'A clean, well-preprocessed dataset paired with an explainable model is vastly superior to complex architectures applied blindly.'
       }
     };
 
@@ -1357,46 +1262,46 @@
         return '<span class="tag-tech">' + tag + '</span>';
       }).join('');
 
-      const logoHeaderHtml = projectId === 'koin' 
-        ? '<div class="flex items-center gap-3"><img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-10 h-10 object-contain rounded-xl border border-slate-200 bg-white p-1 shadow-sm shrink-0" /><h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">' + data.title + '</h1></div>' 
-        : '<h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">' + data.title + '</h1>';
-
       container.innerHTML = `
-        <div class="space-y-3">
+        <div class="space-y-4">
           <div class="flex flex-wrap gap-1.5">` + tagsHtml + `</div>
-          ` + logoHeaderHtml + `
+          <h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">` + data.title + `</h1>
           <p class="text-base text-slate-600 font-mono">` + data.subtitle + `</p>
           <p class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">// ` + data.tagline + `</p>
         </div>
 
-        <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-8 border-t border-slate-200 pt-6">
+        <div class="grid md:grid-cols-[1.25fr_0.75fr] gap-8 border-t border-slate-200 pt-8">
           <div class="space-y-6">
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">The Problem</h3>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">1. The Problem Context</h3>
               <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.problem + `</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">The Solution</h3>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">2. Engineered Solution</h3>
               <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.solution + `</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">Research & Testing</h3>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.research + `</p>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">3. My Technical Contribution</h3>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.myRole + `</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1">Architecture Spec</h3>
+              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">4. Architecture & Data Flow</h3>
               ` + data.architecture + `
             </div>
           </div>
 
           <div class="space-y-4">
-            <div class="card-clean rounded-2xl p-5 bg-slate-50">
-              <h4 class="font-mono font-bold text-xs text-amber-700 uppercase mb-2">Project Result</h4>
+            <div class="card-clean rounded-2xl p-5 bg-slate-50 border-slate-200">
+              <h4 class="font-mono font-bold text-xs text-brand-700 uppercase mb-2">Technical Challenge</h4>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.challenges + `</p>
+            </div>
+            <div class="card-clean rounded-2xl p-5 bg-hacker-50/40 border-hacker-200">
+              <h4 class="font-mono font-bold text-xs text-hacker-700 uppercase mb-1">Impact & Status</h4>
               <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.result + `</p>
             </div>
             <div class="card-clean rounded-2xl p-5 border-handler-500/20">
-              <h4 class="font-mono font-bold text-xs text-handler-600 uppercase mb-1">Key Takeaway</h4>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.reflection + `</p>
+              <h4 class="font-mono font-bold text-xs text-handler-600 uppercase mb-1">Engineering Takeaway</h4>
+              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.takeaway + `</p>
             </div>
           </div>
         </div>
@@ -1412,8 +1317,8 @@
       document.getElementById('case-study-view').classList.add('hidden');
       document.getElementById('main-portfolio').classList.remove('hidden');
       
-      const workEl = document.getElementById('work');
-      if (workEl) workEl.scrollIntoView({ behavior: 'smooth' });
+      const flagshipsEl = document.getElementById('flagships');
+      if (flagshipsEl) flagshipsEl.scrollIntoView({ behavior: 'smooth' });
     }
 
     function navigateTo(targetId) {
