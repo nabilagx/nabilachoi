@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nabila Choirunisa — Full-Stack & Systems Builder | Hacker & Handler</title>
-  <meta name="description" content="Portfolio of Nabila Choirunisa, Full-Stack & Systems Builder, Edge ML & IoT, Computer Science Student at University of Jember." />
+  <title>Nabila Choirunisa — Systems Architect & Full-Stack Builder</title>
+  <meta name="description" content="Portfolio of Nabila Choirunisa — Systems Architect, Full-Stack PWA Builder, Edge ML & IoT Specialist at University of Jember." />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            brand: {
-              50: '#EEF2FF',
-              100: '#E0E7FF',
-              500: '#6366F1',
-              600: '#4F46E5',
-              700: '#4338CA',
-              900: '#1E1B4B',
+            studio: {
+              50: '#F4F6F9',
+              100: '#E5E9F0',
+              200: '#C5CEDE',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A',
+              950: '#090D16'
             },
-            hacker: {
-              50: '#ECFDF5',
-              100: '#D1FAE5',
+            cyanGlow: {
+              400: '#38BDF8',
+              500: '#06B6D4',
+              600: '#0891B2'
+            },
+            emeraldGlow: {
+              400: '#34D399',
               500: '#10B981',
-              600: '#059669',
-              700: '#047857',
+              600: '#059669'
             },
-            handler: {
-              50: '#F5F3FF',
-              100: '#EDE9FE',
+            violetGlow: {
+              400: '#A78BFA',
               500: '#8B5CF6',
-              600: '#7C3AED',
-              700: '#6D28D9',
+              600: '#7C3AED'
             }
           },
           fontFamily: {
@@ -43,17 +46,22 @@
             mono: ['JetBrains Mono', 'monospace']
           },
           animation: {
-            'float-slow': 'float 6s ease-in-out infinite',
-            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'radar-spin': 'radarSpin 10s linear infinite',
+            'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+            'flow-line': 'flowLine 2s linear infinite'
           },
           keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
+            radarSpin: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(360deg)' }
             },
-            pulseGlow: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '0.9' }
+            },
+            flowLine: {
+              '0%': { strokeDashoffset: '20' },
+              '100%': { strokeDashoffset: '0' }
             }
           }
         }
@@ -61,28 +69,39 @@
     }
   </script>
 
-  <!-- Google Fonts Imports -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Phosphor Icons -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+  <!-- Custom CSS for Studio Aesthetic -->
   <style>
     :root {
-      --bg-light: #F8FAFC;
-      --card-white: #FFFFFF;
-      --border-light: #E2E8F0;
-      --text-dark: #0F172A;
-      --text-muted: #475569;
+      --bg-studio: #090D16;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --glow-color: rgba(6, 182, 212, 0.15);
+    }
+    .light {
+      --bg-studio: #F8FAFC;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(15, 23, 42, 0.08);
+      --text-main: #0F172A;
+      --text-sub: #475569;
+      --glow-color: rgba(6, 182, 212, 0.08);
     }
 
     body {
+      background-color: var(--bg-studio);
+      color: var(--text-main);
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .font-serif-italic {
@@ -90,183 +109,174 @@
       font-style: italic;
     }
 
-    /* Pointer Follower */
+    /* Dual Cursor Tracker */
     .cursor-dot {
-      width: 8px;
-      height: 8px;
-      background: #4F46E5;
+      width: 6px;
+      height: 6px;
+      background: #06B6D4;
       border-radius: 999px;
       position: fixed;
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s, background-color 0.2s;
+      box-shadow: 0 0 12px #06B6D4;
     }
-
     .cursor-ring {
-      width: 36px;
-      height: 36px;
-      border: 1.5px solid rgba(79, 70, 229, 0.5);
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(6, 182, 212, 0.5);
       border-radius: 999px;
       position: fixed;
       pointer-events: none;
       z-index: 99998;
       transform: translate(-50%, -50%);
-      transition: transform 0.15s ease-out, border-color 0.2s, width 0.2s, height 0.2s;
+      transition: transform 0.1s ease-out, border-color 0.2s;
     }
-
     @media (pointer: coarse) {
-      .cursor-dot, .cursor-ring {
-        display: none !important;
-      }
+      .cursor-dot, .cursor-ring { display: none !important; }
     }
 
-    /* Ambient Motion Mesh */
-    .ambient-blob-1 {
+    /* Studio Blueprint Card Effect */
+    .studio-card {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .studio-card::before {
+      content: "";
       position: absolute;
-      top: 5%;
-      left: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
-      filter: blur(60px);
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--glow-color), transparent 40%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
       pointer-events: none;
-      z-index: -1;
+    }
+    .studio-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(6, 182, 212, 0.3);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.4);
     }
 
-    .ambient-blob-2 {
-      position: absolute;
-      top: 25%;
-      right: -5%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .tech-grid {
+    /* Architectural Grid Background */
+    .architectural-grid {
       background-size: 32px 32px;
       background-image: 
-        linear-gradient(to right, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
-
-    .card-clean {
-      background: var(--card-white);
-      border: 1px solid var(--border-light);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .card-clean:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
-      border-color: #A5B4FC;
-    }
-
-    .card-hacker:hover {
-      border-color: #6EE7B7;
-      box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1);
-    }
-
-    .card-handler:hover {
-      border-color: #C4B5FD;
-      box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.1);
+    .light .architectural-grid {
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
     }
 
     .tag-tech {
-      border: 1px solid #E2E8F0;
-      background: #F1F5F9;
-      padding: 0.25rem 0.55rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.2rem 0.55rem;
       border-radius: 6px;
       font-size: 0.72rem;
       font-weight: 600;
-      color: #334155;
       font-family: 'JetBrains Mono', monospace;
+      color: #94A3B8;
       transition: all 0.2s ease;
     }
-
+    .light .tag-tech {
+      border-color: rgba(15, 23, 42, 0.1);
+      background: rgba(15, 23, 42, 0.03);
+      color: #475569;
+    }
     .tag-tech:hover {
-      background: #E2E8F0;
-      color: #0F172A;
+      border-color: #06B6D4;
+      color: #06B6D4;
     }
 
-    .text-gradient-handler {
-      background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+    /* Gradients */
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #38BDF8 0%, #06B6D4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-emerald {
+      background: linear-gradient(135deg, #34D399 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .text-gradient-violet {
+      background: linear-gradient(135deg, #C084FC 0%, #7C3AED 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .text-gradient-hacker {
-      background: linear-gradient(135deg, #059669 0%, #0D9488 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F8FAFC;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 999px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #4F46E5;
-    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.2); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
   </style>
 </head>
-<body class="antialiased selection:bg-brand-100 selection:text-brand-900 bg-slate-50 text-slate-900 relative">
+<body class="antialiased selection:bg-cyanGlow-500 selection:text-white relative">
 
-  <!-- DUAL-STAGE CURSOR FOLLOWER -->
+  <!-- Cursor Trackers -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- Ambient background blobs -->
-  <div class="ambient-blob-1"></div>
-  <div class="ambient-blob-2"></div>
-  <div class="fixed inset-0 tech-grid pointer-events-none z-[-1]"></div>
+  <!-- Background Grid -->
+  <div class="fixed inset-0 architectural-grid pointer-events-none z-[-1]"></div>
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-nav px-4 md:px-8 py-3 transition-all">
+  <!-- HEADER NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 dark:border-white/10 light:border-black/10 px-4 md:px-8 py-3.5 transition-all">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
-      <!-- Brand & Status -->
-      <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-2.5 font-space font-bold text-sm text-slate-900 group">
-        <span class="relative flex h-3 w-3">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-hacker-500 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-hacker-600"></span>
-        </span>
-        <span class="tracking-tight font-black text-base group-hover:text-brand-600 transition">NABILA<span class="text-brand-600">.HQ</span></span>
-        <span class="hidden sm:inline-block px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-[10px] font-mono font-semibold text-slate-600">
-          OPERATIONAL
-        </span>
+      <!-- Logo & System Status -->
+      <a href="#home" onclick="navigateTo('home')" class="flex items-center gap-3 font-space font-bold text-sm group">
+        <div class="relative w-8 h-8 rounded-xl bg-cyanGlow-500/10 border border-cyanGlow-500/30 flex items-center justify-center font-mono font-black text-cyanGlow-400 group-hover:scale-105 transition">
+          NC
+          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emeraldGlow-500 animate-ping"></span>
+        </div>
+        <div class="flex flex-col">
+          <span class="tracking-tight font-black text-sm text-slate-100 dark:text-slate-100 light:text-slate-900">NABILA<span class="text-cyanGlow-500">.STUDIO</span></span>
+          <span class="text-[9px] font-mono text-slate-500 tracking-wider uppercase">Systems Architect</span>
+        </div>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="hidden md:flex items-center gap-7 font-mono text-xs font-semibold text-slate-600 uppercase tracking-wider">
-        <a href="#matrix" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-cpu text-brand-600"></i> Matrix</a>
-        <a href="#flagships" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-star text-brand-600"></i> Flagships</a>
-        <a href="#work" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-squares-four text-brand-600"></i> Systems</a>
-        <a href="#skills" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-code text-brand-600"></i> Stack</a>
-        <a href="#recognition" onclick="navigateTo('home')" class="hover:text-brand-600 transition flex items-center gap-1.5"><i class="ph ph-trophy text-brand-600"></i> Awards</a>
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 font-mono text-xs font-semibold uppercase tracking-wider text-slate-400">
+        <a href="#matrix" onclick="navigateTo('home')" class="hover:text-cyanGlow-400 transition flex items-center gap-1.5"><i class="ph ph-cpu text-cyanGlow-500"></i> Core</a>
+        <a href="#flagships" onclick="navigateTo('home')" class="hover:text-cyanGlow-400 transition flex items-center gap-1.5"><i class="ph ph-rocket-launch text-cyanGlow-500"></i> Flagships</a>
+        <a href="#work" onclick="navigateTo('home')" class="hover:text-cyanGlow-400 transition flex items-center gap-1.5"><i class="ph ph-squares-four text-cyanGlow-500"></i> Systems</a>
+        <a href="#skills" onclick="navigateTo('home')" class="hover:text-cyanGlow-400 transition flex items-center gap-1.5"><i class="ph ph-code-simple text-cyanGlow-500"></i> Stack</a>
+        <a href="#recognition" onclick="navigateTo('home')" class="hover:text-cyanGlow-400 transition flex items-center gap-1.5"><i class="ph ph-trophy text-cyanGlow-500"></i> Awards</a>
       </nav>
 
-      <!-- Action Button -->
-      <div class="flex items-center gap-3">
-        <a href="#contact" class="bg-slate-900 hover:bg-brand-600 text-white font-mono font-semibold text-xs px-4 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 shadow-sm hover:scale-[1.02]">
-          <i class="ph ph-paper-plane-tilt text-sm"></i>
-          <span>Let's Talk</span>
+      <!-- Interactive Utility Controls -->
+      <div class="flex items-center gap-2">
+        <!-- Command Palette Trigger -->
+        <button onclick="openCmdPalette()" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-700/80 font-mono text-xs transition shadow-sm">
+          <i class="ph ph-terminal text-cyanGlow-400"></i>
+          <span>Cmd Palette</span>
+          <kbd class="bg-slate-950 px-1.5 py-0.5 rounded text-[10px] text-slate-400 border border-slate-800">⌘K</kbd>
+        </button>
+
+        <!-- Audio FX Toggle -->
+        <button id="btnAudioToggle" onclick="toggleAudio()" class="p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition" title="Toggle UI Sound Effects">
+          <i id="iconAudio" class="ph ph-speaker-simple-high text-base text-cyanGlow-400"></i>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button id="btnThemeToggle" onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-700/80 transition" title="Toggle Light/Dark Theme">
+          <i id="iconTheme" class="ph ph-moon text-base text-amber-400"></i>
+        </button>
+
+        <!-- Direct Contact Button -->
+        <a href="#contact" class="bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-mono font-bold text-xs px-4 py-2 rounded-xl transition shadow-lg shadow-cyanGlow-500/20 flex items-center gap-1.5">
+          <i class="ph ph-paper-plane-tilt"></i>
+          <span class="hidden sm:inline">Connect</span>
         </a>
       </div>
     </div>
@@ -274,253 +284,240 @@
 
   <!-- MAIN PORTFOLIO WRAPPER -->
   <div id="main-portfolio" class="transition-opacity duration-300">
-    
-    <main id="home" class="max-w-7xl mx-auto px-4 md:px-8 pt-24 md:pt-32">
-      
-      <!-- HERO SECTION -->
-      <section class="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-center min-h-[78vh] py-6">
+    <main id="home" class="max-w-7xl mx-auto px-4 md:px-8 pt-28 md:pt-36 space-y-20">
+
+      <!-- HERO BENTO GRID SECTION -->
+      <section class="grid lg:grid-cols-[1.25fr_0.75fr] gap-8 items-center min-h-[75vh]">
         
         <!-- Left Hero Content -->
         <div class="space-y-6">
           
-          <!-- Persona Badge & Interactive Mode Switcher -->
-          <div class="flex flex-wrap items-center gap-2.5">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-200 bg-brand-50/80 text-brand-700 font-mono text-xs font-semibold shadow-sm">
-              <i class="ph ph-cpu text-sm text-brand-600"></i>
-              <span>FULL-STACK & SYSTEMS BUILDER</span>
+          <!-- Mode Switcher & Status Bar -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyanGlow-500/30 bg-cyanGlow-500/10 text-cyanGlow-400 font-mono text-xs font-semibold backdrop-blur-md">
+              <span class="w-2 h-2 rounded-full bg-emeraldGlow-400 animate-pulse"></span>
+              <span>SYSTEMS ARCHITECT & EDGE ENGINEER</span>
             </div>
 
-            <!-- MODE FILTER BUTTONS -->
-            <div class="inline-flex p-1 bg-slate-200/70 backdrop-blur-sm rounded-full border border-slate-300 text-[10px] font-mono font-bold uppercase">
-              <button onclick="setPersonaMode('all')" id="btn-mode-all" class="px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all">All</button>
-              <button onclick="setPersonaMode('hacker')" id="btn-mode-hacker" class="px-3 py-1 rounded-full text-slate-600 hover:text-hacker-700 transition-all">Hacker</button>
-              <button onclick="setPersonaMode('handler')" id="btn-mode-handler" class="px-3 py-1 rounded-full text-slate-600 hover:text-handler-700 transition-all">Handler</button>
+            <!-- Mode Filter Tabs -->
+            <div class="inline-flex p-1 bg-slate-900/90 border border-slate-800 rounded-full text-[10px] font-mono font-bold uppercase">
+              <button onclick="setPersonaMode('all')" id="btn-mode-all" class="px-3 py-1 rounded-full bg-cyanGlow-600 text-white transition-all shadow-sm">Sync Mode</button>
+              <button onclick="setPersonaMode('hacker')" id="btn-mode-hacker" class="px-3 py-1 rounded-full text-slate-400 hover:text-emeraldGlow-400 transition-all">Hacker</button>
+              <button onclick="setPersonaMode('handler')" id="btn-mode-handler" class="px-3 py-1 rounded-full text-slate-400 hover:text-violetGlow-400 transition-all">Handler</button>
             </div>
           </div>
 
-          <!-- Headline -->
-          <h1 class="font-space text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] text-slate-900 tracking-tight">
-            Engineered as a <span class="font-serif-italic font-normal text-gradient-hacker text-5xl sm:text-6xl md:text-7xl">Hacker</span>.<br />
-            Orchestrated as a <span class="font-serif-italic font-normal text-gradient-handler text-5xl sm:text-6xl md:text-7xl">Handler</span>.
+          <!-- Hero Typography Headline -->
+          <h1 class="font-space text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight">
+            Engineered as a <span class="font-serif-italic font-normal text-gradient-emerald text-5xl sm:text-6xl lg:text-7xl">Hacker</span>.<br />
+            Orchestrated as a <span class="font-serif-italic font-normal text-gradient-violet text-5xl sm:text-6xl lg:text-7xl">Handler</span>.
           </h1>
 
-          <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-xl font-sans">
-            I’m <strong class="text-slate-900 font-semibold">Nabila Choirunisa</strong>, Computer Science Student at University of Jember. 
-            I build verifiable systems from the bottom up—connecting physical sensors, edge telemetry, and applied machine learning into resilient full-stack architectures.
+          <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl font-sans">
+            I’m <strong class="text-slate-100 font-semibold">Nabila Choirunisa</strong>, Computer Science Student at University of Jember (GPA 3.91).
+            I design high-performance progressive web apps, embedded hardware telemetry, and edge ML models into resilient production systems.
           </p>
 
-          <!-- Dual Flagship Quick Cards -->
-          <div class="grid sm:grid-cols-2 gap-3 pt-1">
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-brand-300 shadow-sm flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center shrink-0">
-                <i class="ph ph-wallet text-brand-600 text-xl"></i>
+          <!-- Quick Interactive Flagship Selector Cards -->
+          <div class="grid sm:grid-cols-2 gap-4 pt-2">
+            <div onclick="navigateTo('flagships')" class="studio-card rounded-2xl p-4 cursor-pointer flex items-center gap-3.5 group">
+              <div class="w-11 h-11 rounded-xl bg-cyanGlow-500/10 border border-cyanGlow-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition">
+                <i class="ph ph-wallet text-cyanGlow-400 text-2xl"></i>
               </div>
               <div class="min-w-0">
-                <span class="text-[9px] font-mono font-bold text-brand-600 uppercase block">Flagship 01 • Web/FinTech</span>
-                <span class="font-space font-bold text-xs md:text-sm text-slate-900 truncate block">KOIN — School Wallet</span>
+                <span class="text-[9px] font-mono font-bold text-cyanGlow-400 uppercase tracking-wider block">Flagship 01 • FinTech PWA</span>
+                <span class="font-space font-bold text-sm text-slate-200 group-hover:text-cyanGlow-400 transition truncate block">KOIN — Digital School Wallet</span>
               </div>
             </div>
 
-            <div class="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-hacker-300 shadow-sm flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-hacker-50 border border-hacker-200 flex items-center justify-center shrink-0">
-                <i class="ph ph-heartbeat text-hacker-600 text-xl"></i>
+            <div onclick="navigateTo('flagships')" class="studio-card rounded-2xl p-4 cursor-pointer flex items-center gap-3.5 group">
+              <div class="w-11 h-11 rounded-xl bg-emeraldGlow-500/10 border border-emeraldGlow-500/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition">
+                <i class="ph ph-heartbeat text-emeraldGlow-400 text-2xl"></i>
               </div>
               <div class="min-w-0">
-                <span class="text-[9px] font-mono font-bold text-hacker-600 uppercase block">Flagship 02 • IoT/Edge ML</span>
-                <span class="font-space font-bold text-xs md:text-sm text-slate-900 truncate block">PANDA — Stroke Care IoT</span>
+                <span class="text-[9px] font-mono font-bold text-emeraldGlow-400 uppercase tracking-wider block">Flagship 02 • Healthcare IoT</span>
+                <span class="font-space font-bold text-sm text-slate-200 group-hover:text-emeraldGlow-400 transition truncate block">PANDA — Stroke Care IoT</span>
               </div>
             </div>
           </div>
 
-          <!-- Action CTA Buttons -->
+          <!-- Hero Action Buttons -->
           <div class="flex flex-wrap gap-3 pt-2 font-mono text-xs">
-            <a href="#flagships" class="bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-6 py-3.5 rounded-xl transition-all duration-200 flex items-center gap-2 shadow-md hover:scale-[1.02]">
-              View Flagship Builds <i class="ph ph-arrow-down text-sm"></i>
+            <a href="#flagships" class="bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-bold uppercase px-6 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-lg shadow-cyanGlow-500/25 hover:scale-[1.02]">
+              Explore Flagships <i class="ph ph-arrow-down text-sm"></i>
             </a>
-            <a href="https://github.com/nabilagx" target="_blank" class="bg-white border border-slate-200 hover:border-brand-500 hover:text-brand-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
-              <i class="ph ph-github-logo text-base"></i> GitHub
+            <a href="https://github.com/nabilagx" target="_blank" class="bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-bold uppercase px-5 py-3.5 rounded-xl transition border border-slate-800 flex items-center gap-2">
+              <i class="ph ph-github-logo text-base text-cyanGlow-400"></i> GitHub
             </a>
-            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="bg-white border border-slate-200 hover:border-handler-500 hover:text-handler-600 text-slate-800 font-bold uppercase px-5 py-3.5 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm">
-              <i class="ph ph-linkedin-logo text-base"></i> LinkedIn
+            <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-bold uppercase px-5 py-3.5 rounded-xl transition border border-slate-800 flex items-center gap-2">
+              <i class="ph ph-linkedin-logo text-base text-violetGlow-400"></i> LinkedIn
             </a>
           </div>
 
         </div>
 
-        <!-- Right Side: Profile Identity Card & Verified Metrics -->
-        <div class="space-y-5">
+        <!-- Right Hero Column: Spec Card & Mini CLI Window -->
+        <div class="space-y-4">
           
-          <div class="card-clean rounded-3xl p-6 relative overflow-hidden bg-white border-slate-200/90 shadow-md">
-            <!-- Top HUD Bar -->
-            <div class="flex items-center justify-between font-mono text-[10px] text-slate-400 mb-5 pb-3 border-b border-slate-100">
-              <span class="font-bold text-slate-800 uppercase flex items-center gap-1.5">
-                <i class="ph ph-identification-card text-brand-600 text-base"></i> SPECIFICATION RECORD
+          <!-- Identity HUD Studio Card -->
+          <div class="studio-card rounded-3xl p-6 space-y-5 border-slate-800 relative overflow-hidden">
+            <div class="flex items-center justify-between font-mono text-[10px] text-slate-500 border-b border-white/10 pb-3">
+              <span class="font-bold uppercase flex items-center gap-1.5 text-slate-300">
+                <i class="ph ph-identification-card text-cyanGlow-400 text-base"></i> TELEMETRY RECORD
               </span>
-              <span class="text-hacker-700 font-semibold bg-hacker-50 px-2.5 py-1 rounded-full border border-hacker-500/30 flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 bg-hacker-500 rounded-full animate-pulse"></span> SYSTEM ONLINE
+              <span class="text-emeraldGlow-400 font-semibold bg-emeraldGlow-500/10 px-2.5 py-0.5 rounded-full border border-emeraldGlow-500/20 flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-emeraldGlow-400 rounded-full animate-pulse"></span> ONLINE
               </span>
             </div>
 
-            <div class="grid sm:grid-cols-[150px_1fr] gap-6 items-center">
-              
-              <!-- Photo Container -->
-              <div class="relative mx-auto sm:mx-0 w-36 h-48 rounded-2xl overflow-hidden border-2 border-slate-200 shadow-md bg-slate-100 group">
+            <div class="grid sm:grid-cols-[130px_1fr] gap-5 items-center">
+              <!-- Profile Avatar -->
+              <div class="relative mx-auto sm:mx-0 w-32 h-40 rounded-2xl overflow-hidden border border-cyanGlow-500/30 shadow-xl group">
                 <img 
                   src="https://i.imgur.com/i8axJGF.png" 
                   alt="Nabila Choirunisa Profile Photo" 
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onerror="this.onerror=null; this.src='https://placehold.co/400x520/F1F5F9/475569?text=Nabila+Choirunisa';"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  onerror="this.onerror=null; this.src='https://placehold.co/400x520/0F172A/38BDF8?text=Nabila+Choirunisa';"
                 />
-                <div class="absolute bottom-2 left-2 right-2 bg-slate-900/85 backdrop-blur-md rounded-lg p-1.5 flex justify-between items-center font-mono text-[9px] text-white">
-                  <span class="font-bold text-emerald-400">JEMBER, ID</span>
-                  <span class="text-slate-300">WIB</span>
+                <div class="absolute bottom-2 left-2 right-2 bg-slate-950/90 backdrop-blur-md rounded-lg p-1.5 flex justify-between items-center font-mono text-[9px] text-white">
+                  <span class="font-bold text-emeraldGlow-400">JEMBER, ID</span>
+                  <span class="text-slate-400">WIB</span>
                 </div>
               </div>
 
-              <!-- Metadata -->
-              <div class="space-y-3 font-mono text-xs">
+              <!-- Metadata Record -->
+              <div class="space-y-2.5 font-mono text-xs">
                 <div>
-                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Identity</span>
-                  <span class="text-slate-900 font-bold font-space text-lg block">Nabila Choirunisa</span>
+                  <span class="text-slate-500 text-[10px] uppercase block">Operator Name</span>
+                  <span class="text-slate-100 font-bold font-space text-lg block">Nabila Choirunisa</span>
                 </div>
                 
                 <div>
-                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Core Focus</span>
-                  <span class="text-brand-600 font-bold block">Full-Stack & Embedded IoT</span>
+                  <span class="text-slate-500 text-[10px] uppercase block">Primary Specialization</span>
+                  <span class="text-cyanGlow-400 font-semibold block">Full-Stack & Systems Architecture</span>
                 </div>
 
                 <div>
-                  <span class="text-slate-400 text-[10px] uppercase block font-sans">Academic Credentials</span>
-                  <span class="text-slate-800 font-semibold block">University of Jember (CS)</span>
-                  <span class="text-hacker-600 font-bold text-sm block mt-0.5">3.91 / 4.00 Cumulative GPA</span>
+                  <span class="text-slate-500 text-[10px] uppercase block">Academic Standout</span>
+                  <span class="text-slate-300 font-medium block">University of Jember (CS)</span>
+                  <span class="text-emeraldGlow-400 font-bold text-sm block mt-0.5">3.91 / 4.00 Cumulative GPA</span>
                 </div>
 
-                <div class="pt-1 flex flex-wrap gap-1.5 font-sans">
-                  <span class="px-2 py-0.5 rounded bg-brand-50 text-brand-700 text-[10px] font-bold border border-brand-200">Full-Stack PWA</span>
-                  <span class="px-2 py-0.5 rounded bg-hacker-50 text-hacker-700 text-[10px] font-bold border border-hacker-200">ESP32 & Sensors</span>
-                  <span class="px-2 py-0.5 rounded bg-handler-50 text-handler-700 text-[10px] font-bold border border-handler-200">Applied ML</span>
+                <div class="pt-1 flex flex-wrap gap-1 font-sans">
+                  <span class="px-2 py-0.5 rounded bg-cyanGlow-500/10 text-cyanGlow-300 text-[10px] font-bold border border-cyanGlow-500/20">Next.js 14 PWA</span>
+                  <span class="px-2 py-0.5 rounded bg-emeraldGlow-500/10 text-emeraldGlow-300 text-[10px] font-bold border border-emeraldGlow-500/20">ESP32 Firmware</span>
+                  <span class="px-2 py-0.5 rounded bg-violetGlow-500/10 text-violetGlow-300 text-[10px] font-bold border border-violetGlow-500/20">Scikit-Learn</span>
                 </div>
               </div>
-
             </div>
-
-            <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-brand-500/10 rounded-full blur-xl pointer-events-none"></div>
           </div>
 
-          <!-- KEY METRICS GRID -->
-          <div class="grid grid-cols-3 gap-3 font-mono text-center">
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-brand-400 transition">
-              <span class="text-2xl font-bold font-space text-brand-600 block">15+</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Projects Built</span>
+          <!-- Interactive CLI Terminal Widget -->
+          <div class="bg-slate-950 rounded-2xl p-4 font-mono text-xs border border-slate-800 space-y-2 shadow-2xl">
+            <div class="flex items-center justify-between text-[10px] text-slate-500 border-b border-slate-800 pb-2">
+              <span class="flex items-center gap-1.5 text-cyanGlow-400 font-bold">
+                <i class="ph ph-terminal-window text-sm"></i> STUDIO_INTERACTIVE_CLI
+              </span>
+              <span>Type 'help'</span>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-handler-400 transition">
-              <span class="text-2xl font-bold font-space text-handler-600 block">06</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Tech Contests</span>
+            <div id="heroTerminalOutput" class="h-20 overflow-y-auto space-y-1 text-slate-300 text-[11px]">
+              <p class="text-slate-500">// Terminal initialized. System diagnostic check passed.</p>
+              <p class="text-emeraldGlow-400">✔ Ready for deployment commands.</p>
             </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 transition">
-              <span class="text-2xl font-bold font-space text-hacker-600 block">SIC 7</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">Samsung Campus</span>
-            </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-amber-400 transition">
-              <span class="text-xl font-bold font-space text-amber-600 block">Top 480</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">PIDI Hackathon</span>
-            </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-slate-400 transition">
-              <span class="text-xl font-bold font-space text-slate-900 block">5+ Yrs</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">STEM Tutoring</span>
-            </div>
-            <div class="p-3.5 bg-white rounded-2xl border border-slate-200 shadow-sm hover:border-hacker-400 transition">
-              <span class="text-xl font-bold font-space text-hacker-600 block">3.89</span>
-              <span class="text-[9px] uppercase tracking-wider text-slate-500 font-sans font-semibold">CS GPA</span>
-            </div>
+            <form onsubmit="handleHeroTerminal(event)" class="flex items-center gap-2 pt-1 border-t border-slate-800">
+              <span class="text-cyanGlow-400 font-bold">$</span>
+              <input type="text" id="heroTerminalInput" placeholder="run command..." class="bg-transparent text-slate-100 font-mono text-xs focus:outline-none w-full" />
+              <button type="submit" class="text-slate-500 hover:text-cyanGlow-400"><i class="ph ph-paper-plane-right"></i></button>
+            </form>
           </div>
 
         </div>
+
       </section>
 
       <!-- DUAL-CORE MATRIX SECTION -->
-      <section id="matrix" class="py-16 border-t border-slate-200/80">
-        <div class="mb-10 max-w-xl">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Dual-Core Operations</p>
-          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-            Execution + Strategy <span class="font-serif-italic font-normal text-brand-600">Matrix</span>
+      <section id="matrix" class="py-10 border-t border-white/10">
+        <div class="mb-10 max-w-2xl">
+          <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Dual-Core Operating Model</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-100 mt-1">
+            Engineering & Strategic <span class="font-serif-italic font-normal text-cyanGlow-400">Matrix</span>
           </h2>
-          <p class="text-slate-600 text-xs md:text-sm mt-2">
-            Balancing deep technical engineering (<span class="font-serif-italic font-semibold text-hacker-600">Hacker</span>) with user-driven system scoping, empathy, and product clarity (<span class="font-serif-italic font-semibold text-handler-600">Handler</span>).
+          <p class="text-slate-400 text-xs md:text-sm mt-2">
+            Seamlessly bridging rigorous low-level implementation (<span class="font-serif-italic text-emeraldGlow-400 font-semibold">Hacker Mode</span>) with clear product architecture, user empathy, and public communication (<span class="font-serif-italic text-violetGlow-400 font-semibold">Handler Mode</span>).
           </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-6" id="persona-cards-container">
           
           <!-- HACKER CORE -->
-          <div class="card-clean card-hacker rounded-2xl p-7 border-l-4 border-l-hacker-500 space-y-5 bg-white transition-all duration-300" id="card-persona-hacker">
+          <div class="studio-card rounded-3xl p-7 border-l-4 border-l-emeraldGlow-500 space-y-5 transition-all duration-300" id="card-persona-hacker">
             <div class="flex justify-between items-start">
-              <div class="w-11 h-11 rounded-xl bg-hacker-50 text-hacker-600 border border-hacker-200 flex items-center justify-center text-2xl shadow-sm">
+              <div class="w-12 h-12 rounded-2xl bg-emeraldGlow-500/10 text-emeraldGlow-400 border border-emeraldGlow-500/30 flex items-center justify-center text-2xl shadow-lg">
                 <i class="ph ph-terminal-window"></i>
               </div>
-              <span class="font-mono text-[10px] text-hacker-700 uppercase tracking-wider font-semibold border border-hacker-200 bg-hacker-50 px-3 py-1 rounded-full">Core 01: Engineering</span>
+              <span class="font-mono text-[10px] text-emeraldGlow-400 uppercase tracking-wider font-semibold border border-emeraldGlow-500/30 bg-emeraldGlow-500/10 px-3 py-1 rounded-full">Core 01: Engineering</span>
             </div>
 
             <div>
-              <h3 class="font-space font-bold text-2xl text-slate-900">THE HACKER</h3>
-              <p class="text-xs font-mono text-hacker-600 font-semibold mt-1">Deep Technical Execution & Edge Infrastructure</p>
+              <h3 class="font-space font-bold text-2xl text-slate-100">THE HACKER</h3>
+              <p class="text-xs font-mono text-emeraldGlow-400 font-semibold mt-1">Deep Technical Execution & Hardware Telemetry</p>
             </div>
 
-            <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
+            <ul class="space-y-3 font-sans text-xs text-slate-400 leading-relaxed">
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Full-Stack Architecture:</strong> Building scalable PWA clients, transactional workflows, and real-time data sync with Next.js, TypeScript, PostgreSQL, and Supabase.</span>
+                <i class="ph ph-check-circle-fill text-emeraldGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Full-Stack Architecture:</strong> Building transactional Next.js 14 PWAs, real-time Supabase subscriptions, and row-level security (RLS) PostgreSQL database policies.</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Applied Edge ML & IoT:</strong> Engineering ESP32 firmware in C++, multi-sensor filtering (DHT11/PIR/LDR), MQTT telemetry streams, and Random Forest classification for automated actuators.</span>
+                <i class="ph ph-check-circle-fill text-emeraldGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Embedded IoT & Edge ML:</strong> Writing non-blocking C++ ESP32 firmware, multi-sensor moving-average noise suppression, HiveMQ MQTT telemetry, and Scikit-Learn Random Forest classifiers.</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-hacker-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Hardware & Cryptography:</strong> NFC card UID scanning integration, automated IR Blaster signal modulation, and hybrid AES-RSA symmetric-asymmetric cryptographic implementations.</span>
+                <i class="ph ph-check-circle-fill text-emeraldGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Hardware Interfacing:</strong> NFC card UID scanning integration, 38kHz IR modulation pulse generation, and AES-RSA hybrid encryption pipelines.</span>
               </li>
             </ul>
 
-            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
+            <div class="pt-2 border-t border-white/10 flex flex-wrap gap-1.5">
               <span class="tag-tech">Next.js 14</span>
               <span class="tag-tech">ESP32 (C++)</span>
-              <span class="tag-tech">MQTT</span>
+              <span class="tag-tech">HiveMQ MQTT</span>
               <span class="tag-tech">Scikit-Learn</span>
-              <span class="tag-tech">PostgreSQL</span>
-              <span class="tag-tech">NFC</span>
+              <span class="tag-tech">PostgreSQL RLS</span>
+              <span class="tag-tech">NFC Protocols</span>
             </div>
           </div>
 
           <!-- HANDLER CORE -->
-          <div class="card-clean card-handler rounded-2xl p-7 border-l-4 border-l-handler-500 space-y-5 bg-white transition-all duration-300" id="card-persona-handler">
+          <div class="studio-card rounded-3xl p-7 border-l-4 border-l-violetGlow-500 space-y-5 transition-all duration-300" id="card-persona-handler">
             <div class="flex justify-between items-start">
-              <div class="w-11 h-11 rounded-xl bg-handler-50 text-handler-600 border border-handler-200 flex items-center justify-center text-2xl shadow-sm">
+              <div class="w-12 h-12 rounded-2xl bg-violetGlow-500/10 text-violetGlow-400 border border-violetGlow-500/30 flex items-center justify-center text-2xl shadow-lg">
                 <i class="ph ph-brain"></i>
               </div>
-              <span class="font-mono text-[10px] text-handler-700 uppercase tracking-wider font-semibold border border-handler-200 bg-handler-50 px-3 py-1 rounded-full">Core 02: Strategy</span>
+              <span class="font-mono text-[10px] text-violetGlow-400 uppercase tracking-wider font-semibold border border-violetGlow-500/30 bg-violetGlow-500/10 px-3 py-1 rounded-full">Core 02: Strategy</span>
             </div>
 
             <div>
-              <h3 class="font-space font-bold text-2xl text-slate-900">THE HANDLER</h3>
-              <p class="text-xs font-mono text-handler-600 font-semibold mt-1">Product Architecture, User Empathy & System Communication</p>
+              <h3 class="font-space font-bold text-2xl text-slate-100">THE HANDLER</h3>
+              <p class="text-xs font-mono text-violetGlow-400 font-semibold mt-1">Product Architecture, User Empathy & System Communication</p>
             </div>
 
-            <ul class="space-y-3 font-sans text-xs text-slate-600 leading-relaxed">
+            <ul class="space-y-3 font-sans text-xs text-slate-400 leading-relaxed">
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Product Scoping & Roadmapping:</strong> Translating real-world stakeholder bottlenecks into crisp technical specifications and scalable product features.</span>
+                <i class="ph ph-check-circle-fill text-violetGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Product Scoping & Roadmapping:</strong> Converting complex stakeholder bottlenecks into crisp functional specifications, user journeys, and achievable MVP milestones.</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>EdTech & Knowledge Translation:</strong> 5+ years of STEM tutoring, turning dense computational concepts into accessible mental models and intuitive UX flows.</span>
+                <i class="ph ph-check-circle-fill text-violetGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>STEM Pedagogy & Mentorship:</strong> 5+ years of STEM tutoring, demystifying dense computational theory into intuitive mental models and clear software documentation.</span>
               </li>
               <li class="flex items-start gap-3">
-                <i class="ph ph-check-circle-fill text-handler-600 text-lg shrink-0 mt-0.5"></i>
-                <span><strong>Structured Public Narrative:</strong> Honed storytelling and pitch delivery under scrutiny (Honorable Mention Syarhil Qur'an MTQMN, Top 480 Hackathon pitch deck).</span>
+                <i class="ph ph-check-circle-fill text-violetGlow-400 text-lg shrink-0 mt-0.5"></i>
+                <span><strong>Public Pitch Delivery:</strong> Honed narrative structure and public defense under pressure (Honorable Mention Syarhil Qur'an MTQMN, Top 480 PIDI Hackathon pitch deck).</span>
               </li>
             </ul>
 
-            <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-1">
+            <div class="pt-2 border-t border-white/10 flex flex-wrap gap-1.5">
               <span class="tag-tech">Product Scoping</span>
               <span class="tag-tech">User Experience</span>
               <span class="tag-tech">Technical Pitching</span>
@@ -531,340 +528,390 @@
         </div>
       </section>
 
-      <!-- DUAL FLAGSHIP SECTION -->
-      <section id="flagships" class="py-16 border-t border-slate-200/80">
-        <div class="mb-10">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Primary Engineering Artifacts</p>
-          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-            Flagship Deployments
+      <!-- DUAL FLAGSHIP SECTION WITH LIVE INTERACTIVE SIMULATORS -->
+      <section id="flagships" class="py-10 border-t border-white/10 space-y-12">
+        <div>
+          <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Primary System Engineering Artifacts</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-100 mt-1">
+            Flagship Deployments & Live Simulators
           </h2>
-          <p class="text-slate-500 text-xs md:text-sm font-mono mt-1">
-            Two end-to-end operational systems: a full-stack digital school wallet and an edge-ML healthcare IoT system.
+          <p class="text-slate-400 text-xs md:text-sm font-mono mt-1">
+            Test the live architecture data pipeline for both flagship systems directly inside the browser.
           </p>
         </div>
 
-        <div class="space-y-10">
-          
-          <!-- FLAGSHIP 01: KOIN -->
-          <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
-            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
-              
-              <div class="space-y-5">
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="bg-brand-50 text-brand-700 border border-brand-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">MVP Built & Validated</span>
-                  <span class="bg-amber-50 text-amber-700 border border-amber-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">TOP 480 / 2,000+ TEAMS — PIDI DIGDAYA X HACKATHON 2026</span>
-                </div>
-                
-                <div class="flex items-center gap-3.5">
-                  <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 shrink-0 shadow-sm p-1.5">
-                    <img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/FFFFFF/4F46E5?text=KOIN';" />
-                  </div>
-                  <div>
-                    <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-wider">FLAGSHIP_01 • WEB / FINTECH</span>
-                    <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                      KOIN — Digital School Wallet Platform
-                    </h3>
-                  </div>
-                </div>
-                
-                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-                  A full-stack school digital wallet PWA that connects NFC-based student payments, real-time balance synchronization, parental spending controls, and digital top-ups into one transparent school financial ecosystem.
-                </p>
+        <!-- FLAGSHIP 01: KOIN (FINTECH / PWA) -->
+        <div class="studio-card rounded-3xl p-6 md:p-9 space-y-8 border-slate-800">
+          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+            
+            <!-- Left Info Block -->
+            <div class="space-y-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-cyanGlow-500/10 text-cyanGlow-300 border border-cyanGlow-500/30 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">MVP Built & Operational</span>
+                <span class="bg-amber-500/10 text-amber-300 border border-amber-500/30 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">TOP 480 / 2,000+ TEAMS — PIDI HACKATHON 2026</span>
+              </div>
 
-                <div class="grid sm:grid-cols-2 gap-3 border-t border-slate-100 pt-4 font-mono text-xs">
-                  <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
-                    <p class="text-[10px] uppercase font-bold text-slate-700">The Problem</p>
-                    <p class="text-slate-600 mt-1 font-sans text-xs">Cash friction in school cafeterias, zero parental visibility on allowances, and manual reconciliation risks.</p>
-                  </div>
-                  <div class="p-3 bg-brand-50/50 rounded-xl border border-brand-200/60">
-                    <p class="text-[10px] uppercase font-bold text-brand-800">The Solution</p>
-                    <p class="text-slate-600 mt-1 font-sans text-xs">NFC physical cards paired with Next.js PWA, optimistic balance updates, and database transactional policies.</p>
-                  </div>
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-700 p-2 shrink-0 shadow-lg">
+                  <img src="https://imgur.com/ElLG785.png" alt="KOIN Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0F172A/38BDF8?text=KOIN';" />
                 </div>
-
-                <div class="flex flex-wrap gap-1.5 pt-1">
-                  <span class="tag-tech">Next.js 14</span>
-                  <span class="tag-tech">TypeScript</span>
-                  <span class="tag-tech">Supabase</span>
-                  <span class="tag-tech">PostgreSQL RLS</span>
-                  <span class="tag-tech">NFC Card UID</span>
-                  <span class="tag-tech">PWA</span>
+                <div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase font-bold tracking-wider block">FLAGSHIP_01 • WEB / FINTECH</span>
+                  <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+                    KOIN — Digital School Wallet
+                  </h3>
                 </div>
+              </div>
 
-                <div class="pt-2 flex flex-wrap gap-2.5">
-                  <a href="https://bit.ly/koin-mvp" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
+              <p class="text-slate-300 text-sm leading-relaxed">
+                A full-stack cashless school wallet PWA connecting physical NFC student cards, real-time Supabase balance sync, parental daily spending controls, and merchant transaction logs into a transparent school financial network.
+              </p>
+
+              <div class="grid sm:grid-cols-2 gap-3 font-mono text-xs pt-2">
+                <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                  <p class="text-[10px] uppercase font-bold text-cyanGlow-400">The Problem</p>
+                  <p class="text-slate-400 mt-1 font-sans text-xs">Physical cash friction in cafeterias, zero parental visibility, and manual end-of-day reconciliation risks.</p>
+                </div>
+                <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                  <p class="text-[10px] uppercase font-bold text-emeraldGlow-400">The Solution</p>
+                  <p class="text-slate-400 mt-1 font-sans text-xs">NFC physical cards paired with Next.js PWA, optimistic UI mutations, and PostgreSQL RLS row locks.</p>
+                </div>
+              </div>
+
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="tag-tech">Next.js 14</span>
+                <span class="tag-tech">TypeScript</span>
+                <span class="tag-tech">Supabase</span>
+                <span class="tag-tech">PostgreSQL RLS</span>
+                <span class="tag-tech">NFC UID API</span>
+                <span class="tag-tech">PWA</span>
+              </div>
+
+              <!-- Actions & Reviewer Access Box -->
+              <div class="space-y-3 pt-2">
+                <div class="flex flex-wrap gap-3">
+                  <a href="https://bit.ly/koin-mvp" target="_blank" class="bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition inline-flex items-center gap-2 shadow-lg shadow-cyanGlow-500/20 hover:scale-[1.02]">
                     <i class="ph ph-arrow-square-out text-sm"></i> Launch KOIN Web App
                   </a>
-                  <button onclick="viewCaseStudy('koin')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 border border-slate-200">
-                    Deep Dive KOIN Case Study <i class="ph ph-arrow-right text-sm"></i>
+                  <button onclick="viewCaseStudy('koin')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition inline-flex items-center gap-2 border border-slate-700">
+                    Full Case Study <i class="ph ph-arrow-right text-sm"></i>
                   </button>
                 </div>
 
-                <!-- REVIEWER ACCESS CREDENTIALS BOX -->
-                <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 font-mono text-xs space-y-2 mt-2">
-                  <div class="flex items-center justify-between text-brand-700 font-bold border-b border-slate-200 pb-1.5">
-                    <span class="flex items-center gap-1.5"><i class="ph ph-keyhole text-sm"></i> KOIN DEMO ACCESS</span>
-                    <span class="text-[9px] bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-bold">REVIEWER CREDENTIALS</span>
+                <!-- Reviewer Credentials -->
+                <div class="p-3.5 bg-slate-950/90 border border-cyanGlow-500/30 rounded-2xl font-mono text-xs space-y-1.5">
+                  <div class="flex items-center justify-between text-cyanGlow-400 font-bold">
+                    <span class="flex items-center gap-1.5"><i class="ph ph-keyhole text-sm"></i> REVIEWER ACCESS CREDENTIALS</span>
+                    <span class="text-[9px] bg-cyanGlow-500/20 text-cyanGlow-300 px-2 py-0.5 rounded">DEMO ACCOUNT</span>
                   </div>
-                  <div class="grid sm:grid-cols-2 gap-2 text-slate-700 text-[11px]">
-                    <div><span class="text-slate-400">Parent:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-bold">magdalena.parent@koin.demo</code></div>
-                    <div><span class="text-slate-400">Child:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-slate-900 font-bold">nayla.child@koin.demo</code></div>
+                  <div class="grid sm:grid-cols-2 gap-2 text-[11px] text-slate-300 pt-1">
+                    <div><span class="text-slate-500">Parent:</span> <code class="bg-slate-900 px-1.5 py-0.5 rounded text-cyanGlow-300 font-bold">magdalena.parent@koin.demo</code></div>
+                    <div><span class="text-slate-500">Child:</span> <code class="bg-slate-900 px-1.5 py-0.5 rounded text-cyanGlow-300 font-bold">nayla.child@koin.demo</code></div>
                   </div>
-                  <div class="text-[11px] text-slate-700"><span class="text-slate-400">Password:</span> <code class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-brand-700 font-bold">KOINdemo123!</code></div>
-                  <p class="text-[11px] text-slate-600 font-sans leading-relaxed pt-1.5 border-t border-slate-200/70">
-                    A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Technical Pipeline Diagram -->
-              <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
-                <div class="flex justify-between items-center pb-2 border-b border-slate-800">
-                  <p class="text-[10px] font-bold text-brand-400 uppercase tracking-wider flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 bg-brand-500 rounded-full animate-pulse"></span> KOIN TRANSACTION ARCHITECTURE
-                  </p>
-                  <span class="text-[10px] text-slate-500 font-mono">PWA + CLOUD</span>
-                </div>
-
-                <div class="space-y-2.5 text-[11px]">
-                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-brand-400 font-bold">01. PHYSICAL SCAN</span><br />Student taps NFC card → PWA reads hardware UID string
-                  </div>
-                  <div class="text-center text-brand-400 text-xs">↓ [ Optimistic UI & Token Dispatch ]</div>
-                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-cyan-400 font-bold">02. APP LOGIC LAYER</span><br />Next.js API route validates cart, daily limit, and user role
-                  </div>
-                  <div class="text-center text-brand-400 text-xs">↓ [ Authenticated RLS Query ]</div>
-                  <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-emerald-400 font-bold">03. POSTGRESQL & REALTIME</span><br />Balance deducted with row-level locks; realtime sync to parent dashboard
-                  </div>
+                  <div class="text-[11px] text-slate-300"><span class="text-slate-500">Password:</span> <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emeraldGlow-400 font-bold">KOINdemo123!</code></div>
                 </div>
               </div>
 
             </div>
-          </div>
 
-          <!-- FLAGSHIP 02: PANDA -->
-          <div class="card-clean rounded-3xl p-6 md:p-9 bg-white border-slate-200 relative overflow-hidden shadow-md">
-            <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
-              
-              <div class="space-y-5">
-                <div class="flex flex-wrap items-center gap-2">
-                  <span class="bg-hacker-50 text-hacker-700 border border-hacker-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Edge ML & Embedded IoT</span>
-                  <span class="bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Samsung Innovation Campus — Batch 7</span>
-                </div>
-                
-                <div class="flex items-center gap-3.5">
-                  <div class="w-12 h-12 bg-hacker-50 rounded-xl flex items-center justify-center border border-hacker-200 shrink-0 shadow-sm p-1.5 text-hacker-600">
-                    <i class="ph ph-heartbeat text-2xl"></i>
-                  </div>
-                  <div>
-                    <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-wider">FLAGSHIP_02 • EDGE ML / HEALTHCARE IOT</span>
-                    <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                      PANDA — Patient Ambient Notification & Danger Analysis
-                    </h3>
-                  </div>
-                </div>
-                
-                <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-                  An end-to-end healthcare IoT system engineered for bedridden stroke patients—combining multi-sensor ambient monitoring, telemetry streaming over MQTT, and a Random Forest classifier paired with automated AC climate intervention.
-                </p>
+            <!-- Right Block: Live Interactive KOIN Transaction Pipeline Simulator -->
+            <div class="bg-slate-950 rounded-2xl p-5 font-mono text-xs text-slate-200 space-y-4 border border-slate-800 shadow-2xl">
+              <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                <span class="text-[10px] font-bold text-cyanGlow-400 uppercase tracking-wider flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 bg-cyanGlow-500 rounded-full animate-pulse"></span> TRANSACTION PIPELINE SIMULATOR
+                </span>
+                <span class="text-[10px] text-slate-500">INTERACTIVE</span>
+              </div>
 
-                <div class="grid sm:grid-cols-2 gap-3 border-t border-slate-100 pt-4 font-mono text-xs">
-                  <div class="p-3 bg-slate-50 rounded-xl border border-slate-200/80">
-                    <p class="text-[10px] uppercase font-bold text-slate-700">The Problem</p>
-                    <p class="text-slate-600 mt-1 font-sans text-xs">Paralyzed stroke patients cannot verbalize thermal discomfort or agitation, triggering critical stress spikes.</p>
-                  </div>
-                  <div class="p-3 bg-hacker-50/50 rounded-xl border border-hacker-200/60">
-                    <p class="text-[10px] uppercase font-bold text-hacker-800">The Solution</p>
-                    <p class="text-slate-600 mt-1 font-sans text-xs">ESP32 sensor fusion feeding a Random Forest model that activates an IR blaster to modulate room AC automatically.</p>
-                  </div>
+              <!-- Interactive Controls for KOIN -->
+              <div class="space-y-3 bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div class="flex justify-between items-center text-[11px]">
+                  <span class="text-slate-400">Card UID Scan:</span>
+                  <span class="text-emeraldGlow-400 font-bold">04:8E:A2:9B (Nayla C.)</span>
+                </div>
+                <div class="flex justify-between items-center text-[11px]">
+                  <span class="text-slate-400">Cart Total (Cafeteria):</span>
+                  <span class="text-cyanGlow-300 font-bold">Rp 15.000,00</span>
+                </div>
+                <div class="flex justify-between items-center text-[11px]">
+                  <span class="text-slate-400">Current Student Balance:</span>
+                  <span id="koinSimBalance" class="text-amber-400 font-bold">Rp 50.000,00</span>
                 </div>
 
-                <div class="flex flex-wrap gap-1.5 pt-1">
-                  <span class="tag-tech">ESP32 (C++)</span>
-                  <span class="tag-tech">DHT11 / PIR / LDR</span>
-                  <span class="tag-tech">MQTT (HiveMQ)</span>
-                  <span class="tag-tech">Scikit-Learn</span>
-                  <span class="tag-tech">Random Forest</span>
-                  <span class="tag-tech">IR Blaster</span>
-                </div>
+                <button onclick="runKoinSimulation()" id="btnRunKoinSim" class="w-full bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-bold py-2.5 rounded-lg transition flex items-center justify-center gap-2 shadow-md">
+                  <i class="ph ph-play-circle text-base"></i> Execute NFC Transaction Test
+                </button>
+              </div>
 
-                <div class="pt-2 flex flex-wrap gap-2.5">
-                  <a href="https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing" target="_blank" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 shadow-md hover:scale-[1.02]">
-                    <i class="ph ph-file-text text-sm"></i> PANDA — Full Proposal & Documentation
-                  </a>
-                  <button onclick="viewCaseStudy('panda')" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition duration-200 inline-flex items-center gap-2 border border-slate-200">
-                    Deep Dive PANDA Case Study <i class="ph ph-arrow-right text-sm"></i>
-                  </button>
+              <!-- Simulator Data Pipeline Visualization -->
+              <div class="space-y-2 text-[10px] sm:text-[11px]">
+                <div id="koinStep1" class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 transition-all">
+                  <span class="font-bold text-slate-200">[01] NFC SCAN</span>: Physical card UID dispatched to Next.js API route.
+                </div>
+                <div id="koinStep2" class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 transition-all">
+                  <span class="font-bold text-slate-200">[02] POLICY CHECK</span>: Daily limit & user role validated via middleware.
+                </div>
+                <div id="koinStep3" class="p-2.5 bg-slate-900/60 rounded-xl border border-slate-800 text-slate-400 transition-all">
+                  <span class="font-bold text-slate-200">[03] RLS MUTATION</span>: Atomic PostgreSQL deduct + realtime parent sync broadcast.
                 </div>
               </div>
 
-              <!-- Technical Pipeline Diagram -->
-              <div class="bg-slate-900 rounded-2xl p-6 font-mono text-xs text-slate-200 space-y-4 shadow-xl border border-slate-800">
-                <div class="flex justify-between items-center pb-2 border-b border-slate-800">
-                  <p class="text-[10px] font-bold text-hacker-400 uppercase tracking-wider flex items-center gap-2">
-                    <span class="w-2.5 h-2.5 bg-hacker-500 rounded-full animate-pulse"></span> SENSOR → TELEMETRY → ACTUATOR PIPELINE
-                  </p>
-                  <span class="text-[10px] text-slate-500 font-mono">FIRMWARE + ML</span>
-                </div>
-
-                <div class="space-y-2 text-[10px] sm:text-[11px]">
-                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-emerald-400 font-bold">[01] SENSOR NODE (ESP32)</span><br />
-                    DHT11 (Temp/Humid) + PIR (Agitation) + LDR (Light) → Moving Average Filter
-                  </div>
-                  <div class="text-center text-hacker-500 text-xs">↓ [ MQTT Telemetry over HiveMQ Broker ]</div>
-                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-amber-400 font-bold">[02] INFERENCE ENGINE</span><br />
-                    Scikit-Learn Random Forest Classifier → Predicts: <em class="text-white">Thermal Discomfort / Agitation</em>
-                  </div>
-                  <div class="text-center text-hacker-500 text-xs">↓ [ Safety Rule Check & Actuation Command ]</div>
-                  <div class="p-2.5 bg-slate-950 rounded-xl border border-slate-800 text-slate-300">
-                    <span class="text-purple-400 font-bold">[03] ACTUATOR LAYER</span><br />
-                    ESP32 IR Blaster fires modulated 38kHz pulse → Regulates AC target temperature
-                  </div>
-                </div>
+              <div id="koinSimLog" class="p-2.5 bg-slate-900 rounded-lg text-[10px] text-emeraldGlow-400 font-mono hidden">
+                // System Output Log...
               </div>
-
             </div>
-          </div>
 
+          </div>
         </div>
+
+        <!-- FLAGSHIP 02: PANDA (EDGE ML / HEALTHCARE IOT) -->
+        <div class="studio-card rounded-3xl p-6 md:p-9 space-y-8 border-slate-800">
+          <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+            
+            <!-- Left Info Block -->
+            <div class="space-y-5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="bg-emeraldGlow-500/10 text-emeraldGlow-300 border border-emeraldGlow-500/30 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Edge ML & Embedded IoT</span>
+                <span class="bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1 rounded-full text-[10px] font-mono uppercase font-bold">Samsung Innovation Campus — Batch 7</span>
+              </div>
+
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-emeraldGlow-500/10 rounded-2xl flex items-center justify-center border border-emeraldGlow-500/30 text-emeraldGlow-400 text-3xl shrink-0 shadow-lg">
+                  <i class="ph ph-heartbeat"></i>
+                </div>
+                <div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase font-bold tracking-wider block">FLAGSHIP_02 • EDGE ML / HEALTHCARE IOT</span>
+                  <h3 class="font-space text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
+                    PANDA — Patient Ambient Notification & Danger Analysis
+                  </h3>
+                </div>
+              </div>
+
+              <p class="text-slate-300 text-sm leading-relaxed">
+                An end-to-end healthcare IoT system engineered for bedridden stroke patients—combining multi-sensor ambient monitoring, telemetry streaming over HiveMQ MQTT, and a Random Forest classifier paired with automated AC climate intervention.
+              </p>
+
+              <div class="grid sm:grid-cols-2 gap-3 font-mono text-xs pt-2">
+                <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                  <p class="text-[10px] uppercase font-bold text-emeraldGlow-400">The Problem</p>
+                  <p class="text-slate-400 mt-1 font-sans text-xs">Paralyzed stroke patients cannot verbalize thermal stress or agitation, triggering acute cardiovascular distress spikes.</p>
+                </div>
+                <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800">
+                  <p class="text-[10px] uppercase font-bold text-violetGlow-400">The Solution</p>
+                  <p class="text-slate-400 mt-1 font-sans text-xs">ESP32 sensor fusion feeding a Random Forest model that activates an IR blaster to modulate AC target state automatically.</p>
+                </div>
+              </div>
+
+              <!-- Tech Tags -->
+              <div class="flex flex-wrap gap-1.5">
+                <span class="tag-tech">ESP32 (C++)</span>
+                <span class="tag-tech">DHT11 / PIR / LDR</span>
+                <span class="tag-tech">HiveMQ MQTT</span>
+                <span class="tag-tech">Scikit-Learn</span>
+                <span class="tag-tech">Random Forest</span>
+                <span class="tag-tech">38kHz IR Blaster</span>
+              </div>
+
+              <!-- Actions -->
+              <div class="flex flex-wrap gap-3 pt-2">
+                <a href="https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing" target="_blank" class="bg-emeraldGlow-600 hover:bg-emeraldGlow-500 text-white font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition inline-flex items-center gap-2 shadow-lg shadow-emeraldGlow-500/20 hover:scale-[1.02]">
+                  <i class="ph ph-file-text text-sm"></i> Full Proposal & Documentation
+                </a>
+                <button onclick="viewCaseStudy('panda')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono font-bold uppercase text-xs px-5 py-3 rounded-xl transition inline-flex items-center gap-2 border border-slate-700">
+                  Full Case Study <i class="ph ph-arrow-right text-sm"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Right Block: Live Interactive Sensor & ML Actuation Simulator -->
+            <div class="bg-slate-950 rounded-2xl p-5 font-mono text-xs text-slate-200 space-y-4 border border-slate-800 shadow-2xl">
+              <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                <span class="text-[10px] font-bold text-emeraldGlow-400 uppercase tracking-wider flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 bg-emeraldGlow-500 rounded-full animate-pulse"></span> SENSOR & ML ACTUATION SIMULATOR
+                </span>
+                <span class="text-[10px] text-slate-500">LIVE CONTROLS</span>
+              </div>
+
+              <!-- Interactive Sensor Sliders for PANDA -->
+              <div class="space-y-3 bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div>
+                  <div class="flex justify-between text-[11px] mb-1">
+                    <span class="text-slate-400">DHT11 Temperature:</span>
+                    <span id="lblTemp" class="text-amber-400 font-bold">28.5 °C</span>
+                  </div>
+                  <input type="range" id="sliderTemp" min="20" max="36" step="0.5" value="28.5" oninput="updatePandaSim()" class="w-full accent-emeraldGlow-500 h-1.5 bg-slate-800 rounded-lg cursor-pointer">
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-[11px] mb-1">
+                    <span class="text-slate-400">PIR Agitation Detector:</span>
+                    <span id="lblPIR" class="text-slate-300 font-bold">RESTING (NO MOTION)</span>
+                  </div>
+                  <button onclick="togglePIRSim()" id="btnTogglePIR" class="w-full py-1.5 rounded bg-slate-800 text-slate-300 text-[10px] font-bold border border-slate-700 hover:bg-slate-700 transition">
+                    Toggle Patient Movement / Restlessness
+                  </button>
+                </div>
+
+                <div class="pt-2 border-t border-slate-800 flex justify-between items-center text-[11px]">
+                  <span class="text-slate-400">ML Model Decision:</span>
+                  <span id="pandaMLOutput" class="text-amber-300 font-bold uppercase bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">PREDICTING...</span>
+                </div>
+
+                <div class="flex justify-between items-center text-[11px]">
+                  <span class="text-slate-400">IR Blaster Command:</span>
+                  <span id="pandaActuatorOutput" class="text-slate-400 font-bold">STANDBY</span>
+                </div>
+              </div>
+
+              <!-- Telemetry Flow Status -->
+              <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1 text-[10px] text-slate-400">
+                <div class="flex justify-between"><span class="text-slate-500">MQTT Broker:</span><span class="text-emeraldGlow-400">HiveMQ Cloud (Active)</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Moving Average Filter:</span><span class="text-cyanGlow-300">k=5 Window Filtered</span></div>
+                <div class="flex justify-between"><span class="text-slate-500">Safety Rule Override:</span><span class="text-violetGlow-300">> 29°C Instant Trigger Enabled</span></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </section>
 
       <!-- OTHER SYSTEMS GRID -->
-      <section id="work" class="py-14 border-t border-slate-200/80">
-        <div class="mb-8">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Applied Explorations</p>
-          <h3 class="font-space text-2xl md:text-3xl font-bold text-slate-900 flex items-center gap-2 mt-1">
+      <section id="work" class="py-10 border-t border-white/10 space-y-8">
+        <div>
+          <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Applied Explorations</p>
+          <h2 class="font-space text-2xl md:text-3xl font-bold text-slate-100 flex items-center gap-2 mt-1">
             Other Specialized Systems
-          </h3>
-          <p class="text-xs font-mono text-slate-500 mt-1">Implementations spanning graph theory, agricultural IoT, machine learning, and cryptography.</p>
+          </h2>
+          <p class="text-xs font-mono text-slate-400 mt-1">Engineering projects across graph theory, hardware incubators, machine learning, and cryptography.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
           
           <!-- PROJECT: RuteBarokah -->
-          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+          <article class="studio-card rounded-2xl p-6 flex flex-col justify-between border-slate-800">
             <div class="space-y-3">
               <div class="flex justify-between items-start font-mono">
-                <span class="text-xs font-bold text-slate-400">SYS_03</span>
-                <span class="tag-tech">Graph Algorithms</span>
+                <span class="text-xs font-bold text-slate-500">SYS_03</span>
+                <span class="tag-tech">Graph Routing</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">RuteBarokah</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">Dynamic Graph Routing for NGO Distribution</p>
+                <h4 class="font-space text-xl font-bold text-slate-100">RuteBarokah</h4>
+                <p class="text-xs font-mono text-slate-400 mt-0.5">NGO Social Distribution Optimizer</p>
               </div>
-              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Inefficient route planning inflating fuel cost and delivery latency.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> Dijkstra-based shortest-path traversal on interactive map UI.</div>
+              <div class="space-y-1.5 border-t border-white/10 pt-3 text-xs font-sans text-slate-300 leading-relaxed">
+                <div><strong class="text-slate-100 font-mono">Challenge:</strong> Driver route latency and duplicated travel legs during charity relief delivery.</div>
+                <div><strong class="text-slate-100 font-mono">Solution:</strong> Dijkstra-based shortest path traversal integrated on Leaflet interactive map.</div>
               </div>
             </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+            <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs">
               <span class="text-[10px] text-slate-500">Full-Stack / Algo</span>
-              <button onclick="viewCaseStudy('rutebarokah')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
+              <button onclick="viewCaseStudy('rutebarokah')" class="text-cyanGlow-400 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
           <!-- PROJECT: Netes.io -->
-          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+          <article class="studio-card rounded-2xl p-6 flex flex-col justify-between border-slate-800">
             <div class="space-y-3">
               <div class="flex justify-between items-start font-mono">
-                <span class="text-xs font-bold text-slate-400">SYS_04</span>
+                <span class="text-xs font-bold text-slate-500">SYS_04</span>
                 <span class="tag-tech">ESP32 / Firebase</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">Netes.io — Smart Incubator</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">Closed-Loop Poultry Hardware Automation</p>
+                <h4 class="font-space text-xl font-bold text-slate-100">Netes.io — Smart Incubator</h4>
+                <p class="text-xs font-mono text-slate-400 mt-0.5">Automated Egg Hatching Hardware</p>
               </div>
-              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Thermal variations and irregular turning causing embryo failure.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> ESP32 automated servo rotation with live Firebase RTDB synchronization.</div>
+              <div class="space-y-1.5 border-t border-white/10 pt-3 text-xs font-sans text-slate-300 leading-relaxed">
+                <div><strong class="text-slate-100 font-mono">Challenge:</strong> Thermal fluctuations causing embryonic failure in manual incubators.</div>
+                <div><strong class="text-slate-100 font-mono">Solution:</strong> ESP32 automated servo rack rotation with real-time Firebase telemetry.</div>
               </div>
             </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+            <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs">
               <span class="text-[10px] text-slate-500">Firmware & IoT</span>
-              <button onclick="viewCaseStudy('netes-io')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
+              <button onclick="viewCaseStudy('netes-io')" class="text-cyanGlow-400 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
           <!-- PROJECT: Coffee AI -->
-          <article class="card-clean rounded-2xl p-6 flex flex-col justify-between">
+          <article class="studio-card rounded-2xl p-6 flex flex-col justify-between border-slate-800">
             <div class="space-y-3">
               <div class="flex justify-between items-start font-mono">
-                <span class="text-xs font-bold text-slate-400">SYS_05</span>
+                <span class="text-xs font-bold text-slate-500">SYS_05</span>
                 <span class="tag-tech">ML / Scikit-Learn</span>
               </div>
               <div>
-                <h4 class="font-space text-xl font-bold text-slate-900">Coffee Quality Predictor</h4>
-                <p class="text-xs font-mono text-slate-500 mt-0.5">Supervised Sensory Scoring Regressor</p>
+                <h4 class="font-space text-xl font-bold text-slate-100">Coffee Quality Predictor</h4>
+                <p class="text-xs font-mono text-slate-400 mt-0.5">Sensory Cupping Score Regressor</p>
               </div>
-              <div class="space-y-1.5 border-t border-slate-100 pt-3 text-xs font-sans text-slate-600">
-                <div><strong class="text-slate-900 font-mono">Challenge:</strong> Subjective cupping variations across manual sensory grading.</div>
-                <div><strong class="text-slate-900 font-mono">Solution:</strong> Multi-variable Random Forest regressor deployed via Streamlit.</div>
+              <div class="space-y-1.5 border-t border-white/10 pt-3 text-xs font-sans text-slate-300 leading-relaxed">
+                <div><strong class="text-slate-100 font-mono">Challenge:</strong> Subjective variance across manual specialty coffee panel scoring.</div>
+                <div><strong class="text-slate-100 font-mono">Solution:</strong> Multi-variable Random Forest regressor deployed via Streamlit app.</div>
               </div>
             </div>
-            <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-xs">
+            <div class="mt-5 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-xs">
               <span class="text-[10px] text-slate-500">Machine Learning</span>
-              <button onclick="viewCaseStudy('coffee-ai')" class="text-brand-600 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
+              <button onclick="viewCaseStudy('coffee-ai')" class="text-cyanGlow-400 font-bold hover:underline flex items-center gap-1">Read Log <i class="ph ph-arrow-right"></i></button>
             </div>
           </article>
 
         </div>
 
         <!-- Mini Systems Grid -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-6">
-          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
-            <span class="text-[10px] text-slate-400 font-bold">SYS_06</span>
-            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Kopi Nang</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">Mobile ordering client with auth & dynamic order state.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Flutter / PostgreSQL</div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2">
+          <div class="studio-card rounded-2xl p-4 font-mono">
+            <span class="text-[10px] text-slate-500 font-bold">SYS_06</span>
+            <h5 class="font-space font-bold text-sm text-slate-200 mt-0.5">Kopi Nang</h5>
+            <p class="text-[10px] text-slate-400 font-sans mt-1">Mobile ordering client with auth & order state management.</p>
+            <div class="mt-2 text-[9px] text-cyanGlow-400 font-bold">Flutter / PostgreSQL</div>
           </div>
-          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
-            <span class="text-[10px] text-slate-400 font-bold">SYS_07</span>
-            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">QR Cryptography</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">AES-RSA hybrid encryption pipeline for secure payload encoding.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Python / Cryptography</div>
+          <div class="studio-card rounded-2xl p-4 font-mono">
+            <span class="text-[10px] text-slate-500 font-bold">SYS_07</span>
+            <h5 class="font-space font-bold text-sm text-slate-200 mt-0.5">QR Cryptography</h5>
+            <p class="text-[10px] text-slate-400 font-sans mt-1">AES-RSA hybrid encryption pipeline for payload encoding.</p>
+            <div class="mt-2 text-[9px] text-emeraldGlow-400 font-bold">Python / Cryptography</div>
           </div>
-          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
-            <span class="text-[10px] text-slate-400 font-bold">SYS_08</span>
-            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">CrypForm</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">Encrypted form builder protecting survey participant data.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Firebase / Security</div>
+          <div class="studio-card rounded-2xl p-4 font-mono">
+            <span class="text-[10px] text-slate-500 font-bold">SYS_08</span>
+            <h5 class="font-space font-bold text-sm text-slate-200 mt-0.5">CrypForm</h5>
+            <p class="text-[10px] text-slate-400 font-sans mt-1">Encrypted form builder protecting sensitive survey responses.</p>
+            <div class="mt-2 text-[9px] text-violetGlow-400 font-bold">Firebase / Security</div>
           </div>
-          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
-            <span class="text-[10px] text-slate-400 font-bold">SYS_09</span>
-            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">BudayaGO</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">Gamified cultural tourism discovery connecting regional relics.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">Figma / Strategy</div>
+          <div class="studio-card rounded-2xl p-4 font-mono">
+            <span class="text-[10px] text-slate-500 font-bold">SYS_09</span>
+            <h5 class="font-space font-bold text-sm text-slate-200 mt-0.5">BudayaGO</h5>
+            <p class="text-[10px] text-slate-400 font-sans mt-1">Gamified cultural tourism discovery mapping regional relics.</p>
+            <div class="mt-2 text-[9px] text-cyanGlow-400 font-bold">Figma / Product Scoping</div>
           </div>
-          <div class="card-clean rounded-2xl p-4 font-mono hover:scale-[1.02] transition">
-            <span class="text-[10px] text-slate-400 font-bold">SYS_10</span>
-            <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">YoTukang</h5>
-            <p class="text-[10px] text-slate-500 font-sans mt-1">On-demand artisan handyman service blueprint & validation.</p>
-            <div class="mt-2.5 text-[9px] text-brand-600 font-bold">UI/UX / Scoping</div>
+          <div class="studio-card rounded-2xl p-4 font-mono">
+            <span class="text-[10px] text-slate-500 font-bold">SYS_10</span>
+            <h5 class="font-space font-bold text-sm text-slate-200 mt-0.5">YoTukang</h5>
+            <p class="text-[10px] text-slate-400 font-sans mt-1">On-demand artisan handyman service system blueprint.</p>
+            <div class="mt-2 text-[9px] text-amber-400 font-bold">UI/UX / Scoping</div>
           </div>
         </div>
+
       </section>
 
       <!-- SKILLS STACK SECTION -->
-      <section id="skills" class="py-16 border-t border-slate-200/80">
-        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
+      <section id="skills" class="py-10 border-t border-white/10">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
           <div>
-            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Technical Toolkit</p>
-            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-              The Stack
+            <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Technical Toolkit</p>
+            <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-100 mt-1">
+              The Tech Stack
             </h2>
-            <p class="text-xs font-mono text-slate-500 mt-3 leading-relaxed">
-              Real tooling used across hardware firmware, cloud persistence, machine learning, and frontend application layers.
+            <p class="text-xs font-mono text-slate-400 mt-3 leading-relaxed">
+              Production tooling used across embedded microcontrollers, edge machine learning, cloud databases, and frontend PWA client layers.
             </p>
           </div>
 
-          <div class="card-clean rounded-3xl p-6 md:p-8 space-y-6">
+          <div class="studio-card rounded-3xl p-6 md:p-8 space-y-6 border-slate-800">
             <div class="grid sm:grid-cols-2 gap-6 font-mono">
               <div>
-                <h4 class="font-space font-bold text-xs text-brand-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-layout"></i> Frontend & Mobile</h4>
+                <h4 class="font-space font-bold text-xs text-cyanGlow-400 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-layout"></i> Frontend & Mobile</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Next.js 14</span>
                   <span class="tag-tech">React.js</span>
@@ -876,10 +923,10 @@
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-xs text-handler-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-database"></i> Backend & Cloud</h4>
+                <h4 class="font-space font-bold text-xs text-violetGlow-400 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-database"></i> Backend & Cloud</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Supabase</span>
-                  <span class="tag-tech">PostgreSQL (RLS)</span>
+                  <span class="tag-tech">PostgreSQL RLS</span>
                   <span class="tag-tech">Prisma ORM</span>
                   <span class="tag-tech">Firebase RTDB</span>
                   <span class="tag-tech">RESTful APIs</span>
@@ -888,18 +935,18 @@
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-xs text-hacker-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-cpu"></i> Embedded IoT & Edge</h4>
+                <h4 class="font-space font-bold text-xs text-emeraldGlow-400 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-cpu"></i> Embedded IoT & Edge</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">ESP32 (C/C++)</span>
                   <span class="tag-tech">NFC Protocols</span>
                   <span class="tag-tech">Sensor Fusion</span>
-                  <span class="tag-tech">IR Signal Modulation</span>
+                  <span class="tag-tech">38kHz IR Modulation</span>
                   <span class="tag-tech">DHT11 / PIR / LDR</span>
                 </div>
               </div>
 
               <div>
-                <h4 class="font-space font-bold text-xs text-amber-600 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-brain"></i> Machine Learning & Tools</h4>
+                <h4 class="font-space font-bold text-xs text-amber-400 mb-3 uppercase tracking-wider flex items-center gap-1.5"><i class="ph ph-brain"></i> Machine Learning & Tools</h4>
                 <div class="flex flex-wrap gap-1.5">
                   <span class="tag-tech">Python</span>
                   <span class="tag-tech">Scikit-Learn</span>
@@ -915,79 +962,79 @@
       </section>
 
       <!-- RECOGNITION SECTION -->
-      <section id="recognition" class="py-16 border-t border-slate-200/80">
-        <div class="mb-10">
-          <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Track Record & Validation</p>
-          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mt-1">
-            Verified Recognitions
+      <section id="recognition" class="py-10 border-t border-white/10 space-y-8">
+        <div>
+          <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Track Record & Validation</p>
+          <h2 class="font-space text-3xl md:text-4xl font-bold tracking-tight text-slate-100 mt-1">
+            Verified Recognitions & Awards
           </h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 font-mono">
           
           <!-- Column 2026 -->
-          <div class="space-y-3.5">
-            <h4 class="font-space font-bold text-base text-hacker-600 border-b border-slate-200 pb-2">
+          <div class="space-y-4">
+            <h4 class="font-space font-bold text-base text-emeraldGlow-400 border-b border-white/10 pb-2">
               [ 2026 ]
             </h4>
-            <div class="card-clean rounded-2xl p-4 bg-brand-50/50 border-brand-500/20">
-              <p class="text-[10px] text-brand-700 uppercase font-bold">PIDI DIGDAYA X Hackathon</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 480 of 2,000+ Teams</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for KOIN digital school wallet architecture & financial inclusion model.</p>
+            <div class="studio-card rounded-2xl p-4 bg-cyanGlow-500/10 border-cyanGlow-500/30">
+              <p class="text-[10px] text-cyanGlow-300 uppercase font-bold">PIDI DIGDAYA X Hackathon</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Top 480 of 2,000+ Teams</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Recognized for KOIN digital school wallet architecture & financial inclusion model.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4 bg-hacker-50/50 border-hacker-500/20">
-              <p class="text-[10px] text-hacker-700 uppercase font-bold">Samsung Innovation Campus</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Batch 7: Advanced IoT & Edge ML</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Engineered PANDA (Stroke patient IoT system) from hardware to predictive modeling.</p>
+            <div class="studio-card rounded-2xl p-4 bg-emeraldGlow-500/10 border-emeraldGlow-500/30">
+              <p class="text-[10px] text-emeraldGlow-300 uppercase font-bold">Samsung Innovation Campus</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Batch 7: Advanced IoT & Edge ML</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Engineered PANDA (Stroke patient IoT system) from hardware to predictive ML model.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">BAZNAS AI Initiative</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">AI Innovation Fellowship</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">National cohort studying AI deployment frameworks for humanitarian tech.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">BAZNAS AI Initiative</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">AI Innovation Fellowship</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">National cohort studying AI deployment frameworks for humanitarian tech.</p>
             </div>
           </div>
 
           <!-- Column 2025 -->
-          <div class="space-y-3.5">
-            <h4 class="font-space font-bold text-base text-amber-600 border-b border-slate-200 pb-2">
+          <div class="space-y-4">
+            <h4 class="font-space font-bold text-base text-amber-400 border-b border-white/10 pb-2">
               [ 2025 ]
             </h4>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">United Tractors / Astra</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 15 BUMI Astra Challenge</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Environmental hardware proposal and sustainability validation.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">United Tractors / Astra</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Top 15 BUMI Astra Challenge</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Environmental hardware proposal and sustainability validation.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Kasir Pintar Competition</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 25 BizClash! 2.0</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Business POS software workflow and integration analysis.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">Kasir Pintar Competition</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Top 25 BizClash! 2.0</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Business POS software workflow and integration analysis.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Ministry of Culture RI</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Top 50 BudayaGO Selection</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Gamified digital preservation tech scoping for regional heritage.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">Ministry of Culture RI</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Top 50 BudayaGO Selection</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Gamified digital preservation tech scoping for regional heritage.</p>
             </div>
           </div>
 
           <!-- Column 2023 - 2024 -->
-          <div class="space-y-3.5">
-            <h4 class="font-space font-bold text-base text-handler-600 border-b border-slate-200 pb-2">
+          <div class="space-y-4">
+            <h4 class="font-space font-bold text-base text-violetGlow-400 border-b border-white/10 pb-2">
               [ 2023 — 2024 ]
             </h4>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">Afrina Academy</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">Distinction Fellowship Grant</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Merit grant recipient for solid foundational software development.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">Afrina Academy</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">Distinction Fellowship Grant</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Merit grant recipient for solid foundational software development.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">TIC UNEJ</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">2nd Place University Innovation</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognition for early student software system design.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">TIC UNEJ</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">2nd Place University Innovation</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Recognition for early student software system design.</p>
             </div>
-            <div class="card-clean rounded-2xl p-4">
-              <p class="text-[10px] text-slate-400 uppercase font-bold">MTQMN Syarhil Qur'an</p>
-              <h5 class="font-space font-bold text-sm text-slate-900 mt-0.5">National Honorable Mention</h5>
-              <p class="text-[10px] text-slate-500 font-sans mt-1">Recognized for structured public discourse and systematic narrative delivery.</p>
+            <div class="studio-card rounded-2xl p-4">
+              <p class="text-[10px] text-slate-500 uppercase font-bold">MTQMN Syarhil Qur'an</p>
+              <h5 class="font-space font-bold text-sm text-slate-100 mt-0.5">National Honorable Mention</h5>
+              <p class="text-[10px] text-slate-400 font-sans mt-1">Recognized for structured public discourse and systematic narrative delivery.</p>
             </div>
           </div>
 
@@ -995,88 +1042,155 @@
       </section>
 
       <!-- CONTACT SECTION -->
-      <section id="contact" class="py-20 border-t border-slate-200/80">
+      <section id="contact" class="py-16 border-t border-white/10">
         <div class="max-w-3xl mx-auto">
-          <div class="card-clean rounded-3xl p-8 md:p-12 bg-white text-center space-y-5 border-slate-200 shadow-md">
+          <div class="studio-card rounded-3xl p-8 md:p-12 text-center space-y-6 border-slate-800 shadow-2xl">
             
-            <p class="text-brand-600 font-mono uppercase text-xs font-bold tracking-wider">// Initiate Connection</p>
+            <p class="text-cyanGlow-400 font-mono uppercase text-xs font-bold tracking-wider">// Initiate Connection</p>
             
-            <h2 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            <h2 class="font-space text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">
               Ready to Build Reliable Systems
             </h2>
             
-            <p class="text-xs md:text-sm text-slate-600 max-w-md mx-auto leading-relaxed font-sans">
-              Looking for engineering roles, applied IoT/ML challenges, or product builder teams. Let's discuss architecture and ship clean code.
+            <p class="text-xs md:text-sm text-slate-400 max-w-md mx-auto leading-relaxed font-sans">
+              Looking for full-stack software engineering roles, applied IoT/ML challenges, or product builder teams. Let's discuss architecture and ship clean code.
             </p>
 
-            <div class="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3 font-mono text-xs">
-              <button onclick="copyToClipboard('choyshimanis@gmail.com')" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-700 text-white font-bold uppercase px-7 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-md hover:scale-[1.02]">
-                <i class="ph ph-copy text-base"></i> Copy Email Address
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3 font-mono text-xs">
+              <button onclick="copyToClipboard('choyshimanis@gmail.com')" class="w-full sm:w-auto bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-bold uppercase px-7 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-cyanGlow-500/20 hover:scale-[1.02]">
+                <i class="ph ph-copy text-base"></i> Copy Email
               </button>
-              <a href="mailto:choyshimanis@gmail.com" class="w-full sm:w-auto bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+              <a href="mailto:choyshimanis@gmail.com" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 border border-slate-700">
                 <i class="ph ph-paper-plane-tilt text-base"></i> Direct Email
               </a>
-              <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="w-full sm:w-auto bg-white border border-slate-200 hover:border-handler-500 hover:text-handler-600 text-slate-800 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+              <a href="https://linkedin.com/in/nabila-choirunisa-343a23284" target="_blank" class="w-full sm:w-auto bg-slate-800 hover:bg-slate-700 text-violetGlow-300 font-bold uppercase px-6 py-3.5 rounded-xl transition flex items-center justify-center gap-2 border border-slate-700">
                 <i class="ph ph-linkedin-logo text-base"></i> LinkedIn
               </a>
             </div>
 
-            <div class="text-[11px] text-slate-500 font-mono pt-1">choyshimanis@gmail.com • University of Jember</div>
+            <div class="text-[11px] text-slate-500 font-mono pt-2">choyshimanis@gmail.com • University of Jember</div>
           </div>
         </div>
       </section>
 
     </main>
-
   </div>
 
-  <!-- DYNAMIC CASE STUDY VIEW -->
-  <div id="case-study-view" class="hidden max-w-4xl mx-auto px-4 md:px-8 pt-24 md:pt-32 pb-20 min-h-screen relative z-10">
+  <!-- DYNAMIC CASE STUDY OVERLAY VIEW -->
+  <div id="case-study-view" class="hidden max-w-4xl mx-auto px-4 md:px-8 pt-28 md:pt-36 pb-20 min-h-screen relative z-10">
     <div class="mb-6">
-      <button onclick="closeCaseStudy()" class="bg-white hover:bg-slate-100 border border-slate-200 text-slate-800 text-xs font-mono font-bold uppercase px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-sm">
-        <i class="ph ph-arrow-left"></i> Return to HQ Dashboard
+      <button onclick="closeCaseStudy()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-mono font-bold uppercase px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-md">
+        <i class="ph ph-arrow-left"></i> Return to Studio HQ
       </button>
     </div>
 
     <article id="case-study-content" class="space-y-10"></article>
   </div>
 
+  <!-- COMMAND PALETTE MODAL (Cmd+K) -->
+  <div id="cmdPaletteModal" class="fixed inset-0 z-[999999] bg-slate-950/80 backdrop-blur-md hidden flex items-start justify-center pt-20 px-4 transition-all">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-xl overflow-hidden shadow-2xl space-y-3 p-4 font-mono text-xs">
+      
+      <div class="flex items-center gap-2 border-b border-slate-800 pb-3">
+        <i class="ph ph-terminal text-cyanGlow-400 text-lg"></i>
+        <input type="text" id="cmdInput" oninput="filterCmdPalette()" placeholder="Type a command or jump to section..." class="bg-transparent text-slate-100 font-mono text-sm focus:outline-none w-full placeholder:text-slate-600" />
+        <kbd onclick="closeCmdPalette()" class="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded cursor-pointer hover:bg-slate-700">ESC</kbd>
+      </div>
+
+      <div id="cmdResults" class="max-h-80 overflow-y-auto space-y-1">
+        <!-- Filterable Actions -->
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-500 pt-2 border-t border-slate-800">
+        <span>Use <strong>↑ / ↓</strong> to navigate, <strong>Enter</strong> to select</span>
+        <span>NABILA.STUDIO v4.0</span>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
-  <footer class="border-t border-slate-200 py-8 px-4 md:px-8 bg-white font-mono text-xs">
+  <footer class="border-t border-white/10 py-8 px-4 md:px-8 bg-slate-950/80 font-mono text-xs">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 bg-hacker-600 rounded-full animate-ping"></span>
-        <p>© <span id="year"></span> Nabila Choirunisa // Full-Stack & Systems Builder.</p>
+        <span class="w-2 h-2 bg-emeraldGlow-500 rounded-full animate-ping"></span>
+        <p>© <span id="year"></span> Nabila Choirunisa // Systems Architect.</p>
       </div>
 
-      <div class="flex items-center gap-2.5 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 text-[11px] text-slate-600">
-        <span class="w-1.5 h-1.5 bg-hacker-600 rounded-full animate-pulse"></span>
+      <div class="flex items-center gap-2.5 bg-slate-900 px-3.5 py-1.5 rounded-full border border-slate-800 text-[11px] text-slate-400">
+        <span class="w-1.5 h-1.5 bg-emeraldGlow-400 rounded-full animate-pulse"></span>
         <span>Jember, ID</span>
-        <span class="text-slate-300">|</span>
-        <span id="local-time" class="text-brand-600 font-bold">--:--:--</span>
+        <span class="text-slate-600">|</span>
+        <span id="local-time" class="text-cyanGlow-400 font-bold">--:--:--</span>
       </div>
 
-      <p class="text-slate-400">Precision engineering over empty buzzwords.</p>
+      <p class="text-slate-500">Precision engineering over empty buzzwords.</p>
     </div>
   </footer>
 
   <!-- Notification Toast -->
-  <div id="toast-notify" class="fixed bottom-6 right-6 z-[999999] bg-slate-900 text-white px-5 py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-xl flex items-center gap-2 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
-    <i class="ph ph-check-circle text-hacker-500 text-base"></i> Email address copied to clipboard!
+  <div id="toast-notify" class="fixed bottom-6 right-6 z-[999999] bg-slate-900 text-white px-5 py-3 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-2xl border border-cyanGlow-500/30 flex items-center gap-2 transition-all duration-300 transform translate-y-20 opacity-0 pointer-events-none">
+    <i class="ph ph-check-circle text-emeraldGlow-400 text-base"></i> <span id="toastMsg">Action executed!</span>
   </div>
 
   <script>
-    // Dynamic Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Dual-stage Lerp Pointer Tracker
+    // 1. Web Audio API Synthesizer for futuristic audio FX
+    let audioEnabled = true;
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
+    function playSound(freq = 440, type = 'sine', duration = 0.08) {
+      if (!audioEnabled) return;
+      try {
+        if (!audioCtx) audioCtx = new AudioCtx();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function toggleAudio() {
+      audioEnabled = !audioEnabled;
+      const icon = document.getElementById("iconAudio");
+      if (audioEnabled) {
+        icon.className = "ph ph-speaker-simple-high text-base text-cyanGlow-400";
+        showToast("Audio FX Enabled");
+        playSound(880, 'sine', 0.1);
+      } else {
+        icon.className = "ph ph-speaker-simple-slash text-base text-slate-500";
+        showToast("Audio FX Muted");
+      }
+    }
+
+    // 2. Spotlight Cursor Card Follower
+    document.addEventListener("mousemove", (e) => {
+      const cards = document.querySelectorAll(".studio-card");
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+    // 3. Dual Cursor Ring Lerp
     const cursorDot = document.getElementById("cursorDot");
     const cursorRing = document.getElementById("cursorRing");
     let mouseX = 0, mouseY = 0;
     let dotX = 0, dotY = 0;
     let ringX = 0, ringY = 0;
 
-    window.addEventListener("mousemove", function(e) {
+    window.addEventListener("mousemove", (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
@@ -1084,7 +1198,6 @@
     function lerpCursor() {
       dotX += (mouseX - dotX) * 0.35;
       dotY += (mouseY - dotY) * 0.35;
-      
       ringX += (mouseX - ringX) * 0.15;
       ringY += (mouseY - ringY) * 0.15;
 
@@ -1100,7 +1213,37 @@
     }
     requestAnimationFrame(lerpCursor);
 
-    // Copy to Clipboard
+    // 4. Theme Switcher (Dark / Light)
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById("iconTheme");
+      if (html.classList.contains("dark")) {
+        html.classList.remove("dark");
+        html.classList.add("light");
+        icon.className = "ph ph-sun text-base text-amber-500";
+        showToast("Light Mode Activated");
+      } else {
+        html.classList.remove("light");
+        html.classList.add("dark");
+        icon.className = "ph ph-moon text-base text-amber-400";
+        showToast("Dark Mode Activated");
+      }
+      playSound(600, 'triangle', 0.1);
+    }
+
+    // 5. Toast Notification System
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notify');
+      document.getElementById('toastMsg').textContent = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
     function copyToClipboard(text) {
       const el = document.createElement('textarea');
       el.value = text;
@@ -1108,30 +1251,120 @@
       el.select();
       document.execCommand('copy');
       document.body.removeChild(el);
-
-      const toast = document.getElementById('toast-notify');
-      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
-      setTimeout(function() {
-        toast.classList.remove('translate-y-0', 'opacity-100');
-        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-      }, 3000);
+      playSound(784, 'sine', 0.12);
+      showToast("Copied to clipboard: " + text);
     }
 
-    // Live Time Jember WIB
+    // 6. Live Time Jember WIB Clock
     function updateTime() {
       const options = {
         timeZone: "Asia/Jakarta",
         hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
       };
       const formatter = new Intl.DateTimeFormat("en-US", options);
-      document.getElementById("local-time").textContent = formatter.format(new Date()) + " WIB";
+      const timeStr = formatter.format(new Date()) + " WIB";
+      const el = document.getElementById("local-time");
+      if (el) el.textContent = timeStr;
     }
     updateTime();
     setInterval(updateTime, 1000);
 
-    // Persona Mode Switcher (All / Hacker / Handler)
+    // 7. Command Palette Modal (Cmd+K)
+    const cmdList = [
+      { name: "Jump to Flagships", action: () => navigateTo('flagships') },
+      { name: "Jump to Dual Core Matrix", action: () => navigateTo('matrix') },
+      { name: "Jump to Tech Stack", action: () => navigateTo('skills') },
+      { name: "Jump to Awards & Recognition", action: () => navigateTo('recognition') },
+      { name: "Launch KOIN Web App", action: () => window.open('https://bit.ly/koin-mvp', '_blank') },
+      { name: "View PANDA Documentation", action: () => window.open('https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing', '_blank') },
+      { name: "Copy Contact Email", action: () => copyToClipboard('choyshimanis@gmail.com') },
+      { name: "Toggle Dark / Light Theme", action: () => toggleTheme() },
+      { name: "Toggle Sound Effects", action: () => toggleAudio() }
+    ];
+
+    function openCmdPalette() {
+      document.getElementById('cmdPaletteModal').classList.remove('hidden');
+      document.getElementById('cmdInput').focus();
+      filterCmdPalette();
+      playSound(523, 'sine', 0.08);
+    }
+
+    function closeCmdPalette() {
+      document.getElementById('cmdPaletteModal').classList.add('hidden');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        openCmdPalette();
+      }
+      if (e.key === 'Escape') closeCmdPalette();
+    });
+
+    function filterCmdPalette() {
+      const query = document.getElementById('cmdInput').value.toLowerCase();
+      const resultsContainer = document.getElementById('cmdResults');
+      resultsContainer.innerHTML = '';
+
+      const filtered = cmdList.filter(item => item.name.toLowerCase().includes(query));
+      if (filtered.length === 0) {
+        resultsContainer.innerHTML = `<div class="p-3 text-slate-500 font-mono">No commands found.</div>`;
+        return;
+      }
+
+      filtered.forEach((cmd) => {
+        const div = document.createElement('div');
+        div.className = "p-2.5 rounded-lg hover:bg-slate-800 text-slate-200 cursor-pointer flex justify-between items-center transition";
+        div.innerHTML = `<span>${cmd.name}</span> <i class="ph ph-arrow-return-down-left text-cyanGlow-400"></i>`;
+        div.onclick = () => {
+          cmd.action();
+          closeCmdPalette();
+        };
+        resultsContainer.appendChild(div);
+      });
+    }
+
+    // 8. Hero Terminal Command Line Handler
+    function handleHeroTerminal(e) {
+      e.preventDefault();
+      const input = document.getElementById('heroTerminalInput');
+      const output = document.getElementById('heroTerminalOutput');
+      const val = input.value.trim().toLowerCase();
+      if (!val) return;
+
+      const pUser = document.createElement('p');
+      pUser.className = "text-cyanGlow-400";
+      pUser.textContent = "$ " + val;
+      output.appendChild(pUser);
+
+      const pRes = document.createElement('p');
+      pRes.className = "text-slate-300";
+
+      if (val === 'help') {
+        pRes.textContent = "Commands: status, projects, gpa, contact, clear";
+      } else if (val === 'status') {
+        pRes.textContent = "System 100% operational. GPA 3.91. Location Jember ID.";
+      } else if (val === 'projects') {
+        pRes.textContent = "KOIN (FinTech PWA), PANDA (IoT/ML), RuteBarokah, Netes.io, Coffee AI.";
+      } else if (val === 'gpa') {
+        pRes.textContent = "Cumulative GPA: 3.91 / 4.00 (University of Jember - CS).";
+      } else if (val === 'contact') {
+        pRes.textContent = "Email: choyshimanis@gmail.com";
+      } else if (val === 'clear') {
+        output.innerHTML = '';
+        input.value = '';
+        return;
+      } else {
+        pRes.textContent = "Command not recognized. Type 'help'.";
+      }
+
+      output.appendChild(pRes);
+      output.scrollTop = output.scrollHeight;
+      input.value = '';
+      playSound(700, 'triangle', 0.05);
+    }
+
+    // 9. Persona Mode Switcher
     function setPersonaMode(mode) {
       const cardHacker = document.getElementById('card-persona-hacker');
       const cardHandler = document.getElementById('card-persona-handler');
@@ -1141,99 +1374,165 @@
       const btnHandler = document.getElementById('btn-mode-handler');
 
       [btnAll, btnHacker, btnHandler].forEach(btn => {
-        btn.className = "px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all";
+        btn.className = "px-3 py-1 rounded-full text-slate-400 hover:text-slate-200 transition-all";
       });
 
       if (mode === 'all') {
-        btnAll.className = "px-3 py-1 rounded-full bg-white text-slate-900 shadow-sm transition-all";
+        btnAll.className = "px-3 py-1 rounded-full bg-cyanGlow-600 text-white shadow-sm transition-all";
         cardHacker.style.opacity = "1";
         cardHacker.style.transform = "scale(1)";
         cardHandler.style.opacity = "1";
         cardHandler.style.transform = "scale(1)";
       } else if (mode === 'hacker') {
-        btnHacker.className = "px-3 py-1 rounded-full bg-hacker-600 text-white shadow-sm transition-all";
+        btnHacker.className = "px-3 py-1 rounded-full bg-emeraldGlow-600 text-white shadow-sm transition-all";
         cardHacker.style.opacity = "1";
         cardHacker.style.transform = "scale(1.02)";
-        cardHandler.style.opacity = "0.4";
+        cardHandler.style.opacity = "0.35";
         cardHandler.style.transform = "scale(0.98)";
       } else if (mode === 'handler') {
-        btnHandler.className = "px-3 py-1 rounded-full bg-handler-600 text-white shadow-sm transition-all";
+        btnHandler.className = "px-3 py-1 rounded-full bg-violetGlow-600 text-white shadow-sm transition-all";
         cardHandler.style.opacity = "1";
         cardHandler.style.transform = "scale(1.02)";
-        cardHacker.style.opacity = "0.4";
+        cardHacker.style.opacity = "0.35";
         cardHacker.style.transform = "scale(0.98)";
+      }
+      playSound(550, 'sine', 0.08);
+    }
+
+    // 10. Flagship 01: KOIN Simulator Logic
+    let currentBalance = 50000;
+    function runKoinSimulation() {
+      const btn = document.getElementById("btnRunKoinSim");
+      const step1 = document.getElementById("koinStep1");
+      const step2 = document.getElementById("koinStep2");
+      const step3 = document.getElementById("koinStep3");
+      const log = document.getElementById("koinSimLog");
+
+      if (currentBalance < 15000) {
+        showToast("Insufficient balance for test transaction!");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerHTML = `<i class="ph ph-spinner animate-spin text-base"></i> Processing Transaction...`;
+      log.classList.remove("hidden");
+      log.textContent = "// [00ms] NFC UID Scan Received...";
+      playSound(400, 'square', 0.05);
+
+      step1.className = "p-2.5 bg-cyanGlow-500/20 rounded-xl border border-cyanGlow-500/50 text-cyanGlow-300 transition-all";
+
+      setTimeout(() => {
+        log.textContent = "// [120ms] Next.js Route: Validating Daily Limit & Student Role...";
+        step2.className = "p-2.5 bg-cyanGlow-500/20 rounded-xl border border-cyanGlow-500/50 text-cyanGlow-300 transition-all";
+        playSound(600, 'square', 0.05);
+      }, 400);
+
+      setTimeout(() => {
+        currentBalance -= 15000;
+        document.getElementById("koinSimBalance").textContent = `Rp ${currentBalance.toLocaleString('id-ID')},00`;
+        log.textContent = `// [240ms] SUCCESS: Rp 15.000 Deducted! New Balance: Rp ${currentBalance.toLocaleString('id-ID')},00`;
+        step3.className = "p-2.5 bg-emeraldGlow-500/20 rounded-xl border border-emeraldGlow-500/50 text-emeraldGlow-300 transition-all";
+        btn.disabled = false;
+        btn.innerHTML = `<i class="ph ph-play-circle text-base"></i> Execute NFC Transaction Test`;
+        playSound(880, 'sine', 0.15);
+      }, 800);
+    }
+
+    // 11. Flagship 02: PANDA Simulator Logic
+    let isPIRAgitated = false;
+    function updatePandaSim() {
+      const temp = parseFloat(document.getElementById("sliderTemp").value);
+      document.getElementById("lblTemp").textContent = temp.toFixed(1) + " °C";
+
+      const mlOutput = document.getElementById("pandaMLOutput");
+      const actuatorOutput = document.getElementById("pandaActuatorOutput");
+
+      if (temp >= 29.0) {
+        mlOutput.textContent = "HIGH THERMAL DISCOMFORT";
+        mlOutput.className = "text-rose-400 font-bold uppercase bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20";
+        actuatorOutput.textContent = "IR BLASTER -> COOL 22°C (SAFETY OVERRIDE)";
+        actuatorOutput.className = "text-rose-400 font-bold animate-pulse";
+      } else if (isPIRAgitated) {
+        mlOutput.textContent = "PATIENT AGITATION DETECTED";
+        mlOutput.className = "text-amber-300 font-bold uppercase bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20";
+        actuatorOutput.textContent = "IR BLASTER -> AIRFLOW BOOST + FAN UP";
+        actuatorOutput.className = "text-amber-300 font-bold";
+      } else {
+        mlOutput.textContent = "OPTIMAL COMFORT STATE";
+        mlOutput.className = "text-emeraldGlow-400 font-bold uppercase bg-emeraldGlow-500/10 px-2 py-0.5 rounded border border-emeraldGlow-500/20";
+        actuatorOutput.textContent = "STANDBY / MAINTAIN 25°C";
+        actuatorOutput.className = "text-slate-400 font-bold";
       }
     }
 
-    // Comprehensive Technical Case Studies
+    function togglePIRSim() {
+      isPIRAgitated = !isPIRAgitated;
+      const btn = document.getElementById("btnTogglePIR");
+      const lbl = document.getElementById("lblPIR");
+
+      if (isPIRAgitated) {
+        btn.className = "w-full py-1.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold border border-amber-500/30 hover:bg-amber-500/30 transition";
+        lbl.textContent = "HIGH AGITATION (PIR PULSES)";
+        lbl.className = "text-amber-300 font-bold";
+      } else {
+        btn.className = "w-full py-1.5 rounded bg-slate-800 text-slate-300 text-[10px] font-bold border border-slate-700 hover:bg-slate-700 transition";
+        lbl.textContent = "RESTING (NO MOTION)";
+        lbl.className = "text-slate-300 font-bold";
+      }
+      updatePandaSim();
+      playSound(450, 'sine', 0.08);
+    }
+
+    // 12. Case Study Content Store
     const caseStudies = {
       'koin': {
         title: 'KOIN — Digital School Wallet Platform',
         subtitle: 'PWA-Driven Cashless Micro-Transactions with NFC & Real-Time Sync',
         tagline: 'System Architect & Full-Stack Builder',
-        tags: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL', 'NFC Web API', 'Tailwind CSS'],
+        tags: ['Next.js 14', 'TypeScript', 'Supabase', 'PostgreSQL RLS', 'NFC Web API', 'Tailwind CSS'],
         demoUrl: 'https://bit.ly/koin-mvp',
-        demoAccessNotice: 'A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.',
-        problem: 'School canteen environments face severe latency during peak recess hours due to physical cash handling. Parents have zero visibility into daily nutritional spending, and school administrative staff struggle with manual end-of-day ledger reconciliation.',
+        problem: 'School canteen environments face severe latency during peak recess hours due to physical cash handling. Parents have zero visibility into daily spending, and administrative staff struggle with manual end-of-day ledger reconciliation.',
         solution: 'Architected a Progressive Web App (PWA) supporting rapid NFC card identification for students, authenticated merchant POS terminals, and a guardian portal providing instant transaction telemetry and balance reload workflows.',
         myRole: 'Designed and implemented the end-to-end web architecture: Next.js frontend, Supabase schema definitions, Row-Level Security (RLS) policies, NFC UID parsing, optimistic balance mutations, and state management.',
         architecture: `
           <div class="space-y-3 font-mono text-xs">
-            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed">
-              <p class="text-brand-400 font-bold mb-2">// Concurrency & Ledger Consistency</p>
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed border border-slate-800">
+              <p class="text-cyanGlow-400 font-bold mb-2">// Concurrency & Ledger Consistency</p>
               <p>1. [POS Device] Scans physical NFC card UID via Web NFC / external reader.</p>
               <p>2. [Next.js Route] Validates merchant session, daily student spending caps, and cart total.</p>
               <p>3. [PostgreSQL Transaction] Applies database-level atomic operation to deduct student balance and credit merchant ledger concurrently.</p>
-              <p>4. [Realtime Pub/Sub] Supabase broadcasts event to the parent dashboard with instant notification.</p>
-            </div>
-            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed space-y-1.5 border border-slate-800">
-              <p class="text-emerald-400 font-bold mb-1">// KOIN DEMO ACCESS CREDENTIALS</p>
-              <p><span class="text-slate-400">Live URL:</span> <a href="https://bit.ly/koin-mvp" target="_blank" class="text-brand-300 underline font-bold">https://bit.ly/koin-mvp</a></p>
-              <p><span class="text-slate-400">Parent Account:</span> magdalena.parent@koin.demo</p>
-              <p><span class="text-slate-400">Child Account:</span> nayla.child@koin.demo</p>
-              <p><span class="text-slate-400">Password:</span> KOINdemo123!</p>
-              <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-800 font-sans">
-                A reviewer account is provided for testing the Parent and Child workflows. New users may also register directly through the application. Admin access is not publicly provided and is reserved for internal use.
-              </p>
+              <p>4. [Realtime Pub/Sub] Supabase broadcasts event to parent dashboard with instant notification.</p>
             </div>
           </div>
         `,
-        challenges: 'Mitigating double-spending under intermittent campus WiFi. Resolved by implementing optimistic UI updates with offline request queueing and server-side idempotency keys to guarantee transactions are processed exactly once.',
+        challenges: 'Mitigating double-spending under intermittent campus WiFi. Resolved by implementing optimistic UI updates with server-side idempotency keys to guarantee transactions are processed exactly once.',
         result: 'Built a fully functional MVP and advanced to Top 480 out of 2,000+ national teams in PIDI DIGDAYA X Hackathon 2026.',
-        takeaway: 'Taught me that building financial tools is 20% writing UI and 80% defensive engineering around transaction consistency, error boundaries, and user trust.'
+        takeaway: 'Taught me that building financial tools is 20% writing UI and 80% defensive engineering around transaction consistency and user trust.'
       },
       'panda': {
         title: 'PANDA — Patient Ambient Notification & Danger Analysis',
         subtitle: 'Edge Machine Learning & IoT Closed-Loop Environmental Control for Stroke Care',
         tagline: 'Edge ML Engineer & Firmware Architect',
-        tags: ['ESP32 (C++)', 'MQTT / HiveMQ', 'Python', 'Scikit-Learn', 'Random Forest', 'IR Modulation'],
+        tags: ['ESP32 (C++)', 'HiveMQ MQTT', 'Python', 'Scikit-Learn', 'Random Forest', 'IR Modulation'],
         docUrl: 'https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing',
-        problem: 'Bedridden stroke patients suffering from hemiparesis or severe cognitive impairment cannot verbally alert caregivers to acute thermal discomfort or sudden restlessness, risking hypothermia, heat stress, or unmonitored medical distress.',
-        solution: 'Developed a dual-stage closed-loop healthcare IoT system: an ESP32 edge sensor node continuously samples ambient temperature, humidity, light, and motion; telemetry is streamed via MQTT to a Python inference service running a trained Random Forest model, which issues automated IR commands to regulate the room air conditioner.',
+        problem: 'Bedridden stroke patients suffering from hemiparesis or cognitive impairment cannot verbally alert caregivers to acute thermal discomfort or sudden restlessness, risking hypothermia, heat stress, or unmonitored medical distress.',
+        solution: 'Developed a dual-stage closed-loop healthcare IoT system: an ESP32 edge sensor node continuously samples ambient metrics; telemetry is streamed via MQTT to a Python inference service running a trained Random Forest model, which issues automated IR commands to regulate the room air conditioner.',
         myRole: 'Built the ESP32 C++ firmware routines, moving-average sensor noise filtering, MQTT client telemetry handlers, tabular data collection, Random Forest model training, and the deterministic safety override logic.',
         architecture: `
           <div class="space-y-3 font-mono text-xs">
-            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed">
-              <p class="text-hacker-400 font-bold mb-2">// Edge-to-Actuator Telemetry Pipeline</p>
+            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed border border-slate-800">
+              <p class="text-emeraldGlow-400 font-bold mb-2">// Edge-to-Actuator Telemetry Pipeline</p>
               <p>• Sensors: DHT11 (Temp/Humidity), PIR (Patient Motion/Agitation), LDR (Ambient Lux).</p>
               <p>• Edge Filtering: ESP32 runs moving-average sampling to filter PIR false triggers.</p>
               <p>• Transport: JSON telemetry published over MQTT topic via HiveMQ cloud broker.</p>
               <p>• Inference: Random Forest classifies states into [Comfortable, Thermal Stress, High Agitation].</p>
               <p>• Fail-Safe Override: Hardcoded safety rules immediately trigger AC adjustment if temp > 29°C, bypassing inference latency.</p>
-              <p>• Actuator: ESP32 IR Blaster pulses 38kHz NEC protocol to adjust AC mode & temperature.</p>
-            </div>
-            <div class="p-4 bg-slate-900 text-slate-200 rounded-xl leading-relaxed border border-slate-800">
-              <p class="text-amber-400 font-bold mb-1">// PROPOSAL & DOCUMENTATION</p>
-              <p class="text-slate-300 font-sans text-xs">Access the full technical proposal, hardware schematics, and model training documentation:</p>
-              <a href="https://docs.google.com/document/d/1EYaZvhOZF53t2RS1GOn58AVMk3R-P-f5GQtX6SIMaBg/edit?usp=sharing" target="_blank" class="inline-flex items-center gap-1.5 text-hacker-400 hover:text-hacker-300 underline font-bold mt-2">
-                <i class="ph ph-file-text"></i> Open PANDA Full Proposal & Documentation
-              </a>
             </div>
           </div>
         `,
         challenges: 'Raw PIR sensors produce spurious motion pulses when ambient air rapidly moves. Solved by combining PIR debounce intervals with moving-window verification before tagging patient agitation.',
         result: 'Completed and demonstrated at Samsung Innovation Campus (Batch 7), validating closed-loop sensory feedback and automated actuation under live environmental testing.',
-        takeaway: 'Edge ML is only as good as the fail-safes around it. In mission-critical healthcare, models guide decisions, but deterministic safety overrides must hold the final veto.'
+        takeaway: 'Edge ML is only as good as the fail-safes around it. In mission-critical healthcare, models guide decisions, but deterministic safety overrides hold the final veto.'
       },
       'rutebarokah': {
         title: 'RuteBarokah — Logistics Optimization',
@@ -1243,14 +1542,7 @@
         problem: 'Charitable food and humanitarian distribution teams frequently plan driver itineraries with ad-hoc heuristics, creating duplicate travel legs and burning vehicle fuel.',
         solution: 'Built an interactive map tool allowing logistics coordinators to plot delivery nodes and compute optimized paths using graph-based distance matrices.',
         myRole: 'Implemented the frontend interactive canvas mapping, coordinate node state management, and algorithmic pathing loops.',
-        architecture: `
-          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
-            <p class="text-cyan-400 font-bold mb-2">// Path Minimization Logic</p>
-            <p>1. User drops geographical pins onto the coordinate map.</p>
-            <p>2. Edge weights computed via Haversine distance matrix.</p>
-            <p>3. Graph traversal evaluates path order to minimize total itinerary mileage.</p>
-          </div>
-        `,
+        architecture: `<div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs">Graph Dijkstra shortest path traversal minimizes total route mileage.</div>`,
         challenges: 'Handling client-side recalculations smoothly when dozens of route waypoints are reordered in real time.',
         result: 'Functional prototype providing clear visual routing guides for regional charity transport.',
         takeaway: 'Data structures from theoretical computer science deliver immediate tangible value when wrapped in intuitive UX.'
@@ -1260,16 +1552,11 @@
         subtitle: 'Automated Closed-Loop Hardware Incubation with Real-Time Telemetry',
         tagline: 'IoT Architect & Embedded Developer',
         tags: ['ESP32', 'DHT22', 'Servo Relays', 'Firebase RTDB', 'Flutter'],
-        problem: 'Traditional poultry incubation requires continuous manual intervention to check temperature and rotate eggs at regular intervals, leading to inconsistent hatch rates when forgotten.',
-        solution: 'Engineered an autonomous closed-loop firmware loop using an ESP32 chip that samples environmental metrics, drives servo rotation racks on a scheduled timer, and updates a Firebase Realtime Database dashboard.',
+        problem: 'Traditional poultry incubation requires continuous manual intervention to check temperature and rotate eggs at regular intervals.',
+        solution: 'Engineered an autonomous closed-loop firmware loop using an ESP32 chip that samples environmental metrics, drives servo rotation racks on a scheduled timer, and updates Firebase RTDB.',
         myRole: 'Designed physical component wiring, developed ESP32 C++ firmware with non-blocking timing, and integrated Firebase client libraries.',
-        architecture: `
-          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
-            <p class="text-cyan-400 font-bold mb-2">// Hardware Feedback Loop</p>
-            <p>ESP32 timer interrupts → Read DHT22 → Trigger heating relay if below threshold → Scheduled servo rotation pulse → Publish metrics to Firebase.</p>
-          </div>
-        `,
-        challenges: 'Ensuring rotation servos operated reliably without introducing electrical noise to the sensor lines. Resolved via capacitor decoupling and isolated relay power.',
+        architecture: `<div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs">ESP32 timer interrupts -> Read DHT22 -> Trigger heating relay if below threshold -> Scheduled servo rotation pulse.</div>`,
+        challenges: 'Ensuring rotation servos operated reliably without introducing electrical noise to sensor lines.',
         result: 'Successfully operated continuous multi-day incubator test cycles with full remote dashboard monitoring.',
         takeaway: 'Embedded development requires rigorous electrical discipline just as much as clean software logic.'
       },
@@ -1278,16 +1565,11 @@
         subtitle: 'Supervised Sensory Scoring Regressor from Physical Bean Metrics',
         tagline: 'Machine Learning Developer',
         tags: ['Python', 'Scikit-Learn', 'Random Forest', 'Streamlit', 'Pandas'],
-        problem: 'Specialty coffee cupping score evaluations often exhibit subjective variance depending on panel fatigue, calibration differences, and taster bias.',
+        problem: 'Specialty coffee cupping score evaluations often exhibit subjective variance depending on panel fatigue and calibration differences.',
         solution: 'Developed a supervised machine learning regression pipeline that predicts final cupping scores from measurable physical and sensory bean attributes.',
         myRole: 'Data preprocessing, feature normalization, outlier trimming, model hyperparameter tuning with GridSearchCV, and Streamlit app deployment.',
-        architecture: `
-          <div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed">
-            <p class="text-amber-400 font-bold mb-2"># Comparative ML Regressors</p>
-            <p>Evaluated Linear, Ridge, and Random Forest models; Random Forest demonstrated superior capture of non-linear attribute interactions with minimal mean squared error.</p>
-          </div>
-        `,
-        challenges: 'Preventing overfitting on tabular datasets with correlated sensory features. Handled using cross-validation and feature importance pruning.',
+        architecture: `<div class="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs">Evaluated Linear, Ridge, and Random Forest regressors; Random Forest captured non-linear interactions with minimal MSE.</div>`,
+        challenges: 'Preventing overfitting on tabular datasets with correlated sensory features.',
         result: 'Deployed an interactive web calculator allowing coffee roasters to estimate expected cup quality profiles rapidly.',
         takeaway: 'A clean, well-preprocessed dataset paired with an explainable model is vastly superior to complex architectures applied blindly.'
       }
@@ -1300,61 +1582,59 @@
       const container = document.getElementById('case-study-content');
       window.location.hash = "project-" + projectId;
 
-      const tagsHtml = data.tags.map(function(tag) {
-        return '<span class="tag-tech">' + tag + '</span>';
-      }).join('');
+      const tagsHtml = data.tags.map(tag => `<span class="tag-tech">${tag}</span>`).join('');
 
       let extraActionsHtml = '';
       if (data.demoUrl) {
-        extraActionsHtml += `<a href="${data.demoUrl}" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-sm"><i class="ph ph-arrow-square-out text-sm"></i> Launch Live Web App</a> `;
+        extraActionsHtml += `<a href="${data.demoUrl}" target="_blank" class="bg-cyanGlow-600 hover:bg-cyanGlow-500 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-md"><i class="ph ph-arrow-square-out text-sm"></i> Launch Live Web App</a> `;
       }
       if (data.docUrl) {
-        extraActionsHtml += `<a href="${data.docUrl}" target="_blank" class="bg-hacker-600 hover:bg-hacker-700 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-sm"><i class="ph ph-file-text text-sm"></i> View Proposal & Docs</a>`;
+        extraActionsHtml += `<a href="${data.docUrl}" target="_blank" class="bg-emeraldGlow-600 hover:bg-emeraldGlow-500 text-white font-mono font-bold uppercase text-xs px-4 py-2.5 rounded-xl transition inline-flex items-center gap-2 shadow-md"><i class="ph ph-file-text text-sm"></i> View Proposal & Docs</a>`;
       }
 
       container.innerHTML = `
         <div class="space-y-4">
           <div class="flex flex-wrap items-center justify-between gap-3">
-            <div class="flex flex-wrap gap-1.5">` + tagsHtml + `</div>
-            <div class="flex flex-wrap gap-2">` + extraActionsHtml + `</div>
+            <div class="flex flex-wrap gap-1.5">${tagsHtml}</div>
+            <div class="flex flex-wrap gap-2">${extraActionsHtml}</div>
           </div>
-          <h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">` + data.title + `</h1>
-          <p class="text-base text-slate-600 font-mono">` + data.subtitle + `</p>
-          <p class="text-xs font-mono font-bold text-brand-600 uppercase tracking-wider">// ` + data.tagline + `</p>
+          <h1 class="font-space text-3xl sm:text-4xl font-bold text-slate-100 tracking-tight">${data.title}</h1>
+          <p class="text-base text-slate-400 font-mono">${data.subtitle}</p>
+          <p class="text-xs font-mono font-bold text-cyanGlow-400 uppercase tracking-wider">// ${data.tagline}</p>
         </div>
 
-        <div class="grid md:grid-cols-[1.25fr_0.75fr] gap-8 border-t border-slate-200 pt-8">
+        <div class="grid md:grid-cols-[1.25fr_0.75fr] gap-8 border-t border-white/10 pt-8">
           <div class="space-y-6">
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">1. The Problem Context</h3>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.problem + `</p>
+              <h3 class="font-space font-bold text-lg text-slate-100 mb-1.5">1. The Problem Context</h3>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.problem}</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">2. Engineered Solution</h3>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.solution + `</p>
+              <h3 class="font-space font-bold text-lg text-slate-100 mb-1.5">2. Engineered Solution</h3>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.solution}</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">3. My Technical Contribution</h3>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.myRole + `</p>
+              <h3 class="font-space font-bold text-lg text-slate-100 mb-1.5">3. My Technical Contribution</h3>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.myRole}</p>
             </div>
             <div>
-              <h3 class="font-space font-bold text-lg text-slate-900 mb-1.5">4. Architecture & Data Flow</h3>
-              ` + data.architecture + `
+              <h3 class="font-space font-bold text-lg text-slate-100 mb-1.5">4. Architecture & Data Flow</h3>
+              ${data.architecture}
             </div>
           </div>
 
           <div class="space-y-4">
-            <div class="card-clean rounded-2xl p-5 bg-slate-50 border-slate-200">
-              <h4 class="font-mono font-bold text-xs text-brand-700 uppercase mb-2">Technical Challenge</h4>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.challenges + `</p>
+            <div class="studio-card rounded-2xl p-5 border-slate-800">
+              <h4 class="font-mono font-bold text-xs text-cyanGlow-400 uppercase mb-2">Technical Challenge</h4>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.challenges}</p>
             </div>
-            <div class="card-clean rounded-2xl p-5 bg-hacker-50/40 border-hacker-200">
-              <h4 class="font-mono font-bold text-xs text-hacker-700 uppercase mb-1">Impact & Status</h4>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.result + `</p>
+            <div class="studio-card rounded-2xl p-5 border-emeraldGlow-500/30 bg-emeraldGlow-500/5">
+              <h4 class="font-mono font-bold text-xs text-emeraldGlow-400 uppercase mb-1">Impact & Validation</h4>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.result}</p>
             </div>
-            <div class="card-clean rounded-2xl p-5 border-handler-500/20">
-              <h4 class="font-mono font-bold text-xs text-handler-600 uppercase mb-1">Engineering Takeaway</h4>
-              <p class="text-xs text-slate-600 leading-relaxed font-sans">` + data.takeaway + `</p>
+            <div class="studio-card rounded-2xl p-5 border-violetGlow-500/30">
+              <h4 class="font-mono font-bold text-xs text-violetGlow-400 uppercase mb-1">Engineering Takeaway</h4>
+              <p class="text-xs text-slate-300 leading-relaxed font-sans">${data.takeaway}</p>
             </div>
           </div>
         </div>
@@ -1363,15 +1643,16 @@
       document.getElementById('main-portfolio').classList.add('hidden');
       document.getElementById('case-study-view').classList.remove('hidden');
       window.scrollTo(0, 0);
+      playSound(650, 'sine', 0.1);
     }
 
     function closeCaseStudy() {
       window.location.hash = '';
       document.getElementById('case-study-view').classList.add('hidden');
       document.getElementById('main-portfolio').classList.remove('hidden');
-      
       const flagshipsEl = document.getElementById('flagships');
       if (flagshipsEl) flagshipsEl.scrollIntoView({ behavior: 'smooth' });
+      playSound(500, 'sine', 0.08);
     }
 
     function navigateTo(targetId) {
@@ -1379,10 +1660,11 @@
       document.getElementById('main-portfolio').classList.remove('hidden');
       const target = document.getElementById(targetId);
       if (target) {
-        setTimeout(function() {
+        setTimeout(() => {
           target.scrollIntoView({ behavior: 'smooth' });
         }, 50);
       }
+      playSound(600, 'sine', 0.05);
     }
   </script>
 </body>
